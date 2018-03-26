@@ -14,37 +14,44 @@ import com.n3twork.ddcharacters.Clases.Personaje;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 14;
+    private static final int DATABASE_VERSION = 15;
     private static final String DATABASE_NAME = "dnd.db";
 
     private static final String TABLA_PERSONAJE = "personaje";
-    private static final String COLUMNA_ID_PJ = "_id";
-    private static final String COLUMNA_NOMBRE_PJ = "nombrePj";
-    private static final String COLUMNA_CLASE_PJ = "clasePj";
-    private static final String COLUMNA_NIVEL_PJ = "nivelPj";
-    private static final String COLUMNA_RAZA_PJ = "razaPj";
-    private static final String COLUMNA_ALINEAMIENTO_PJ = "alineamientoPj";
-    private static final String COLUMNA_DEIDAD = "deidadPj";
-    private static final String COLUMNA_TAMAÑO_PJ = "tamañoPj";
-    private static final String COLUMNA_SEXO_PJ = "sexoPj";
-    private static final String COLUMNA_EXP_PJ = "expPj";
-    private static final String COLUMNA_EXP_LOW = "expLow";
-    private static final String COLUMNA_EXP_HIGH = "expHigh";
-    private static final String COLUMNA_CAMPAÑA_PJ = "campañaPj";
-    private static final String COLUMNA_CONTROL_ACT = "controlAct";
-    private static final String COLUMNA_PUNT_FZA = "puntFza";
-    private static final String COLUMNA_PUNT_DES = "puntDes";
-    private static final String COLUMNA_PUNT_CON = "puntCon";
-    private static final String COLUMNA_PUNT_INT = "puntInt";
-    private static final String COLUMNA_PUNT_SAB = "puntSab";
-    private static final String COLUMNA_PUNT_CAR = "puntCar";
-    private static final String COLUMNA_MOD_FZA = "modFza";
-    private static final String COLUMNA_MOD_DES = "modDes";
-    private static final String COLUMNA_MOD_CON = "modCon";
-    private static final String COLUMNA_MOD_INT = "modInt";
-    private static final String COLUMNA_MOD_SAB = "modSab";
-    private static final String COLUMNA_MOD_CAR = "modCar";
-    private static final String COLUMNA_PUNTOS_HABILIDAD = "ptsHab";
+    private static final String COLUMNA_ID_PJ = "_id"; //0
+    private static final String COLUMNA_NOMBRE_PJ = "nombrePj"; //1
+    private static final String COLUMNA_CLASE_PJ = "clasePj"; //2
+    private static final String COLUMNA_NIVEL_PJ = "nivelPj"; //3
+    private static final String COLUMNA_RAZA_PJ = "razaPj"; //4
+    private static final String COLUMNA_ALINEAMIENTO_PJ = "alineamientoPj"; //5
+    private static final String COLUMNA_DEIDAD = "deidadPj"; //6
+    private static final String COLUMNA_TAMAÑO_PJ = "tamañoPj"; //7
+    private static final String COLUMNA_SEXO_PJ = "sexoPj"; //8
+    private static final String COLUMNA_EXP_PJ = "expPj"; //9
+    private static final String COLUMNA_EXP_LOW = "expLow"; //10
+    private static final String COLUMNA_EXP_HIGH = "expHigh"; //11
+    private static final String COLUMNA_CAMPAÑA_PJ = "campañaPj"; //12
+    private static final String COLUMNA_CONTROL_ACT = "controlAct"; //13
+    private static final String COLUMNA_PUNT_FZA = "puntFza"; //14
+    private static final String COLUMNA_PUNT_DES = "puntDes"; //15
+    private static final String COLUMNA_PUNT_CON = "puntCon"; //16
+    private static final String COLUMNA_PUNT_INT = "puntInt"; //17
+    private static final String COLUMNA_PUNT_SAB = "puntSab"; //18
+    private static final String COLUMNA_PUNT_CAR = "puntCar"; //19
+    private static final String COLUMNA_MOD_FZA = "modFza"; //20
+    private static final String COLUMNA_MOD_DES = "modDes"; //21
+    private static final String COLUMNA_MOD_CON = "modCon"; //22
+    private static final String COLUMNA_MOD_INT = "modInt"; //23
+    private static final String COLUMNA_MOD_SAB = "modSab"; //24
+    private static final String COLUMNA_MOD_CAR = "modCar"; //25
+    private static final String COLUMNA_PUNTOS_HABILIDAD = "ptsHab"; //26
+    private static final String COLUMNA_PG = "pg"; //27
+    private static final String COLUMNA_VELOCIDAD = "velocidad"; //28
+    private static final String COLUMNA_HERIDAS = "heridas"; //29
+    private static final String COLUMNA_CA = "ca"; //30
+    private static final String COLUMNA_TOQUE = "toque"; //31
+    private static final String COLUMNA_INICIATIVA = "iniciativa"; //32
+    private static final String COLUMNA_DESPREVENIDO = "desprevenido"; //33
 
     public String ctPj = "CREATE TABLE " + TABLA_PERSONAJE + "(" +
             COLUMNA_ID_PJ + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -73,7 +80,14 @@ public class DBHelper extends SQLiteOpenHelper {
             COLUMNA_MOD_INT + " TEXT NOT NULL, " +
             COLUMNA_MOD_SAB + " TEXT NOT NULL, " +
             COLUMNA_MOD_CAR + " TEXT NOT NULL, " +
-            COLUMNA_PUNTOS_HABILIDAD + " TEXT NOT NULL " +
+            COLUMNA_PUNTOS_HABILIDAD + " TEXT NOT NULL, " +
+            COLUMNA_PG + " TEXT NOT NULL, " +
+            COLUMNA_VELOCIDAD + " TEXT NOT NULL, " +
+            COLUMNA_HERIDAS + " TEXT NOT NULL, " +
+            COLUMNA_CA + " TEXT NOT NULL, " +
+            COLUMNA_TOQUE + " TEXT NOT NULL, " +
+            COLUMNA_INICIATIVA + " TEXT NOT NULL, " +
+            COLUMNA_DESPREVENIDO + " TEXT NOT NULL " +
             ");";
 
     public DBHelper(Context context) {
@@ -126,6 +140,13 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMNA_MOD_SAB, personaje.get_modSAB());
         values.put(COLUMNA_MOD_CAR, personaje.get_modCAR());
         values.put(COLUMNA_PUNTOS_HABILIDAD, personaje.get_ptsHab());
+        values.put(COLUMNA_PG, personaje.get_pg());
+        values.put(COLUMNA_VELOCIDAD, personaje.get_velocidad());
+        values.put(COLUMNA_HERIDAS, personaje.get_heridas());
+        values.put(COLUMNA_CA, personaje.get_ca());
+        values.put(COLUMNA_TOQUE, personaje.get_toque());
+        values.put(COLUMNA_INICIATIVA, personaje.get_iniciativa());
+        values.put(COLUMNA_DESPREVENIDO, personaje.get_desprevenido());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLA_PERSONAJE, null, values);
         db.close();

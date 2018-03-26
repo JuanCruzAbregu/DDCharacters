@@ -33,6 +33,13 @@ public class Personaje {
     private String _modSAB;
     private String _modCAR;
     private String _ptsHab;
+    private String _pg;
+    private String _velocidad;
+    private String _heridas;
+    private String _ca;
+    private String _toque;
+    private String _iniciativa;
+    private String _desprevenido;
 
 
     public Personaje(){
@@ -44,7 +51,9 @@ public class Personaje {
                      String _expLow, String _expHigh, String _campañaPj, String _controlAct,
                      String _puntFZA, String _puntDES, String _puntCON, String _puntINT,
                      String _puntSAB, String _puntCAR, String _modFZA, String _modDES,
-                     String _modCON, String _modINT, String _modSAB, String _modCAR, String _ptsHab){
+                     String _modCON, String _modINT, String _modSAB, String _modCAR, String _ptsHab,
+                     String _pg, String _velocidad, String _heridas, String _ca, String _toque,
+                     String _iniciativa, String _desprevenido){
 
         this._nombrePj         = _nombrePj;
         this._clasePj          = _clasePj;
@@ -72,6 +81,13 @@ public class Personaje {
         this._modSAB           = _modSAB;
         this._modCAR           = _modCAR;
         this._ptsHab           = _ptsHab;
+        this._pg               = _pg;
+        this._velocidad        = _velocidad;
+        this._heridas          = _heridas;
+        this._ca               = _ca;
+        this._toque            = _toque;
+        this._iniciativa       = _iniciativa;
+        this._desprevenido     = _desprevenido;
 
     }
 
@@ -291,4 +307,59 @@ public class Personaje {
         this._ptsHab = _ptsHab;
     }
 
+    public String get_pg() {
+        return _pg;
+    }
+
+    public void set_pg(String _pg) {
+        this._pg = _pg;
+    }
+
+    public String get_velocidad() {
+        return _velocidad;
+    }
+
+    public void set_velocidad(String _velocidad) {
+        this._velocidad = _velocidad;
+    }
+
+    public String get_heridas() {
+        return _heridas;
+    }
+
+    public void set_heridas(String _heridas) {
+        this._heridas = _heridas;
+    }
+
+    public String get_ca() {
+        return _ca;
+    }
+
+    public void set_ca(String _ca) {
+        this._ca = _ca;
+    }
+
+    public String get_toque() {
+        return _toque;
+    }
+
+    public void set_toque(String _toque) {
+        this._toque = _toque;
+    }
+
+    public String get_iniciativa() {
+        return _iniciativa;
+    }
+
+    public void set_iniciativa(String _iniciativa) {
+        this._iniciativa = _iniciativa;
+    }
+
+    public String get_desprevenido() {
+        return _desprevenido;
+    }
+
+    public void set_desprevenido(String _desprevenido) {
+        this._desprevenido = _desprevenido;
+    }
 }

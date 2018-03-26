@@ -16,9 +16,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,6 +56,16 @@ public class StatsFragment extends Fragment {
     private String aux_mod_int = "";
     private String aux_mod_sab = "";
     private String aux_mod_car = "";
+    private String aux_pts_hab = "";
+    private String aux_pg = "";
+    private String aux_velocidad = "";
+    private String aux_heridas = "";
+    private String aux_ca = "";
+    private String aux_toque = "";
+    private String aux_iniciativa = "";
+    private String aux_desprevenido = "";
+
+    private int control = 0;
 
     private DBHelper dbHelper = null;
     private SQLiteDatabase db;
@@ -84,13 +94,21 @@ public class StatsFragment extends Fragment {
     private TextView TVModCaractSab;
     private TextView TVPuntCaractCar;
     private TextView TVModCaractCar;
-    private Button buttonFza, buttonDes, buttonCon, buttonInt, buttonSab, buttonCar;
+    private TextView textViewPGTotales;
+    private TextView textViewVelocidad;
+    private TextView textViewHeridas;
+    private TextView tvCATotal;
+    private TextView tvToque;
+    private TextView tvIniciativa;
+    private TextView tvDesprevenido;
+    private Button buttonFza, buttonDes, buttonCon, buttonInt, buttonSab, buttonCar, buttonHeridas,
+            buttonPG, buttonVelocidad, buttonCA, buttonToque, buttonIniciativa, buttonDesp;
     private ProgressBar progressBarExp;
-    private FloatingActionButton fabExp, fabStats;
+    private FloatingActionButton fabExp, fabStats, fabVida;
 
     private PJFragment pjFragment = new PJFragment();
 
-    private String[] opciones_stats = new String[]{"Nuevo", "Borrar"};
+    private String[] opciones = new String[]{"Nuevo", "Borrar"};
 
 
     public StatsFragment() {
@@ -130,15 +148,30 @@ public class StatsFragment extends Fragment {
             TVModCaractSab       = view.findViewById(R.id.TVModCaractSab);
             TVPuntCaractCar      = view.findViewById(R.id.TVPuntCaractCar);
             TVModCaractCar       = view.findViewById(R.id.TVModCaractCar);
+            textViewPGTotales    = view.findViewById(R.id.textViewPGTotales);
+            textViewVelocidad    = view.findViewById(R.id.textViewVelocidad);
+            textViewHeridas      = view.findViewById(R.id.textViewHeridas);
+            tvCATotal            = view.findViewById(R.id.tvCATotal);
+            tvToque              = view.findViewById(R.id.tvToque);
+            tvIniciativa         = view.findViewById(R.id.tvIniciativa);
+            tvDesprevenido       = view.findViewById(R.id.tvDesp);
             buttonFza            = view.findViewById(R.id.buttonFue);
             buttonDes            = view.findViewById(R.id.buttonDes);
             buttonCon            = view.findViewById(R.id.buttonCon);
             buttonInt            = view.findViewById(R.id.buttonInt);
             buttonSab            = view.findViewById(R.id.buttonSab);
             buttonCar            = view.findViewById(R.id.buttonCar);
+            buttonHeridas        = view.findViewById(R.id.buttonHeridas);
+            buttonPG             = view.findViewById(R.id.buttonPG);
+            buttonVelocidad      = view.findViewById(R.id.buttonVelocidad);
+            buttonCA             = view.findViewById(R.id.buttonCA);
+            buttonToque          = view.findViewById(R.id.buttonToque);
+            buttonIniciativa     = view.findViewById(R.id.buttonIniciativa);
+            buttonDesp           = view.findViewById(R.id.buttonDesp);
             progressBarExp       = view.findViewById(R.id.progressBarExp);
             fabExp               = view.findViewById(R.id.experienciaFab);
             fabStats             = view.findViewById(R.id.statsFab);
+            fabVida              = view.findViewById(R.id.vidaFab);
 
             recuperarEstadisticasPJ();
 
@@ -152,9 +185,17 @@ public class StatsFragment extends Fragment {
             fabStats.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    fabStatsOpciones(opciones_stats);
+                    fabStatsOpciones(opciones);
                 }
             });
+
+            fabVida.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    fabVidaOpciones(opciones);
+                }
+            });
+
 
             buttonFza.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -192,10 +233,404 @@ public class StatsFragment extends Fragment {
                     editarCar("  Modificar carisma");
                 }
             });
+
+            buttonHeridas.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    opcionesParaHeridas(opciones);
+                }
+            });
+
+            buttonPG.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 1;
+                    opcionesBotonesSueltosVida(opciones,control);
+                }
+            });
+
+            buttonVelocidad.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 2;
+                    opcionesBotonesSueltosVida(opciones,control);
+                }
+            });
+
+            buttonCA.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 3;
+                    opcionesBotonesSueltosVida(opciones,control);
+                }
+            });
+
+            buttonToque.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 4;
+                    opcionesBotonesSueltosVida(opciones,control);
+                }
+            });
+
+            buttonIniciativa.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 5;
+                    opcionesBotonesSueltosVida(opciones,control);
+                }
+            });
+
+            buttonDesp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 6;
+                    opcionesBotonesSueltosVida(opciones,control);
+                }
+            });
+
         }
 
         return view;
     }
+
+    public void opcionesBotonesSueltosVida(String[] opciones, final int control){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setItems(opciones, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int position) {
+
+                if(position == 0){
+                    modificarBotonesSueltos("  Nuevos stats", control);
+
+                } else if(position == 1){
+                    borrarBotonesSueltos("  Reiniciar stats", "¿Desea reiniciar todos los stats?", control);
+                }
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
+
+    public void modificarBotonesSueltos(String title, final int control){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setCancelable(true);
+
+        View viewInflated = LayoutInflater.from(getContext()).inflate(R.layout.editar_botones_sueltos, null);
+        builder.setView(viewInflated);
+
+        final TextView textViewTitle          = viewInflated.findViewById(R.id.tvTitleBotonesSueltos);
+        final Button   buttonModificarSueltos = viewInflated.findViewById(R.id.buttonModificarSueltos);
+        final EditText editTextPuntos         = viewInflated.findViewById(R.id.editTextPuntos);
+
+        textViewTitle.setText(title);
+
+        String nombreButton;
+        String puntos;
+
+        switch (control){
+
+            case 1:
+                nombreButton = "PG";
+                buttonModificarSueltos.setText(nombreButton);
+                puntos = recuperarPuntoSuelto(control);
+                editTextPuntos.setText(puntos);
+                break;
+            case 2:
+                nombreButton = "Velocidad";
+                buttonModificarSueltos.setText(nombreButton);
+                puntos = recuperarPuntoSuelto(control);
+                editTextPuntos.setText(puntos);
+                break;
+            case 3:
+                nombreButton = "CA";
+                buttonModificarSueltos.setText(nombreButton);
+                puntos = recuperarPuntoSuelto(control);
+                editTextPuntos.setText(puntos);
+                break;
+            case 4:
+                nombreButton = "Toque";
+                buttonModificarSueltos.setText(nombreButton);
+                puntos = recuperarPuntoSuelto(control);
+                editTextPuntos.setText(puntos);
+                break;
+            case 5:
+                nombreButton = "Iniciativa";
+                buttonModificarSueltos.setText(nombreButton);
+                puntos = recuperarPuntoSuelto(control);
+                editTextPuntos.setText(puntos);
+                break;
+            case 6:
+                nombreButton = "Desprevenido";
+                buttonModificarSueltos.setText(nombreButton);
+                puntos = recuperarPuntoSuelto(control);
+                editTextPuntos.setText(puntos);
+                break;
+            default: nombreButton = "";
+                buttonModificarSueltos.setText(nombreButton);
+                editTextPuntos.setText("");
+        }
+
+        builder.setCancelable(true);
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                String puntuacion = editTextPuntos.getText().toString();
+
+                actualizarBotonesSueltosPuntuaciones(control, puntuacion);
+
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+
+
+    }
+
+    public String recuperarPuntoSuelto(int control){
+
+        String devolver = "";
+
+        try{
+            dbHelper = new DBHelper(getActivity());
+            db = dbHelper.getReadableDatabase();
+
+            switch (control) {
+                case 1:
+                    Cursor a = db
+                            .rawQuery("SELECT _id, pg FROM personaje WHERE controlAct='1'",null);
+
+                    if(a.moveToFirst()){
+
+                        do {
+                            aux_id = a.getString(0);
+                            aux_pg = a.getString(1);
+
+                        }while (a.moveToNext());
+                    }
+
+                    break;
+
+                case 2:
+                    Cursor b = db
+                            .rawQuery("SELECT _id, velocidad FROM personaje WHERE controlAct='1'",null);
+
+                    if(b.moveToFirst()){
+
+                        do {
+                            aux_id        = b.getString(0);
+                            aux_velocidad = b.getString(1);
+                            devolver = aux_velocidad;
+
+                        }while (b.moveToNext());
+                    }
+
+                    break;
+
+                case 3:
+                    Cursor c = db
+                            .rawQuery("SELECT _id, ca FROM personaje WHERE controlAct='1'",null);
+
+                    if(c.moveToFirst()){
+
+                        do {
+                            aux_id        = c.getString(0);
+                            aux_ca = c.getString(1);
+                            devolver = aux_ca;
+
+                        }while (c.moveToNext());
+                    }
+
+                    break;
+
+                case 4:
+                    Cursor d = db
+                            .rawQuery("SELECT _id, toque FROM personaje WHERE controlAct='1'",null);
+
+                    if(d.moveToFirst()){
+
+                        do {
+                            aux_id    = d.getString(0);
+                            aux_toque = d.getString(1);
+                            devolver = aux_toque;
+
+                        }while (d.moveToNext());
+                    }
+
+                    break;
+
+                case 5:
+                    Cursor e = db
+                            .rawQuery("SELECT _id, iniciativa FROM personaje WHERE controlAct='1'",null);
+
+                    if(e.moveToFirst()){
+
+                        do {
+                            aux_id    = e.getString(0);
+                            aux_iniciativa = e.getString(1);
+                            devolver = aux_iniciativa;
+
+                        }while (e.moveToNext());
+                    }
+
+                    break;
+
+                case 6:
+                    Cursor f = db
+                            .rawQuery("SELECT _id, desprevenido FROM personaje WHERE controlAct='1'",null);
+
+                    if(f.moveToFirst()){
+
+                        do {
+                            aux_id    = f.getString(0);
+                            aux_desprevenido = f.getString(1);
+                            devolver = aux_desprevenido;
+
+                        }while (f.moveToNext());
+                    }
+
+                    break;
+            }
+
+        }catch (Exception e){
+            Log.e("Error", "Error: "+e.getMessage());
+        }finally {
+            db.close();
+        }
+        return devolver;
+    }
+
+    public void actualizarBotonesSueltosPuntuaciones(int control, String puntuacion){
+
+        ContentValues values = new ContentValues();
+
+        try{
+
+            dbHelper = new DBHelper(getActivity());
+            db = dbHelper.getReadableDatabase();
+
+            Cursor c = db
+                    .rawQuery("SELECT _id FROM personaje WHERE controlAct='1'",null);
+
+            if(c.moveToFirst()){
+
+                do {
+                    aux_id = c.getString(0);
+
+
+                }while (c.moveToNext());
+            }
+
+            switch (control) {
+                case 1:
+                    values.put("pg",puntuacion);
+                    break;
+
+                case 2:
+                    values.put("velocidad",puntuacion);
+                    break;
+
+                case 3:
+                    values.put("ca",puntuacion);
+                    break;
+
+                case 4:
+                    values.put("toque",puntuacion);
+                    break;
+
+                case 5:
+                    values.put("iniciativa",puntuacion);
+                    break;
+
+                case 6:
+                    values.put("desprevenido",puntuacion);
+                    break;
+            }
+
+            db.update("personaje", values, "_id='" + aux_id + "'", null);
+            getActivity().recreate();
+
+        }catch (Exception e){
+            Log.e("Error", "Error: "+e.getMessage());
+        }finally {
+            db.close();
+        }
+
+    }
+
+    public void borrarBotonesSueltos(String title, String message, int control){
+
+        ContentValues values = new ContentValues();
+
+        try{
+
+            dbHelper = new DBHelper(getActivity());
+            db = dbHelper.getReadableDatabase();
+
+            Cursor c = db
+                    .rawQuery("SELECT _id FROM personaje WHERE controlAct='1'",null);
+
+            if(c.moveToFirst()){
+
+                do {
+                    aux_id = c.getString(0);
+
+
+                }while (c.moveToNext());
+            }
+
+            switch (control) {
+                case 1:
+                    values.put("pg","0");
+                    break;
+
+                case 2:
+                    values.put("velocidad","0");
+                    break;
+
+                case 3:
+                    values.put("ca","0");
+                    break;
+
+                case 4:
+                    values.put("toque","0");
+                    break;
+
+                case 5:
+                    values.put("iniciativa","0");
+                    break;
+
+                case 6:
+                    values.put("desprevenido","0");
+                    break;
+            }
+
+            db.update("personaje", values, "_id='" + aux_id + "'", null);
+            getActivity().recreate();
+
+        }catch (Exception e){
+            Log.e("Error", "Error: "+e.getMessage());
+        }finally {
+            db.close();
+        }
+
+    }
+
 
     /**
      * Método que recupera todos los stats del personaje
@@ -242,6 +677,14 @@ public class StatsFragment extends Fragment {
                     aux_mod_int      = c.getString(23);
                     aux_mod_sab      = c.getString(24);
                     aux_mod_car      = c.getString(25);
+                    aux_pts_hab      = c.getString(26);
+                    aux_pg           = c.getString(27);
+                    aux_velocidad    = c.getString(28);
+                    aux_heridas      = c.getString(29);
+                    aux_ca           = c.getString(30);
+                    aux_toque        = c.getString(31);
+                    aux_iniciativa   = c.getString(32);
+                    aux_desprevenido = c.getString(33);
 
 
                 }while (c.moveToNext());
@@ -270,6 +713,15 @@ public class StatsFragment extends Fragment {
                 TVModCaractSab.setText(aux_mod_sab);
                 TVPuntCaractCar.setText(aux_car);
                 TVModCaractCar.setText(aux_mod_car);
+
+                textViewPGTotales.setText(aux_pg);
+                textViewVelocidad.setText(aux_velocidad);
+                textViewHeridas.setText(aux_heridas);
+                tvCATotal.setText(aux_ca);
+                tvToque.setText(aux_toque);
+                tvIniciativa.setText(aux_iniciativa);
+                tvDesprevenido.setText(aux_desprevenido);
+
 
                 //Refrescar la progressBar
                 progressBarExp.post(new Runnable() {
@@ -520,9 +972,35 @@ public class StatsFragment extends Fragment {
 
                 if(position == 0){
                     fabStatsNuevo("  Nuevos stats");
-                }
-                if(position == 1){
+
+                } else if(position == 1){
                     fabStatsBorrar("  Reiniciar stats", "¿Desea reiniciar todos los stats?");
+                }
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
+
+    /**
+     * Dialog de opciones para el FAB de vida.
+     *
+     * @param opciones
+     */
+
+    public void fabVidaOpciones(String[] opciones){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setItems(opciones, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int position) {
+                if(position == 0){
+                    fabVidaNuevo("  Nuevos stats");
+
+                } else if(position == 1){
+                    fabVidaBorrar(" Reiniciar stats", "¿Desea reiniciar todos los stats?");
                 }
             }
         });
@@ -602,6 +1080,184 @@ public class StatsFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    /**
+     * Método del FAB de vida (nuevo)
+     *
+     * @param title
+     */
+
+    public void fabVidaNuevo(String title){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setCancelable(true);
+
+        View viewInflated = LayoutInflater.from(getContext()).inflate(R.layout.dialog_fab_vida, null);
+        builder.setView(viewInflated);
+
+        final TextView textViewTitleDialog  = viewInflated.findViewById(R.id.tvDialogFabVidaTitle);
+        final EditText editTextPG           = viewInflated.findViewById(R.id.editTextPG);
+        final EditText editTextVelocidad    = viewInflated.findViewById(R.id.editTextVelocidad);
+        final EditText editTextCA           = viewInflated.findViewById(R.id.editTextCA);
+        final EditText editTextToque        = viewInflated.findViewById(R.id.editTextToque);
+        final EditText editTextIniciativa   = viewInflated.findViewById(R.id.editTextIniciativa);
+        final EditText editTextDesprevenido = viewInflated.findViewById(R.id.editTextDesprevenido);
+
+        textViewTitleDialog.setText(title);
+        builder.setCancelable(true);
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                String pg = editTextPG.getText().toString();
+                String velocidad = editTextVelocidad.getText().toString();
+                String ca = editTextCA.getText().toString();
+                String toque = editTextToque.getText().toString();
+                String iniciativa = editTextIniciativa.getText().toString();
+                String desprevenido = editTextDesprevenido.getText().toString();
+
+                try{
+
+                    dbHelper = new DBHelper(getActivity());
+                    db       = dbHelper.getReadableDatabase();
+
+                    Cursor c = db
+                            .rawQuery("SELECT _id FROM personaje WHERE controlAct='1'",null);
+
+                    if(c.moveToFirst()){
+
+                        do{
+
+                            aux_id = c.getString(0);
+
+                        }while (c.moveToNext());
+
+                        ContentValues values = new ContentValues();
+                        values.put("pg", pg);
+                        values.put("velocidad", velocidad);
+                        values.put("ca", ca);
+                        values.put("toque", toque);
+                        values.put("iniciativa", iniciativa);
+                        values.put("desprevenido", desprevenido);
+                        db.update("personaje", values,"_id='" + aux_id + "'",null);
+                        recuperarEstadisticasPJ();
+                    }
+
+                    getActivity().recreate();
+
+                }catch (Exception e){
+                    Log.e("Error","Error: "+e.getMessage());
+                }finally {
+                    db.close();
+                }
+
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    /**
+     * Método del FAB de vida (borrar)
+     * @param title
+     */
+
+    public void fabVidaBorrar(String title, String message){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+        if(title !=null){
+            builder.setTitle(title);
+        }
+
+        if(message !=null){
+            builder.setMessage(message);
+        }
+
+        builder.setCancelable(true);
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                try {
+                    dbHelper = new DBHelper(getActivity());
+                    db = dbHelper.getReadableDatabase();
+
+                    Cursor c = db
+                            .rawQuery("SELECT _id, pg, velocidad, heridas, ca, toque, iniciativa, desprevenido FROM personaje WHERE controlAct='1'", null);
+
+                    if (c.moveToFirst()) {
+
+                        do {
+
+                            aux_id = c.getString(0);
+
+                            ContentValues values = new ContentValues();
+                            values.put("pg", "0");
+                            values.put("velocidad", "0");
+                            values.put("heridas", "");
+                            values.put("ca", "0");
+                            values.put("toque", "0");
+                            values.put("iniciativa", "0");
+                            values.put("desprevenido", "0");
+                            db.update("personaje", values, "_id='" + aux_id + "'", null);
+                            recuperarEstadisticasPJ();
+
+                        } while (c.moveToNext());
+                        getActivity().recreate();
+                    }
+                } catch (Exception e) {
+                    Log.e("Error", "Error: " + e.getMessage());
+                } finally {
+                    db.close();
+                }
+
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
+
+    /**
+     * Diálogo de opciones para el boton heridas
+     *
+     * @param opciones
+     */
+
+    public void opcionesParaHeridas(String[] opciones){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setItems(opciones, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int position) {
+                if(position == 0){
+                    editarHeridas("  Modificar heridas");
+
+                } else if(position == 1){
+                    borrarHeridas(" Borrar heridas", "¿Desea borrar todas las heridas?");
+                }
             }
         });
 
@@ -841,6 +1497,13 @@ public class StatsFragment extends Fragment {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
+    /**
+     * Método que devuelve el modificador según la puntuación
+     *
+     * @param punt
+     * @return
+     */
 
     public String modificadorCaractSegunPuntuacion(String punt){
 
@@ -1446,8 +2109,164 @@ public class StatsFragment extends Fragment {
     }
 
     /**
+     * Método que edita las heridas
+     * @param  title
+     */
+
+    public void editarHeridas(String title){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setCancelable(true);
+
+        View viewInflated = LayoutInflater.from(getContext()).inflate(R.layout.editar_heridas, null);
+        builder.setView(viewInflated);
+
+        builder.setCancelable(true);
+        final TextView tvTitleHeridas  = viewInflated.findViewById(R.id.tvTitleHeridas);
+        final EditText editTextHeridas = viewInflated.findViewById(R.id.editTextHeridas);
+
+        tvTitleHeridas.setText(title);
+
+        try{
+
+            dbHelper = new DBHelper(getActivity());
+            db = dbHelper.getReadableDatabase();
+
+            Cursor c = db
+                    .rawQuery("SELECT heridas FROM personaje WHERE controlAct='1'",null);
+
+            if(c.moveToFirst()){
+                do {
+                    aux_heridas = c.getString(0);
+
+                }while (c.moveToNext());
+
+                if(!aux_heridas.equals("")){
+                    editTextHeridas.setText(aux_heridas);
+                } else {
+                    editTextHeridas.setText("");
+                }
+
+            }
+
+        }catch (Exception e){
+            Log.e("Error","Error: "+e.getMessage());
+        }finally {
+            db.close();
+        }
+
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                String heridas = editTextHeridas.getText().toString();
+
+                try {
+
+                    dbHelper = new DBHelper(getActivity());
+                    db = dbHelper.getReadableDatabase();
+
+                    Cursor c = db
+                            .rawQuery("SELECT _id FROM personaje WHERE controlAct='1'",null);
+
+                    if(c.moveToFirst()){
+
+                        do{
+                            aux_id = c.getString(0);
+
+                        }while (c.moveToNext());
+
+                        ContentValues values = new ContentValues();
+                        values.put("heridas", heridas);
+                        db.update("personaje", values, "_id='" + aux_id + "'", null);
+                        recuperarEstadisticasPJ();
+
+                    }
+
+                }catch (Exception e){
+                    Log.e("Error","Error: "+e.getMessage());
+                }finally {
+                    db.close();
+                }
+
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    public void borrarHeridas(String title, String message){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+        if(title !=null){
+            builder.setTitle(title);
+        }
+
+        if(message !=null){
+            builder.setMessage(message);
+        }
+
+        builder.setCancelable(true);
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                try {
+                    dbHelper = new DBHelper(getActivity());
+                    db = dbHelper.getReadableDatabase();
+
+                    Cursor c = db
+                            .rawQuery("SELECT _id FROM personaje WHERE controlAct='1'", null);
+
+                    if (c.moveToFirst()) {
+
+                        do {
+
+                            aux_id = c.getString(0);
+
+                            ContentValues values = new ContentValues();
+                            values.put("heridas", "");
+                            db.update("personaje", values, "_id='" + aux_id + "'", null);
+                            recuperarEstadisticasPJ();
+
+                        } while (c.moveToNext());
+                        getActivity().recreate();
+                    }
+                } catch (Exception e) {
+                    Log.e("Error", "Error: " + e.getMessage());
+                } finally {
+                    db.close();
+                }
+
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
+    /**
      * Método que edita la punt y mod de CAR.
-     *
+     * @param title
      */
 
     public void editarCar(String title){
