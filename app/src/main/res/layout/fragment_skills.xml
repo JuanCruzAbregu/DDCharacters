@@ -1,0 +1,1820 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.n3twork.ddcharacters.Fragments.SkillsFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/linearContenedor0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorDivider"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:text="Listado de habilidades"
+                    android:layout_marginLeft="18dp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="17sp"
+                    android:gravity="center_vertical"
+                    android:textStyle="italic" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnRefreshSkills"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:background="@null"
+                    android:tint="@color/colorPrimaryText"
+                    android:src="@android:drawable/stat_notify_sync"
+                    android:layout_marginRight="16dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="18dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="16dp">
+
+                <Button
+                    android:id="@+id/buttonPH"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="Pts Habilidad Restantes"
+                    android:layout_weight="0.75"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewPH"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25"
+                    android:background="@drawable/boton2"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearContenedor2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp"
+                android:paddingTop="5dp">
+
+                <LinearLayout
+                    android:id="@+id/linearCerradura"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkCerradura"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Abrir cerraduras"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracCerradura"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="DES"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorCerradura"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearArte"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkArte"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Arte"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracArte"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="INT"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorArte"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearaIntenciones"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkIntenciones"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Averig. Intenciones"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracIntenciones"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="SAB"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorIntenciones"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearAvistar"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkAvistar"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Avistar"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracAvistar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="SAB"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorAvistar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearBuscar"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkBuscar"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Buscar"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracBuscar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="INT"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorBuscar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearConcentracion"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkConcentracion"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Concentracion"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracConcentracion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="CON"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorConcentracion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearConjuros"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkConjuros"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Conoc. de conjuros"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracConjuros"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="INT"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorConjuros"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearDesfEscritura"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkDesfEscritura"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Desifrar escritura"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracDesfEscritura"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="INT"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorDesfEscritura"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearDiplomacia"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkDiplomacia"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Diplomacia"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracDiplomacia"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="CAR"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorDiplomacia"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearDisfraz"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkDisfraz"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Disfrazarse"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracDisfraz"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="CAR"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorDisfraz"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearEngañar"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkEngañar"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Engañar"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracEngañar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="CAR"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorEngañar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearEquilibrio"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkEquilibrio"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Equilibrio"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracEquilibrio"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="DES *"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorEquilibrio"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearEscapismo"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkEscapismo"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Escapismo"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracEscapismo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="DES *"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorEscapismo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearEsconderse"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkEsconderse"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Esconderse"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracEsconderse"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="DES *"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorEsconderse"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearEscuchar"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkEscuchar"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Escuchar"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracEscuchar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="SAB"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorEscuchar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearFalsificar"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkFalsificar"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Falsificar"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracFalsificar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="INT"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorFalsificar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearInterpretar1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkInterpretar1"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Interpretar"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracInterpretar1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="CAR"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorInterpretar1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearInterpretar2"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkInterpretar2"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Interpretar"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracInterpretar2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="CAR"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorInterpretar2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearInterpretar3"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkInterpretar3"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Interpretar"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracInterpretar3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="CAR"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorInterpretar3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearIntimidar"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkIntimidar"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Intimidar"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracIntimidar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="INT"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorIntimidar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearInutilizarMeq"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkInutilizarMeq"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Inutilizar Meq."/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracInutilizarMeq"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="INT"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorInutilizarMeq"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearJuegoManos"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkJuegoManos"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Juego de manos"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracJuegoManos"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="DES"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorJuegoManos"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearMontar"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkMontar"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Montar"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracMontar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="DES"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorMontar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearSigilo"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkSigilo"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Mov. sigilosamente"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracSigilo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="DES *"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorSigilo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearNadar"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkNadar"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Nadar"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracNadar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="FUE *"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorNadar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearOficio"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkOficio"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Oficio" />
+
+                    <TextView
+                        android:id="@+id/textViewCaracOficio"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="SAB"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorOficio"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearPiruetas"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkPiruetas"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Piruetas"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracPiruetas"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="DES *"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorPiruetas"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearReunirInfo"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkReunirInfo"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Reunir Info."/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracReunirInfo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="CAR"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorReunirInfo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearSaberArcano"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkSaberArcano"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Saber(Arcano)"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracSaberArcano"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="INT"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorSaberArcano"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearSaberIng"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkSaberIng"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Saber(Arq e Ing)"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracSaberIng"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="INT"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorSaberIng"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearSaberDung"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkSaberDung"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Saber(Dungeons)"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracSaberDung"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="INT"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorSaberDung"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearSaberGeo"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkSaberGeo"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Saber(Geografía)"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracSaberGeo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="INT"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorSaberGeo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearSaberHistoria"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkSaberHistoria"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Saber(Historia)"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracSaberHistoria"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="INT"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorSaberHistoria"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearSaberLocal"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkSaberLocal"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Saber(Local)"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracSaberLocal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="INT"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorSaberLocal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearSaberPlanos"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkSaberPlanos"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Saber(Planos)"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracSaberPlanos"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="INT"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorSaberPlanos"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearSaberNat"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkSaberNat"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Saber(Naturaleza)"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracSaberNat"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="INT"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorSaberNat"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearSaberNobleza"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkSaberNobleza"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Saber(Nobleza)"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracSaberNobleza"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="INT"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorSaberNobleza"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearSaberReligion"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkSaberReligion"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Saber(Religión)"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracSaberReligion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="INT"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorSaberReligion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearSaltar"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkSaltar"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Saltar"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracSaltar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="FUE *"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorSaltar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearSanar"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkSanar"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Sanar"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracSanar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="SAB"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorSanar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearSuperv"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkSuperv"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Supervivencia"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracSuperv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="SAB"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorSuperv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearTasacion"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkTasacion"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Tasacion"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracTasacion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="INT"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorTasacion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearAnimales"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkAnimales"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Trato con animales"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracAnimales"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="CAR"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorAnimales"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearTrepar"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkTrepar"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Trepar"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracTrepar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="FUE"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorTrepar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearObjMagico"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkObjMagico"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:text="Usar Obj. mágico"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracObjMagico"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="CAR"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorObjMagico"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearCuerdas"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkCuerdas"
+                        android:focusable="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Uso de cuerdas"/>
+
+                    <TextView
+                        android:id="@+id/textViewCaracECuerdas"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="DES"/>
+
+                    <TextView
+                        android:id="@+id/textViewValorCuerdas"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/boton"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

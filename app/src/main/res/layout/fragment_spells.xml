@@ -1,0 +1,1671 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.n3twork.ddcharacters.Fragments.SpellsFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/contenedor"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorDivider"
+                android:text="     Conjuros"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="17sp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center_vertical"
+                android:textStyle="italic" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/linearTituloDotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.1"
+                    android:background="@drawable/boton2"
+                    android:gravity="center"
+                    android:text="N°"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.55"
+                    android:background="@drawable/boton2"
+                    android:gravity="center"
+                    android:text="Dominio"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.35"
+                    android:background="@drawable/boton2"
+                    android:gravity="center"
+                    android:text="Escuela"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <TextView
+                    android:id="@+id/textViewNum0"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.1"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewDom0"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.55"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewEsc0"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.35"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <TextView
+                    android:id="@+id/textViewNum1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.1"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewDom1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.55"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewEsc1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.35"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <TextView
+                    android:id="@+id/textViewNum2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.1"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewDom2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.55"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewEsc2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.35"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <TextView
+                    android:id="@+id/textViewNum3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.1"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text="3"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewDom3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.55"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewEsc3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.35"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <TextView
+                    android:id="@+id/textViewNum4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.1"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text="4"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewDom4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.55"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewEsc4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.35"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <TextView
+                    android:id="@+id/textViewNum5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.1"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text="5"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewDom5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.55"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewEsc5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.35"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <TextView
+                    android:id="@+id/textViewNum6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.1"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text="6"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewDom6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.55"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewEsc6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.35"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <TextView
+                    android:id="@+id/textViewNum7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.1"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text="7"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewDom7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.55"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewEsc7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.35"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <TextView
+                    android:id="@+id/textViewNum8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.1"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewDom8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.55"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewEsc8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.35"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="10dp"
+                android:paddingRight="16dp">
+
+                <TextView
+                    android:id="@+id/textViewNum9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.1"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text="9"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewDom9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.55"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewEsc9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.35"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingRight="16dp"
+                android:paddingLeft="12dp"
+                android:paddingBottom="5dp">
+
+                <Button
+                    android:id="@+id/buttonSalvConj"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="SALV CONJ"
+                    android:layout_weight="0.35"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewSalvConj"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.15"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/buttonFalloArc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="Fallo"
+                    android:layout_weight="0.25"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewFalloArc"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.25"
+                    android:layout_height="25dp"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text="Conj. Conoc."
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text="CD Salvac."
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text="NIVEL"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text="Conj. Diarios"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text="Conj Adic."
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear1"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/tv_conjConoc0"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_empty1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_cdSalvacion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/tv_empty2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="0"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_empty3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjDiarios"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/tv_empty4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjAdicionales"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/tv_conjConoc1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_cdSalvacion1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="1"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjDiarios1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjAdicionales1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/tv_conjConoc2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_cdSalvacion2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="2"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjDiarios2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjAdicionales2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/tv_conjConoc3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_cdSalvacion3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="3"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjDiarios3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjAdicionales3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/tv_conjConoc4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_cdSalvacion4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="4"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjDiarios4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjAdicionales4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/tv_conjConoc5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_cdSalvacion5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="5"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjDiarios5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjAdicionales5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/tv_conjConoc6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_cdSalvacion6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="6"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjDiarios6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjAdicionales6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/tv_conjConoc7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_cdSalvacion7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="7"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjDiarios7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjAdicionales7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/tv_conjConoc8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_cdSalvacion8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="8"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjDiarios8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjAdicionales8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/tv_conjConoc9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:background="@drawable/boton"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_cdSalvacion9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="9"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjDiarios9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.05"
+                    android:background="@drawable/boton"
+                    android:visibility="invisible"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_conjAdicionales9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.20"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/boton"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>
