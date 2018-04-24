@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -62,6 +63,7 @@ public class SkillsFragment extends Fragment {
     private String aux_ptsHab = "";
     private String aux_rangos = "";
     private String aux_modInt = "";
+    private String[] opc_ptsHab = new String[]{"Actualizar", "Borrar"};
 
     private CheckBox checkCerradura;
     private CheckBox checkArte;
@@ -200,7 +202,7 @@ public class SkillsFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
 
-                    opcionesPuntosHabilidad("¿Es para un personaje de nivel 1?");
+                    opcionesPuntosHabilidad(opc_ptsHab);
 
                 }
             });
@@ -210,30 +212,92 @@ public class SkillsFragment extends Fragment {
         return view;
     }
 
-    private void opcionesPuntosHabilidad(String title){
+    private void opcionesPuntosHabilidad(String[] opc_ptsHab){
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
-        builder.setTitle(title);
+        builder.setItems(opc_ptsHab, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int position) {
+
+                if(position == 0){
+
+                    opcionModificarPuntosRestantes("Actualizar puntos de habilidad");
+
+
+                }
+
+                if(position == 1){
+
+                    opcionBorrarPuntosRestantes("Borrar puntos", "¿Desea reiniciar los puntos de habilidad?");
+
+                }
+
+            }
+        });
+
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+
+    }
+
+    private void opcionModificarPuntosRestantes(String title){
+
+        aux_ptsHab = textViewPH.getText().toString();
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setCancelable(true);
 
-        builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+        View viewInflated = LayoutInflater.from(getContext()).inflate(R.layout.editar_botones_sueltos_skill, null);
+        builder.setView(viewInflated);
+
+        final TextView textViewTitleDialogHab = viewInflated.findViewById(R.id.tvTitleBotonesSueltosSkill);
+        final EditText editTextPuntosSkill    = viewInflated.findViewById(R.id.editTextPuntosSkill);
+
+        textViewTitleDialogHab.setText(title);
+        editTextPuntosSkill.setText(aux_ptsHab);
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                recuperarPuntosHabilidadNivel1();
+                aux_ptsHab = editTextPuntosSkill.getText().toString();
+
+                try {
+
+                    dbHelper = new DBHelper(getActivity());
+                    db       = dbHelper.getReadableDatabase();
+
+                    Cursor c = db
+                            .rawQuery("SELECT _id FROM personaje WHERE controlAct='1'",null);
+
+                    if(c.moveToFirst()) {
+
+                        do {
+
+                            aux_id = c.getString(0);
+
+                        } while (c.moveToNext());
+                    }
+
+                    ContentValues values = new ContentValues();
+                    values.put("ptsHab", aux_ptsHab);
+                    db.update("personaje",values,"_id='" + aux_id + "'",null);
+                    recuperarTodosSkills();
+
+                }catch (Exception e){
+                    Log.e("Error","Error: "+e.getMessage());
+                }finally {
+                    db.close();
+                }
+
 
             }
         });
 
-        builder.setNeutralButton("Cancelar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -243,126 +307,134 @@ public class SkillsFragment extends Fragment {
         AlertDialog dialog = builder.create();
         dialog.show();
 
-
     }
 
-    private void recuperarPuntosHabilidadNivel1(){
+    private void opcionBorrarPuntosRestantes(String title, String message){
 
-        try {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setCancelable(true);
 
-            dbHelper = new DBHelper(getActivity());
-            db       = dbHelper.getReadableDatabase();
+        builder.setTitle(title);
+        builder.setMessage(message);
 
-            Cursor c = db
-                    .rawQuery("SELECT _id, clasePj, nivelPj, modInt FROM personaje WHERE controlAct='1'",null);
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
 
-            if(c.moveToFirst()) {
+                try {
 
-                do {
+                    dbHelper = new DBHelper(getActivity());
+                    db       = dbHelper.getReadableDatabase();
 
-                    aux_id     = c.getString(0);
-                    aux_clase  = c.getString(1);
-                    aux_nivel  = c.getString(2);
-                    aux_modInt = c.getString(3);
+                    Cursor c = db
+                            .rawQuery("SELECT _id FROM personaje WHERE controlAct='1'",null);
 
-                }while (c.moveToNext());
+                    if(c.moveToFirst()) {
 
-                if(aux_nivel.equals("1")){
+                        do {
 
-                    int modInt = Integer.parseInt(aux_modInt);
+                            aux_id = c.getString(0);
 
-                    aux_ptsHab = calcularPuntosSegunClase(aux_clase, modInt);
+                        } while (c.moveToNext());
+                    }
 
                     ContentValues values = new ContentValues();
-                    values.put("ptsHab", aux_ptsHab);
+                    values.put("ptsHab", "0");
                     db.update("personaje",values,"_id='" + aux_id + "'",null);
                     recuperarTodosSkills();
 
-                }else {
-
-                    Toast.makeText(getContext(),"El personaje seleccionado no es nivel 1",Toast.LENGTH_SHORT).show();
-
+                }catch (Exception e){
+                    Log.e("Error","Error: "+e.getMessage());
+                }finally {
+                    db.close();
                 }
 
             }
-        }catch (Exception e){
-            Log.e("Error","Error: "+e.getMessage());
-        }finally {
-            db.close();
-        }
+        });
+
+        builder.setNegativeButton("Cancelaar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
 
     }
 
-    private String calcularPuntosSegunClase(String aux_clase, int modInt) {
-
-        String puntos = "";
-        int resultado = 0;
-
-        switch (aux_clase) {
-
-            case "Bárbaro":
-
-                resultado = (4 + modInt) * 4;
-                break;
-
-            case "Bardo":
-
-                resultado = (6 + modInt) * 4;
-                break;
-
-            case "Clérigo":
-
-                resultado = (2 + modInt) * 4;
-                break;
-
-            case "Druida":
-
-                resultado = (4 + modInt) * 4;
-                break;
-
-            case "Explorador":
-
-                resultado = (6 + modInt) * 4;
-                break;
-
-            case "Guerrero":
-
-                resultado = (2 + modInt) * 4;
-
-                break;
-
-            case "Hechicero":
-
-                resultado = (2 + modInt) * 4;
-                break;
-
-            case "Mago":
-
-                resultado = (2 + modInt) * 4;
-                break;
-
-            case "Monje":
-
-                resultado = (4 + modInt) * 4;
-                break;
-
-            case "Paladín":
-
-                resultado = (2 + modInt) * 4;
-                break;
-
-            case "Pícaro":
-
-                resultado = (8 + modInt) * 4;
-                break;
-
-        }
-
-        puntos = String.valueOf(resultado);
-
-        return puntos;
-
-    }
+//    private String calcularPuntosSegunClase(String aux_clase, int modInt) {
+//
+//        String puntos = "";
+//        int resultado = 0;
+//
+//        switch (aux_clase) {
+//
+//            case "Bárbaro":
+//
+//                resultado = (4 + modInt) * 4;
+//                break;
+//
+//            case "Bardo":
+//
+//                resultado = (6 + modInt) * 4;
+//                break;
+//
+//            case "Clérigo":
+//
+//                resultado = (2 + modInt) * 4;
+//                break;
+//
+//            case "Druida":
+//
+//                resultado = (4 + modInt) * 4;
+//                break;
+//
+//            case "Explorador":
+//
+//                resultado = (6 + modInt) * 4;
+//                break;
+//
+//            case "Guerrero":
+//
+//                resultado = (2 + modInt) * 4;
+//
+//                break;
+//
+//            case "Hechicero":
+//
+//                resultado = (2 + modInt) * 4;
+//                break;
+//
+//            case "Mago":
+//
+//                resultado = (2 + modInt) * 4;
+//                break;
+//
+//            case "Monje":
+//
+//                resultado = (4 + modInt) * 4;
+//                break;
+//
+//            case "Paladín":
+//
+//                resultado = (2 + modInt) * 4;
+//                break;
+//
+//            case "Pícaro":
+//
+//                resultado = (8 + modInt) * 4;
+//                break;
+//
+//        }
+//
+//        puntos = String.valueOf(resultado);
+//
+//        return puntos;
+//
+//    }
 
     public void recuperarTodosSkills(){
 
