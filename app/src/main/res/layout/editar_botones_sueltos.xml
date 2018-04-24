@@ -42,7 +42,7 @@
                 android:id="@+id/buttonModificarSueltos"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.3"
+                android:layout_weight="0.33"
                 android:text=""
                 android:backgroundTint="@color/colorButtons"
                 android:textColor="#ffffff"
@@ -55,12 +55,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
                 android:inputType="textCapWords"
+                android:gravity="center"
                 android:layout_gravity="center"/>
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.2"
+                android:layout_weight="0.1"
                 android:visibility="invisible"/>
         </LinearLayout>
 

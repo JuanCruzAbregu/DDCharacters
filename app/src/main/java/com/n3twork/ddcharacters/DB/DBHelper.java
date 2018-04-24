@@ -14,7 +14,7 @@ import com.n3twork.ddcharacters.Clases.Personaje;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 15;
+    private static final int DATABASE_VERSION = 17;
     private static final String DATABASE_NAME = "dnd.db";
 
     private static final String TABLA_PERSONAJE = "personaje";
@@ -52,6 +52,15 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMNA_TOQUE = "toque"; //31
     private static final String COLUMNA_INICIATIVA = "iniciativa"; //32
     private static final String COLUMNA_DESPREVENIDO = "desprevenido"; //33
+    private static final String COLUMNA_ATAQUE = "ataque"; //34
+    private static final String COLUMNA_PRESA = "presa"; //35
+    private static final String COLUMNA_RES_CONJUROS = "resConjuros"; //36
+    private static final String COLUMNA_RED_DANIO = "redDanio"; //37
+    private static final String COLUMNA_BONF_ATAQUE = "bonfAtaque"; //38
+    private static final String COLUMNA_BONF_DISTANCIA = "bonfDistancia"; //39
+    private static final String COLUMNA_SALV_FORTALEZA = "salvFortaleza"; //40
+    private static final String COLUMNA_SALV_REFLEJOS = "salvReflejos"; //41
+    private static final String COLUMNA_SALV_VOLUNTAD = "salvVoluntad"; //42
 
     public String ctPj = "CREATE TABLE " + TABLA_PERSONAJE + "(" +
             COLUMNA_ID_PJ + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -87,7 +96,16 @@ public class DBHelper extends SQLiteOpenHelper {
             COLUMNA_CA + " TEXT NOT NULL, " +
             COLUMNA_TOQUE + " TEXT NOT NULL, " +
             COLUMNA_INICIATIVA + " TEXT NOT NULL, " +
-            COLUMNA_DESPREVENIDO + " TEXT NOT NULL " +
+            COLUMNA_DESPREVENIDO + " TEXT NOT NULL, " +
+            COLUMNA_ATAQUE + " TEXT NOT NULL, " +
+            COLUMNA_PRESA + " TEXT NOT NULL, " +
+            COLUMNA_RES_CONJUROS + " TEXT NOT NULL, " +
+            COLUMNA_RED_DANIO + " TEXT NOT NULL, " +
+            COLUMNA_BONF_ATAQUE + " TEXT NOT NULL, " +
+            COLUMNA_BONF_DISTANCIA + " TEXT NOT NULL, " +
+            COLUMNA_SALV_FORTALEZA + " TEXT NOT NULL, " +
+            COLUMNA_SALV_REFLEJOS + " TEXT NOT NULL, " +
+            COLUMNA_SALV_VOLUNTAD + " TEXT NOT NULL " +
             ");";
 
     public DBHelper(Context context) {
@@ -147,6 +165,15 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMNA_TOQUE, personaje.get_toque());
         values.put(COLUMNA_INICIATIVA, personaje.get_iniciativa());
         values.put(COLUMNA_DESPREVENIDO, personaje.get_desprevenido());
+        values.put(COLUMNA_ATAQUE, personaje.get_ataque());
+        values.put(COLUMNA_PRESA, personaje.get_presa());
+        values.put(COLUMNA_RES_CONJUROS, personaje.get_resConjuros());
+        values.put(COLUMNA_RED_DANIO, personaje.get_redDanio());
+        values.put(COLUMNA_BONF_ATAQUE, personaje.get_bonfAtaque());
+        values.put(COLUMNA_BONF_DISTANCIA, personaje.get_bonfDistancia());
+        values.put(COLUMNA_SALV_FORTALEZA, personaje.get_salvFortaleza());
+        values.put(COLUMNA_SALV_REFLEJOS, personaje.get_salvReflejos());
+        values.put(COLUMNA_SALV_VOLUNTAD, personaje.get_salvVoluntad());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLA_PERSONAJE, null, values);
         db.close();

@@ -18,7 +18,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,6 +63,15 @@ public class StatsFragment extends Fragment {
     private String aux_toque = "";
     private String aux_iniciativa = "";
     private String aux_desprevenido = "";
+    private String aux_ataque = "";
+    private String aux_presa = "";
+    private String aux_resConjuros = "";
+    private String aux_redDanio = "";
+    private String aux_bonfAtaque = "";
+    private String aux_bonfDistancia = "";
+    private String aux_salvFortaleza = "";
+    private String aux_salvReflejos = "";
+    private String aux_salvVoluntad = "";
 
     private int control = 0;
 
@@ -101,10 +109,22 @@ public class StatsFragment extends Fragment {
     private TextView tvToque;
     private TextView tvIniciativa;
     private TextView tvDesprevenido;
+    private TextView tvAtaque;
+    private TextView tvPresa;
+    private TextView tvResConjuros;
+    private TextView tvRedDanio;
+    private TextView tvBonfAtaque;
+    private TextView tvBonfDist;
+    private TextView tvSalvFortaleza;
+    private TextView tvSalvReflejos;
+    private TextView tvSalvVoluntad;
+
     private Button buttonFza, buttonDes, buttonCon, buttonInt, buttonSab, buttonCar, buttonHeridas,
-            buttonPG, buttonVelocidad, buttonCA, buttonToque, buttonIniciativa, buttonDesp;
+            buttonPG, buttonVelocidad, buttonCA, buttonToque, buttonIniciativa, buttonDesp, buttonATQ,
+            buttonPresa, buttonResConj, buttonRedDanio, buttonBonfATQ, buttonBonfDist, buttonFortaleza,
+            buttonReflejos, buttonVoluntad;
     private ProgressBar progressBarExp;
-    private FloatingActionButton fabExp, fabStats, fabVida;
+    private FloatingActionButton fabExp, fabStats, fabVida, fabAtaque, fabSalvacion;
 
     private PJFragment pjFragment = new PJFragment();
 
@@ -155,6 +175,16 @@ public class StatsFragment extends Fragment {
             tvToque              = view.findViewById(R.id.tvToque);
             tvIniciativa         = view.findViewById(R.id.tvIniciativa);
             tvDesprevenido       = view.findViewById(R.id.tvDesp);
+            tvAtaque             = view.findViewById(R.id.textViewATQ);
+            tvPresa              = view.findViewById(R.id.textViewPresa);
+            tvResConjuros        = view.findViewById(R.id.textViewResConj);
+            tvRedDanio           = view.findViewById(R.id.textViewRedDaño);
+            tvBonfAtaque         = view.findViewById(R.id.textViewBonfATQ);
+            tvBonfDist           = view.findViewById(R.id.textViewBonfDist);
+            tvSalvFortaleza      = view.findViewById(R.id.textViewFortaleza);
+            tvSalvReflejos       = view.findViewById(R.id.textViewReflejos);
+            tvSalvVoluntad       = view.findViewById(R.id.textViewVoluntad);
+
             buttonFza            = view.findViewById(R.id.buttonFue);
             buttonDes            = view.findViewById(R.id.buttonDes);
             buttonCon            = view.findViewById(R.id.buttonCon);
@@ -168,10 +198,22 @@ public class StatsFragment extends Fragment {
             buttonToque          = view.findViewById(R.id.buttonToque);
             buttonIniciativa     = view.findViewById(R.id.buttonIniciativa);
             buttonDesp           = view.findViewById(R.id.buttonDesp);
+            buttonATQ            = view.findViewById(R.id.buttonATQ);
+            buttonPresa          = view.findViewById(R.id.buttonPresa);
+            buttonResConj        = view.findViewById(R.id.buttonResConj);
+            buttonRedDanio       = view.findViewById(R.id.buttonRedDaño);
+            buttonBonfATQ        = view.findViewById(R.id.buttonBonfAtq);
+            buttonBonfDist       = view.findViewById(R.id.buttonBonfDist);
+            buttonFortaleza      = view.findViewById(R.id.buttonaFortaleza);
+            buttonReflejos       = view.findViewById(R.id.buttonaReflejos);
+            buttonVoluntad       = view.findViewById(R.id.buttonaVoluntad);
+
             progressBarExp       = view.findViewById(R.id.progressBarExp);
             fabExp               = view.findViewById(R.id.experienciaFab);
             fabStats             = view.findViewById(R.id.statsFab);
             fabVida              = view.findViewById(R.id.vidaFab);
+            fabAtaque            = view.findViewById(R.id.ataqueFab);
+            fabSalvacion         = view.findViewById(R.id.salvacionFab);
 
             recuperarEstadisticasPJ();
 
@@ -196,6 +238,19 @@ public class StatsFragment extends Fragment {
                 }
             });
 
+            fabAtaque.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    fabAtaqueOpciones(opciones);
+                }
+            });
+
+            fabSalvacion.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    fabSalvacionOpciones(opciones);
+                }
+            });
 
             buttonFza.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -203,6 +258,7 @@ public class StatsFragment extends Fragment {
                     editarFuerza("  Modificar fuerza");
                 }
             });
+
             buttonDes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -245,7 +301,7 @@ public class StatsFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     control = 1;
-                    opcionesBotonesSueltosVida(opciones,control);
+                    opcionesBotonesSueltos(opciones,control);
                 }
             });
 
@@ -253,7 +309,7 @@ public class StatsFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     control = 2;
-                    opcionesBotonesSueltosVida(opciones,control);
+                    opcionesBotonesSueltos(opciones,control);
                 }
             });
 
@@ -261,7 +317,7 @@ public class StatsFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     control = 3;
-                    opcionesBotonesSueltosVida(opciones,control);
+                    opcionesBotonesSueltos(opciones,control);
                 }
             });
 
@@ -269,7 +325,7 @@ public class StatsFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     control = 4;
-                    opcionesBotonesSueltosVida(opciones,control);
+                    opcionesBotonesSueltos(opciones,control);
                 }
             });
 
@@ -277,7 +333,7 @@ public class StatsFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     control = 5;
-                    opcionesBotonesSueltosVida(opciones,control);
+                    opcionesBotonesSueltos(opciones,control);
                 }
             });
 
@@ -285,16 +341,89 @@ public class StatsFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     control = 6;
-                    opcionesBotonesSueltosVida(opciones,control);
+                    opcionesBotonesSueltos(opciones,control);
                 }
             });
+
+            buttonATQ.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 7;
+                    opcionesBotonesSueltos(opciones,control);
+                }
+            });
+
+            buttonPresa.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 8;
+                    opcionesBotonesSueltos(opciones,control);
+                }
+            });
+
+            buttonResConj.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 9;
+                    opcionesBotonesSueltos(opciones,control);
+                }
+            });
+
+            buttonRedDanio.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 10;
+                    opcionesBotonesSueltos(opciones,control);
+                }
+            });
+
+            buttonBonfATQ.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 11;
+                    opcionesBotonesSueltos(opciones,control);
+                }
+            });
+
+            buttonBonfDist.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 12;
+                    opcionesBotonesSueltos(opciones,control);
+                }
+            });
+
+            buttonFortaleza.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 13;
+                    opcionesBotonesSueltos(opciones,control);
+                }
+            });
+
+            buttonReflejos.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 14;
+                    opcionesBotonesSueltos(opciones,control);
+                }
+            });
+
+            buttonVoluntad.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 15;
+                    opcionesBotonesSueltos(opciones,control);
+                }
+            });
+
 
         }
 
         return view;
     }
 
-    public void opcionesBotonesSueltosVida(String[] opciones, final int control){
+    public void opcionesBotonesSueltos(String[] opciones, final int control){
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setItems(opciones, new DialogInterface.OnClickListener() {
@@ -366,6 +495,60 @@ public class StatsFragment extends Fragment {
                 break;
             case 6:
                 nombreButton = "Desprevenido";
+                buttonModificarSueltos.setText(nombreButton);
+                puntos = recuperarPuntoSuelto(control);
+                editTextPuntos.setText(puntos);
+                break;
+            case 7:
+                nombreButton = "ATQ";
+                buttonModificarSueltos.setText(nombreButton);
+                puntos = recuperarPuntoSuelto(control);
+                editTextPuntos.setText(puntos);
+                break;
+            case 8:
+                nombreButton = "PRESA";
+                buttonModificarSueltos.setText(nombreButton);
+                puntos = recuperarPuntoSuelto(control);
+                editTextPuntos.setText(puntos);
+                break;
+            case 9:
+                nombreButton = "R.CO.";
+                buttonModificarSueltos.setText(nombreButton);
+                puntos = recuperarPuntoSuelto(control);
+                editTextPuntos.setText(puntos);
+                break;
+            case 10:
+                nombreButton = "RED DAÑO";
+                buttonModificarSueltos.setText(nombreButton);
+                puntos = recuperarPuntoSuelto(control);
+                editTextPuntos.setText(puntos);
+                break;
+            case 11:
+                nombreButton = "B.ATQ";
+                buttonModificarSueltos.setText(nombreButton);
+                puntos = recuperarPuntoSuelto(control);
+                editTextPuntos.setText(puntos);
+                break;
+            case 12:
+                nombreButton = "BONF DIST";
+                buttonModificarSueltos.setText(nombreButton);
+                puntos = recuperarPuntoSuelto(control);
+                editTextPuntos.setText(puntos);
+                break;
+            case 13:
+                nombreButton = "FORTALEZA";
+                buttonModificarSueltos.setText(nombreButton);
+                puntos = recuperarPuntoSuelto(control);
+                editTextPuntos.setText(puntos);
+                break;
+            case 14:
+                nombreButton = "REFLEJOS";
+                buttonModificarSueltos.setText(nombreButton);
+                puntos = recuperarPuntoSuelto(control);
+                editTextPuntos.setText(puntos);
+                break;
+            case 15:
+                nombreButton = "VOLUNTAD";
                 buttonModificarSueltos.setText(nombreButton);
                 puntos = recuperarPuntoSuelto(control);
                 editTextPuntos.setText(puntos);
@@ -505,6 +688,141 @@ public class StatsFragment extends Fragment {
                     }
 
                     break;
+                case 7:
+                    Cursor g = db
+                            .rawQuery("SELECT _id, ataque FROM personaje WHERE controlAct='1'",null);
+
+                    if(g.moveToFirst()){
+
+                        do {
+                            aux_id     = g.getString(0);
+                            aux_ataque = g.getString(1);
+                            devolver = aux_ataque;
+
+                        }while (g.moveToNext());
+                    }
+
+                    break;
+                case 8:
+                    Cursor h = db
+                            .rawQuery("SELECT _id, presa FROM personaje WHERE controlAct='1'",null);
+
+                    if(h.moveToFirst()){
+
+                        do {
+                            aux_id    = h.getString(0);
+                            aux_presa = h.getString(1);
+                            devolver = aux_presa;
+
+                        }while (h.moveToNext());
+                    }
+
+                    break;
+                case 9:
+                    Cursor i = db
+                            .rawQuery("SELECT _id, resConjuros FROM personaje WHERE controlAct='1'",null);
+
+                    if(i.moveToFirst()){
+
+                        do {
+                            aux_id    = i.getString(0);
+                            aux_resConjuros = i.getString(1);
+                            devolver = aux_resConjuros;
+
+                        }while (i.moveToNext());
+                    }
+
+                    break;
+                case 10:
+                    Cursor j = db
+                            .rawQuery("SELECT _id, redDanio FROM personaje WHERE controlAct='1'",null);
+
+                    if(j.moveToFirst()){
+
+                        do {
+                            aux_id    = j.getString(0);
+                            aux_redDanio = j.getString(1);
+                            devolver = aux_redDanio;
+
+                        }while (j.moveToNext());
+                    }
+
+                    break;
+                case 11:
+                    Cursor k = db
+                            .rawQuery("SELECT _id, bonfAtaque FROM personaje WHERE controlAct='1'",null);
+
+                    if(k.moveToFirst()){
+
+                        do {
+                            aux_id    = k.getString(0);
+                            aux_bonfAtaque = k.getString(1);
+                            devolver = aux_bonfAtaque;
+
+                        }while (k.moveToNext());
+                    }
+
+                    break;
+                case 12:
+                    Cursor l = db
+                            .rawQuery("SELECT _id, bonfDistancia FROM personaje WHERE controlAct='1'",null);
+
+                    if(l.moveToFirst()){
+
+                        do {
+                            aux_id    = l.getString(0);
+                            aux_bonfDistancia = l.getString(1);
+                            devolver = aux_bonfDistancia;
+
+                        }while (l.moveToNext());
+                    }
+
+                    break;
+                case 13:
+                    Cursor m = db
+                            .rawQuery("SELECT _id, salvFortaleza FROM personaje WHERE controlAct='1'",null);
+
+                    if(m.moveToFirst()){
+
+                        do {
+                            aux_id    = m.getString(0);
+                            aux_salvFortaleza = m.getString(1);
+                            devolver = aux_salvFortaleza;
+
+                        }while (m.moveToNext());
+                    }
+
+                    break;
+                case 14:
+                    Cursor n = db
+                            .rawQuery("SELECT _id, salvReflejos FROM personaje WHERE controlAct='1'",null);
+
+                    if(n.moveToFirst()){
+
+                        do {
+                            aux_id    = n.getString(0);
+                            aux_salvReflejos = n.getString(1);
+                            devolver = aux_salvReflejos;
+
+                        }while (n.moveToNext());
+                    }
+
+                    break;
+                case 15:
+                    Cursor o = db
+                            .rawQuery("SELECT _id, salvVoluntad FROM personaje WHERE controlAct='1'",null);
+
+                    if(o.moveToFirst()){
+
+                        do {
+                            aux_id    = o.getString(0);
+                            aux_salvVoluntad = o.getString(1);
+                            devolver = aux_salvVoluntad;
+
+                        }while (o.moveToNext());
+                    }
+
+                    break;
             }
 
         }catch (Exception e){
@@ -540,25 +858,47 @@ public class StatsFragment extends Fragment {
                 case 1:
                     values.put("pg",puntuacion);
                     break;
-
                 case 2:
                     values.put("velocidad",puntuacion);
                     break;
-
                 case 3:
                     values.put("ca",puntuacion);
                     break;
-
                 case 4:
                     values.put("toque",puntuacion);
                     break;
-
                 case 5:
                     values.put("iniciativa",puntuacion);
                     break;
-
                 case 6:
                     values.put("desprevenido",puntuacion);
+                    break;
+                case 7:
+                    values.put("ataque",puntuacion);
+                    break;
+                case 8:
+                    values.put("presa",puntuacion);
+                    break;
+                case 9:
+                    values.put("resConjuros",puntuacion);
+                    break;
+                case 10:
+                    values.put("redDanio",puntuacion);
+                    break;
+                case 11:
+                    values.put("bonfAtaque",puntuacion);
+                    break;
+                case 12:
+                    values.put("bonfDistancia",puntuacion);
+                    break;
+                case 13:
+                    values.put("salvFortaleza",puntuacion);
+                    break;
+                case 14:
+                    values.put("salvReflejos",puntuacion);
+                    break;
+                case 15:
+                    values.put("salvVoluntad",puntuacion);
                     break;
             }
 
@@ -618,6 +958,33 @@ public class StatsFragment extends Fragment {
                 case 6:
                     values.put("desprevenido","0");
                     break;
+                case 7:
+                    values.put("ataque","0");
+                    break;
+                case 8:
+                    values.put("presa","0");
+                    break;
+                case 9:
+                    values.put("resConjuros","0");
+                    break;
+                case 10:
+                    values.put("redDanio","0");
+                    break;
+                case 11:
+                    values.put("bonfAtaque","0");
+                    break;
+                case 12:
+                    values.put("bonfDistancia","0");
+                    break;
+                case 13:
+                    values.put("salvFortaleza","0");
+                    break;
+                case 14:
+                    values.put("salvReflejos","0");
+                    break;
+                case 15:
+                    values.put("salvVoluntad","0");
+                    break;
             }
 
             db.update("personaje", values, "_id='" + aux_id + "'", null);
@@ -651,40 +1018,49 @@ public class StatsFragment extends Fragment {
             if(c.moveToFirst()){
                 do{
 
-                    aux_id           = c.getString(0);
-                    aux_nombre       = c.getString(1);
-                    aux_clase        = c.getString(2);
-                    aux_nivel        = c.getString(3);
-                    aux_raza         = c.getString(4);
-                    aux_alineamiento = c.getString(5);
-                    aux_deidad       = c.getString(6);
-                    aux_tamaño       = c.getString(7);
-                    aux_sexo         = c.getString(8);
-                    aux_experiencia  = c.getString(9);
-                    aux_low          = c.getString(10);
-                    aux_high         = c.getString(11);
-                    aux_campaña      = c.getString(12);
-                    aux_controlAct   = c.getString(13);
-                    aux_fza          = c.getString(14);
-                    aux_des          = c.getString(15);
-                    aux_con          = c.getString(16);
-                    aux_int          = c.getString(17);
-                    aux_sab          = c.getString(18);
-                    aux_car          = c.getString(19);
-                    aux_mod_fza      = c.getString(20);
-                    aux_mod_des      = c.getString(21);
-                    aux_mod_con      = c.getString(22);
-                    aux_mod_int      = c.getString(23);
-                    aux_mod_sab      = c.getString(24);
-                    aux_mod_car      = c.getString(25);
-                    aux_pts_hab      = c.getString(26);
-                    aux_pg           = c.getString(27);
-                    aux_velocidad    = c.getString(28);
-                    aux_heridas      = c.getString(29);
-                    aux_ca           = c.getString(30);
-                    aux_toque        = c.getString(31);
-                    aux_iniciativa   = c.getString(32);
-                    aux_desprevenido = c.getString(33);
+                    aux_id            = c.getString(0);
+                    aux_nombre        = c.getString(1);
+                    aux_clase         = c.getString(2);
+                    aux_nivel         = c.getString(3);
+                    aux_raza          = c.getString(4);
+                    aux_alineamiento  = c.getString(5);
+                    aux_deidad        = c.getString(6);
+                    aux_tamaño        = c.getString(7);
+                    aux_sexo          = c.getString(8);
+                    aux_experiencia   = c.getString(9);
+                    aux_low           = c.getString(10);
+                    aux_high          = c.getString(11);
+                    aux_campaña       = c.getString(12);
+                    aux_controlAct    = c.getString(13);
+                    aux_fza           = c.getString(14);
+                    aux_des           = c.getString(15);
+                    aux_con           = c.getString(16);
+                    aux_int           = c.getString(17);
+                    aux_sab           = c.getString(18);
+                    aux_car           = c.getString(19);
+                    aux_mod_fza       = c.getString(20);
+                    aux_mod_des       = c.getString(21);
+                    aux_mod_con       = c.getString(22);
+                    aux_mod_int       = c.getString(23);
+                    aux_mod_sab       = c.getString(24);
+                    aux_mod_car       = c.getString(25);
+                    aux_pts_hab       = c.getString(26);
+                    aux_pg            = c.getString(27);
+                    aux_velocidad     = c.getString(28);
+                    aux_heridas       = c.getString(29);
+                    aux_ca            = c.getString(30);
+                    aux_toque         = c.getString(31);
+                    aux_iniciativa    = c.getString(32);
+                    aux_desprevenido  = c.getString(33);
+                    aux_ataque        = c.getString(34);
+                    aux_presa         = c.getString(35);
+                    aux_resConjuros   = c.getString(36);
+                    aux_redDanio      = c.getString(37);
+                    aux_bonfAtaque    = c.getString(38);
+                    aux_bonfDistancia = c.getString(39);
+                    aux_salvFortaleza = c.getString(40);
+                    aux_salvReflejos  = c.getString(41);
+                    aux_salvVoluntad  = c.getString(42);
 
 
                 }while (c.moveToNext());
@@ -721,6 +1097,16 @@ public class StatsFragment extends Fragment {
                 tvToque.setText(aux_toque);
                 tvIniciativa.setText(aux_iniciativa);
                 tvDesprevenido.setText(aux_desprevenido);
+
+                tvAtaque.setText(aux_ataque);
+                tvPresa.setText(aux_presa);
+                tvResConjuros.setText(aux_resConjuros);
+                tvRedDanio.setText(aux_redDanio);
+                tvBonfAtaque.setText(aux_bonfAtaque);
+                tvBonfDist.setText(aux_bonfDistancia);
+                tvSalvFortaleza.setText(aux_salvFortaleza);
+                tvSalvReflejos.setText(aux_salvReflejos);
+                tvSalvVoluntad.setText(aux_salvVoluntad);
 
 
                 //Refrescar la progressBar
@@ -1011,6 +1397,52 @@ public class StatsFragment extends Fragment {
     }
 
     /**
+     * Dialog de opciones para el FAB de ataque.
+     *
+     * @param opciones
+     */
+
+    public void fabAtaqueOpciones(String[] opciones){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setItems(opciones, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int position) {
+                if(position == 0){
+                    fabAtaqueNuevo("  Nuevos stats");
+
+                } else if(position == 1){
+                    fabAtaqueBorrar(" Reiniciar stats", "¿Desea reiniciar todos los stats?");
+                }
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
+
+    private void fabSalvacionOpciones(String[] opciones){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setItems(opciones, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int position) {
+                if(position == 0){
+                    fabSalvacionNuevo("  Nuevos stats");
+
+                } else if(position == 1){
+                    fabSalvacionBorrar(" Reiniciar stats", "¿Desea reiniciar todos los stats?");
+                }
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
+
+    /**
      * Método que reinicia a 0 todos los stats
      *
      * @param title
@@ -1198,7 +1630,7 @@ public class StatsFragment extends Fragment {
                     db = dbHelper.getReadableDatabase();
 
                     Cursor c = db
-                            .rawQuery("SELECT _id, pg, velocidad, heridas, ca, toque, iniciativa, desprevenido FROM personaje WHERE controlAct='1'", null);
+                            .rawQuery("SELECT _id FROM personaje WHERE controlAct='1'", null);
 
                     if (c.moveToFirst()) {
 
@@ -1240,6 +1672,310 @@ public class StatsFragment extends Fragment {
         dialog.show();
 
     }
+
+    /**
+     * Método del FAB de ataque (nuevo)
+     *
+     * @param title
+     */
+
+    private void fabAtaqueNuevo(String title){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setCancelable(true);
+
+        View viewInflated = LayoutInflater.from(getContext()).inflate(R.layout.dialog_fab_ataque, null);
+        builder.setView(viewInflated);
+
+        final TextView textViewTitleDialog   = viewInflated.findViewById(R.id.tvDialogFabAtaqueTitle);
+        final EditText editTextATQ           = viewInflated.findViewById(R.id.editTextATQ);
+        final EditText editTextPresa         = viewInflated.findViewById(R.id.editTextPresa);
+        final EditText editTextResConj       = viewInflated.findViewById(R.id.editTextResConj);
+        final EditText editTextRedDanio      = viewInflated.findViewById(R.id.editTextRedDaño);
+        final EditText editTextBonfAtaque    = viewInflated.findViewById(R.id.editTextBonfAtaque);
+        final EditText editTextBonfDistancia = viewInflated.findViewById(R.id.editTextBonfDistancia);
+
+        textViewTitleDialog.setText(title);
+        builder.setCancelable(true);
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                String atq = editTextATQ.getText().toString();
+                String presa = editTextPresa.getText().toString();
+                String resConj = editTextResConj.getText().toString();
+                String redDanio = editTextRedDanio.getText().toString();
+                String bonfAtq = editTextBonfAtaque.getText().toString();
+                String bonfDist = editTextBonfDistancia.getText().toString();
+
+                try{
+
+                    dbHelper = new DBHelper(getActivity());
+                    db       = dbHelper.getReadableDatabase();
+
+                    Cursor c = db
+                            .rawQuery("SELECT _id FROM personaje WHERE controlAct='1'",null);
+
+                    if(c.moveToFirst()){
+
+                        do{
+
+                            aux_id = c.getString(0);
+
+                        }while (c.moveToNext());
+
+                        ContentValues values = new ContentValues();
+                        values.put("ataque", atq);
+                        values.put("presa", presa);
+                        values.put("resConjuros", resConj);
+                        values.put("redDanio", redDanio);
+                        values.put("bonfAtaque", bonfAtq);
+                        values.put("bonfDistancia", bonfDist);
+                        db.update("personaje", values,"_id='" + aux_id + "'",null);
+                        recuperarEstadisticasPJ();
+                    }
+
+                    getActivity().recreate();
+
+                }catch (Exception e){
+                    Log.e("Error","Error: "+e.getMessage());
+                }finally {
+                    db.close();
+                }
+
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
+
+    /**
+     * Método del FAB de ataque (borrar)
+     *
+     * @param title
+     */
+
+    private void fabAtaqueBorrar(String title, String message){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+        if(title !=null){
+            builder.setTitle(title);
+        }
+
+        if(message !=null){
+            builder.setMessage(message);
+        }
+
+        builder.setCancelable(true);
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                try {
+                    dbHelper = new DBHelper(getActivity());
+                    db = dbHelper.getReadableDatabase();
+
+                    Cursor c = db
+                            .rawQuery("SELECT _id FROM personaje WHERE controlAct='1'", null);
+
+                    if (c.moveToFirst()) {
+
+                        do {
+
+                            aux_id = c.getString(0);
+
+                            ContentValues values = new ContentValues();
+                            values.put("ataque", "0");
+                            values.put("presa", "0");
+                            values.put("resConjuros", "0");
+                            values.put("redDanio", "0");
+                            values.put("bonfAtaque", "0");
+                            values.put("bonfDistancia", "0");
+                            db.update("personaje", values, "_id='" + aux_id + "'", null);
+                            recuperarEstadisticasPJ();
+
+                        } while (c.moveToNext());
+                        getActivity().recreate();
+                    }
+                } catch (Exception e) {
+                    Log.e("Error", "Error: " + e.getMessage());
+                } finally {
+                    db.close();
+                }
+
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
+
+    /**
+     * Método del FAB de salvación (nuevo)
+     *
+     * @param title
+     */
+
+    private void fabSalvacionNuevo(String title){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setCancelable(true);
+
+        View viewInflated = LayoutInflater.from(getContext()).inflate(R.layout.dialog_fab_salvacion, null);
+        builder.setView(viewInflated);
+
+        final TextView textViewTitleDialog   = viewInflated.findViewById(R.id.tvDialogFabSalvacionTitle);
+        final EditText editTextFortaleza     = viewInflated.findViewById(R.id.editTextFortaleza);
+        final EditText editTextReflejos      = viewInflated.findViewById(R.id.editTextReflejos);
+        final EditText editTextVoluntad      = viewInflated.findViewById(R.id.editTextVoluntad);
+
+        textViewTitleDialog.setText(title);
+        builder.setCancelable(true);
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                String fort = editTextFortaleza.getText().toString();
+                String refl = editTextReflejos.getText().toString();
+                String volu = editTextVoluntad.getText().toString();
+
+                try{
+
+                    dbHelper = new DBHelper(getActivity());
+                    db       = dbHelper.getReadableDatabase();
+
+                    Cursor c = db
+                            .rawQuery("SELECT _id FROM personaje WHERE controlAct='1'",null);
+
+                    if(c.moveToFirst()){
+
+                        do{
+
+                            aux_id = c.getString(0);
+
+                        }while (c.moveToNext());
+
+                        ContentValues values = new ContentValues();
+                        values.put("salvFortaleza", fort);
+                        values.put("salvReflejos", refl);
+                        values.put("salvVoluntad", volu);
+                        db.update("personaje", values,"_id='" + aux_id + "'",null);
+                        recuperarEstadisticasPJ();
+                    }
+
+                    getActivity().recreate();
+
+                }catch (Exception e){
+                    Log.e("Error","Error: "+e.getMessage());
+                }finally {
+                    db.close();
+                }
+
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    /**
+     * Método del FAB de salvación (borrar)
+     *
+     * @param title
+     */
+
+    private void fabSalvacionBorrar(String title, String message){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+        if(title !=null){
+            builder.setTitle(title);
+        }
+
+        if(message !=null){
+            builder.setMessage(message);
+        }
+
+        builder.setCancelable(true);
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                try{
+
+                    dbHelper = new DBHelper(getActivity());
+                    db       = dbHelper.getReadableDatabase();
+
+                    Cursor c = db
+                            .rawQuery("SELECT _id FROM personaje WHERE controlAct='1'",null);
+
+                    if(c.moveToFirst()){
+
+                        do{
+
+                            aux_id = c.getString(0);
+
+                        }while (c.moveToNext());
+
+                        ContentValues values = new ContentValues();
+                        values.put("salvFortaleza", "0");
+                        values.put("salvReflejos", "0");
+                        values.put("salvVoluntad", "0");
+                        db.update("personaje", values,"_id='" + aux_id + "'",null);
+                        recuperarEstadisticasPJ();
+                    }
+
+                    getActivity().recreate();
+
+                }catch (Exception e){
+                    Log.e("Error","Error: "+e.getMessage());
+                }finally {
+                    db.close();
+                }
+
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
+
 
     /**
      * Diálogo de opciones para el boton heridas

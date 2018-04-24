@@ -330,7 +330,8 @@ public class PJFragment extends ListFragment {
         Personaje personaje = new Personaje(nombre, clase, nivel, raza, alineamiento, deidad, tamaño,
                 sexo, exp, low, high, campaña, "0", "0","0","0","0",
                 "0","0","0","0","0","0", "0","0","0",
-                "0", "0", "", "0", "0", "0", "0");
+                "0", "0", "", "0", "0", "0", "0", "0", "0",
+                "0", "0", "0", "0", "0", "0", "0");
 
         dbHelper.addPersonaje(personaje);
     }

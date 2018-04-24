@@ -40,6 +40,15 @@ public class Personaje {
     private String _toque;
     private String _iniciativa;
     private String _desprevenido;
+    private String _ataque;
+    private String _presa;
+    private String _resConjuros;
+    private String _redDanio;
+    private String _bonfAtaque;
+    private String _bonfDistancia;
+    private String _salvFortaleza;
+    private String _salvReflejos;
+    private String _salvVoluntad;
 
 
     public Personaje(){
@@ -53,7 +62,9 @@ public class Personaje {
                      String _puntSAB, String _puntCAR, String _modFZA, String _modDES,
                      String _modCON, String _modINT, String _modSAB, String _modCAR, String _ptsHab,
                      String _pg, String _velocidad, String _heridas, String _ca, String _toque,
-                     String _iniciativa, String _desprevenido){
+                     String _iniciativa, String _desprevenido, String _ataque, String _presa, String _resConjuros,
+                     String _redDanio, String _bonfAtaque, String _bonfDistancia, String _salvFortaleza, String _salvReflejos,
+                     String _salvVoluntad){
 
         this._nombrePj         = _nombrePj;
         this._clasePj          = _clasePj;
@@ -88,6 +99,15 @@ public class Personaje {
         this._toque            = _toque;
         this._iniciativa       = _iniciativa;
         this._desprevenido     = _desprevenido;
+        this._ataque           = _ataque;
+        this._presa            = _presa;
+        this._resConjuros      = _resConjuros;
+        this._redDanio         = _redDanio;
+        this._bonfAtaque       = _bonfAtaque;
+        this._bonfDistancia    = _bonfDistancia;
+        this._salvFortaleza    = _salvFortaleza;
+        this._salvReflejos     = _salvReflejos;
+        this._salvVoluntad     = _salvVoluntad;
 
     }
 
@@ -361,5 +381,77 @@ public class Personaje {
 
     public void set_desprevenido(String _desprevenido) {
         this._desprevenido = _desprevenido;
+    }
+
+    public String get_ataque() {
+        return _ataque;
+    }
+
+    public void set_ataque(String _ataque) {
+        this._ataque = _ataque;
+    }
+
+    public String get_presa() {
+        return _presa;
+    }
+
+    public void set_presa(String _presa) {
+        this._presa = _presa;
+    }
+
+    public String get_resConjuros() {
+        return _resConjuros;
+    }
+
+    public void set_resConjuros(String _resConjuros) {
+        this._resConjuros = _resConjuros;
+    }
+
+    public String get_redDanio() {
+        return _redDanio;
+    }
+
+    public void set_redDanio(String _redDanio) {
+        this._redDanio = _redDanio;
+    }
+
+    public String get_bonfAtaque() {
+        return _bonfAtaque;
+    }
+
+    public void set_bonfAtaque(String _bonfAtaque) {
+        this._bonfAtaque = _bonfAtaque;
+    }
+
+    public String get_bonfDistancia() {
+        return _bonfDistancia;
+    }
+
+    public void set_bonfDistancia(String _bonfDistancia) {
+        this._bonfDistancia = _bonfDistancia;
+    }
+
+    public String get_salvFortaleza() {
+        return _salvFortaleza;
+    }
+
+    public void set_salvFortaleza(String _salvFortaleza) {
+        this._salvFortaleza = _salvFortaleza;
+    }
+
+    public String get_salvReflejos() {
+        return _salvReflejos;
+    }
+
+    public void set_salvReflejos(String _salvReflejos) {
+        this._salvReflejos = _salvReflejos;
+    }
+
+    public String get_salvVoluntad() {
+        return _salvVoluntad;
+    }
+
+    public void set_salvVoluntad(String _salvVoluntad) {
+        this._salvVoluntad = _salvVoluntad;
     }
 }

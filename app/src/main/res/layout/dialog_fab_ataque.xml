@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.n3twork.ddcharacters.Fragments.StatsFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvDialogFabAtaqueTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimaryText"
+            android:textStyle="bold"
+            android:background="@color/colorAccent" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="10dp">
+
+            <LinearLayout
+                android:id="@+id/linearPG1"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="Atq"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:layout_weight="1.5"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextATQ"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:inputType="number"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="PRESA"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:layout_weight="2.0"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextPresa"
+                    android:layout_width="0dp"
+                    android:layout_weight="1.0"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_gravity="center|bottom"
+                    android:text=""
+                    android:inputType="number"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/linearPG3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="R.CO."
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextResConj"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:inputType="number"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="RED DAÑO"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextRedDaño"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:inputType="number"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/linearPG5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="B.ATQ"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextBonfAtaque"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text=""
+                    android:inputType="number"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="BONF DIST"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextBonfDistancia"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:inputType="number"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
