@@ -132,55 +132,55 @@ public class SkillsFragment extends Fragment {
             db = dbHelper.getWritableDatabase();
 
             // Son 46 checkbox
-            checkCerradura       = view.findViewById(R.id.checkCerradura);
-            checkArte            = view.findViewById(R.id.checkArte);
-            checkIntenciones     = view.findViewById(R.id.checkIntenciones);
-            checkAvistar         = view.findViewById(R.id.checkAvistar);
-            checkBuscar          = view.findViewById(R.id.checkBuscar);
-            checkConcentracion   = view.findViewById(R.id.checkConcentracion);
-            checkConjuros        = view.findViewById(R.id.checkConjuros);
-            checkDesfEscritura   = view.findViewById(R.id.checkDesfEscritura);
-            checkDiplomacia      = view.findViewById(R.id.checkDiplomacia);
-            checkDisfraz         = view.findViewById(R.id.checkDisfraz);
-            checkEngañar         = view.findViewById(R.id.checkEngañar);
-            checkEquilibrio      = view.findViewById(R.id.checkEquilibrio);
-            checkEscapismo       = view.findViewById(R.id.checkEscapismo);
-            checkEsconderse      = view.findViewById(R.id.checkEsconderse);
-            checkEscuchar        = view.findViewById(R.id.checkEscuchar);
-            checkFalsificar      = view.findViewById(R.id.checkFalsificar);
-            checkInterpretar1    = view.findViewById(R.id.checkInterpretar1);
-            checkInterpretar2    = view.findViewById(R.id.checkInterpretar2);
-            checkInterpretar3    = view.findViewById(R.id.checkInterpretar3);
-            checkIntimidar       = view.findViewById(R.id.checkIntimidar);
-            checkInutilizarMeq   = view.findViewById(R.id.checkInutilizarMeq);
-            checkJuegoManos      = view.findViewById(R.id.checkJuegoManos);
-            checkMontar          = view.findViewById(R.id.checkMontar);
-            checkSigilo          = view.findViewById(R.id.checkSigilo);
-            checkNadar           = view.findViewById(R.id.checkNadar);
-            checkOficio          = view.findViewById(R.id.checkOficio);
-            checkPiruetas        = view.findViewById(R.id.checkPiruetas);
-            checkReunirInfo      = view.findViewById(R.id.checkReunirInfo);
-            checkSaberArcano     = view.findViewById(R.id.checkSaberArcano);
-            checkSaberIng        = view.findViewById(R.id.checkSaberIng);
-            checkSaberDung       = view.findViewById(R.id.checkSaberDung);
-            checkSaberGeo        = view.findViewById(R.id.checkSaberGeo);
-            checkSaberHistoria   = view.findViewById(R.id.checkSaberHistoria);
-            checkSaberLocal      = view.findViewById(R.id.checkSaberLocal);
-            checkSaberPlanos     = view.findViewById(R.id.checkSaberPlanos);
-            checkSaberNat        = view.findViewById(R.id.checkSaberNat);
-            checkSaberNobleza    = view.findViewById(R.id.checkSaberNobleza);
-            checkSaberReligion   = view.findViewById(R.id.checkSaberReligion);
-            checkSaltar          = view.findViewById(R.id.checkSaltar);
-            checkSanar           = view.findViewById(R.id.checkSanar);
-            checkSuperv          = view.findViewById(R.id.checkSuperv);
-            checkTasacion        = view.findViewById(R.id.checkTasacion);
-            checkAnimales        = view.findViewById(R.id.checkAnimales);
-            checkTrepar          = view.findViewById(R.id.checkTrepar);
-            checkObjMagico       = view.findViewById(R.id.checkObjMagico);
-            checkCuerdas         = view.findViewById(R.id.checkCuerdas);
-            imgBtnRefreshSkills  = view.findViewById(R.id.imgBtnRefreshSkills);
-            buttonPH             = view.findViewById(R.id.buttonPH);
-            textViewPH           = view.findViewById(R.id.textViewPH);
+            checkCerradura         = view.findViewById(R.id.checkCerradura);
+            checkArte              = view.findViewById(R.id.checkArte);
+            checkIntenciones       = view.findViewById(R.id.checkIntenciones);
+            checkAvistar           = view.findViewById(R.id.checkAvistar);
+            checkBuscar            = view.findViewById(R.id.checkBuscar);
+            checkConcentracion     = view.findViewById(R.id.checkConcentracion);
+            checkConjuros          = view.findViewById(R.id.checkConjuros);
+            checkDesfEscritura     = view.findViewById(R.id.checkDesfEscritura);
+            checkDiplomacia        = view.findViewById(R.id.checkDiplomacia);
+            checkDisfraz           = view.findViewById(R.id.checkDisfraz);
+            checkEngañar           = view.findViewById(R.id.checkEngañar);
+            checkEquilibrio        = view.findViewById(R.id.checkEquilibrio);
+            checkEscapismo         = view.findViewById(R.id.checkEscapismo);
+            checkEsconderse        = view.findViewById(R.id.checkEsconderse);
+            checkEscuchar          = view.findViewById(R.id.checkEscuchar);
+            checkFalsificar        = view.findViewById(R.id.checkFalsificar);
+            checkInterpretar1      = view.findViewById(R.id.checkInterpretar1);
+            checkInterpretar2      = view.findViewById(R.id.checkInterpretar2);
+            checkInterpretar3      = view.findViewById(R.id.checkInterpretar3);
+            checkIntimidar         = view.findViewById(R.id.checkIntimidar);
+            checkInutilizarMeq     = view.findViewById(R.id.checkInutilizarMeq);
+            checkJuegoManos        = view.findViewById(R.id.checkJuegoManos);
+            checkMontar            = view.findViewById(R.id.checkMontar);
+            checkSigilo            = view.findViewById(R.id.checkSigilo);
+            checkNadar             = view.findViewById(R.id.checkNadar);
+            checkOficio            = view.findViewById(R.id.checkOficio);
+            checkPiruetas          = view.findViewById(R.id.checkPiruetas);
+            checkReunirInfo        = view.findViewById(R.id.checkReunirInfo);
+            checkSaberArcano       = view.findViewById(R.id.checkSaberArcano);
+            checkSaberIng          = view.findViewById(R.id.checkSaberIng);
+            checkSaberDung         = view.findViewById(R.id.checkSaberDung);
+            checkSaberGeo          = view.findViewById(R.id.checkSaberGeo);
+            checkSaberHistoria     = view.findViewById(R.id.checkSaberHistoria);
+            checkSaberLocal        = view.findViewById(R.id.checkSaberLocal);
+            checkSaberPlanos       = view.findViewById(R.id.checkSaberPlanos);
+            checkSaberNat          = view.findViewById(R.id.checkSaberNat);
+            checkSaberNobleza      = view.findViewById(R.id.checkSaberNobleza);
+            checkSaberReligion     = view.findViewById(R.id.checkSaberReligion);
+            checkSaltar            = view.findViewById(R.id.checkSaltar);
+            checkSanar             = view.findViewById(R.id.checkSanar);
+            checkSuperv            = view.findViewById(R.id.checkSuperv);
+            checkTasacion          = view.findViewById(R.id.checkTasacion);
+            checkAnimales          = view.findViewById(R.id.checkAnimales);
+            checkTrepar            = view.findViewById(R.id.checkTrepar);
+            checkObjMagico         = view.findViewById(R.id.checkObjMagico);
+            checkCuerdas           = view.findViewById(R.id.checkCuerdas);
+            imgBtnRefreshSkills    = view.findViewById(R.id.imgBtnRefreshSkills);
+            buttonPH               = view.findViewById(R.id.buttonPH);
+            textViewPH             = view.findViewById(R.id.textViewPH);
 
             //Acá hago el refresco inicial de la pantalla.
             recuperarTodosSkills();
@@ -206,6 +206,7 @@ public class SkillsFragment extends Fragment {
 
                 }
             });
+
 
         }
 

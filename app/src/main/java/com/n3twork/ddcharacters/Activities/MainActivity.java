@@ -5,8 +5,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.n3twork.ddcharacters.Fragments.PJFragment;
 import com.n3twork.ddcharacters.Fragments.SkillsFragment;
@@ -103,6 +106,24 @@ public class MainActivity extends AppCompatActivity{
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
+
+    }
+
+    public void modificarModHabilidad(View v){
+
+        TextView textViewRecuperar;
+        String valorRecuperado= "";
+
+        switch (v.getId()){
+
+            case R.id.textViewValorCerradura:
+
+                textViewRecuperar = findViewById(R.id.textViewValorCerradura);
+                valorRecuperado = textViewRecuperar.getText().toString();
+                break;
+            default:
+                Toast.makeText(getApplicationContext(),"No funciona", Toast.LENGTH_SHORT).show();
+        }
 
     }
 }
