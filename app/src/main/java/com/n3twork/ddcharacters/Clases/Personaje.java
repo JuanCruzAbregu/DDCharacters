@@ -95,6 +95,9 @@ public class Personaje {
     private String _trepar;
     private String _objMagico;
     private String _cuerdas;
+    private String _cerraduraCarac;
+    private String _cerraduraRango;
+    private String _cerraduraVarios;
 
     public Personaje(){
 
@@ -117,96 +120,99 @@ public class Personaje {
                      String _arcano, String _arquitectura, String _dungeons, String _geografia, String _historia, String _local,
                      String _planos, String _naturaleza, String _nobleza, String _religion, String _saltar,
                      String _sanar, String _supervivencia, String _tasacion, String _animales, String _trepar,
-                     String _objMagico, String _cuerdas){
+                     String _objMagico, String _cuerdas, String _cerraduraCarac, String _cerraduraRango, String _cerraduraVarios){
 
-        this._nombrePj       = _nombrePj;
-        this._clasePj        = _clasePj;
-        this._nivelPj        = _nivelPj;
-        this._razaPj         = _razaPj;
-        this._alineamientoPj = _alineamientoPj;
-        this._deidadPj       = _deidadPj;
-        this._tamanioPj      = _tamanioPj;
-        this._sexoPj         = _sexoPj;
-        this._expPj          = _expPj;
-        this._expLow         = _expLow;
-        this._expHigh        = _expHigh;
-        this._campaniaPj     = _campaniaPj;
-        this._controlAct     = _controlAct;
-        this._puntFZA        = _puntFZA;
-        this._puntDES        = _puntDES;
-        this._puntCON        = _puntCON;
-        this._puntINT        = _puntINT;
-        this._puntSAB        = _puntSAB;
-        this._puntCAR        = _puntCAR;
-        this._modFZA         = _modFZA;
-        this._modDES         = _modDES;
-        this._modCON         = _modCON;
-        this._modINT         = _modINT;
-        this._modSAB         = _modSAB;
-        this._modCAR         = _modCAR;
-        this._ptsHab         = _ptsHab;
-        this._pg             = _pg;
-        this._velocidad      = _velocidad;
-        this._heridas        = _heridas;
-        this._ca             = _ca;
-        this._toque          = _toque;
-        this._iniciativa     = _iniciativa;
-        this._desprevenido   = _desprevenido;
-        this._ataque         = _ataque;
-        this._presa          = _presa;
-        this._resConjuros    = _resConjuros;
-        this._redDanio       = _redDanio;
-        this._bonfAtaque     = _bonfAtaque;
-        this._bonfDistancia  = _bonfDistancia;
-        this._salvFortaleza  = _salvFortaleza;
-        this._salvReflejos   = _salvReflejos;
-        this._salvVoluntad   = _salvVoluntad;
-        this._cerradura      = _cerradura;
-        this._arte           = _salvVoluntad;
-        this._intenciones    = _intenciones;
-        this._avistar        = _avistar;
-        this._buscar         = _buscar;
-        this._concentracion  = _concentracion;
-        this._concConjuros   = _concConjuros;
-        this._escritura      = _escritura;
-        this._diplomacia     = _diplomacia;
-        this._disfrazarse    = _disfrazarse;
-        this._enganiar       = _enganiar;
-        this._equilibrio     = _equilibrio;
-        this._escapismo      = _escapismo;
-        this._esconderse     = _esconderse;
-        this._escuchar       = _escuchar;
-        this._falsificar     = _falsificar;
-        this._interpretar1   = _interpretar1;
-        this._interpretar2   = _interpretar2;
-        this._interpretar3   = _interpretar3;
-        this._intimidar      = _intimidar;
-        this._mecanismo      = _mecanismo;
-        this._manos          = _manos;
-        this._montar         = _montar;
-        this._sigilo         = _sigilo;
-        this._nadar          = _nadar;
-        this._oficio         = _oficio;
-        this._piruetas       = _piruetas;
-        this._info           = _info;
-        this._arcano         = _arcano;
-        this._arquitectura   = _arquitectura;
-        this._dungeons       = _dungeons;
-        this._geografia      = _geografia;
-        this._historia       = _historia;
-        this._local          = _local;
-        this._planos         = _planos;
-        this._naturaleza     = _naturaleza;
-        this._nobleza        = _nobleza;
-        this._religion       = _religion;
-        this._saltar         = _saltar;
-        this._sanar          = _sanar;
-        this._supervivencia  = _supervivencia;
-        this._tasacion       = _tasacion;
-        this._animales       = _animales;
-        this._trepar         = _trepar;
-        this._objMagico      = _objMagico;
-        this._cuerdas        = _cuerdas;
+        this._nombrePj        = _nombrePj;
+        this._clasePj         = _clasePj;
+        this._nivelPj         = _nivelPj;
+        this._razaPj          = _razaPj;
+        this._alineamientoPj  = _alineamientoPj;
+        this._deidadPj        = _deidadPj;
+        this._tamanioPj       = _tamanioPj;
+        this._sexoPj          = _sexoPj;
+        this._expPj           = _expPj;
+        this._expLow          = _expLow;
+        this._expHigh         = _expHigh;
+        this._campaniaPj      = _campaniaPj;
+        this._controlAct      = _controlAct;
+        this._puntFZA         = _puntFZA;
+        this._puntDES         = _puntDES;
+        this._puntCON         = _puntCON;
+        this._puntINT         = _puntINT;
+        this._puntSAB         = _puntSAB;
+        this._puntCAR         = _puntCAR;
+        this._modFZA          = _modFZA;
+        this._modDES          = _modDES;
+        this._modCON          = _modCON;
+        this._modINT          = _modINT;
+        this._modSAB          = _modSAB;
+        this._modCAR          = _modCAR;
+        this._ptsHab          = _ptsHab;
+        this._pg              = _pg;
+        this._velocidad       = _velocidad;
+        this._heridas         = _heridas;
+        this._ca              = _ca;
+        this._toque           = _toque;
+        this._iniciativa      = _iniciativa;
+        this._desprevenido    = _desprevenido;
+        this._ataque          = _ataque;
+        this._presa           = _presa;
+        this._resConjuros     = _resConjuros;
+        this._redDanio        = _redDanio;
+        this._bonfAtaque      = _bonfAtaque;
+        this._bonfDistancia   = _bonfDistancia;
+        this._salvFortaleza   = _salvFortaleza;
+        this._salvReflejos    = _salvReflejos;
+        this._salvVoluntad    = _salvVoluntad;
+        this._cerradura       = _cerradura;
+        this._arte            = _salvVoluntad;
+        this._intenciones     = _intenciones;
+        this._avistar         = _avistar;
+        this._buscar          = _buscar;
+        this._concentracion   = _concentracion;
+        this._concConjuros    = _concConjuros;
+        this._escritura       = _escritura;
+        this._diplomacia      = _diplomacia;
+        this._disfrazarse     = _disfrazarse;
+        this._enganiar        = _enganiar;
+        this._equilibrio      = _equilibrio;
+        this._escapismo       = _escapismo;
+        this._esconderse      = _esconderse;
+        this._escuchar        = _escuchar;
+        this._falsificar      = _falsificar;
+        this._interpretar1    = _interpretar1;
+        this._interpretar2    = _interpretar2;
+        this._interpretar3    = _interpretar3;
+        this._intimidar       = _intimidar;
+        this._mecanismo       = _mecanismo;
+        this._manos           = _manos;
+        this._montar          = _montar;
+        this._sigilo          = _sigilo;
+        this._nadar           = _nadar;
+        this._oficio          = _oficio;
+        this._piruetas        = _piruetas;
+        this._info            = _info;
+        this._arcano          = _arcano;
+        this._arquitectura    = _arquitectura;
+        this._dungeons        = _dungeons;
+        this._geografia       = _geografia;
+        this._historia        = _historia;
+        this._local           = _local;
+        this._planos          = _planos;
+        this._naturaleza      = _naturaleza;
+        this._nobleza         = _nobleza;
+        this._religion        = _religion;
+        this._saltar          = _saltar;
+        this._sanar           = _sanar;
+        this._supervivencia   = _supervivencia;
+        this._tasacion        = _tasacion;
+        this._animales        = _animales;
+        this._trepar          = _trepar;
+        this._objMagico       = _objMagico;
+        this._cuerdas         = _cuerdas;
+        this._cerraduraCarac  = _cerraduraCarac;
+        this._cerraduraRango  = _cerraduraRango;
+        this._cerraduraVarios = _cerraduraVarios;
 
     }
 
@@ -920,5 +926,29 @@ public class Personaje {
 
     public void set_cuerdas(String _cuerdas) {
         this._cuerdas = _cuerdas;
+    }
+
+    public String get_cerraduraCarac() {
+        return _cerraduraCarac;
+    }
+
+    public void set_cerraduraCarac(String _cerraduraCarac) {
+        this._cerraduraCarac = _cerraduraCarac;
+    }
+
+    public String get_cerraduraRango() {
+        return _cerraduraRango;
+    }
+
+    public void set_cerraduraRango(String _cerraduraRango) {
+        this._cerraduraRango = _cerraduraRango;
+    }
+
+    public String get_cerraduraVarios() {
+        return _cerraduraVarios;
+    }
+
+    public void set_cerraduraVarios(String _cerraduraVarios) {
+        this._cerraduraVarios = _cerraduraVarios;
     }
 }

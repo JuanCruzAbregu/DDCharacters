@@ -14,7 +14,7 @@ import com.n3twork.ddcharacters.Clases.Personaje;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 20;
+    private static final int DATABASE_VERSION = 22;
     private static final String DATABASE_NAME = "dnd.db";
 
     private static final String TABLA_PERSONAJE = "personaje";
@@ -107,6 +107,9 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMNA_VALOR_TREPAR = "trepar"; //86
     private static final String COLUMNA_VALOR_OBJETOMAG = "objetoMagico"; //87
     private static final String COLUMNA_VALOR_CUERDAS = "cuerdas"; //88
+    private static final String COLUMNA_CERR_CARAC = "cerraduraCarac"; //89
+    private static final String COLUMNA_CERR_RANGO = "cerraduraRango"; //90
+    private static final String COLUMNA_CERR_VARIOS = "cerraduraVarios"; //91
 
     public String ctPj = "CREATE TABLE " + TABLA_PERSONAJE + "(" +
             COLUMNA_ID_PJ + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -197,7 +200,10 @@ public class DBHelper extends SQLiteOpenHelper {
             COLUMNA_VALOR_ANIMALES + " TEXT NOT NULL, " +
             COLUMNA_VALOR_TREPAR + " TEXT NOT NULL, " +
             COLUMNA_VALOR_OBJETOMAG + " TEXT NOT NULL, " +
-            COLUMNA_VALOR_CUERDAS + " TEXT NOT NULL " +
+            COLUMNA_VALOR_CUERDAS + " TEXT NOT NULL, " +
+            COLUMNA_CERR_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_CERR_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_CERR_VARIOS + " TEXT NOT NULL " +
             ");";
 
     public DBHelper(Context context) {
@@ -312,6 +318,9 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMNA_VALOR_TREPAR, personaje.get_trepar());
         values.put(COLUMNA_VALOR_OBJETOMAG, personaje.get_objMagico());
         values.put(COLUMNA_VALOR_CUERDAS, personaje.get_cuerdas());
+        values.put(COLUMNA_CERR_CARAC, personaje.get_cerraduraCarac());
+        values.put(COLUMNA_CERR_RANGO, personaje.get_cerraduraRango());
+        values.put(COLUMNA_CERR_VARIOS, personaje.get_cerraduraVarios());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLA_PERSONAJE, null, values);
         db.close();

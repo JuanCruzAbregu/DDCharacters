@@ -1,21 +1,30 @@
 package com.n3twork.ddcharacters.Activities;
 
+import android.content.DialogInterface;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.n3twork.ddcharacters.DB.DBHelper;
 import com.n3twork.ddcharacters.Fragments.PJFragment;
 import com.n3twork.ddcharacters.Fragments.SkillsFragment;
 import com.n3twork.ddcharacters.Fragments.StatsFragment;
 import com.n3twork.ddcharacters.R;
 import com.n3twork.ddcharacters.Adapters.ViewPagerAdapter;
+
+import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -23,6 +32,13 @@ public class MainActivity extends AppCompatActivity{
     private ViewPager viewPager;
     private ViewPagerAdapter adapter;
     private SkillsFragment skillsFragment = new SkillsFragment();
+    private String aux_modificador = "";
+    private String aux_rango = "";
+    private String aux_varios = "";
+    private String aux_pts_hab = "";
+    private String aux_total = "";
+    private String aux_id = "";
+
 
     public static final int PJ_FRAGMENT     = 0;
     public static final int STATS_FRAGMENT  = 1;
@@ -30,6 +46,10 @@ public class MainActivity extends AppCompatActivity{
     public static final int EQUIP_FRAGMENT  = 3;
     public static final int SPELLS_FRAGMENT = 4;
     public static final int OTHERS_FRAGMENT = 5;
+
+
+    private DBHelper dbHelper = new DBHelper(getApplicationContext());
+    private SQLiteDatabase db = dbHelper.getReadableDatabase();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,18 +132,141 @@ public class MainActivity extends AppCompatActivity{
     public void modificarModHabilidad(View v){
 
         TextView textViewRecuperar;
-        String valorRecuperado= "";
+        String valorControl = "";
 
         switch (v.getId()){
 
             case R.id.textViewValorCerradura:
 
                 textViewRecuperar = findViewById(R.id.textViewValorCerradura);
-                valorRecuperado = textViewRecuperar.getText().toString();
+                valorControl = textViewRecuperar.getText().toString();
+
+                Cursor c = db
+                        .rawQuery("SELECT _id, ptsHab, cerradura, cerraduraCarac, cerraduraRango, cerraduraVarios FROM personaje WHERE controlAct='1'",null);
+
+                if(c.moveToFirst()){
+                    do {
+
+                        aux_id          = c.getString(0);
+                        aux_pts_hab     = c.getString(1);
+                        aux_total       = c.getString(2);
+                        aux_modificador = c.getString(3);
+                        aux_rango       = c.getString(4);
+                        aux_varios      = c.getString(5);
+
+
+                    }while (c.moveToNext());
+                }
+
+                //Llamar al metodo y pasarle los datos necesarios para que puedan ponerse los valores en la pantalla
+                //<-----------------------------------------------------------------------------------
+                //<-----------------------------------------------------------------------------------
+                //<-----------------------------------------------------------------------------------
+                //<-----------------------------------------------------------------------------------
+                //<-----------------------------------------------------------------------------------
                 break;
+
+            case R.id.textViewValorArte:
+
+                textViewRecuperar = findViewById(R.id.textViewValorArte);
+                valorControl = textViewRecuperar.getText().toString();
+
+                break;
+
+
+
+
             default:
                 Toast.makeText(getApplicationContext(),"No funciona", Toast.LENGTH_SHORT).show();
         }
 
     }
+
+
+    private void dialogModificarHabilidades(String title, final String valorControl){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+        View viewInflated = LayoutInflater.from(getApplicationContext()).inflate(R.layout.dialog_modificadores_habilidades, null);
+        builder.setView(viewInflated);
+
+        final TextView textViewTitle   = findViewById(R.id.tvTitleHabilidades);
+        final EditText editTextModCar  = findViewById(R.id.editTextModCaracHab);
+        final EditText editTextRangos  = findViewById(R.id.editTextRangos);
+        final EditText editTextVarios  = findViewById(R.id.editTextModVariosHab);
+
+        textViewTitle.setText(title);
+        builder.setCancelable(true);
+
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                final String modif  = editTextModCar.getText().toString();
+                final String rango  = editTextRangos.getText().toString();
+                final String varios = editTextVarios.getText().toString();
+
+                final String total = devolverSumaDePuntos(modif, rango, varios);
+                if (controlDeValorTotal(valorControl, total)){
+
+                    //Agregar valores a la base de datos
+                    //Restar total al valor de control
+                    //Agregar valor a la base de datos
+
+
+
+
+
+                }
+
+
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
+
+    private String devolverSumaDePuntos(String numero1, String numero2, String numero3){
+
+        String total;
+
+        int result;
+        int number1 = Integer.parseInt(numero1);
+        int number2 = Integer.parseInt(numero2);
+        int number3 = Integer.parseInt(numero3);
+
+        result = number1 + number2 + number3;
+
+        total = String.valueOf(result);
+
+        return total;
+
+    }
+
+    private Boolean controlDeValorTotal(String valorControl, String valorTotal){
+
+        int control = Integer.parseInt(valorControl);
+        int total   = Integer.parseInt(valorTotal);
+
+
+        if(total > control){
+
+            Toast.makeText(getApplicationContext(),"No tienes puntos suficientes para asignar",Toast.LENGTH_SHORT).show();
+            return false;
+
+        }else {
+            return true;
+        }
+    }
+
+
 }
