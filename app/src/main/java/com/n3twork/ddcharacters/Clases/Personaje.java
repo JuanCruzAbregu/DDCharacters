@@ -13,12 +13,12 @@ public class Personaje {
     private String _razaPj;
     private String _alineamientoPj;
     private String _deidadPj;
-    private String _tamañoPj;
+    private String _tamanioPj;
     private String _sexoPj;
     private String _expPj;
     private String _expLow;
     private String _expHigh;
-    private String _campañaPj;
+    private String _campaniaPj;
     private String _controlAct;
     private String _puntFZA;
     private String _puntDES;
@@ -96,14 +96,13 @@ public class Personaje {
     private String _objMagico;
     private String _cuerdas;
 
-
     public Personaje(){
 
     }
 
     public Personaje(String _nombrePj, String _clasePj, String _nivelPj, String _razaPj, String _alineamientoPj,
-                     String _deidadPj, String _tamañoPj, String _sexoPj, String _expPj,
-                     String _expLow, String _expHigh, String _campañaPj, String _controlAct,
+                     String _deidadPj, String _tamanioPj, String _sexoPj, String _expPj,
+                     String _expLow, String _expHigh, String _campaniaPj, String _controlAct,
                      String _puntFZA, String _puntDES, String _puntCON, String _puntINT,
                      String _puntSAB, String _puntCAR, String _modFZA, String _modDES,
                      String _modCON, String _modINT, String _modSAB, String _modCAR, String _ptsHab,
@@ -126,12 +125,12 @@ public class Personaje {
         this._razaPj         = _razaPj;
         this._alineamientoPj = _alineamientoPj;
         this._deidadPj       = _deidadPj;
-        this._tamañoPj       = _tamañoPj;
+        this._tamanioPj      = _tamanioPj;
         this._sexoPj         = _sexoPj;
         this._expPj          = _expPj;
         this._expLow         = _expLow;
         this._expHigh        = _expHigh;
-        this._campañaPj      = _campañaPj;
+        this._campaniaPj     = _campaniaPj;
         this._controlAct     = _controlAct;
         this._puntFZA        = _puntFZA;
         this._puntDES        = _puntDES;
@@ -198,6 +197,7 @@ public class Personaje {
         this._local          = _local;
         this._planos         = _planos;
         this._naturaleza     = _naturaleza;
+        this._nobleza        = _nobleza;
         this._religion       = _religion;
         this._saltar         = _saltar;
         this._sanar          = _sanar;
@@ -266,12 +266,12 @@ public class Personaje {
         this._deidadPj = _deidadPj;
     }
 
-    public String get_tamañoPj() {
-        return _tamañoPj;
+    public String get_tamanioPj() {
+        return _tamanioPj;
     }
 
-    public void set_tamañoPj(String _tamañoPj) {
-        this._tamañoPj = _tamañoPj;
+    public void set_tamanioPj(String _tamanioPj) {
+        this._tamanioPj = _tamanioPj;
     }
 
     public String get_sexoPj() {
@@ -306,12 +306,12 @@ public class Personaje {
         this._expHigh = _expHigh;
     }
 
-    public String get_campañaPj() {
-        return _campañaPj;
+    public String get_campaniaPj() {
+        return _campaniaPj;
     }
 
-    public void set_campañaPj(String _campañaPj) {
-        this._campañaPj = _campañaPj;
+    public void set_campaniaPj(String _campaniaPj) {
+        this._campaniaPj = _campaniaPj;
     }
 
     public String get_controlAct() {

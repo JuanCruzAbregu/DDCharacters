@@ -14,7 +14,7 @@ import com.n3twork.ddcharacters.Clases.Personaje;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 19;
+    private static final int DATABASE_VERSION = 20;
     private static final String DATABASE_NAME = "dnd.db";
 
     private static final String TABLA_PERSONAJE = "personaje";
@@ -25,12 +25,12 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMNA_RAZA_PJ = "razaPj"; //4
     private static final String COLUMNA_ALINEAMIENTO_PJ = "alineamientoPj"; //5
     private static final String COLUMNA_DEIDAD = "deidadPj"; //6
-    private static final String COLUMNA_TAMAÑO_PJ = "tamañoPj"; //7
+    private static final String COLUMNA_TAMANIO_PJ = "tamañoPj"; //7
     private static final String COLUMNA_SEXO_PJ = "sexoPj"; //8
     private static final String COLUMNA_EXP_PJ = "expPj"; //9
     private static final String COLUMNA_EXP_LOW = "expLow"; //10
     private static final String COLUMNA_EXP_HIGH = "expHigh"; //11
-    private static final String COLUMNA_CAMPAÑA_PJ = "campañaPj"; //12
+    private static final String COLUMNA_CAMPANIA_PJ = "campañaPj"; //12
     private static final String COLUMNA_CONTROL_ACT = "controlAct"; //13
     private static final String COLUMNA_PUNT_FZA = "puntFza"; //14
     private static final String COLUMNA_PUNT_DES = "puntDes"; //15
@@ -116,12 +116,12 @@ public class DBHelper extends SQLiteOpenHelper {
             COLUMNA_RAZA_PJ + " TEXT NOT NULL, " +
             COLUMNA_ALINEAMIENTO_PJ + " TEXT NOT NULL, " +
             COLUMNA_DEIDAD + " TEXT, " +
-            COLUMNA_TAMAÑO_PJ + " TEXT NOT NULL, " +
+            COLUMNA_TAMANIO_PJ + " TEXT NOT NULL, " +
             COLUMNA_SEXO_PJ + " TEXT NOT NULL, " +
             COLUMNA_EXP_PJ + " TEXT NOT NULL, " +
             COLUMNA_EXP_LOW + " TEXT NOT NULL, " +
             COLUMNA_EXP_HIGH + " TEXT NOT NULL, " +
-            COLUMNA_CAMPAÑA_PJ + " TEXT NOT NULL, " +
+            COLUMNA_CAMPANIA_PJ + " TEXT NOT NULL, " +
             COLUMNA_CONTROL_ACT + " TEXT NOT NULL, " +
             COLUMNA_PUNT_FZA + " TEXT NOT NULL, " +
             COLUMNA_PUNT_DES + " TEXT NOT NULL, " +
@@ -230,12 +230,12 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMNA_RAZA_PJ, personaje.get_razaPj());
         values.put(COLUMNA_ALINEAMIENTO_PJ, personaje.get_alineamientoPj());
         values.put(COLUMNA_DEIDAD, personaje.get_deidadPj());
-        values.put(COLUMNA_TAMAÑO_PJ, personaje.get_tamañoPj());
+        values.put(COLUMNA_TAMANIO_PJ, personaje.get_tamanioPj());
         values.put(COLUMNA_SEXO_PJ, personaje.get_sexoPj());
         values.put(COLUMNA_EXP_PJ, personaje.get_expPj());
         values.put(COLUMNA_EXP_LOW, personaje.get_expLow());
         values.put(COLUMNA_EXP_HIGH, personaje.get_expHigh());
-        values.put(COLUMNA_CAMPAÑA_PJ, personaje.get_campañaPj());
+        values.put(COLUMNA_CAMPANIA_PJ, personaje.get_campaniaPj());
         values.put(COLUMNA_CONTROL_ACT, personaje.get_controlAct());
         values.put(COLUMNA_PUNT_FZA, personaje.get_puntFZA());
         values.put(COLUMNA_PUNT_DES, personaje.get_puntDES());
@@ -326,8 +326,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public Cursor obtenerTodosPersonajes(){
         String[] columnas = new String[]{
                 COLUMNA_ID_PJ, COLUMNA_NOMBRE_PJ, COLUMNA_CLASE_PJ, COLUMNA_NIVEL_PJ, COLUMNA_RAZA_PJ, COLUMNA_ALINEAMIENTO_PJ,
-                COLUMNA_DEIDAD, COLUMNA_TAMAÑO_PJ, COLUMNA_SEXO_PJ, COLUMNA_EXP_PJ, COLUMNA_EXP_LOW, COLUMNA_EXP_HIGH,
-                COLUMNA_CAMPAÑA_PJ, COLUMNA_CONTROL_ACT
+                COLUMNA_DEIDAD, COLUMNA_TAMANIO_PJ, COLUMNA_SEXO_PJ, COLUMNA_EXP_PJ, COLUMNA_EXP_LOW, COLUMNA_EXP_HIGH,
+                COLUMNA_CAMPANIA_PJ, COLUMNA_CONTROL_ACT
         };
         Cursor cursor = this.getReadableDatabase().query(TABLA_PERSONAJE, columnas, null, null, null, null, null);
         if(cursor !=null){

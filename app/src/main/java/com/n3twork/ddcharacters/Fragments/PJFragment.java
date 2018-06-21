@@ -17,7 +17,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
-import android.widget.ListPopupWindow;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -49,9 +48,9 @@ public class PJFragment extends ListFragment {
     private String aux_nivel = "";
     private String aux_deidad = "";
     private String aux_sexo = "";
-    private String aux_campaña = "";
+    private String aux_campania = "";
     private String aux_experiencia = "";
-    private String aux_tamaño = "";
+    private String aux_tamanio = "";
     private String aux_low = "0";
     private String aux_high = "";
 
@@ -60,7 +59,7 @@ public class PJFragment extends ListFragment {
     private String[] str_raza   = new String[]{"Humano", "Elfo", "Enano", "Gnomo", "Mediano", "Semielfo", "Semiorco"};
     private String[] str_alin   = new String[]{"Legal bueno", "Neutral bueno","Caótico bueno",
             "Legal neutral", "Neutral", "Caótico neutral", "Legal maligno", "Neutral maligno", "Caótico maligno"};
-    private String[] str_tamaño = new String[]{"Pequeño", "Mediano", "Grande"};
+    private String[] str_tamanio = new String[]{"Pequeño", "Mediano", "Grande"};
     private String[] str_deidad = new String[]{"Boccob","Corellon Larethian","Ehlonna","Erythnul","Fharlanghn","GAL",
             "Gruumsh","Heironeous","Hextor","Kord","Moradin","Nerull","Obad-Hai","Olidammara","Pelor","San Cuthbert",
             "Vecna","Wee Jas","Yondalla"};
@@ -100,8 +99,6 @@ public class PJFragment extends ListFragment {
      */
 
     public void recuperarTodosLosPersonajes(){
-
-//        ListView listViewPersonajes = getListView().findViewById(android.R.id.list);
 
         try{
             dbHelper = new DBHelper(getActivity());
@@ -155,10 +152,10 @@ public class PJFragment extends ListFragment {
                     TextView textViewRaza2         = view.findViewById(R.id.textViewRaza2);
                     TextView textViewAlineamiento2 = view.findViewById(R.id.textViewAlineamiento2);
                     TextView textViewDeidad2       = view.findViewById(R.id.textViewDeidad2);
-                    TextView textViewTamaño2       = view.findViewById(R.id.textViewTamaño2);
+                    TextView textViewTamanio2      = view.findViewById(R.id.textViewTamaño2);
                     TextView textViewSexo2         = view.findViewById(R.id.textViewSexo2);
                     TextView textViewExp2          = view.findViewById(R.id.textViewExp2);
-                    TextView textViewCampaña2      = view.findViewById(R.id.textViewCampaña2);
+                    TextView textViewCampania2     = view.findViewById(R.id.textViewCampaña2);
                     TextView textViewIdPJ          = view.findViewById(R.id.identPj);
 
                     aux_nombre       = textViewNombrePJ.getText().toString();
@@ -167,14 +164,14 @@ public class PJFragment extends ListFragment {
                     aux_raza         = textViewRaza2.getText().toString();
                     aux_alineamiento = textViewAlineamiento2.getText().toString();
                     aux_deidad       = textViewDeidad2.getText().toString();
-                    aux_tamaño       = textViewTamaño2.getText().toString();
+                    aux_tamanio      = textViewTamanio2.getText().toString();
                     aux_sexo         = textViewSexo2.getText().toString();
                     aux_experiencia  = textViewExp2.getText().toString();
-                    aux_campaña      = textViewCampaña2.getText().toString();
+                    aux_campania     = textViewCampania2.getText().toString();
                     aux_id           = textViewIdPJ.getText().toString();
 
                     dialogOpcionesPersonaje(opciones_pj, aux_id, aux_nombre, aux_clase, aux_raza, aux_alineamiento, aux_nivel,
-                            aux_deidad, aux_sexo, aux_campaña, aux_experiencia, aux_tamaño);
+                            aux_deidad, aux_sexo, aux_campania, aux_experiencia, aux_tamanio);
 
                     return true;
                 }
@@ -207,11 +204,11 @@ public class PJFragment extends ListFragment {
         final AutoCompleteTextView editTextRaza         = viewInflated.findViewById(R.id.editTextRaza);
         final AutoCompleteTextView editTextAlineamiento = viewInflated.findViewById(R.id.editTextAlineamiento);
         final AutoCompleteTextView editTextDeidad       = viewInflated.findViewById(R.id.editTextDeidad);
-        final AutoCompleteTextView editTextTamaño       = viewInflated.findViewById(R.id.editTextTamaño);
+        final AutoCompleteTextView editTextTamanio      = viewInflated.findViewById(R.id.editTextTamaño);
         final EditText editTextNombre                   = viewInflated.findViewById(R.id.editTextNombrePJ);
         final EditText editTextNivel                    = viewInflated.findViewById(R.id.editTextNivelPJ);
         final EditText editTextExp                      = viewInflated.findViewById(R.id.editTextExperiencia);
-        final EditText editTextCampaña                  = viewInflated.findViewById(R.id.editTextCampaña);
+        final EditText editTextCampania                 = viewInflated.findViewById(R.id.editTextCampaña);
         final RadioButton rbMasculino                   = viewInflated.findViewById(R.id.rbMasculino);
         final RadioButton rbFemenino                    = viewInflated.findViewById(R.id.rbFemenino);
 
@@ -227,20 +224,20 @@ public class PJFragment extends ListFragment {
         ArrayAdapter<String> adapterAlin = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_expandable_list_item_1, str_alin);
 
-        ArrayAdapter<String> adapterTamaño = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_expandable_list_item_1, str_tamaño);
+        ArrayAdapter<String> adapterTamanio = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_expandable_list_item_1, str_tamanio);
 
         editTextClase.setThreshold(0);
         editTextRaza.setThreshold(0);
         editTextDeidad.setThreshold(0);
         editTextAlineamiento.setThreshold(0);
-        editTextTamaño.setThreshold(0);
+        editTextTamanio.setThreshold(0);
 
         editTextClase.setAdapter(adapterClase);
         editTextRaza.setAdapter(adapterRaza);
         editTextDeidad.setAdapter(adapterDeidad);
         editTextAlineamiento.setAdapter(adapterAlin);
-        editTextTamaño.setAdapter(adapterTamaño);
+        editTextTamanio.setAdapter(adapterTamanio);
 
         textViewTitle.setText(title);
 
@@ -253,14 +250,14 @@ public class PJFragment extends ListFragment {
                 String raza          = editTextRaza.getText().toString();
                 String alineamiento  = editTextAlineamiento.getText().toString();
                 String deidad        = editTextDeidad.getText().toString();
-                String tamaño        = editTextTamaño.getText().toString();
+                String tamanio       = editTextTamanio.getText().toString();
                 String sexo          = sexoMetodoRadioButtons(rbMasculino, rbFemenino);
                 String exp           = editTextExp.getText().toString();
-                String campaña       = editTextCampaña.getText().toString();
+                String campania      = editTextCampania.getText().toString();
 
                 if(nombre.length() > 0 && clase.length() > 0 && nivel.length() > 0 && raza.length() > 0 &&
-                        alineamiento.length() > 0 && deidad.length() > 0 && tamaño.length() > 0 &&
-                        sexo.length() > 0 && exp.length() > 0 && campaña.length() > 0) {
+                        alineamiento.length() > 0 && deidad.length() > 0 && tamanio.length() > 0 &&
+                        sexo.length() > 0 && exp.length() > 0 && campania.length() > 0) {
 
                     if (verificarNivel(nivel)) {
 
@@ -270,7 +267,7 @@ public class PJFragment extends ListFragment {
 
                             // Agregar los puntos de habilidad correspondientes al nivel.
 
-                            agregarPersonaje(nombre, clase, nivel, raza, alineamiento, deidad, tamaño, sexo, exp, aux_low, aux_high, campaña);
+                            agregarPersonaje(nombre, clase, nivel, raza, alineamiento, deidad, tamanio, sexo, exp, aux_low, aux_high, campania);
                             recuperarTodosLosPersonajes();
                         }
                     }
@@ -323,12 +320,12 @@ public class PJFragment extends ListFragment {
      */
 
     public void agregarPersonaje(String nombre, String clase, String nivel, String raza, String alineamiento,
-                                 String deidad, String tamaño, String sexo, String exp, String low, String high, String campaña) {
+                                 String deidad, String tamanio, String sexo, String exp, String low, String high, String campania) {
 
         //Agregar método que asigne puntos de habilidad según la clase del pj
 
-        Personaje personaje = new Personaje(nombre, clase, nivel, raza, alineamiento, deidad, tamaño,
-                sexo, exp, low, high, campaña, "0", "0","0","0","0",
+        Personaje personaje = new Personaje(nombre, clase, nivel, raza, alineamiento, deidad, tamanio,
+                sexo, exp, low, high, campania, "0", "0","0","0","0",
                 "0","0","0","0","0","0", "0","0","0",
                 "0", "0", "", "0", "0", "0", "0", "0", "0",
                 "0", "0", "0", "0", "0", "0", "0",
@@ -492,7 +489,7 @@ public class PJFragment extends ListFragment {
                 android.R.layout.simple_expandable_list_item_1, str_alin);
 
         ArrayAdapter<String> adapterTamaño = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_expandable_list_item_1, str_tamaño);
+                android.R.layout.simple_expandable_list_item_1, str_tamanio);
 
         editTextClase.setThreshold(0);
         editTextRaza.setThreshold(0);
