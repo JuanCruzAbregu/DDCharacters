@@ -95,9 +95,145 @@ public class Personaje {
     private String _trepar;
     private String _objMagico;
     private String _cuerdas;
-    private String _cerraduraCarac;
-    private String _cerraduraRango;
+    private String _cerraduraCarac ;
+    private String _cerraduraRango ;
     private String _cerraduraVarios;
+    private String _arteCarac ;
+    private String _arteRango ;
+    private String _arteVarios;
+    private String _intencionesCarac ;
+    private String _intencionesRango ;
+    private String _intencionesVarios;
+    private String _avistarCarac ;
+    private String _avistarRango ;
+    private String _avistarVarios;
+    private String _buscarCarac ;
+    private String _buscarRango ;
+    private String _buscarVarios;
+    private String _concentracionCarac ;
+    private String _concentracionRango ;
+    private String _concentracionVarios;
+    private String _conjurosCarac ;
+    private String _conjurosRango ;
+    private String _conjurosVarios;
+    private String _escrituraCarac ;
+    private String _escrituraRango ;
+    private String _escrituraVarios;
+    private String _diplomaciaCarac ;
+    private String _diplomaciaRango ;
+    private String _diplomaciaVarios;
+    private String _disfrazCarac ;
+    private String _disfrazRango ;
+    private String _disfrazVarios;
+    private String _enganioCarac ;
+    private String _enganioRango ;
+    private String _enganioVarios;
+    private String _equilibrioCarac ;
+    private String _equilibrioRango ;
+    private String _equilibrioVarios;
+    private String _escapismoCarac ;
+    private String _escapismoRango ;
+    private String _escapismoVarios;
+    private String _esconderseCarac ;
+    private String _esconderseRango ;
+    private String _esconderseVarios;
+    private String _escucharCarac ;
+    private String _escucharRango ;
+    private String _escucharVarios;
+    private String _falsificarCarac ;
+    private String _falsificarRango ;
+    private String _falsificarVarios;
+    private String _interpretar1Carac ;
+    private String _interpretar1Rango ;
+    private String _interpretar1Varios;
+    private String _interpretar2Carac ;
+    private String _interpretar2Rango ;
+    private String _interpretar2Varios;
+    private String _interpretar3Carac ;
+    private String _interpretar3Rango ;
+    private String _interpretar3Varios;
+    private String _intimidarCarac ;
+    private String _intimidarRango ;
+    private String _intimidarVarios;
+    private String _mecanismoCarac ;
+    private String _mecanismoRango ;
+    private String _mecanismoVarios;
+    private String _manosCarac ;
+    private String _manosRango ;
+    private String _manosVarios;
+    private String _montarCarac ;
+    private String _montarRango ;
+    private String _montarVarios;
+    private String _sigiloCarac ;
+    private String _sigiloRango ;
+    private String _sigiloVarios;
+    private String _nadarCarac ;
+    private String _nadarRango ;
+    private String _nadarVarios;
+    private String _oficioCarac ;
+    private String _oficioRango ;
+    private String _oficioVarios;
+    private String _piruetasCarac ;
+    private String _piruetasRango ;
+    private String _piruetasVarios;
+    private String _infoCarac ;
+    private String _infoRango ;
+    private String _infoVarios;
+    private String _arcanoCarac ;
+    private String _arcanoRango ;
+    private String _arcanoVarios;
+    private String _arqCarac ;
+    private String _arqRango ;
+    private String _arqVarios;
+    private String _dungeonsCarac ;
+    private String _dungeonsRango ;
+    private String _dungeonsVarios;
+    private String _geoCarac ;
+    private String _geoRango ;
+    private String _geoVarios;
+    private String _historiaCarac ;
+    private String _historiaRango ;
+    private String _historiaVarios;
+    private String _localCarac ;
+    private String _localRango ;
+    private String _localVarios;
+    private String _planosCarac ;
+    private String _planosRango ;
+    private String _planosVarios;
+    private String _naturalCarac ;
+    private String _naturalRango ;
+    private String _naturalVarios;
+    private String _noblezaCarac ;
+    private String _noblezaRango ;
+    private String _noblezaVarios;
+    private String _religionCarac ;
+    private String _religionRango ;
+    private String _religionVarios;
+    private String _saltarCarac ;
+    private String _saltarRango ;
+    private String _saltarVarios;
+    private String _sanarCarac ;
+    private String _sanarRango ;
+    private String _sanarVarios;
+    private String _supervivenciaCarac ;
+    private String _supervivenciaRango ;
+    private String _supervivenciaVarios;
+    private String _tasacionCarac ;
+    private String _tasacionRango ;
+    private String _tasacionVarios;
+    private String _animalesCarac ;
+    private String _animalesRango ;
+    private String _animalesVarios;
+    private String _treparCarac ;
+    private String _treparRango ;
+    private String _treparVarios;
+    private String _objMagCarac ;
+    private String _objMagRango ;
+    private String _objMagVarios;
+    private String _cuerdasCarac ;
+    private String _cuerdasRango ;
+    private String _cuerdasVarios;
+
 
     public Personaje(){
 
@@ -120,7 +256,32 @@ public class Personaje {
                      String _arcano, String _arquitectura, String _dungeons, String _geografia, String _historia, String _local,
                      String _planos, String _naturaleza, String _nobleza, String _religion, String _saltar,
                      String _sanar, String _supervivencia, String _tasacion, String _animales, String _trepar,
-                     String _objMagico, String _cuerdas, String _cerraduraCarac, String _cerraduraRango, String _cerraduraVarios){
+                     String _objMagico, String _cuerdas, String _cerraduraCarac, String _cerraduraRango, String _cerraduraVarios,
+                     String _arteCarac, String _arteRango, String _arteVarios, String _intencionesCarac, String _intencionesRango,
+                     String _intencionesVarios, String _avistarCarac, String _avistarRango, String _avistarVarios, String _buscarCarac,
+                     String _buscarRango, String _buscarVarios, String _concentracionCarac, String _concentracionRango, String _concentracionVarios,
+                     String _conjurosCarac, String _conjurosRango, String _conjurosVarios, String _escrituraCarac, String _escrituraRango,
+                     String _escrituraVarios, String _diplomaciaCarac, String _diplomaciaRango, String _diplomaciaVarios, String _disfrazCarac,
+                     String _disfrazRango, String _disfrazVarios, String _enganioCarac, String _enganioRango, String _enganioVarios,
+                     String _equilibrioCarac, String _equilibrioRango, String _equilibrioVarios, String _escapismoCarac, String _escapismoRango,
+                     String _escapismoVarios, String _esconderseCarac, String _esconderseRango, String _esconderseVarios, String _escucharCarac,
+                     String _escucharRango, String _escucharVarios, String _falsificarCarac, String _falsificarRango, String _falsificarVarios,
+                     String _interpretar1Carac, String _interpretar1Rango, String _interpretar1Varios, String _interpretar2Carac, String _interpretar2Rango,
+                     String _interpretar2Varios, String _interpretar3Carac, String _interpretar3Rango, String _interpretar3Varios, String _intimidarCarac, String _intimidarRango, String _intimidarVarios,
+                     String _mecanismoCarac, String _mecanismoRango, String _mecanismoVarios, String _manosCarac, String _manosRango, String _manosVarios,
+                     String _montarCarac, String  _montarRango, String _montarVarios, String _sigiloCarac, String _sigiloRango, String _sigiloVarios,
+                     String _nadarCarac, String _nadarRango, String _nadarVarios, String _oficioCarac, String _oficioRango, String _oficioVarios,
+                     String _piruetasCarac, String _piruetasRango, String _piruetasVarios, String _infoCarac, String _infoRango, String _infoVarios,
+                     String _arcanoCarac, String _arcanoRango, String _arcanoVarios, String _arqCarac, String _arqRango, String _arqVarios,
+                     String _dungeonsCarac, String _dungeonsRango, String _dungeonsVarios, String _geoCarac, String _geoRango, String _geoVarios,
+                     String _historiaCarac, String _historiaRango, String _historiaVarios, String _localCarac, String _localRango, String _localVarios,
+                     String _planosCarac, String _planosRango, String _planosVarios, String _naturalCarac, String _naturalRango, String _naturalVarios,
+                     String _noblezaCarac, String _noblezaRango, String _noblezaVarios, String _religionCarac, String _religionRango, String _religionVarios,
+                     String _saltarCarac, String _saltarRango, String _saltarVarios, String _sanarCarac, String _sanarRango, String _sanarVarios,
+                     String _supervivenciaCarac, String _supervivenciaRango, String _supervivenciaVarios, String _tasacionCarac, String _tasacionRango,
+                     String _tasacionVarios, String _animalesCarac, String _animalesRango, String _animalesVarios, String _treparCarac,
+                     String _treparRango, String _treparVarios, String _objMagCarac, String _objMagRango, String _objMagVarios,
+                     String _cuerdasCarac, String _cuerdasRango, String _cuerdasVarios){
 
         this._nombrePj        = _nombrePj;
         this._clasePj         = _clasePj;
@@ -213,6 +374,141 @@ public class Personaje {
         this._cerraduraCarac  = _cerraduraCarac;
         this._cerraduraRango  = _cerraduraRango;
         this._cerraduraVarios = _cerraduraVarios;
+        this._arteCarac       = _arteCarac;
+        this._arteRango       = _arteRango;
+        this._arteVarios      = _arteVarios;
+        this._intencionesCarac = _intencionesCarac;
+        this._intencionesRango = _intencionesRango;
+        this._intencionesVarios = _intencionesVarios;
+        this._avistarCarac = _avistarCarac;
+        this._avistarRango = _avistarRango;
+        this._avistarVarios = _avistarVarios;
+        this._buscarCarac = _buscarCarac;
+        this._buscarRango = _buscarRango;
+        this._buscarVarios = _buscarVarios;
+        this._concentracionCarac = _concentracionCarac;
+        this._concentracionRango = _concentracionRango;
+        this._concentracionVarios = _concentracionVarios;
+        this._conjurosCarac = _conjurosCarac;
+        this._conjurosRango = _conjurosRango;
+        this._conjurosVarios = _conjurosVarios;
+        this._escrituraCarac = _escrituraCarac;
+        this._escrituraRango = _escrituraRango;
+        this._escrituraVarios = _escrituraVarios;
+        this._diplomaciaCarac = _diplomaciaCarac;
+        this._diplomaciaRango = _diplomaciaRango;
+        this._diplomaciaVarios = _diplomaciaVarios;
+        this._disfrazCarac = _disfrazCarac;
+        this._disfrazRango = _disfrazRango;
+        this._disfrazVarios = _disfrazVarios;
+        this._enganioCarac = _enganioCarac;
+        this._enganioRango = _enganioRango;
+        this._enganioVarios = _enganioVarios;
+        this._equilibrioCarac = _equilibrioCarac;
+        this._equilibrioRango = _equilibrioRango;
+        this._equilibrioVarios = _equilibrioVarios;
+        this._escapismoCarac = _escapismoCarac;
+        this._escapismoRango = _escapismoRango;
+        this._escapismoVarios = _escapismoVarios;
+        this._esconderseCarac = _esconderseCarac;
+        this._esconderseRango = _esconderseRango;
+        this._esconderseVarios = _esconderseVarios;
+        this._escucharCarac = _escucharCarac;
+        this._escucharRango = _escucharRango;
+        this._escucharVarios = _escucharVarios;
+        this._falsificarCarac = _falsificarCarac;
+        this._falsificarRango = _falsificarRango;
+        this._falsificarVarios = _falsificarVarios;
+        this._interpretar1Carac = _interpretar1Carac;
+        this._interpretar1Rango = _interpretar1Rango;
+        this._interpretar1Varios = _interpretar1Varios;
+        this._interpretar2Carac = _interpretar2Carac;
+        this._interpretar2Rango = _interpretar2Rango;
+        this._interpretar2Varios = _interpretar2Varios;
+        this._interpretar3Carac = _interpretar3Carac;
+        this._interpretar3Rango = _interpretar3Rango;
+        this._interpretar3Varios = _interpretar3Varios;
+        this._intimidarCarac = _intimidarCarac;
+        this._intimidarRango = _intimidarRango;
+        this._intimidarVarios = _intimidarVarios;
+        this._mecanismoCarac = _mecanismoCarac;
+        this._mecanismoRango = _mecanismoRango;
+        this._mecanismoVarios = _mecanismoVarios;
+        this._manosCarac = _manosCarac;
+        this._manosRango = _manosRango;
+        this._manosVarios = _manosVarios;
+        this._montarCarac = _montarCarac;
+        this._montarRango = _montarRango;
+        this._montarVarios = _montarVarios;
+        this._sigiloCarac = _sigiloCarac;
+        this._sigiloRango = _sigiloRango;
+        this._sigiloVarios = _sigiloVarios;
+        this._nadarCarac = _nadarCarac;
+        this._nadarRango = _nadarRango;
+        this._nadarVarios = _nadarVarios;
+        this._oficioCarac = _oficioCarac;
+        this._oficioRango = _oficioRango;
+        this._oficioVarios = _oficioVarios;
+        this._piruetasCarac = _piruetasCarac;
+        this._piruetasRango = _piruetasRango;
+        this._piruetasVarios = _piruetasVarios;
+        this._infoCarac = _infoCarac;
+        this._infoRango = _infoRango;
+        this._infoVarios = _infoVarios;
+        this._arcanoCarac = _arcanoCarac;
+        this._arcanoRango = _arcanoRango;
+        this._arcanoVarios = _arcanoVarios;
+        this._arqCarac = _arqCarac;
+        this._arqRango = _arqRango;
+        this._arqVarios = _arqVarios;
+        this._dungeonsCarac = _dungeonsCarac;
+        this._dungeonsRango = _dungeonsRango;
+        this._dungeonsVarios = _dungeonsVarios;
+        this._geoCarac = _geoCarac;
+        this._geoRango = _geoRango;
+        this._geoVarios = _geoVarios;
+        this._historiaCarac = _historiaCarac;
+        this._historiaRango = _historiaRango;
+        this._historiaVarios = _historiaVarios;
+        this._localCarac = _localCarac;
+        this._localRango = _localRango;
+        this._localVarios = _localVarios;
+        this._planosCarac = _planosCarac;
+        this._planosRango = _planosRango;
+        this._planosVarios = _planosVarios;
+        this._naturalCarac = _naturalCarac;
+        this._naturalRango = _naturalRango;
+        this._naturalVarios = _naturalVarios;
+        this._noblezaCarac = _noblezaCarac;
+        this._noblezaRango = _noblezaRango;
+        this._noblezaVarios = _noblezaVarios;
+        this._religionCarac = _religionCarac;
+        this._religionRango = _religionRango;
+        this._religionVarios = _religionVarios;
+        this._saltarCarac = _saltarCarac;
+        this._saltarRango = _saltarRango;
+        this._saltarVarios = _saltarVarios;
+        this._sanarCarac = _sanarCarac;
+        this._sanarRango = _sanarRango;
+        this._sanarVarios = _sanarVarios;
+        this._supervivenciaCarac = _supervivenciaCarac;
+        this._supervivenciaRango = _supervivenciaRango;
+        this._supervivenciaVarios = _supervivenciaVarios;
+        this._tasacionCarac = _tasacionCarac;
+        this._tasacionRango = _tasacionRango;
+        this._tasacionVarios = _tasacionVarios;
+        this._animalesCarac = _animalesCarac;
+        this._animalesRango = _animalesRango;
+        this._animalesVarios = _animalesVarios;
+        this._treparCarac = _treparCarac;
+        this._treparRango = _treparRango;
+        this._treparVarios = _treparVarios;
+        this._objMagCarac = _objMagCarac;
+        this._objMagRango = _objMagRango;
+        this._objMagVarios = _objMagVarios;
+        this._cuerdasCarac = _cuerdasCarac;
+        this._cuerdasRango = _cuerdasRango;
+        this._cuerdasVarios = _cuerdasVarios;
 
     }
 
@@ -950,5 +1246,1085 @@ public class Personaje {
 
     public void set_cerraduraVarios(String _cerraduraVarios) {
         this._cerraduraVarios = _cerraduraVarios;
+    }
+
+    public String get_arteCarac() {
+        return _arteCarac;
+    }
+
+    public void set_arteCarac(String _arteCarac) {
+        this._arteCarac = _arteCarac;
+    }
+
+    public String get_arteRango() {
+        return _arteRango;
+    }
+
+    public void set_arteRango(String _arteRango) {
+        this._arteRango = _arteRango;
+    }
+
+    public String get_arteVarios() {
+        return _arteVarios;
+    }
+
+    public void set_arteVarios(String _arteVarios) {
+        this._arteVarios = _arteVarios;
+    }
+
+    public String get_intencionesCarac() {
+        return _intencionesCarac;
+    }
+
+    public void set_intencionesCarac(String _intencionesCarac) {
+        this._intencionesCarac = _intencionesCarac;
+    }
+
+    public String get_intencionesRango() {
+        return _intencionesRango;
+    }
+
+    public void set_intencionesRango(String _intencionesRango) {
+        this._intencionesRango = _intencionesRango;
+    }
+
+    public String get_intencionesVarios() {
+        return _intencionesVarios;
+    }
+
+    public void set_intencionesVarios(String _intencionesVarios) {
+        this._intencionesVarios = _intencionesVarios;
+    }
+
+    public String get_avistarCarac() {
+        return _avistarCarac;
+    }
+
+    public void set_avistarCarac(String _avistarCarac) {
+        this._avistarCarac = _avistarCarac;
+    }
+
+    public String get_avistarRango() {
+        return _avistarRango;
+    }
+
+    public void set_avistarRango(String _avistarRango) {
+        this._avistarRango = _avistarRango;
+    }
+
+    public String get_avistarVarios() {
+        return _avistarVarios;
+    }
+
+    public void set_avistarVarios(String _avistarVarios) {
+        this._avistarVarios = _avistarVarios;
+    }
+
+    public String get_buscarCarac() {
+        return _buscarCarac;
+    }
+
+    public void set_buscarCarac(String _buscarCarac) {
+        this._buscarCarac = _buscarCarac;
+    }
+
+    public String get_buscarRango() {
+        return _buscarRango;
+    }
+
+    public void set_buscarRango(String _buscarRango) {
+        this._buscarRango = _buscarRango;
+    }
+
+    public String get_buscarVarios() {
+        return _buscarVarios;
+    }
+
+    public void set_buscarVarios(String _buscarVarios) {
+        this._buscarVarios = _buscarVarios;
+    }
+
+    public String get_concentracionCarac() {
+        return _concentracionCarac;
+    }
+
+    public void set_concentracionCarac(String _concentracionCarac) {
+        this._concentracionCarac = _concentracionCarac;
+    }
+
+    public String get_concentracionRango() {
+        return _concentracionRango;
+    }
+
+    public void set_concentracionRango(String _concentracionRango) {
+        this._concentracionRango = _concentracionRango;
+    }
+
+    public String get_concentracionVarios() {
+        return _concentracionVarios;
+    }
+
+    public void set_concentracionVarios(String _concentracionVarios) {
+        this._concentracionVarios = _concentracionVarios;
+    }
+
+    public String get_conjurosCarac() {
+        return _conjurosCarac;
+    }
+
+    public void set_conjurosCarac(String _conjurosCarac) {
+        this._conjurosCarac = _conjurosCarac;
+    }
+
+    public String get_conjurosRango() {
+        return _conjurosRango;
+    }
+
+    public void set_conjurosRango(String _conjurosRango) {
+        this._conjurosRango = _conjurosRango;
+    }
+
+    public String get_conjurosVarios() {
+        return _conjurosVarios;
+    }
+
+    public void set_conjurosVarios(String _conjurosVarios) {
+        this._conjurosVarios = _conjurosVarios;
+    }
+
+    public String get_escrituraCarac() {
+        return _escrituraCarac;
+    }
+
+    public void set_escrituraCarac(String _escrituraCarac) {
+        this._escrituraCarac = _escrituraCarac;
+    }
+
+    public String get_escrituraRango() {
+        return _escrituraRango;
+    }
+
+    public void set_escrituraRango(String _escrituraRango) {
+        this._escrituraRango = _escrituraRango;
+    }
+
+    public String get_escrituraVarios() {
+        return _escrituraVarios;
+    }
+
+    public void set_escrituraVarios(String _escrituraVarios) {
+        this._escrituraVarios = _escrituraVarios;
+    }
+
+    public String get_diplomaciaCarac() {
+        return _diplomaciaCarac;
+    }
+
+    public void set_diplomaciaCarac(String _diplomaciaCarac) {
+        this._diplomaciaCarac = _diplomaciaCarac;
+    }
+
+    public String get_diplomaciaRango() {
+        return _diplomaciaRango;
+    }
+
+    public void set_diplomaciaRango(String _diplomaciaRango) {
+        this._diplomaciaRango = _diplomaciaRango;
+    }
+
+    public String get_diplomaciaVarios() {
+        return _diplomaciaVarios;
+    }
+
+    public void set_diplomaciaVarios(String _diplomaciaVarios) {
+        this._diplomaciaVarios = _diplomaciaVarios;
+    }
+
+    public String get_disfrazCarac() {
+        return _disfrazCarac;
+    }
+
+    public void set_disfrazCarac(String _disfrazCarac) {
+        this._disfrazCarac = _disfrazCarac;
+    }
+
+    public String get_disfrazRango() {
+        return _disfrazRango;
+    }
+
+    public void set_disfrazRango(String _disfrazRango) {
+        this._disfrazRango = _disfrazRango;
+    }
+
+    public String get_disfrazVarios() {
+        return _disfrazVarios;
+    }
+
+    public void set_disfrazVarios(String _disfrazVarios) {
+        this._disfrazVarios = _disfrazVarios;
+    }
+
+    public String get_enganioCarac() {
+        return _enganioCarac;
+    }
+
+    public void set_enganioCarac(String _enganioCarac) {
+        this._enganioCarac = _enganioCarac;
+    }
+
+    public String get_enganioRango() {
+        return _enganioRango;
+    }
+
+    public void set_enganioRango(String _enganioRango) {
+        this._enganioRango = _enganioRango;
+    }
+
+    public String get_enganioVarios() {
+        return _enganioVarios;
+    }
+
+    public void set_enganioVarios(String _enganioVarios) {
+        this._enganioVarios = _enganioVarios;
+    }
+
+    public String get_equilibrioCarac() {
+        return _equilibrioCarac;
+    }
+
+    public void set_equilibrioCarac(String _equilibrioCarac) {
+        this._equilibrioCarac = _equilibrioCarac;
+    }
+
+    public String get_equilibrioRango() {
+        return _equilibrioRango;
+    }
+
+    public void set_equilibrioRango(String _equilibrioRango) {
+        this._equilibrioRango = _equilibrioRango;
+    }
+
+    public String get_equilibrioVarios() {
+        return _equilibrioVarios;
+    }
+
+    public void set_equilibrioVarios(String _equilibrioVarios) {
+        this._equilibrioVarios = _equilibrioVarios;
+    }
+
+    public String get_escapismoCarac() {
+        return _escapismoCarac;
+    }
+
+    public void set_escapismoCarac(String _escapismoCarac) {
+        this._escapismoCarac = _escapismoCarac;
+    }
+
+    public String get_escapismoRango() {
+        return _escapismoRango;
+    }
+
+    public void set_escapismoRango(String _escapismoRango) {
+        this._escapismoRango = _escapismoRango;
+    }
+
+    public String get_escapismoVarios() {
+        return _escapismoVarios;
+    }
+
+    public void set_escapismoVarios(String _escapismoVarios) {
+        this._escapismoVarios = _escapismoVarios;
+    }
+
+    public String get_esconderseCarac() {
+        return _esconderseCarac;
+    }
+
+    public void set_esconderseCarac(String _esconderseCarac) {
+        this._esconderseCarac = _esconderseCarac;
+    }
+
+    public String get_esconderseRango() {
+        return _esconderseRango;
+    }
+
+    public void set_esconderseRango(String _esconderseRango) {
+        this._esconderseRango = _esconderseRango;
+    }
+
+    public String get_esconderseVarios() {
+        return _esconderseVarios;
+    }
+
+    public void set_esconderseVarios(String _esconderseVarios) {
+        this._esconderseVarios = _esconderseVarios;
+    }
+
+    public String get_escucharCarac() {
+        return _escucharCarac;
+    }
+
+    public void set_escucharCarac(String _escucharCarac) {
+        this._escucharCarac = _escucharCarac;
+    }
+
+    public String get_escucharRango() {
+        return _escucharRango;
+    }
+
+    public void set_escucharRango(String _escucharRango) {
+        this._escucharRango = _escucharRango;
+    }
+
+    public String get_escucharVarios() {
+        return _escucharVarios;
+    }
+
+    public void set_escucharVarios(String _escucharVarios) {
+        this._escucharVarios = _escucharVarios;
+    }
+
+    public String get_falsificarCarac() {
+        return _falsificarCarac;
+    }
+
+    public void set_falsificarCarac(String _falsificarCarac) {
+        this._falsificarCarac = _falsificarCarac;
+    }
+
+    public String get_falsificarRango() {
+        return _falsificarRango;
+    }
+
+    public void set_falsificarRango(String _falsificarRango) {
+        this._falsificarRango = _falsificarRango;
+    }
+
+    public String get_falsificarVarios() {
+        return _falsificarVarios;
+    }
+
+    public void set_falsificarVarios(String _falsificarVarios) {
+        this._falsificarVarios = _falsificarVarios;
+    }
+
+    public String get_interpretar1Carac() {
+        return _interpretar1Carac;
+    }
+
+    public void set_interpretar1Carac(String _interpretar1Carac) {
+        this._interpretar1Carac = _interpretar1Carac;
+    }
+
+    public String get_interpretar1Rango() {
+        return _interpretar1Rango;
+    }
+
+    public void set_interpretar1Rango(String _interpretar1Rango) {
+        this._interpretar1Rango = _interpretar1Rango;
+    }
+
+    public String get_interpretar1Varios() {
+        return _interpretar1Varios;
+    }
+
+    public void set_interpretar1Varios(String _interpretar1Varios) {
+        this._interpretar1Varios = _interpretar1Varios;
+    }
+
+    public String get_interpretar2Carac() {
+        return _interpretar2Carac;
+    }
+
+    public void set_interpretar2Carac(String _interpretar2Carac) {
+        this._interpretar2Carac = _interpretar2Carac;
+    }
+
+    public String get_interpretar2Rango() {
+        return _interpretar2Rango;
+    }
+
+    public void set_interpretar2Rango(String _interpretar2Rango) {
+        this._interpretar2Rango = _interpretar2Rango;
+    }
+
+    public String get_interpretar2Varios() {
+        return _interpretar2Varios;
+    }
+
+    public void set_interpretar2Varios(String _interpretar2Varios) {
+        this._interpretar2Varios = _interpretar2Varios;
+    }
+
+    public String get_interpretar3Carac() {
+        return _interpretar3Carac;
+    }
+
+    public void set_interpretar3Carac(String _interpretar3Carac) {
+        this._interpretar3Carac = _interpretar3Carac;
+    }
+
+    public String get_interpretar3Rango() {
+        return _interpretar3Rango;
+    }
+
+    public void set_interpretar3Rango(String _interpretar3Rango) {
+        this._interpretar3Rango = _interpretar3Rango;
+    }
+
+    public String get_interpretar3Varios() {
+        return _interpretar3Varios;
+    }
+
+    public void set_interpretar3Varios(String _interpretar3Varios) {
+        this._interpretar3Varios = _interpretar3Varios;
+    }
+
+    public String get_intimidarCarac() {
+        return _intimidarCarac;
+    }
+
+    public void set_intimidarCarac(String _intimidarCarac) {
+        this._intimidarCarac = _intimidarCarac;
+    }
+
+    public String get_intimidarRango() {
+        return _intimidarRango;
+    }
+
+    public void set_intimidarRango(String _intimidarRango) {
+        this._intimidarRango = _intimidarRango;
+    }
+
+    public String get_intimidarVarios() {
+        return _intimidarVarios;
+    }
+
+    public void set_intimidarVarios(String _intimidarVarios) {
+        this._intimidarVarios = _intimidarVarios;
+    }
+
+    public String get_mecanismoCarac() {
+        return _mecanismoCarac;
+    }
+
+    public void set_mecanismoCarac(String _mecanismoCarac) {
+        this._mecanismoCarac = _mecanismoCarac;
+    }
+
+    public String get_mecanismoRango() {
+        return _mecanismoRango;
+    }
+
+    public void set_mecanismoRango(String _mecanismoRango) {
+        this._mecanismoRango = _mecanismoRango;
+    }
+
+    public String get_mecanismoVarios() {
+        return _mecanismoVarios;
+    }
+
+    public void set_mecanismoVarios(String _mecanismoVarios) {
+        this._mecanismoVarios = _mecanismoVarios;
+    }
+
+    public String get_manosCarac() {
+        return _manosCarac;
+    }
+
+    public void set_manosCarac(String _manosCarac) {
+        this._manosCarac = _manosCarac;
+    }
+
+    public String get_manosRango() {
+        return _manosRango;
+    }
+
+    public void set_manosRango(String _manosRango) {
+        this._manosRango = _manosRango;
+    }
+
+    public String get_manosVarios() {
+        return _manosVarios;
+    }
+
+    public void set_manosVarios(String _manosVarios) {
+        this._manosVarios = _manosVarios;
+    }
+
+    public String get_montarCarac() {
+        return _montarCarac;
+    }
+
+    public void set_montarCarac(String _montarCarac) {
+        this._montarCarac = _montarCarac;
+    }
+
+    public String get_montarRango() {
+        return _montarRango;
+    }
+
+    public void set_montarRango(String _montarRango) {
+        this._montarRango = _montarRango;
+    }
+
+    public String get_montarVarios() {
+        return _montarVarios;
+    }
+
+    public void set_montarVarios(String _montarVarios) {
+        this._montarVarios = _montarVarios;
+    }
+
+    public String get_sigiloCarac() {
+        return _sigiloCarac;
+    }
+
+    public void set_sigiloCarac(String _sigiloCarac) {
+        this._sigiloCarac = _sigiloCarac;
+    }
+
+    public String get_sigiloRango() {
+        return _sigiloRango;
+    }
+
+    public void set_sigiloRango(String _sigiloRango) {
+        this._sigiloRango = _sigiloRango;
+    }
+
+    public String get_sigiloVarios() {
+        return _sigiloVarios;
+    }
+
+    public void set_sigiloVarios(String _sigiloVarios) {
+        this._sigiloVarios = _sigiloVarios;
+    }
+
+    public String get_nadarCarac() {
+        return _nadarCarac;
+    }
+
+    public void set_nadarCarac(String _nadarCarac) {
+        this._nadarCarac = _nadarCarac;
+    }
+
+    public String get_nadarRango() {
+        return _nadarRango;
+    }
+
+    public void set_nadarRango(String _nadarRango) {
+        this._nadarRango = _nadarRango;
+    }
+
+    public String get_nadarVarios() {
+        return _nadarVarios;
+    }
+
+    public void set_nadarVarios(String _nadarVarios) {
+        this._nadarVarios = _nadarVarios;
+    }
+
+    public String get_oficioCarac() {
+        return _oficioCarac;
+    }
+
+    public void set_oficioCarac(String _oficioCarac) {
+        this._oficioCarac = _oficioCarac;
+    }
+
+    public String get_oficioRango() {
+        return _oficioRango;
+    }
+
+    public void set_oficioRango(String _oficioRango) {
+        this._oficioRango = _oficioRango;
+    }
+
+    public String get_oficioVarios() {
+        return _oficioVarios;
+    }
+
+    public void set_oficioVarios(String _oficioVarios) {
+        this._oficioVarios = _oficioVarios;
+    }
+
+    public String get_piruetasCarac() {
+        return _piruetasCarac;
+    }
+
+    public void set_piruetasCarac(String _piruetasCarac) {
+        this._piruetasCarac = _piruetasCarac;
+    }
+
+    public String get_piruetasRango() {
+        return _piruetasRango;
+    }
+
+    public void set_piruetasRango(String _piruetasRango) {
+        this._piruetasRango = _piruetasRango;
+    }
+
+    public String get_piruetasVarios() {
+        return _piruetasVarios;
+    }
+
+    public void set_piruetasVarios(String _piruetasVarios) {
+        this._piruetasVarios = _piruetasVarios;
+    }
+
+    public String get_infoCarac() {
+        return _infoCarac;
+    }
+
+    public void set_infoCarac(String _infoCarac) {
+        this._infoCarac = _infoCarac;
+    }
+
+    public String get_infoRango() {
+        return _infoRango;
+    }
+
+    public void set_infoRango(String _infoRango) {
+        this._infoRango = _infoRango;
+    }
+
+    public String get_infoVarios() {
+        return _infoVarios;
+    }
+
+    public void set_infoVarios(String _infoVarios) {
+        this._infoVarios = _infoVarios;
+    }
+
+    public String get_arcanoCarac() {
+        return _arcanoCarac;
+    }
+
+    public void set_arcanoCarac(String _arcanoCarac) {
+        this._arcanoCarac = _arcanoCarac;
+    }
+
+    public String get_arcanoRango() {
+        return _arcanoRango;
+    }
+
+    public void set_arcanoRango(String _arcanoRango) {
+        this._arcanoRango = _arcanoRango;
+    }
+
+    public String get_arcanoVarios() {
+        return _arcanoVarios;
+    }
+
+    public void set_arcanoVarios(String _arcanoVarios) {
+        this._arcanoVarios = _arcanoVarios;
+    }
+
+    public String get_arqCarac() {
+        return _arqCarac;
+    }
+
+    public void set_arqCarac(String _arqCarac) {
+        this._arqCarac = _arqCarac;
+    }
+
+    public String get_arqRango() {
+        return _arqRango;
+    }
+
+    public void set_arqRango(String _arqRango) {
+        this._arqRango = _arqRango;
+    }
+
+    public String get_arqVarios() {
+        return _arqVarios;
+    }
+
+    public void set_arqVarios(String _arqVarios) {
+        this._arqVarios = _arqVarios;
+    }
+
+    public String get_dungeonsCarac() {
+        return _dungeonsCarac;
+    }
+
+    public void set_dungeonsCarac(String _dungeonsCarac) {
+        this._dungeonsCarac = _dungeonsCarac;
+    }
+
+    public String get_dungeonsRango() {
+        return _dungeonsRango;
+    }
+
+    public void set_dungeonsRango(String _dungeonsRango) {
+        this._dungeonsRango = _dungeonsRango;
+    }
+
+    public String get_dungeonsVarios() {
+        return _dungeonsVarios;
+    }
+
+    public void set_dungeonsVarios(String _dungeonsVarios) {
+        this._dungeonsVarios = _dungeonsVarios;
+    }
+
+    public String get_geoCarac() {
+        return _geoCarac;
+    }
+
+    public void set_geoCarac(String _geoCarac) {
+        this._geoCarac = _geoCarac;
+    }
+
+    public String get_geoRango() {
+        return _geoRango;
+    }
+
+    public void set_geoRango(String _geoRango) {
+        this._geoRango = _geoRango;
+    }
+
+    public String get_geoVarios() {
+        return _geoVarios;
+    }
+
+    public void set_geoVarios(String _geoVarios) {
+        this._geoVarios = _geoVarios;
+    }
+
+    public String get_historiaCarac() {
+        return _historiaCarac;
+    }
+
+    public void set_historiaCarac(String _historiaCarac) {
+        this._historiaCarac = _historiaCarac;
+    }
+
+    public String get_historiaRango() {
+        return _historiaRango;
+    }
+
+    public void set_historiaRango(String _historiaRango) {
+        this._historiaRango = _historiaRango;
+    }
+
+    public String get_historiaVarios() {
+        return _historiaVarios;
+    }
+
+    public void set_historiaVarios(String _historiaVarios) {
+        this._historiaVarios = _historiaVarios;
+    }
+
+    public String get_localCarac() {
+        return _localCarac;
+    }
+
+    public void set_localCarac(String _localCarac) {
+        this._localCarac = _localCarac;
+    }
+
+    public String get_localRango() {
+        return _localRango;
+    }
+
+    public void set_localRango(String _localRango) {
+        this._localRango = _localRango;
+    }
+
+    public String get_localVarios() {
+        return _localVarios;
+    }
+
+    public void set_localVarios(String _localVarios) {
+        this._localVarios = _localVarios;
+    }
+
+    public String get_planosCarac() {
+        return _planosCarac;
+    }
+
+    public void set_planosCarac(String _planosCarac) {
+        this._planosCarac = _planosCarac;
+    }
+
+    public String get_planosRango() {
+        return _planosRango;
+    }
+
+    public void set_planosRango(String _planosRango) {
+        this._planosRango = _planosRango;
+    }
+
+    public String get_planosVarios() {
+        return _planosVarios;
+    }
+
+    public void set_planosVarios(String _planosVarios) {
+        this._planosVarios = _planosVarios;
+    }
+
+    public String get_naturalCarac() {
+        return _naturalCarac;
+    }
+
+    public void set_naturalCarac(String _naturalCarac) {
+        this._naturalCarac = _naturalCarac;
+    }
+
+    public String get_naturalRango() {
+        return _naturalRango;
+    }
+
+    public void set_naturalRango(String _naturalRango) {
+        this._naturalRango = _naturalRango;
+    }
+
+    public String get_naturalVarios() {
+        return _naturalVarios;
+    }
+
+    public void set_naturalVarios(String _naturalVarios) {
+        this._naturalVarios = _naturalVarios;
+    }
+
+    public String get_noblezaCarac() {
+        return _noblezaCarac;
+    }
+
+    public void set_noblezaCarac(String _noblezaCarac) {
+        this._noblezaCarac = _noblezaCarac;
+    }
+
+    public String get_noblezaRango() {
+        return _noblezaRango;
+    }
+
+    public void set_noblezaRango(String _noblezaRango) {
+        this._noblezaRango = _noblezaRango;
+    }
+
+    public String get_noblezaVarios() {
+        return _noblezaVarios;
+    }
+
+    public void set_noblezaVarios(String _noblezaVarios) {
+        this._noblezaVarios = _noblezaVarios;
+    }
+
+    public String get_religionCarac() {
+        return _religionCarac;
+    }
+
+    public void set_religionCarac(String _religionCarac) {
+        this._religionCarac = _religionCarac;
+    }
+
+    public String get_religionRango() {
+        return _religionRango;
+    }
+
+    public void set_religionRango(String _religionRango) {
+        this._religionRango = _religionRango;
+    }
+
+    public String get_religionVarios() {
+        return _religionVarios;
+    }
+
+    public void set_religionVarios(String _religionVarios) {
+        this._religionVarios = _religionVarios;
+    }
+
+    public String get_saltarCarac() {
+        return _saltarCarac;
+    }
+
+    public void set_saltarCarac(String _saltarCarac) {
+        this._saltarCarac = _saltarCarac;
+    }
+
+    public String get_saltarRango() {
+        return _saltarRango;
+    }
+
+    public void set_saltarRango(String _saltarRango) {
+        this._saltarRango = _saltarRango;
+    }
+
+    public String get_saltarVarios() {
+        return _saltarVarios;
+    }
+
+    public void set_saltarVarios(String _saltarVarios) {
+        this._saltarVarios = _saltarVarios;
+    }
+
+    public String get_sanarCarac() {
+        return _sanarCarac;
+    }
+
+    public void set_sanarCarac(String _sanarCarac) {
+        this._sanarCarac = _sanarCarac;
+    }
+
+    public String get_sanarRango() {
+        return _sanarRango;
+    }
+
+    public void set_sanarRango(String _sanarRango) {
+        this._sanarRango = _sanarRango;
+    }
+
+    public String get_sanarVarios() {
+        return _sanarVarios;
+    }
+
+    public void set_sanarVarios(String _sanarVarios) {
+        this._sanarVarios = _sanarVarios;
+    }
+
+    public String get_supervivenciaCarac() {
+        return _supervivenciaCarac;
+    }
+
+    public void set_supervivenciaCarac(String _supervivenciaCarac) {
+        this._supervivenciaCarac = _supervivenciaCarac;
+    }
+
+    public String get_supervivenciaRango() {
+        return _supervivenciaRango;
+    }
+
+    public void set_supervivenciaRango(String _supervivenciaRango) {
+        this._supervivenciaRango = _supervivenciaRango;
+    }
+
+    public String get_supervivenciaVarios() {
+        return _supervivenciaVarios;
+    }
+
+    public void set_supervivenciaVarios(String _supervivenciaVarios) {
+        this._supervivenciaVarios = _supervivenciaVarios;
+    }
+
+    public String get_tasacionCarac() {
+        return _tasacionCarac;
+    }
+
+    public void set_tasacionCarac(String _tasacionCarac) {
+        this._tasacionCarac = _tasacionCarac;
+    }
+
+    public String get_tasacionRango() {
+        return _tasacionRango;
+    }
+
+    public void set_tasacionRango(String _tasacionRango) {
+        this._tasacionRango = _tasacionRango;
+    }
+
+    public String get_tasacionVarios() {
+        return _tasacionVarios;
+    }
+
+    public void set_tasacionVarios(String _tasacionVarios) {
+        this._tasacionVarios = _tasacionVarios;
+    }
+
+    public String get_animalesCarac() {
+        return _animalesCarac;
+    }
+
+    public void set_animalesCarac(String _animalesCarac) {
+        this._animalesCarac = _animalesCarac;
+    }
+
+    public String get_animalesRango() {
+        return _animalesRango;
+    }
+
+    public void set_animalesRango(String _animalesRango) {
+        this._animalesRango = _animalesRango;
+    }
+
+    public String get_animalesVarios() {
+        return _animalesVarios;
+    }
+
+    public void set_animalesVarios(String _animalesVarios) {
+        this._animalesVarios = _animalesVarios;
+    }
+
+    public String get_treparCarac() {
+        return _treparCarac;
+    }
+
+    public void set_treparCarac(String _treparCarac) {
+        this._treparCarac = _treparCarac;
+    }
+
+    public String get_treparRango() {
+        return _treparRango;
+    }
+
+    public void set_treparRango(String _treparRango) {
+        this._treparRango = _treparRango;
+    }
+
+    public String get_treparVarios() {
+        return _treparVarios;
+    }
+
+    public void set_treparVarios(String _treparVarios) {
+        this._treparVarios = _treparVarios;
+    }
+
+    public String get_objMagCarac() {
+        return _objMagCarac;
+    }
+
+    public void set_objMagCarac(String _objMagCarac) {
+        this._objMagCarac = _objMagCarac;
+    }
+
+    public String get_objMagRango() {
+        return _objMagRango;
+    }
+
+    public void set_objMagRango(String _objMagRango) {
+        this._objMagRango = _objMagRango;
+    }
+
+    public String get_objMagVarios() {
+        return _objMagVarios;
+    }
+
+    public void set_objMagVarios(String _objMagVarios) {
+        this._objMagVarios = _objMagVarios;
+    }
+
+    public String get_cuerdasCarac() {
+        return _cuerdasCarac;
+    }
+
+    public void set_cuerdasCarac(String _cuerdasCarac) {
+        this._cuerdasCarac = _cuerdasCarac;
+    }
+
+    public String get_cuerdasRango() {
+        return _cuerdasRango;
+    }
+
+    public void set_cuerdasRango(String _cuerdasRango) {
+        this._cuerdasRango = _cuerdasRango;
+    }
+
+    public String get_cuerdasVarios() {
+        return _cuerdasVarios;
+    }
+
+    public void set_cuerdasVarios(String _cuerdasVarios) {
+        this._cuerdasVarios = _cuerdasVarios;
     }
 }

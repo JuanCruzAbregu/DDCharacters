@@ -14,7 +14,7 @@ import com.n3twork.ddcharacters.Clases.Personaje;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 22;
+    private static final int DATABASE_VERSION = 23;
     private static final String DATABASE_NAME = "dnd.db";
 
     private static final String TABLA_PERSONAJE = "personaje";
@@ -110,6 +110,141 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMNA_CERR_CARAC = "cerraduraCarac"; //89
     private static final String COLUMNA_CERR_RANGO = "cerraduraRango"; //90
     private static final String COLUMNA_CERR_VARIOS = "cerraduraVarios"; //91
+    private static final String COLUMNA_ARTE_CARAC  = "arteCarac"; //92
+    private static final String COLUMNA_ARTE_RANGO  = "arteRango"; //93
+    private static final String COLUMNA_ARTE_VARIOS = "arteVarios"; //94
+    private static final String COLUMNA_INTENCIONES_CARAC  = "intencionesCarac"; //95
+    private static final String COLUMNA_INTENCIONES_RANGO  = "intencionesRango"; //96
+    private static final String COLUMNA_INTENCIONES_VARIOS = "intencionesVarios"; //97
+    private static final String COLUMNA_AVISTAR_CARAC  = "avistarCarac"; //98
+    private static final String COLUMNA_AVISTAR_RANGO  = "avistarRango"; //99
+    private static final String COLUMNA_AVISTAR_VARIOS = "avistarVarios"; //100
+    private static final String COLUMNA_BUSCAR_CARAC  = "buscarCarac"; //101
+    private static final String COLUMNA_BUSCAR_RANGO  = "buscarRango"; //102
+    private static final String COLUMNA_BUSCAR_VARIOS = "buscarVarios"; //103
+    private static final String COLUMNA_CONCENTRACION_CARAC  = "concentracionCarac"; //104
+    private static final String COLUMNA_CONCENTRACION_RANGO  = "concentracionRango"; //105
+    private static final String COLUMNA_CONCENTRACION_VARIOS = "concentracionVarios"; //106
+    private static final String COLUMNA_CONJUROS_CARAC  = "conjurosCarac"; //107
+    private static final String COLUMNA_CONJUROS_RANGO  = "conjurosRango"; //108
+    private static final String COLUMNA_CONJUROS_VARIOS = "conjurosVarios"; //109
+    private static final String COLUMNA_ESCRITURA_CARAC  = "escrituraCarac"; //110
+    private static final String COLUMNA_ESCRITURA_RANGO  = "escrituraRango"; //111
+    private static final String COLUMNA_ESCRITURA_VARIOS = "escrituraVarios"; //112
+    private static final String COLUMNA_DIPLOMACIA_CARAC  = "diplomaciaCarac"; //113
+    private static final String COLUMNA_DIPLOMACIA_RANGO  = "diplomaciaRango"; //114
+    private static final String COLUMNA_DIPLOMACIA_VARIOS = "diplomaciaVarios"; //115
+    private static final String COLUMNA_DISFRAZ_CARAC  = "disfrazCarac"; //116
+    private static final String COLUMNA_DISFRAZ_RANGO  = "disfrazRango"; //117
+    private static final String COLUMNA_DISFRAZ_VARIOS = "disfrazVarios"; //118
+    private static final String COLUMNA_ENGANIO_CARAC  = "enganioCarac"; //119
+    private static final String COLUMNA_ENGANIO_RANGO  = "enganioRango"; //120
+    private static final String COLUMNA_ENGANIO_VARIOS = "enganioVarios"; //121
+    private static final String COLUMNA_EQUILIBRIO_CARAC  = "equilibrioCarac"; //122
+    private static final String COLUMNA_EQUILIBRIO_RANGO  = "equilibrioRango"; //123
+    private static final String COLUMNA_EQUILIBRIO_VARIOS = "equilibrioVarios"; //124
+    private static final String COLUMNA_ESCAPISMO_CARAC  = "escapismoCarac"; //125
+    private static final String COLUMNA_ESCAPISMO_RANGO  = "escapismoRango"; //126
+    private static final String COLUMNA_ESCAPISMO_VARIOS = "escapismoVarios"; //127
+    private static final String COLUMNA_ESCONDERSE_CARAC  = "esconderseCarac"; //128
+    private static final String COLUMNA_ESCONDERSE_RANGO  = "esconderseRango"; //129
+    private static final String COLUMNA_ESCONDERSE_VARIOS = "esconderseVarios"; //130
+    private static final String COLUMNA_ESCUCHAR_CARAC = "escucharCarac"; //131
+    private static final String COLUMNA_ESCUCHAR_RANGO = "escucharRango"; //132
+    private static final String COLUMNA_ESCUCHAR_VARIOS = "escucharVarios"; //133
+    private static final String COLUMNA_FALSIFICAR_CARAC  = "falsificarCarac"; //134
+    private static final String COLUMNA_FALSIFICAR_RANGO  = "falsificarRango"; //135
+    private static final String COLUMNA_FALSIFICAR_VARIOS = "falsificarVarios"; //136
+    private static final String COLUMNA_INTERPRETAR1_CARAC  = "interpretar1Carac"; //137
+    private static final String COLUMNA_INTERPRETAR1_RANGO  = "interpretar1Rango"; //138
+    private static final String COLUMNA_INTERPRETAR1_VARIOS = "interpretar1Varios"; //139
+    private static final String COLUMNA_INTERPRETAR2_CARAC  = "interpretar2Carac"; //140
+    private static final String COLUMNA_INTERPRETAR2_RANGO  = "interpretar2Rango"; //141
+    private static final String COLUMNA_INTERPRETAR2_VARIOS = "interpretar2Varios"; //142
+    private static final String COLUMNA_INTERPRETAR3_CARAC  = "interpretar3Carac"; //143
+    private static final String COLUMNA_INTERPRETAR3_RANGO  = "interpretar3Rango"; //144
+    private static final String COLUMNA_INTERPRETAR3_VARIOS = "interpretar3Varios"; //145
+    private static final String COLUMNA_INTIMIDAR_CARAC  = "intimidarCarac"; //146
+    private static final String COLUMNA_INTIMIDAR_RANGO  = "intimidarRango"; //147
+    private static final String COLUMNA_INTIMIDAR_VARIOS = "intimidarVarios"; //148
+    private static final String COLUMNA_MECANISMO_CARAC  = "mecanismoCarac"; //149
+    private static final String COLUMNA_MECANISMO_RANGO  = "mecanismoRango"; //150
+    private static final String COLUMNA_MECANISMO_VARIOS = "mecanismoVarios"; //151
+    private static final String COLUMNA_MANOS_CARAC  = "manosCarac"; //152
+    private static final String COLUMNA_MANOS_RANGO  = "manosRango"; //153
+    private static final String COLUMNA_MANOS_VARIOS = "manosVarios"; //154
+    private static final String COLUMNA_MONTAR_CARAC  = "montarCarac"; //155
+    private static final String COLUMNA_MONTAR_RANGO  = "montarRango"; //156
+    private static final String COLUMNA_MONTAR_VARIOS = "montarVarios"; //157
+    private static final String COLUMNA_SIGILO_CARAC  = "sigiloCarac"; //158
+    private static final String COLUMNA_SIGILO_RANGO  = "sigiloRango"; //159
+    private static final String COLUMNA_SIGILO_VARIOS = "sigiloVarios"; //160
+    private static final String COLUMNA_NADAR_CARAC  = "nadarCarac"; //161
+    private static final String COLUMNA_NADAR_RANGO  = "nadarRango"; //162
+    private static final String COLUMNA_NADAR_VARIOS = "nadarVarios"; //163
+    private static final String COLUMNA_OFICIO_CARAC  = "oficioCarac"; //164
+    private static final String COLUMNA_OFICIO_RANGO  = "oficioRango"; //165
+    private static final String COLUMNA_OFICIO_VARIOS = "oficioVarios"; //166
+    private static final String COLUMNA_PIRUETAS_CARAC  = "piruetasCarac"; //167
+    private static final String COLUMNA_PIRUETAS_RANGO  = "piruetasRango"; //168
+    private static final String COLUMNA_PIRUETAS_VARIOS = "piruetasVarios"; //169
+    private static final String COLUMNA_INFO_CARAC  = "infoCarac"; //170
+    private static final String COLUMNA_INFO_RANGO  = "infoRango"; //171
+    private static final String COLUMNA_INFO_VARIOS = "infoVarios"; //172
+    private static final String COLUMNA_ARCANO_CARAC  = "arcanoCarac"; //173
+    private static final String COLUMNA_ARCANO_RANGO  = "arcanoRango"; //174
+    private static final String COLUMNA_ARCANO_VARIOS = "arcanoVarios"; //175
+    private static final String COLUMNA_ARQ_CARAC  = "arqCarac"; //176
+    private static final String COLUMNA_ARQ_RANGO  = "arqRango"; //177
+    private static final String COLUMNA_ARQ_VARIOS = "arqVarios"; //178
+    private static final String COLUMNA_DUNGEONS_CARAC  = "dungeonsCarac"; //179
+    private static final String COLUMNA_DUNGEONS_RANGO  = "dungeonsRango"; //180
+    private static final String COLUMNA_DUNGEONS_VARIOS = "dungeonsVarios"; //181
+    private static final String COLUMNA_GEO_CARAC  = "geoCarac"; //182
+    private static final String COLUMNA_GEO_RANGO  = "geoRango"; //183
+    private static final String COLUMNA_GEO_VARIOS = "geoVarios"; //184
+    private static final String COLUMNA_HISTORIA_CARAC  = "historiaCarac"; //185
+    private static final String COLUMNA_HISTORIA_RANGO  = "historiaRango"; //186
+    private static final String COLUMNA_HISTORIA_VARIOS = "historiaVarios"; //187
+    private static final String COLUMNA_LOCAL_CARAC  = "localCarac"; //188
+    private static final String COLUMNA_LOCAL_RANGO  = "localRango"; //189
+    private static final String COLUMNA_LOCAL_VARIOS = "localVarios"; //190
+    private static final String COLUMNA_PLANOS_CARAC  = "planosCarac"; //191
+    private static final String COLUMNA_PLANOS_RANGO  = "planosRango"; //192
+    private static final String COLUMNA_PLANOS_VARIOS = "planosVarios"; //193
+    private static final String COLUMNA_NATURAL_CARAC  = "naturalCarac"; //194
+    private static final String COLUMNA_NATURAL_RANGO  = "naturalRango"; //195
+    private static final String COLUMNA_NATURAL_VARIOS = "naturalVarios"; //196
+    private static final String COLUMNA_NOBLEZA_CARAC  = "noblezaCarac"; //197
+    private static final String COLUMNA_NOBLEZA_RANGO  = "noblezaRango"; //198
+    private static final String COLUMNA_NOBLEZA_VARIOS = "noblezaVarios"; //199
+    private static final String COLUMNA_RELIGION_CARAC  = "religionCarac"; //200
+    private static final String COLUMNA_RELIGION_RANGO  = "religionRango"; //201
+    private static final String COLUMNA_RELIGION_VARIOS = "religionVarios"; //202
+    private static final String COLUMNA_SALTAR_CARAC  = "saltarCarac"; //203
+    private static final String COLUMNA_SALTAR_RANGO  = "saltarRango"; //204
+    private static final String COLUMNA_SALTAR_VARIOS = "saltarVarios"; //205
+    private static final String COLUMNA_SANAR_CARAC  = "sanarCarac"; //206
+    private static final String COLUMNA_SANAR_RANGO  = "sanarRango"; //207
+    private static final String COLUMNA_SANAR_VARIOS = "sanarVarios"; //208
+    private static final String COLUMNA_SUPERVIVENCIA_CARAC  = "supervivenciaCarac"; //209
+    private static final String COLUMNA_SUPERVIVENCIA_RANGO  = "supervivenciaRango"; //210
+    private static final String COLUMNA_SUPERVIVENCIA_VARIOS = "supervivenciaVarios"; //211
+    private static final String COLUMNA_TASACION_CARAC  = "tasacionCarac"; //212
+    private static final String COLUMNA_TASACION_RANGO  = "tasacionRango"; //213
+    private static final String COLUMNA_TASACION_VARIOS = "tasacionVarios"; //214
+    private static final String COLUMNA_ANIMALES_CARAC  = "animalesCarac"; //215
+    private static final String COLUMNA_ANIMALES_RANGO  = "animalesRango"; //216
+    private static final String COLUMNA_ANIMALES_VARIOS = "animalesVarios"; //217
+    private static final String COLUMNA_TREPAR_CARAC  = "treparCarac"; //218
+    private static final String COLUMNA_TREPAR_RANGO  = "treparRango"; //219
+    private static final String COLUMNA_TREPAR_VARIOS = "treparVarios"; //220
+    private static final String COLUMNA_OBJ_MAG_CARAC  = "objMagCarac"; //221
+    private static final String COLUMNA_OBJ_MAG_RANGO  = "objMagRango"; //222
+    private static final String COLUMNA_OBJ_MAG_VARIOS = "objMagVarios"; //223
+    private static final String COLUMNA_CUERDAS_CARAC  = "cuerdasCarac"; //224
+    private static final String COLUMNA_CUERDAS_RANGO  = "cuerdasRango"; //225
+    private static final String COLUMNA_CUERDAS_VARIOS = "cuerdasVarios"; //226
 
     public String ctPj = "CREATE TABLE " + TABLA_PERSONAJE + "(" +
             COLUMNA_ID_PJ + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -203,7 +338,142 @@ public class DBHelper extends SQLiteOpenHelper {
             COLUMNA_VALOR_CUERDAS + " TEXT NOT NULL, " +
             COLUMNA_CERR_CARAC + " TEXT NOT NULL, " +
             COLUMNA_CERR_RANGO + " TEXT NOT NULL, " +
-            COLUMNA_CERR_VARIOS + " TEXT NOT NULL " +
+            COLUMNA_CERR_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_ARTE_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_ARTE_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_ARTE_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_INTENCIONES_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_INTENCIONES_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_INTENCIONES_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_AVISTAR_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_AVISTAR_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_AVISTAR_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_BUSCAR_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_BUSCAR_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_BUSCAR_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_CONCENTRACION_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_CONCENTRACION_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_CONCENTRACION_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_CONJUROS_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_CONJUROS_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_CONJUROS_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_ESCRITURA_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_ESCRITURA_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_ESCRITURA_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_DIPLOMACIA_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_DIPLOMACIA_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_DIPLOMACIA_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_DISFRAZ_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_DISFRAZ_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_DISFRAZ_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_ENGANIO_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_ENGANIO_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_ENGANIO_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_EQUILIBRIO_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_EQUILIBRIO_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_EQUILIBRIO_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_ESCAPISMO_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_ESCAPISMO_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_ESCAPISMO_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_ESCONDERSE_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_ESCONDERSE_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_ESCONDERSE_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_ESCUCHAR_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_ESCUCHAR_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_ESCUCHAR_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_FALSIFICAR_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_FALSIFICAR_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_FALSIFICAR_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_INTERPRETAR1_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_INTERPRETAR1_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_INTERPRETAR1_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_INTERPRETAR2_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_INTERPRETAR2_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_INTERPRETAR2_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_INTERPRETAR3_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_INTERPRETAR3_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_INTERPRETAR3_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_INTIMIDAR_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_INTIMIDAR_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_INTIMIDAR_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_MECANISMO_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_MECANISMO_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_MECANISMO_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_MANOS_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_MANOS_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_MANOS_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_MONTAR_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_MONTAR_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_MONTAR_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_SIGILO_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_SIGILO_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_SIGILO_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_NADAR_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_NADAR_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_NADAR_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_OFICIO_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_OFICIO_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_OFICIO_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_PIRUETAS_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_PIRUETAS_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_PIRUETAS_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_INFO_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_INFO_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_INFO_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_ARCANO_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_ARCANO_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_ARCANO_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_ARQ_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_ARQ_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_ARQ_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_DUNGEONS_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_DUNGEONS_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_DUNGEONS_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_GEO_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_GEO_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_GEO_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_HISTORIA_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_HISTORIA_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_HISTORIA_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_LOCAL_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_LOCAL_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_LOCAL_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_PLANOS_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_PLANOS_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_PLANOS_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_NATURAL_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_NATURAL_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_NATURAL_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_NOBLEZA_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_NOBLEZA_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_NOBLEZA_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_RELIGION_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_RELIGION_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_RELIGION_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_SALTAR_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_SALTAR_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_SALTAR_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_SANAR_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_SANAR_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_SANAR_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_SUPERVIVENCIA_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_SUPERVIVENCIA_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_SUPERVIVENCIA_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_TASACION_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_TASACION_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_TASACION_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_ANIMALES_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_ANIMALES_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_ANIMALES_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_TREPAR_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_TREPAR_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_TREPAR_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_OBJ_MAG_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_OBJ_MAG_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_OBJ_MAG_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_CUERDAS_CARAC + " TEXT NOT NULL, " +
+            COLUMNA_CUERDAS_RANGO + " TEXT NOT NULL, " +
+            COLUMNA_CUERDAS_VARIOS + " TEXT NOT NULL " +
             ");";
 
     public DBHelper(Context context) {
@@ -321,6 +591,142 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMNA_CERR_CARAC, personaje.get_cerraduraCarac());
         values.put(COLUMNA_CERR_RANGO, personaje.get_cerraduraRango());
         values.put(COLUMNA_CERR_VARIOS, personaje.get_cerraduraVarios());
+
+        values.put(COLUMNA_ARTE_CARAC, personaje.get_arteCarac());
+        values.put(COLUMNA_ARTE_RANGO, personaje.get_arteRango());
+        values.put(COLUMNA_ARTE_VARIOS, personaje.get_arteVarios());
+        values.put(COLUMNA_INTENCIONES_CARAC, personaje.get_intencionesCarac());
+        values.put(COLUMNA_INTENCIONES_RANGO, personaje.get_intencionesRango());
+        values.put(COLUMNA_INTENCIONES_VARIOS, personaje.get_intencionesVarios());
+        values.put(COLUMNA_AVISTAR_CARAC, personaje.get_avistarCarac());
+        values.put(COLUMNA_AVISTAR_RANGO, personaje.get_avistarRango());
+        values.put(COLUMNA_AVISTAR_VARIOS, personaje.get_avistarVarios());
+        values.put(COLUMNA_BUSCAR_CARAC, personaje.get_buscarCarac());
+        values.put(COLUMNA_BUSCAR_RANGO, personaje.get_buscarRango());
+        values.put(COLUMNA_BUSCAR_VARIOS, personaje.get_buscarVarios());
+        values.put(COLUMNA_CONCENTRACION_CARAC, personaje.get_concentracionCarac());
+        values.put(COLUMNA_CONCENTRACION_RANGO, personaje.get_concentracionRango());
+        values.put(COLUMNA_CONCENTRACION_VARIOS, personaje.get_concentracionVarios());
+        values.put(COLUMNA_CONJUROS_CARAC, personaje.get_conjurosCarac());
+        values.put(COLUMNA_CONJUROS_RANGO, personaje.get_conjurosRango());
+        values.put(COLUMNA_CONJUROS_VARIOS, personaje.get_conjurosVarios());
+        values.put(COLUMNA_ESCRITURA_CARAC, personaje.get_escrituraCarac());
+        values.put(COLUMNA_ESCRITURA_RANGO, personaje.get_escrituraRango());
+        values.put(COLUMNA_ESCRITURA_VARIOS, personaje.get_escrituraVarios());
+        values.put(COLUMNA_DIPLOMACIA_CARAC, personaje.get_diplomaciaCarac());
+        values.put(COLUMNA_DIPLOMACIA_RANGO, personaje.get_diplomaciaRango());
+        values.put(COLUMNA_DIPLOMACIA_VARIOS, personaje.get_diplomaciaVarios());
+        values.put(COLUMNA_DISFRAZ_CARAC, personaje.get_disfrazCarac());
+        values.put(COLUMNA_DISFRAZ_RANGO, personaje.get_disfrazRango());
+        values.put(COLUMNA_DISFRAZ_VARIOS, personaje.get_disfrazVarios());
+        values.put(COLUMNA_ENGANIO_CARAC, personaje.get_enganioCarac());
+        values.put(COLUMNA_ENGANIO_RANGO, personaje.get_enganioRango());
+        values.put(COLUMNA_ENGANIO_VARIOS, personaje.get_enganioVarios());
+        values.put(COLUMNA_EQUILIBRIO_CARAC, personaje.get_equilibrioCarac());
+        values.put(COLUMNA_EQUILIBRIO_RANGO, personaje.get_equilibrioRango());
+        values.put(COLUMNA_EQUILIBRIO_VARIOS, personaje.get_equilibrioVarios());
+        values.put(COLUMNA_ESCAPISMO_CARAC, personaje.get_escapismoCarac());
+        values.put(COLUMNA_ESCAPISMO_RANGO, personaje.get_escapismoRango());
+        values.put(COLUMNA_ESCAPISMO_VARIOS, personaje.get_escapismoVarios());
+        values.put(COLUMNA_ESCONDERSE_CARAC, personaje.get_esconderseCarac());
+        values.put(COLUMNA_ESCONDERSE_RANGO, personaje.get_esconderseRango());
+        values.put(COLUMNA_ESCONDERSE_VARIOS, personaje.get_esconderseVarios());
+        values.put(COLUMNA_ESCUCHAR_CARAC, personaje.get_escucharCarac());
+        values.put(COLUMNA_ESCUCHAR_RANGO, personaje.get_escucharRango());
+        values.put(COLUMNA_ESCUCHAR_VARIOS, personaje.get_escucharVarios());
+        values.put(COLUMNA_FALSIFICAR_CARAC, personaje.get_falsificarCarac());
+        values.put(COLUMNA_FALSIFICAR_RANGO, personaje.get_falsificarRango());
+        values.put(COLUMNA_FALSIFICAR_VARIOS, personaje.get_falsificarVarios());
+        values.put(COLUMNA_INTERPRETAR1_CARAC, personaje.get_interpretar1Carac());
+        values.put(COLUMNA_INTERPRETAR1_RANGO, personaje.get_interpretar1Rango());
+        values.put(COLUMNA_INTERPRETAR1_VARIOS, personaje.get_interpretar1Varios());
+        values.put(COLUMNA_INTERPRETAR2_CARAC, personaje.get_interpretar2Carac());
+        values.put(COLUMNA_INTERPRETAR2_RANGO, personaje.get_interpretar2Rango());
+        values.put(COLUMNA_INTERPRETAR2_VARIOS, personaje.get_interpretar2Varios());
+        values.put(COLUMNA_INTERPRETAR3_CARAC, personaje.get_interpretar3Carac());
+        values.put(COLUMNA_INTERPRETAR3_RANGO, personaje.get_interpretar3Rango());
+        values.put(COLUMNA_INTERPRETAR3_VARIOS, personaje.get_interpretar3Varios());
+        values.put(COLUMNA_INTIMIDAR_CARAC, personaje.get_intimidarCarac());
+        values.put(COLUMNA_INTIMIDAR_RANGO, personaje.get_intimidarRango());
+        values.put(COLUMNA_INTIMIDAR_VARIOS, personaje.get_intimidarVarios());
+        values.put(COLUMNA_MECANISMO_CARAC, personaje.get_mecanismoCarac());
+        values.put(COLUMNA_MECANISMO_RANGO, personaje.get_mecanismoRango());
+        values.put(COLUMNA_MECANISMO_VARIOS, personaje.get_mecanismoVarios());
+        values.put(COLUMNA_MANOS_CARAC, personaje.get_manosCarac());
+        values.put(COLUMNA_MANOS_RANGO, personaje.get_manosRango());
+        values.put(COLUMNA_MANOS_VARIOS, personaje.get_manosVarios());
+        values.put(COLUMNA_MONTAR_CARAC, personaje.get_montarCarac());
+        values.put(COLUMNA_MONTAR_RANGO, personaje.get_montarRango());
+        values.put(COLUMNA_MONTAR_VARIOS, personaje.get_montarVarios());
+        values.put(COLUMNA_SIGILO_CARAC, personaje.get_sigiloCarac());
+        values.put(COLUMNA_SIGILO_RANGO, personaje.get_sigiloRango());
+        values.put(COLUMNA_SIGILO_VARIOS, personaje.get_sigiloVarios());
+        values.put(COLUMNA_NADAR_CARAC, personaje.get_nadarCarac());
+        values.put(COLUMNA_NADAR_RANGO, personaje.get_nadarRango());
+        values.put(COLUMNA_NADAR_VARIOS, personaje.get_nadarVarios());
+        values.put(COLUMNA_OFICIO_CARAC, personaje.get_oficioCarac());
+        values.put(COLUMNA_OFICIO_RANGO, personaje.get_oficioRango());
+        values.put(COLUMNA_OFICIO_VARIOS, personaje.get_oficioVarios());
+        values.put(COLUMNA_PIRUETAS_CARAC, personaje.get_piruetasCarac());
+        values.put(COLUMNA_PIRUETAS_RANGO, personaje.get_piruetasRango());
+        values.put(COLUMNA_PIRUETAS_VARIOS, personaje.get_piruetasVarios());
+        values.put(COLUMNA_INFO_CARAC, personaje.get_infoCarac());
+        values.put(COLUMNA_INFO_RANGO, personaje.get_infoRango());
+        values.put(COLUMNA_INFO_VARIOS, personaje.get_infoVarios());
+        values.put(COLUMNA_ARCANO_CARAC, personaje.get_arcanoCarac());
+        values.put(COLUMNA_ARCANO_RANGO, personaje.get_arcanoRango());
+        values.put(COLUMNA_ARCANO_VARIOS, personaje.get_arcanoVarios());
+        values.put(COLUMNA_ARQ_CARAC, personaje.get_arqCarac());
+        values.put(COLUMNA_ARQ_RANGO, personaje.get_arqRango());
+        values.put(COLUMNA_ARQ_VARIOS, personaje.get_arqVarios());
+        values.put(COLUMNA_DUNGEONS_CARAC, personaje.get_dungeonsCarac());
+        values.put(COLUMNA_DUNGEONS_RANGO, personaje.get_dungeonsRango());
+        values.put(COLUMNA_DUNGEONS_VARIOS, personaje.get_dungeonsVarios());
+        values.put(COLUMNA_GEO_CARAC, personaje.get_geoCarac());
+        values.put(COLUMNA_GEO_RANGO, personaje.get_geoRango());
+        values.put(COLUMNA_GEO_VARIOS, personaje.get_geoVarios());
+        values.put(COLUMNA_HISTORIA_CARAC, personaje.get_historiaCarac());
+        values.put(COLUMNA_HISTORIA_RANGO, personaje.get_historiaRango());
+        values.put(COLUMNA_HISTORIA_VARIOS, personaje.get_historiaVarios());
+        values.put(COLUMNA_LOCAL_CARAC, personaje.get_localCarac());
+        values.put(COLUMNA_LOCAL_RANGO, personaje.get_localRango());
+        values.put(COLUMNA_LOCAL_VARIOS, personaje.get_localVarios());
+        values.put(COLUMNA_PLANOS_CARAC, personaje.get_planosCarac());
+        values.put(COLUMNA_PLANOS_RANGO, personaje.get_planosRango());
+        values.put(COLUMNA_PLANOS_VARIOS, personaje.get_planosVarios());
+        values.put(COLUMNA_NATURAL_CARAC, personaje.get_naturalCarac());
+        values.put(COLUMNA_NATURAL_RANGO, personaje.get_naturalRango());
+        values.put(COLUMNA_NATURAL_VARIOS, personaje.get_naturalVarios());
+        values.put(COLUMNA_NOBLEZA_CARAC, personaje.get_noblezaCarac());
+        values.put(COLUMNA_NOBLEZA_RANGO, personaje.get_noblezaRango());
+        values.put(COLUMNA_NOBLEZA_VARIOS, personaje.get_noblezaVarios());
+        values.put(COLUMNA_RELIGION_CARAC, personaje.get_religionCarac());
+        values.put(COLUMNA_RELIGION_RANGO, personaje.get_religionRango());
+        values.put(COLUMNA_RELIGION_VARIOS, personaje.get_religionVarios());
+        values.put(COLUMNA_SALTAR_CARAC, personaje.get_saltarCarac());
+        values.put(COLUMNA_SALTAR_RANGO, personaje.get_saltarRango());
+        values.put(COLUMNA_SALTAR_VARIOS, personaje.get_saltarVarios());
+        values.put(COLUMNA_SANAR_CARAC, personaje.get_sanarCarac());
+        values.put(COLUMNA_SANAR_RANGO, personaje.get_sanarRango());
+        values.put(COLUMNA_SANAR_VARIOS, personaje.get_sanarVarios());
+        values.put(COLUMNA_SUPERVIVENCIA_CARAC, personaje.get_supervivenciaCarac());
+        values.put(COLUMNA_SUPERVIVENCIA_RANGO, personaje.get_supervivenciaRango());
+        values.put(COLUMNA_SUPERVIVENCIA_VARIOS, personaje.get_supervivenciaVarios());
+        values.put(COLUMNA_TASACION_CARAC, personaje.get_tasacionCarac());
+        values.put(COLUMNA_TASACION_RANGO, personaje.get_tasacionRango());
+        values.put(COLUMNA_TASACION_VARIOS, personaje.get_tasacionVarios());
+        values.put(COLUMNA_ANIMALES_CARAC, personaje.get_animalesCarac());
+        values.put(COLUMNA_ANIMALES_RANGO, personaje.get_animalesRango());
+        values.put(COLUMNA_ANIMALES_VARIOS, personaje.get_animalesVarios());
+        values.put(COLUMNA_TREPAR_CARAC, personaje.get_treparCarac());
+        values.put(COLUMNA_TREPAR_RANGO, personaje.get_treparRango());
+        values.put(COLUMNA_TREPAR_VARIOS, personaje.get_treparVarios());
+        values.put(COLUMNA_OBJ_MAG_CARAC, personaje.get_objMagCarac());
+        values.put(COLUMNA_OBJ_MAG_RANGO, personaje.get_objMagRango());
+        values.put(COLUMNA_OBJ_MAG_VARIOS, personaje.get_objMagVarios());
+        values.put(COLUMNA_CUERDAS_CARAC, personaje.get_cuerdasCarac());
+        values.put(COLUMNA_CUERDAS_RANGO, personaje.get_cuerdasRango());
+        values.put(COLUMNA_CUERDAS_VARIOS, personaje.get_cuerdasVarios());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLA_PERSONAJE, null, values);
         db.close();

@@ -32,13 +32,6 @@ public class MainActivity extends AppCompatActivity{
     private ViewPager viewPager;
     private ViewPagerAdapter adapter;
     private SkillsFragment skillsFragment = new SkillsFragment();
-    private String aux_modificador = "";
-    private String aux_rango = "";
-    private String aux_varios = "";
-    private String aux_pts_hab = "";
-    private String aux_total = "";
-    private String aux_id = "";
-
 
     public static final int PJ_FRAGMENT     = 0;
     public static final int STATS_FRAGMENT  = 1;
@@ -47,9 +40,6 @@ public class MainActivity extends AppCompatActivity{
     public static final int SPELLS_FRAGMENT = 4;
     public static final int OTHERS_FRAGMENT = 5;
 
-
-    private DBHelper dbHelper = new DBHelper(getApplicationContext());
-    private SQLiteDatabase db = dbHelper.getReadableDatabase();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,10 +119,10 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
-    public void modificarModHabilidad(View v){
+    /*public void modificarModHabilidad(View v){
 
         TextView textViewRecuperar;
-        String valorControl = "";
+        String valorControl;
 
         switch (v.getId()){
 
@@ -154,16 +144,12 @@ public class MainActivity extends AppCompatActivity{
                         aux_rango       = c.getString(4);
                         aux_varios      = c.getString(5);
 
-
                     }while (c.moveToNext());
                 }
 
-                //Llamar al metodo y pasarle los datos necesarios para que puedan ponerse los valores en la pantalla
-                //<-----------------------------------------------------------------------------------
-                //<-----------------------------------------------------------------------------------
-                //<-----------------------------------------------------------------------------------
-                //<-----------------------------------------------------------------------------------
-                //<-----------------------------------------------------------------------------------
+                dialogModificarHabilidades(" Modificar puntos habilidad", valorControl, aux_modificador, aux_rango, aux_varios);
+
+
                 break;
 
             case R.id.textViewValorArte:
@@ -183,7 +169,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
-    private void dialogModificarHabilidades(String title, final String valorControl){
+    private void dialogModificarHabilidades(String title, final String valorControl, String modificador, String rangos, String valor_varios){
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
         View viewInflated = LayoutInflater.from(getApplicationContext()).inflate(R.layout.dialog_modificadores_habilidades, null);
@@ -197,6 +183,9 @@ public class MainActivity extends AppCompatActivity{
         textViewTitle.setText(title);
         builder.setCancelable(true);
 
+        editTextModCar.setText(modificador);
+        editTextRangos.setText(rangos);
+        editTextVarios.setText(valor_varios);
 
         builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override
@@ -266,7 +255,7 @@ public class MainActivity extends AppCompatActivity{
         }else {
             return true;
         }
-    }
+    }*/
 
 
 }

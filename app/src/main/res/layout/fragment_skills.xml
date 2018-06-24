@@ -33,16 +33,6 @@
                     android:gravity="center_vertical"
                     android:textStyle="italic" />
 
-                <ImageButton
-                    android:id="@+id/imgBtnRefreshSkills"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
-                    android:background="@null"
-                    android:tint="@color/colorPrimaryText"
-                    android:src="@android:drawable/stat_notify_sync"
-                    android:layout_marginRight="16dp"/>
-
             </LinearLayout>
 
             <LinearLayout
@@ -92,7 +82,8 @@
                     android:id="@+id/linearCerradura"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/boton">
 
                     <CheckBox
                         android:id="@+id/checkCerradura"
@@ -100,6 +91,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:text="Abrir cerraduras"/>
 
                     <TextView
@@ -109,18 +101,17 @@
                         android:layout_weight="0.25"
                         android:textColor="#000000"
                         android:textStyle="bold"
+                        android:layout_gravity="center"
                         android:text="DES"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorCerradura"
+                    <Button
+                        android:id="@+id/btnValorCerradura"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:text="0"
-                        android:onClick="modificarModHabilidad"
                         android:textColor="#000000"
                         android:textSize="15sp"/>
 
@@ -129,8 +120,10 @@
                 <LinearLayout
                     android:id="@+id/linearArte"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/boton">
 
                     <CheckBox
                         android:id="@+id/checkArte"
@@ -138,6 +131,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Arte"/>
 
@@ -147,20 +141,19 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
                         android:textColor="#000000"
+                        android:layout_gravity="center"
                         android:textStyle="bold"
                         android:text="INT"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorArte"
+                    <Button
+                        android:id="@+id/btnValorArte"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
                         android:text="0"
-                        android:onClick="modificarModHabilidad"
                         android:textSize="15sp" />
 
                 </LinearLayout>
@@ -168,6 +161,8 @@
                 <LinearLayout
                     android:id="@+id/linearaIntenciones"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -177,6 +172,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Averig. Intenciones"/>
 
@@ -185,16 +181,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="SAB"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorIntenciones"
+                    <Button
+                        android:id="@+id/btnValorIntenciones"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -206,6 +202,8 @@
                 <LinearLayout
                     android:id="@+id/linearAvistar"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -213,6 +211,7 @@
                         android:id="@+id/checkAvistar"
                         android:focusable="false"
                         android:layout_width="0dp"
+                        android:layout_gravity="center"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
                         android:textColor="@color/colorPrimaryDark"
@@ -223,16 +222,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="SAB"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorAvistar"
+                    <Button
+                        android:id="@+id/btnValorAvistar"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -244,6 +243,8 @@
                 <LinearLayout
                     android:id="@+id/linearBuscar"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -253,6 +254,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Buscar"/>
 
@@ -263,14 +265,14 @@
                         android:layout_weight="0.25"
                         android:textColor="#000000"
                         android:textStyle="bold"
+                        android:layout_gravity="center"
                         android:text="INT"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorBuscar"
+                    <Button
+                        android:id="@+id/btnValorBuscar"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -282,6 +284,8 @@
                 <LinearLayout
                     android:id="@+id/linearConcentracion"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -291,6 +295,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Concentracion"/>
 
@@ -299,16 +304,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="CON"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorConcentracion"
+                    <Button
+                        android:id="@+id/btnValorConcentracion"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -320,6 +325,8 @@
                 <LinearLayout
                     android:id="@+id/linearConjuros"
                     android:orientation="horizontal"
+                    android:background="@drawable/boton"
+                    android:layout_marginTop="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -329,6 +336,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:text="Conoc. de conjuros"/>
 
                     <TextView
@@ -337,15 +345,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
                         android:textColor="#000000"
+                        android:layout_gravity="center"
                         android:textStyle="bold"
                         android:text="INT"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorConjuros"
+                    <Button
+                        android:id="@+id/btnValorConjuros"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -357,6 +365,8 @@
                 <LinearLayout
                     android:id="@+id/linearDesfEscritura"
                     android:orientation="horizontal"
+                    android:background="@drawable/boton"
+                    android:layout_marginTop="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -365,24 +375,25 @@
                         android:focusable="false"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_weight="0.55"
-                        android:text="Desifrar escritura"/>
+                        android:text="Descifrar escritura"/>
 
                     <TextView
                         android:id="@+id/textViewCaracDesfEscritura"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="INT"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorDesfEscritura"
+                    <Button
+                        android:id="@+id/btnValorDesfEscritura"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -394,6 +405,8 @@
                 <LinearLayout
                     android:id="@+id/linearDiplomacia"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -403,24 +416,25 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Diplomacia"/>
 
                     <TextView
                         android:id="@+id/textViewCaracDiplomacia"
                         android:layout_width="0dp"
+                        android:layout_gravity="center"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="CAR"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorDiplomacia"
+                    <Button
+                        android:id="@+id/btnValorDiplomacia"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -432,6 +446,8 @@
                 <LinearLayout
                     android:id="@+id/linearDisfraz"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -441,6 +457,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Disfrazarse"/>
 
@@ -450,15 +467,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
                         android:textColor="#000000"
+                        android:layout_gravity="center"
                         android:textStyle="bold"
                         android:text="CAR"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorDisfraz"
+                    <Button
+                        android:id="@+id/btnValorDisfraz"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -470,6 +487,8 @@
                 <LinearLayout
                     android:id="@+id/linearEngañar"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -479,6 +498,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Engañar"/>
 
@@ -488,15 +508,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
                         android:textColor="#000000"
+                        android:layout_gravity="center"
                         android:textStyle="bold"
                         android:text="CAR"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorEngañar"
+                    <Button
+                        android:id="@+id/btnValorEngañar"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -508,6 +528,8 @@
                 <LinearLayout
                     android:id="@+id/linearEquilibrio"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -517,6 +539,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Equilibrio"/>
 
@@ -527,14 +550,14 @@
                         android:layout_weight="0.25"
                         android:textColor="#000000"
                         android:textStyle="bold"
+                        android:layout_gravity="center"
                         android:text="DES *"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorEquilibrio"
+                    <Button
+                        android:id="@+id/btnValorEquilibrio"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -546,6 +569,8 @@
                 <LinearLayout
                     android:id="@+id/linearEscapismo"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -555,6 +580,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Escapismo"/>
 
@@ -563,16 +589,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="DES *"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorEscapismo"
+                    <Button
+                        android:id="@+id/btnValorEscapismo"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -584,6 +610,8 @@
                 <LinearLayout
                     android:id="@+id/linearEsconderse"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -593,6 +621,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Esconderse"/>
 
@@ -601,16 +630,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="DES *"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorEsconderse"
+                    <Button
+                        android:id="@+id/btnValorEsconderse"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -622,6 +651,8 @@
                 <LinearLayout
                     android:id="@+id/linearEscuchar"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -631,6 +662,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Escuchar"/>
 
@@ -640,15 +672,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
                         android:textColor="#000000"
+                        android:layout_gravity="center"
                         android:textStyle="bold"
                         android:text="SAB"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorEscuchar"
+                    <Button
+                        android:id="@+id/btnValorEscuchar"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -660,6 +692,8 @@
                 <LinearLayout
                     android:id="@+id/linearFalsificar"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -669,6 +703,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Falsificar"/>
 
@@ -677,16 +712,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="INT"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorFalsificar"
+                    <Button
+                        android:id="@+id/btnValorFalsificar"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -698,6 +733,8 @@
                 <LinearLayout
                     android:id="@+id/linearInterpretar1"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -707,6 +744,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Interpretar"/>
 
@@ -716,15 +754,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
                         android:textColor="#000000"
+                        android:layout_gravity="center"
                         android:textStyle="bold"
                         android:text="CAR"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorInterpretar1"
+                    <Button
+                        android:id="@+id/btnValorInterpretar1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -736,6 +774,8 @@
                 <LinearLayout
                     android:id="@+id/linearInterpretar2"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -743,6 +783,7 @@
                         android:id="@+id/checkInterpretar2"
                         android:focusable="false"
                         android:layout_width="0dp"
+                        android:layout_gravity="center"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
                         android:textColor="@color/colorPrimaryDark"
@@ -754,15 +795,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
                         android:textColor="#000000"
+                        android:layout_gravity="center"
                         android:textStyle="bold"
                         android:text="CAR"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorInterpretar2"
+                    <Button
+                        android:id="@+id/btnValorInterpretar2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -774,6 +815,8 @@
                 <LinearLayout
                     android:id="@+id/linearInterpretar3"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -783,6 +826,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Interpretar"/>
 
@@ -791,16 +835,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="CAR"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorInterpretar3"
+                    <Button
+                        android:id="@+id/btnValorInterpretar3"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -812,6 +856,8 @@
                 <LinearLayout
                     android:id="@+id/linearIntimidar"
                     android:orientation="horizontal"
+                    android:background="@drawable/boton"
+                    android:layout_marginTop="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -821,6 +867,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Intimidar"/>
 
@@ -830,15 +877,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
                         android:textColor="#000000"
+                        android:layout_gravity="center"
                         android:textStyle="bold"
                         android:text="INT"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorIntimidar"
+                    <Button
+                        android:id="@+id/btnValorIntimidar"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -850,6 +897,8 @@
                 <LinearLayout
                     android:id="@+id/linearInutilizarMeq"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -857,25 +906,26 @@
                         android:id="@+id/checkInutilizarMeq"
                         android:focusable="false"
                         android:layout_width="0dp"
+                        android:layout_gravity="center"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
-                        android:text="Inutilizar Meq."/>
+                        android:text="Inutilizar Mec."/>
 
                     <TextView
                         android:id="@+id/textViewCaracInutilizarMeq"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="INT"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorInutilizarMeq"
+                    <Button
+                        android:id="@+id/btnValorInutilizarMeq"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -887,6 +937,8 @@
                 <LinearLayout
                     android:id="@+id/linearJuegoManos"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -894,6 +946,7 @@
                         android:id="@+id/checkJuegoManos"
                         android:focusable="false"
                         android:layout_width="0dp"
+                        android:layout_gravity="center"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
                         android:text="Juego de manos"/>
@@ -903,16 +956,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="DES"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorJuegoManos"
+                    <Button
+                        android:id="@+id/btnValorJuegoManos"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -924,6 +977,8 @@
                 <LinearLayout
                     android:id="@+id/linearMontar"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -933,6 +988,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Montar"/>
 
@@ -941,16 +997,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="DES"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorMontar"
+                    <Button
+                        android:id="@+id/btnValorMontar"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -962,6 +1018,8 @@
                 <LinearLayout
                     android:id="@+id/linearSigilo"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -971,6 +1029,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Mov. sigilosamente"/>
 
@@ -980,15 +1039,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
                         android:textColor="#000000"
+                        android:layout_gravity="center"
                         android:textStyle="bold"
                         android:text="DES *"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorSigilo"
+                    <Button
+                        android:id="@+id/btnValorSigilo"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1000,6 +1059,8 @@
                 <LinearLayout
                     android:id="@+id/linearNadar"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1009,6 +1070,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Nadar"/>
 
@@ -1017,16 +1079,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="FUE *"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorNadar"
+                    <Button
+                        android:id="@+id/btnValorNadar"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1038,6 +1100,8 @@
                 <LinearLayout
                     android:id="@+id/linearOficio"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1047,6 +1111,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:text="Oficio" />
 
                     <TextView
@@ -1056,14 +1121,14 @@
                         android:layout_weight="0.25"
                         android:textColor="#000000"
                         android:textStyle="bold"
+                        android:layout_gravity="center"
                         android:text="SAB"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorOficio"
+                    <Button
+                        android:id="@+id/btnValorOficio"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1075,6 +1140,8 @@
                 <LinearLayout
                     android:id="@+id/linearPiruetas"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1082,6 +1149,7 @@
                         android:id="@+id/checkPiruetas"
                         android:focusable="false"
                         android:layout_width="0dp"
+                        android:layout_gravity="center"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
                         android:text="Piruetas"/>
@@ -1091,16 +1159,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="DES *"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorPiruetas"
+                    <Button
+                        android:id="@+id/btnValorPiruetas"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1112,6 +1180,8 @@
                 <LinearLayout
                     android:id="@+id/linearReunirInfo"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1121,6 +1191,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Reunir Info."/>
 
@@ -1129,16 +1200,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="CAR"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorReunirInfo"
+                    <Button
+                        android:id="@+id/btnValorReunirInfo"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1150,6 +1221,8 @@
                 <LinearLayout
                     android:id="@+id/linearSaberArcano"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1158,6 +1231,7 @@
                         android:focusable="false"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_weight="0.55"
                         android:text="Saber(Arcano)"/>
 
@@ -1166,16 +1240,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="INT"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorSaberArcano"
+                    <Button
+                        android:id="@+id/btnValorSaberArcano"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1187,6 +1261,8 @@
                 <LinearLayout
                     android:id="@+id/linearSaberIng"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1194,6 +1270,7 @@
                         android:id="@+id/checkSaberIng"
                         android:focusable="false"
                         android:layout_width="0dp"
+                        android:layout_gravity="center"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
                         android:text="Saber(Arq e Ing)"/>
@@ -1203,16 +1280,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="INT"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorSaberIng"
+                    <Button
+                        android:id="@+id/btnValorSaberIng"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1224,6 +1301,8 @@
                 <LinearLayout
                     android:id="@+id/linearSaberDung"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1231,6 +1310,7 @@
                         android:id="@+id/checkSaberDung"
                         android:focusable="false"
                         android:layout_width="0dp"
+                        android:layout_gravity="center"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
                         android:text="Saber(Dungeons)"/>
@@ -1240,16 +1320,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="INT"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorSaberDung"
+                    <Button
+                        android:id="@+id/btnValorSaberDung"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1261,6 +1341,8 @@
                 <LinearLayout
                     android:id="@+id/linearSaberGeo"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1268,6 +1350,7 @@
                         android:id="@+id/checkSaberGeo"
                         android:focusable="false"
                         android:layout_width="0dp"
+                        android:layout_gravity="center"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
                         android:text="Saber(Geografía)"/>
@@ -1277,16 +1360,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="INT"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorSaberGeo"
+                    <Button
+                        android:id="@+id/btnValorSaberGeo"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1298,6 +1381,8 @@
                 <LinearLayout
                     android:id="@+id/linearSaberHistoria"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1305,6 +1390,7 @@
                         android:id="@+id/checkSaberHistoria"
                         android:focusable="false"
                         android:layout_width="0dp"
+                        android:layout_gravity="center"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
                         android:text="Saber(Historia)"/>
@@ -1315,15 +1401,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
                         android:textColor="#000000"
+                        android:layout_gravity="center"
                         android:textStyle="bold"
                         android:text="INT"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorSaberHistoria"
+                    <Button
+                        android:id="@+id/btnValorSaberHistoria"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1335,6 +1421,8 @@
                 <LinearLayout
                     android:id="@+id/linearSaberLocal"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1344,6 +1432,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:text="Saber(Local)"/>
 
                     <TextView
@@ -1351,16 +1440,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="INT"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorSaberLocal"
+                    <Button
+                        android:id="@+id/btnValorSaberLocal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1372,6 +1461,8 @@
                 <LinearLayout
                     android:id="@+id/linearSaberPlanos"
                     android:orientation="horizontal"
+                    android:background="@drawable/boton"
+                    android:layout_marginTop="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1381,6 +1472,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:text="Saber(Planos)"/>
 
                     <TextView
@@ -1389,15 +1481,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
                         android:textColor="#000000"
+                        android:layout_gravity="center"
                         android:textStyle="bold"
                         android:text="INT"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorSaberPlanos"
+                    <Button
+                        android:id="@+id/btnValorSaberPlanos"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1409,6 +1501,8 @@
                 <LinearLayout
                     android:id="@+id/linearSaberNat"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1418,6 +1512,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:text="Saber(Naturaleza)"/>
 
                     <TextView
@@ -1426,15 +1521,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
                         android:textColor="#000000"
+                        android:layout_gravity="center"
                         android:textStyle="bold"
                         android:text="INT"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorSaberNat"
+                    <Button
+                        android:id="@+id/btnValorSaberNat"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1446,6 +1541,8 @@
                 <LinearLayout
                     android:id="@+id/linearSaberNobleza"
                     android:orientation="horizontal"
+                    android:background="@drawable/boton"
+                    android:layout_marginTop="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1455,6 +1552,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:text="Saber(Nobleza)"/>
 
                     <TextView
@@ -1462,16 +1560,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="INT"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorSaberNobleza"
+                    <Button
+                        android:id="@+id/btnValorSaberNobleza"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1483,6 +1581,8 @@
                 <LinearLayout
                     android:id="@+id/linearSaberReligion"
                     android:orientation="horizontal"
+                    android:background="@drawable/boton"
+                    android:layout_marginTop="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1492,6 +1592,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:text="Saber(Religión)"/>
 
                     <TextView
@@ -1499,16 +1600,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="INT"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorSaberReligion"
+                    <Button
+                        android:id="@+id/btnValorSaberReligion"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1520,6 +1621,8 @@
                 <LinearLayout
                     android:id="@+id/linearSaltar"
                     android:orientation="horizontal"
+                    android:background="@drawable/boton"
+                    android:layout_marginTop="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1529,6 +1632,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Saltar"/>
 
@@ -1538,15 +1642,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
                         android:textColor="#000000"
+                        android:layout_gravity="center"
                         android:textStyle="bold"
                         android:text="FUE *"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorSaltar"
+                    <Button
+                        android:id="@+id/btnValorSaltar"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1558,6 +1662,8 @@
                 <LinearLayout
                     android:id="@+id/linearSanar"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1567,6 +1673,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Sanar"/>
 
@@ -1575,16 +1682,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="SAB"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorSanar"
+                    <Button
+                        android:id="@+id/btnValorSanar"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1596,6 +1703,8 @@
                 <LinearLayout
                     android:id="@+id/linearSuperv"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1605,6 +1714,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Supervivencia"/>
 
@@ -1613,16 +1723,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="SAB"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorSuperv"
+                    <Button
+                        android:id="@+id/btnValorSuperv"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1634,6 +1744,8 @@
                 <LinearLayout
                     android:id="@+id/linearTasacion"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1643,6 +1755,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Tasacion"/>
 
@@ -1653,14 +1766,14 @@
                         android:layout_weight="0.25"
                         android:textColor="#000000"
                         android:textStyle="bold"
+                        android:layout_gravity="center"
                         android:text="INT"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorTasacion"
+                    <Button
+                        android:id="@+id/btnValorTasacion"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1672,6 +1785,8 @@
                 <LinearLayout
                     android:id="@+id/linearAnimales"
                     android:orientation="horizontal"
+                    android:background="@drawable/boton"
+                    android:layout_marginTop="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1679,6 +1794,7 @@
                         android:id="@+id/checkAnimales"
                         android:focusable="false"
                         android:layout_width="0dp"
+                        android:layout_gravity="center"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
                         android:text="Trato con animales"/>
@@ -1686,18 +1802,18 @@
                     <TextView
                         android:id="@+id/textViewCaracAnimales"
                         android:layout_width="0dp"
+                        android:layout_gravity="center"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="CAR"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorAnimales"
+                    <Button
+                        android:id="@+id/btnValorAnimales"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1709,6 +1825,8 @@
                 <LinearLayout
                     android:id="@+id/linearTrepar"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1716,6 +1834,7 @@
                         android:id="@+id/checkTrepar"
                         android:focusable="false"
                         android:layout_width="0dp"
+                        android:layout_gravity="center"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
                         android:text="Trepar"/>
@@ -1726,15 +1845,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
                         android:textColor="#000000"
+                        android:layout_gravity="center"
                         android:textStyle="bold"
                         android:text="FUE"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorTrepar"
+                    <Button
+                        android:id="@+id/btnValorTrepar"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1746,6 +1865,8 @@
                 <LinearLayout
                     android:id="@+id/linearObjMagico"
                     android:orientation="horizontal"
+                    android:background="@drawable/boton"
+                    android:layout_marginTop="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1755,6 +1876,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:text="Usar Obj. mágico"/>
 
                     <TextView
@@ -1762,16 +1884,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="CAR"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorObjMagico"
+                    <Button
+                        android:id="@+id/btnValorObjMagico"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
@@ -1783,6 +1905,8 @@
                 <LinearLayout
                     android:id="@+id/linearCuerdas"
                     android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/boton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -1792,6 +1916,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.55"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Uso de cuerdas"/>
 
@@ -1800,16 +1925,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
+                        android:layout_gravity="center"
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="DES"/>
 
-                    <TextView
-                        android:id="@+id/textViewValorCuerdas"
+                    <Button
+                        android:id="@+id/btnValorCuerdas"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:background="@drawable/boton"
                         android:gravity="center"
                         android:textColor="#000000"
                         android:layout_gravity="center"
