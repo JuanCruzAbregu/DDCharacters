@@ -36,39 +36,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="18dp"
-                android:paddingRight="16dp"
-                android:paddingBottom="5dp"
-                android:paddingTop="16dp">
-
-                <Button
-                    android:id="@+id/buttonPH"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorButtons"
-                    android:text="Pts Habilidad Restantes"
-                    android:layout_weight="0.75"
-                    android:textColor="#ffffff"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/textViewPH"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.25"
-                    android:background="@drawable/boton"
-                    android:gravity="center"
-                    android:text="0"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
-            </LinearLayout>
-
-            <LinearLayout
                 android:id="@+id/linearContenedor2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,7 +43,7 @@
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:paddingBottom="16dp"
-                android:paddingTop="5dp">
+                android:paddingTop="16dp">
 
                 <LinearLayout
                     android:id="@+id/linearCerradura"
