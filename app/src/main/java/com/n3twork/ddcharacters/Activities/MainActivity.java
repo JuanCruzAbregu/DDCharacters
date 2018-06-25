@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity{
         setViewPager();
         setListenerTabLayout(viewPager);
 
-        skillsFragment.recuperarTodosSkills();
+        //skillsFragment.recuperarTodosSkills();
 
     }
 

@@ -4,6 +4,7 @@ package com.n3twork.ddcharacters.Fragments;
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -442,7 +443,12 @@ public class PJFragment extends ListFragment {
 
                     recuperarTodosLosPersonajes();
 
-                    (getActivity()).recreate();
+                    Intent i = getContext().getPackageManager()
+                            .getLaunchIntentForPackage( getContext().getPackageName() );
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+
+//                    (getActivity()).recreate();
 
                 }catch (Exception e){
 

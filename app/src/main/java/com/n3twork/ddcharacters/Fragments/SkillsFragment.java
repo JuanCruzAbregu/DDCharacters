@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -142,7 +143,7 @@ public class SkillsFragment extends Fragment {
     private Button btnObjMagico;
     private Button btnCuerdas;
 
-
+//    private ImageButton imgBtnRefreshSkills;
 
     private TextView textViewPH;
 
@@ -210,6 +211,7 @@ public class SkillsFragment extends Fragment {
             checkCuerdas        = view.findViewById(R.id.checkCuerdas);
             buttonPH            = view.findViewById(R.id.buttonPH);
             textViewPH          = view.findViewById(R.id.textViewPH);
+//            imgBtnRefreshSkills = view.findViewById(R.id.imgBtnRefreshSkills);
 
             // Son 46 botones
 
@@ -260,7 +262,21 @@ public class SkillsFragment extends Fragment {
             btnObjMagico     = view.findViewById(R.id.btnValorObjMagico);
             btnCuerdas       = view.findViewById(R.id.btnValorCuerdas);
 
+
+//            imgBtnRefreshSkills.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Intent i = getContext().getPackageManager()
+//                                .getLaunchIntentForPackage( getContext().getPackageName() );
+//                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                        startActivity(i);
+//
+//                    }
+//                });
+
             recuperarTodosSkills();
+
+
 
             buttonPH.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -279,6 +295,15 @@ public class SkillsFragment extends Fragment {
 
                     modificarPuntosHabilidad(control);
 
+                }
+            });
+
+            btnArte.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 2;
+
+                    modificarPuntosHabilidad(control);
                 }
             });
 
@@ -528,11 +553,10 @@ public class SkillsFragment extends Fragment {
                     aux_cerradura = c.getString(3);
                 } while (c.moveToNext());
 
-                habilidadesPorClase(aux_clase);
-
                 textViewPH.setText(aux_ptsHab);
                 btnCerradura.setText(aux_cerradura);
 
+                habilidadesPorClase(aux_clase);
             }
 
         }catch (Exception e){
@@ -769,6 +793,25 @@ public class SkillsFragment extends Fragment {
             break;
 
             case 2: //Arte
+
+                Cursor c2 = db
+                        .rawQuery("SELECT _id, ptsHab, cerradura, cerraduraCarac, cerraduraRango, cerraduraVarios FROM personaje WHERE controlAct='1'", null);
+
+                if (c2.moveToFirst()) {
+                    do {
+
+                        aux_id = c2.getString(0);
+                        aux_pts_hab = c2.getString(1);
+                        aux_total = c2.getString(2);
+                        aux_modificador = c2.getString(3);
+                        aux_rango = c2.getString(4);
+                        aux_varios = c2.getString(5);
+
+                    } while (c2.moveToNext());
+                }
+
+                dialogModificarHabilidades(" Modificar puntos habilidad", aux_modificador, aux_rango, aux_varios, control, aux_id);
+
 
                 break;
 
