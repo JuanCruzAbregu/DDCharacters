@@ -1,7 +1,9 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context="com.n3twork.ddcharacters.Fragments.EquipFragment">
 
     <ScrollView
@@ -226,11 +228,9 @@
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:id="@+id/linearMunicion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
+                android:orientation="horizontal"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp">
 
@@ -238,48 +238,32 @@
                     android:id="@+id/buttonMunicion"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
                     android:backgroundTint="@color/colorButtons"
                     android:text="Munición"
-                    android:layout_weight="0.35"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/textViewMunicion"
+                <ProgressBar
+                    android:id="@+id/progressBarMunicion1"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="0.4"
-                    android:background="@drawable/boton"
-                    android:gravity="center"
-                    android:text=""
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
+                    android:layout_weight="0.55"
+                    android:max="30"
+                    android:backgroundTint="#000000"/>
 
                 <TextView
-                    android:id="@+id/textViewEmpty"
+                    android:id="@+id/textViewMunicion1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.05"
-                    android:background="@drawable/boton"
+                    android:layout_weight="0.15"
                     android:gravity="center"
-                    android:text=""
-                    android:visibility="invisible"
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/textViewCantMunicion"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.2"
-                    android:background="@drawable/boton"
-                    android:gravity="center"
-                    android:text=""
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
+                    android:text="0"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"/>
 
 
             </LinearLayout>
@@ -493,11 +477,9 @@
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:id="@+id/linearMunicion2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
+                android:orientation="horizontal"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp">
 
@@ -505,48 +487,32 @@
                     android:id="@+id/buttonMunicion2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
                     android:backgroundTint="@color/colorButtons"
                     android:text="Munición"
-                    android:layout_weight="0.35"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarMunicion2"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.55"
+                    android:max="30"
+                    android:backgroundTint="#000000"/>
 
                 <TextView
                     android:id="@+id/textViewMunicion2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.4"
-                    android:background="@drawable/boton"
+                    android:layout_weight="0.15"
                     android:gravity="center"
-                    android:text=""
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/textViewEmpty2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.05"
-                    android:background="@drawable/boton"
-                    android:gravity="center"
-                    android:text=""
-                    android:visibility="invisible"
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/textViewCantMunicion2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.2"
-                    android:background="@drawable/boton"
-                    android:gravity="center"
-                    android:text=""
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
+                    android:text="0"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"/>
 
 
             </LinearLayout>
@@ -760,11 +726,9 @@
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:id="@+id/linearMunicion3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
+                android:orientation="horizontal"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp">
 
@@ -772,48 +736,32 @@
                     android:id="@+id/buttonMunicion3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
                     android:backgroundTint="@color/colorButtons"
                     android:text="Munición"
-                    android:layout_weight="0.35"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarMunicion3"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.55"
+                    android:max="30"
+                    android:backgroundTint="#000000"/>
 
                 <TextView
                     android:id="@+id/textViewMunicion3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.4"
-                    android:background="@drawable/boton"
+                    android:layout_weight="0.15"
                     android:gravity="center"
-                    android:text=""
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/textViewEmpty3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.05"
-                    android:background="@drawable/boton"
-                    android:gravity="center"
-                    android:text=""
-                    android:visibility="invisible"
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/textViewCantMunicion3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.2"
-                    android:background="@drawable/boton"
-                    android:gravity="center"
-                    android:text=""
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
+                    android:text="0"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"/>
 
 
             </LinearLayout>
@@ -1027,11 +975,9 @@
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:id="@+id/linearMunicion4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
+                android:orientation="horizontal"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp">
 
@@ -1039,48 +985,32 @@
                     android:id="@+id/buttonMunicion4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
                     android:backgroundTint="@color/colorButtons"
                     android:text="Munición"
-                    android:layout_weight="0.35"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarMunicion4"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.55"
+                    android:max="30"
+                    android:backgroundTint="#000000"/>
 
                 <TextView
                     android:id="@+id/textViewMunicion4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.4"
-                    android:background="@drawable/boton"
+                    android:layout_weight="0.15"
                     android:gravity="center"
-                    android:text=""
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/textViewEmpty4"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.05"
-                    android:background="@drawable/boton"
-                    android:gravity="center"
-                    android:text=""
-                    android:visibility="invisible"
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/textViewCantMunicion4"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.2"
-                    android:background="@drawable/boton"
-                    android:gravity="center"
-                    android:text=""
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
+                    android:text="0"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"/>
 
 
             </LinearLayout>
@@ -1294,11 +1224,9 @@
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:id="@+id/linearMunicion5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
+                android:orientation="horizontal"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp">
 
@@ -1306,48 +1234,33 @@
                     android:id="@+id/buttonMunicion5"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
                     android:backgroundTint="@color/colorButtons"
                     android:text="Munición"
-                    android:layout_weight="0.35"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarMunicion5"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.55"
+                    android:max="30"
+                    android:backgroundTint="#000000"/>
 
                 <TextView
                     android:id="@+id/textViewMunicion5"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.4"
-                    android:background="@drawable/boton"
+                    android:layout_weight="0.15"
                     android:gravity="center"
-                    android:text=""
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
+                    android:text="0"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"/>
 
-                <TextView
-                    android:id="@+id/textViewEmpty5"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.05"
-                    android:background="@drawable/boton"
-                    android:gravity="center"
-                    android:text=""
-                    android:visibility="invisible"
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/textViewCantMunicion5"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.2"
-                    android:background="@drawable/boton"
-                    android:gravity="center"
-                    android:text=""
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
 
             </LinearLayout>
 
@@ -1618,7 +1531,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorDivider"
-                android:text="     Escudo / Objeto protector"
+                android:text="     Escudo / Objeto protector2"
                 android:textColor="@color/colorPrimaryText"
                 android:textSize="17sp"
                 android:textStyle="italic" />
@@ -4546,14 +4459,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorDivider"
-                android:text="     Dinero"
+                android:text="     Tesoro"
                 android:textColor="@color/colorPrimaryText"
                 android:textSize="17sp"
                 android:textStyle="italic" />
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:id="@+id/linearDinero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp">
@@ -4564,8 +4476,18 @@
                     android:layout_height="wrap_content"
                     android:textColor="#ffffff"
                     android:text=""
-                    android:layout_weight="0.25"
+                    android:layout_weight="0.3"
                     android:background="@drawable/boton_redondo_copper"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/boton_redondo_platino"
+                    android:text=""
+                    android:visibility="invisible"
+                    android:layout_weight="0.1"
+                    android:textColor="#ffffff"
                     android:textStyle="bold" />
 
                 <Button
@@ -4574,9 +4496,27 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/boton_redondo_plata"
                     android:text=""
-                    android:layout_weight="0.25"
+                    android:layout_weight="0.3"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/boton_redondo_platino"
+                    android:text=""
+                    android:visibility="invisible"
+                    android:layout_weight="0.3"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
 
                 <Button
                     android:id="@+id/buttonOro"
@@ -4584,7 +4524,17 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/boton_redondo_oro"
                     android:text=""
-                    android:layout_weight="0.25"
+                    android:layout_weight="0.3"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/boton_redondo_platino"
+                    android:text=""
+                    android:visibility="invisible"
+                    android:layout_weight="0.1"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -4594,7 +4544,17 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/boton_redondo_platino"
                     android:text=""
-                    android:layout_weight="0.25"
+                    android:layout_weight="0.3"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/boton_redondo_platino"
+                    android:text=""
+                    android:visibility="invisible"
+                    android:layout_weight="0.3"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -4604,4 +4564,101 @@
 
     </ScrollView>
 
-</FrameLayout>
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/menuFabEquipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="11dp"
+        fab:menu_fab_size="normal"
+        fab:menu_showShadow="true"
+        fab:menu_shadowColor="#66000000"
+        fab:menu_shadowRadius="4dp"
+        fab:menu_shadowXOffset="1dp"
+        fab:menu_shadowYOffset="4dp"
+        fab:menu_colorNormal="@color/colorAccentDark"
+        fab:menu_colorPressed="@color/colorAccent"
+        fab:menu_colorRipple="#99FFFFFF"
+        fab:menu_animationDelayPerItem="55"
+        fab:menu_icon="@drawable/fab_add"
+        fab:menu_buttonSpacing="0dp"
+        fab:menu_labels_margin="0dp"
+        fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
+        fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
+        fab:menu_labels_padding="8dp"
+        fab:menu_labels_textColor="#FFFFFF"
+        fab:menu_labels_textSize="15sp"
+        fab:menu_labels_cornerRadius="3dp"
+        fab:menu_labels_colorNormal="#333333"
+        fab:menu_labels_colorPressed="#444444"
+        fab:menu_labels_colorRipple="#66FFFFFF"
+        fab:menu_labels_showShadow="true"
+        fab:menu_labels_singleLine="false"
+        fab:menu_labels_ellipsize="none"
+        fab:menu_labels_maxLines="-1"
+        fab:menu_labels_position="left"
+        fab:menu_openDirection="up"
+        fab:menu_backgroundColor="@android:color/transparent"
+        fab:menu_fab_label="Menú"
+        fab:menu_fab_show_animation="@anim/show_from_bottom"
+        fab:menu_fab_hide_animation="@anim/hide_to_bottom">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/armaFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_ataque"
+            app:fab_size="mini"
+            app:fab_label="Armas"
+            app:fab_colorNormal="@color/colorPrimaryDark"
+            app:fab_colorPressed="@color/colorPrimary"
+            app:fab_colorRipple="#99FFFFFF"/>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/armaduraFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_heart"
+            app:fab_size="mini"
+            app:fab_label="Armadura"
+            app:fab_colorNormal="@color/colorPrimaryDark"
+            app:fab_colorPressed="@color/colorPrimary"
+            app:fab_colorRipple="#99FFFFFF"/>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/escudoFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_salvaciones"
+            app:fab_size="mini"
+            app:fab_label="Escudo"
+            app:fab_colorNormal="@color/colorPrimaryDark"
+            app:fab_colorPressed="@color/colorPrimary"
+            app:fab_colorRipple="#99FFFFFF"/>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/otrosFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_stats"
+            app:fab_size="mini"
+            app:fab_label="Otros"
+            app:fab_colorNormal="@color/colorPrimaryDark"
+            app:fab_colorPressed="@color/colorPrimary"
+            app:fab_colorRipple="#99FFFFFF"/>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/tesoroFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_coin"
+            app:fab_size="mini"
+            app:fab_label="Tesoro"
+            app:fab_colorNormal="@color/colorPrimaryDark"
+            app:fab_colorPressed="@color/colorPrimary"
+            app:fab_colorRipple="#99FFFFFF"/>
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+</RelativeLayout>

@@ -348,7 +348,8 @@ public class PJFragment extends ListFragment {
                 "0", "0", "0", "0", "0", "0", "0", "0","0","0",
                 "0", "0", "0", "0", "0", "0", "0", "0","0","0",
                 "0", "0", "0", "0", "0", "0", "0", "0","0","0",
-                "0", "0","0","0","0", "0","0","0");
+                "0", "0","0","0","0", "0","0","0", "-", "0", "0",
+                "-", "0", "0", "-", "0");
 
         dbHelper.addPersonaje(personaje);
     }
@@ -447,8 +448,6 @@ public class PJFragment extends ListFragment {
                             .getLaunchIntentForPackage( getContext().getPackageName() );
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
-
-//                    (getActivity()).recreate();
 
                 }catch (Exception e){
 

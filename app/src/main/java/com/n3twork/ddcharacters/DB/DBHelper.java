@@ -14,7 +14,7 @@ import com.n3twork.ddcharacters.Clases.Personaje;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 23;
+    private static final int DATABASE_VERSION = 24;
     private static final String DATABASE_NAME = "dnd.db";
 
     private static final String TABLA_PERSONAJE = "personaje";
@@ -245,6 +245,14 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMNA_CUERDAS_CARAC  = "cuerdasCarac"; //224
     private static final String COLUMNA_CUERDAS_RANGO  = "cuerdasRango"; //225
     private static final String COLUMNA_CUERDAS_VARIOS = "cuerdasVarios"; //226
+    private static final String COLUMNA_ARMA1_ARMA = "arma1arma"; //227
+    private static final String COLUMNA_ARMA1_DANIO = "arma1Danio"; //228
+    private static final String COLUMNA_ARMA1_CRITICO = "arma1Critico"; //229
+    private static final String COLUMNA_ARMA1_TIPO = "arma1Tipo"; //230
+    private static final String COLUMNA_ARMA1_PESO = "arma1Peso"; //231
+    private static final String COLUMNA_ARMA1_ALCANCE = "arma1Alcance"; //232
+    private static final String COLUMNA_ARMA1_NOTAS = "arma1Notas"; //233
+    private static final String COLUMNA_ARMA1_MUNICION = "arma1Municion"; //234
 
     public String ctPj = "CREATE TABLE " + TABLA_PERSONAJE + "(" +
             COLUMNA_ID_PJ + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -473,7 +481,15 @@ public class DBHelper extends SQLiteOpenHelper {
             COLUMNA_OBJ_MAG_VARIOS + " TEXT NOT NULL, " +
             COLUMNA_CUERDAS_CARAC + " TEXT NOT NULL, " +
             COLUMNA_CUERDAS_RANGO + " TEXT NOT NULL, " +
-            COLUMNA_CUERDAS_VARIOS + " TEXT NOT NULL " +
+            COLUMNA_CUERDAS_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_ARMA1_ARMA + " TEXT NOT NULL, " +
+            COLUMNA_ARMA1_DANIO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA1_CRITICO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA1_TIPO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA1_PESO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA1_ALCANCE + " TEXT NOT NULL, " +
+            COLUMNA_ARMA1_NOTAS + " TEXT NOT NULL, " +
+            COLUMNA_ARMA1_MUNICION + " TEXT NOT NULL " +
             ");";
 
     public DBHelper(Context context) {
@@ -591,7 +607,6 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMNA_CERR_CARAC, personaje.get_cerraduraCarac());
         values.put(COLUMNA_CERR_RANGO, personaje.get_cerraduraRango());
         values.put(COLUMNA_CERR_VARIOS, personaje.get_cerraduraVarios());
-
         values.put(COLUMNA_ARTE_CARAC, personaje.get_arteCarac());
         values.put(COLUMNA_ARTE_RANGO, personaje.get_arteRango());
         values.put(COLUMNA_ARTE_VARIOS, personaje.get_arteVarios());
@@ -727,6 +742,14 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMNA_CUERDAS_CARAC, personaje.get_cuerdasCarac());
         values.put(COLUMNA_CUERDAS_RANGO, personaje.get_cuerdasRango());
         values.put(COLUMNA_CUERDAS_VARIOS, personaje.get_cuerdasVarios());
+        values.put(COLUMNA_ARMA1_ARMA, personaje.get_arma1Arma());
+        values.put(COLUMNA_ARMA1_DANIO, personaje.get_arma1Danio());
+        values.put(COLUMNA_ARMA1_CRITICO, personaje.get_arma1Critico());
+        values.put(COLUMNA_ARMA1_TIPO, personaje.get_arma1Tipo());
+        values.put(COLUMNA_ARMA1_PESO, personaje.get_arma1Peso());
+        values.put(COLUMNA_ARMA1_ALCANCE, personaje.get_arma1Alcance());
+        values.put(COLUMNA_ARMA1_NOTAS, personaje.get_arma1Notas());
+        values.put(COLUMNA_ARMA1_MUNICION, personaje.get_arma1Municion());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLA_PERSONAJE, null, values);
         db.close();

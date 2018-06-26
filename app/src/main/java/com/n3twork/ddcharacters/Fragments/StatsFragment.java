@@ -1089,7 +1089,6 @@ public class StatsFragment extends Fragment {
                 TVModCaractSab.setText(aux_mod_sab);
                 TVPuntCaractCar.setText(aux_car);
                 TVModCaractCar.setText(aux_mod_car);
-
                 textViewPGTotales.setText(aux_pg);
                 textViewVelocidad.setText(aux_velocidad);
                 textViewHeridas.setText(aux_heridas);
@@ -1097,7 +1096,6 @@ public class StatsFragment extends Fragment {
                 tvToque.setText(aux_toque);
                 tvIniciativa.setText(aux_iniciativa);
                 tvDesprevenido.setText(aux_desprevenido);
-
                 tvAtaque.setText(aux_ataque);
                 tvPresa.setText(aux_presa);
                 tvResConjuros.setText(aux_resConjuros);
@@ -1107,7 +1105,6 @@ public class StatsFragment extends Fragment {
                 tvSalvFortaleza.setText(aux_salvFortaleza);
                 tvSalvReflejos.setText(aux_salvReflejos);
                 tvSalvVoluntad.setText(aux_salvVoluntad);
-
 
                 //Refrescar la progressBar
                 progressBarExp.post(new Runnable() {

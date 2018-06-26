@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.n3twork.ddcharacters.Fragments.EquipFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvDialogArmasTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimaryText"
+            android:textStyle="bold"
+            android:background="@color/colorAccent" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="10dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="Arma"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:layout_weight="0.25"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextArma"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:layout_weight="0.75"
+                    android:text="Mazo"
+                    android:textColor="#000000"
+                    android:inputType="textCapWords"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="DAÑO"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:layout_weight="1.5"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextDanio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:text="1d8"
+                    android:textColor="#000000"
+                    android:inputType="textCapWords"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="Critico"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:layout_weight="2.0"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextCritico"
+                    android:layout_width="0dp"
+                    android:layout_weight="1.0"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_gravity="center|bottom"
+                    android:text="x3"
+                    android:inputType="textCapWords"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.25"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="TIPO"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextTipoArma"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text="Contundente"
+                    android:inputType="textCapWords"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.25"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="Peso"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextPesoArma"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text="45"
+                    android:inputType="textCapWords"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.35"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="Alcance"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextAlcanceArma"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:text="2"
+                    android:inputType="number"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.25"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="Notas"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextNotasArma"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:textColor="#000000"
+                    android:text="Jajaja"
+                    android:inputType="textCapWords"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.35"
+                    android:backgroundTint="@color/colorButtons"
+                    android:text="Municion"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <SeekBar
+                    android:id="@+id/seekBarMunicionArma"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.5"
+                    android:max="30" />
+
+                <TextView
+                    android:id="@+id/textViewMunicionArma"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.15"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
