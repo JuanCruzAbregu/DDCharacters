@@ -24,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.n3twork.ddcharacters.Adapters.PersonajeAdaptador;
+import com.n3twork.ddcharacters.Clases.Equipo;
 import com.n3twork.ddcharacters.Clases.Personaje;
 import com.n3twork.ddcharacters.DB.DBHelper;
 import com.n3twork.ddcharacters.R;
@@ -269,6 +270,7 @@ public class PJFragment extends ListFragment {
                             // Agregar los puntos de habilidad correspondientes al nivel.
 
                             agregarPersonaje(nombre, clase, nivel, raza, alineamiento, deidad, tamanio, sexo, exp, aux_low, aux_high, campania);
+                            agregarRegistroParaPersonajeNuevo(nombre);
                             recuperarTodosLosPersonajes();
                         }
                     }
@@ -290,6 +292,48 @@ public class PJFragment extends ListFragment {
 
         AlertDialog dialog = builder.create();
         dialog.show();
+
+    }
+
+    private void agregarRegistroParaPersonajeNuevo(String nombre) {
+
+        try {
+
+            db = dbHelper.getReadableDatabase();
+
+            Cursor c = db
+                    .rawQuery("SELECT _id FROM personaje WHERE nombrePj='" + nombre + "'", null);
+
+            if(c.moveToFirst()){
+
+                do{
+
+                    aux_id = c.getString(0);
+
+                }while (c.moveToNext());
+
+                int aux_id_int = Integer.parseInt(aux_id);
+
+                ContentValues values = new ContentValues();
+
+                values.put("idPersonaje", aux_id_int);
+
+                Equipo equipo = new Equipo("-", "-", "0", "-", "-", "-", "-", "0", "-", "-",
+                        "-", "-", "-", "-", "-", "0", "-", "-", "-", "-",
+                        "-", "-", "-", "0", "-", "-", "-", "-", "-", "-",
+                        "-", "0", "-", "-", "-", "-", "-", "-", "-", "0",
+                        "0", aux_id_int);
+
+                dbHelper.addEquipo(equipo);
+
+            }
+
+        }catch (Exception e){
+            Log.e("Error","Error: "+e.getMessage());
+        }finally {
+            db.close();
+        }
+
 
     }
 
@@ -348,8 +392,7 @@ public class PJFragment extends ListFragment {
                 "0", "0", "0", "0", "0", "0", "0", "0","0","0",
                 "0", "0", "0", "0", "0", "0", "0", "0","0","0",
                 "0", "0", "0", "0", "0", "0", "0", "0","0","0",
-                "0", "0","0","0","0", "0","0","0", "-", "0", "0",
-                "-", "0", "0", "-", "0");
+                "0", "0","0","0","0", "0","0","0");
 
         dbHelper.addPersonaje(personaje);
     }
@@ -371,7 +414,7 @@ public class PJFragment extends ListFragment {
 
                 if(position == 0){
 
-                    dialogConfirmarSeleccion("Seleccionar PJ", "¿Desea seleccionar este personaje?", aux_nombre);
+                    dialogConfirmarSeleccion("Seleccionar PJ", "¿Desea seleccionar este personaje?", aux_id);
 
                 }
 
@@ -399,7 +442,7 @@ public class PJFragment extends ListFragment {
      * @param title
      * @param message
      */
-    public void dialogConfirmarSeleccion(String title, String message, final String aux_nombre){
+    public void dialogConfirmarSeleccion(String title, String message, final String aux_id){
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
@@ -421,7 +464,7 @@ public class PJFragment extends ListFragment {
                     dbHelper = new DBHelper(getContext());
                     db = dbHelper.getReadableDatabase();
                     Cursor c = db
-                            .rawQuery("SELECT nombrePj, controlAct FROM personaje", null);
+                            .rawQuery("SELECT _id, controlAct FROM personaje", null);
 
                     if(c.moveToFirst()){
 
@@ -430,13 +473,18 @@ public class PJFragment extends ListFragment {
                             ContentValues values = new ContentValues();
 
                             values.put("controlAct","1");
+                            String[]args = new String[]{aux_id};
 
-                            String[]args = new String[]{aux_nombre};
-
-                            db.update("personaje",values,"nombrePj=?", args);
+                            db.update("personaje",values,"_id=?", args);
 
                             values.put("controlAct","0");
-                            db.update("personaje",values,"nombrePj!=?",args);
+                            db.update("personaje",values,"_id!=?",args);
+
+                            values.put("controlActEquipo", 1);
+                            db.update("equipo",values,"idPersonaje=?",args);
+
+                            values.put("controlActEquipo", 0);
+                            db.update("equipo",values,"idPersonaje=?",args);
 
                         }while (c.moveToNext());
 
@@ -507,7 +555,7 @@ public class PJFragment extends ListFragment {
         ArrayAdapter<String> adapterAlin = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_expandable_list_item_1, str_alin);
 
-        ArrayAdapter<String> adapterTamaño = new ArrayAdapter<String>(getActivity(),
+        ArrayAdapter<String> adapterTamanio = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_expandable_list_item_1, str_tamanio);
 
         editTextClase.setThreshold(0);
@@ -520,7 +568,7 @@ public class PJFragment extends ListFragment {
         editTextRaza.setAdapter(adapterRaza);
         editTextDeidad.setAdapter(adapterDeidad);
         editTextAlineamiento.setAdapter(adapterAlin);
-        editTextTamaño.setAdapter(adapterTamaño);
+        editTextTamaño.setAdapter(adapterTamanio);
 
         cambiarRbAlEditarPJ(rbMasculino, rbFemenino);
 

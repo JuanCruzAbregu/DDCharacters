@@ -829,7 +829,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewDañoV"
+                    android:id="@+id/textViewDañoIV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -841,7 +841,7 @@
                     android:textSize="15sp" />
 
                 <Button
-                    android:id="@+id/buttonCriticoV"
+                    android:id="@+id/buttonCriticoIV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorButtons"
@@ -851,7 +851,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewCriticoV"
+                    android:id="@+id/textViewCriticoIV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -866,7 +866,6 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:id="@+id/linearArmaVI"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
@@ -874,7 +873,7 @@
                 android:paddingRight="16dp">
 
                 <Button
-                    android:id="@+id/buttonTipoVI"
+                    android:id="@+id/buttonTipoIV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorButtons"
@@ -884,7 +883,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewTipoVI"
+                    android:id="@+id/textViewTipoIV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -896,7 +895,7 @@
                     android:textSize="15sp" />
 
                 <Button
-                    android:id="@+id/buttonPesoVI"
+                    android:id="@+id/buttonPesoIV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorButtons"
@@ -906,7 +905,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewPesoVI"
+                    android:id="@+id/textViewPesoIV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -921,7 +920,6 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:id="@+id/linearArmaVII"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
@@ -929,7 +927,7 @@
                 android:paddingRight="16dp">
 
                 <Button
-                    android:id="@+id/buttonAlcanceVII"
+                    android:id="@+id/buttonAlcanceIV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorButtons"
@@ -939,7 +937,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewAlcanceVII"
+                    android:id="@+id/textViewAlcanceIV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -951,7 +949,7 @@
                     android:textSize="15sp" />
 
                 <Button
-                    android:id="@+id/buttonNotasVII"
+                    android:id="@+id/buttonNotasIV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorButtons"
@@ -961,7 +959,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewNotasVII"
+                    android:id="@+id/textViewNotasIV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -1026,7 +1024,6 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:id="@+id/linearArmaVIII"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="16dp"
@@ -1035,7 +1032,7 @@
                 android:paddingRight="16dp">
 
                 <Button
-                    android:id="@+id/buttonArmaVIII"
+                    android:id="@+id/buttonArmaV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorButtons"
@@ -1045,7 +1042,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewArmaVIII"
+                    android:id="@+id/textViewArmaV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -1060,7 +1057,6 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:id="@+id/linearArmaIX"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
@@ -1068,7 +1064,7 @@
                 android:paddingRight="16dp">
 
                 <Button
-                    android:id="@+id/buttonDañoIX"
+                    android:id="@+id/buttonDañoV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorButtons"
@@ -1078,7 +1074,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewDañoIX"
+                    android:id="@+id/textViewDañoV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -1090,7 +1086,7 @@
                     android:textSize="15sp" />
 
                 <Button
-                    android:id="@+id/buttonCriticoIX"
+                    android:id="@+id/buttonCriticoV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorButtons"
@@ -1100,7 +1096,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewCriticoIX"
+                    android:id="@+id/textViewCriticoV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -1115,7 +1111,6 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:id="@+id/linearArmaX"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
@@ -1123,7 +1118,7 @@
                 android:paddingRight="16dp">
 
                 <Button
-                    android:id="@+id/buttonTipoX"
+                    android:id="@+id/buttonTipoV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorButtons"
@@ -1133,7 +1128,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewTipoX"
+                    android:id="@+id/textViewTipoV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -1145,7 +1140,7 @@
                     android:textSize="15sp" />
 
                 <Button
-                    android:id="@+id/buttonPesoX"
+                    android:id="@+id/buttonPesoV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorButtons"
@@ -1155,7 +1150,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewPesoX"
+                    android:id="@+id/textViewPesoV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -1170,7 +1165,6 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:id="@+id/linearArmaXI"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
@@ -1178,7 +1172,7 @@
                 android:paddingRight="16dp">
 
                 <Button
-                    android:id="@+id/buttonAlcanceXI"
+                    android:id="@+id/buttonAlcanceV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorButtons"
@@ -1188,7 +1182,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewAlcanceXI"
+                    android:id="@+id/textViewAlcanceV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -1200,7 +1194,7 @@
                     android:textSize="15sp" />
 
                 <Button
-                    android:id="@+id/buttonNotasXI"
+                    android:id="@+id/buttonNotasV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorButtons"
@@ -1210,7 +1204,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewNotasXI"
+                    android:id="@+id/textViewNotasV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

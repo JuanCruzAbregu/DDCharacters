@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.n3twork.ddcharacters.Clases.Equipo;
 import com.n3twork.ddcharacters.Clases.Personaje;
 
 /**
@@ -14,7 +15,7 @@ import com.n3twork.ddcharacters.Clases.Personaje;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 24;
+    private static final int DATABASE_VERSION = 26;
     private static final String DATABASE_NAME = "dnd.db";
 
     private static final String TABLA_PERSONAJE = "personaje";
@@ -245,14 +246,52 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMNA_CUERDAS_CARAC  = "cuerdasCarac"; //224
     private static final String COLUMNA_CUERDAS_RANGO  = "cuerdasRango"; //225
     private static final String COLUMNA_CUERDAS_VARIOS = "cuerdasVarios"; //226
-    private static final String COLUMNA_ARMA1_ARMA = "arma1arma"; //227
-    private static final String COLUMNA_ARMA1_DANIO = "arma1Danio"; //228
-    private static final String COLUMNA_ARMA1_CRITICO = "arma1Critico"; //229
-    private static final String COLUMNA_ARMA1_TIPO = "arma1Tipo"; //230
-    private static final String COLUMNA_ARMA1_PESO = "arma1Peso"; //231
-    private static final String COLUMNA_ARMA1_ALCANCE = "arma1Alcance"; //232
-    private static final String COLUMNA_ARMA1_NOTAS = "arma1Notas"; //233
-    private static final String COLUMNA_ARMA1_MUNICION = "arma1Municion"; //234
+
+    private static final String TABLA_EQUIPO = "equipo";
+    private static final String COLUMN_ID = "_id"; //1
+    private static final String COLUMNA_ARMA1_ARMA = "arma1arma"; //2
+    private static final String COLUMNA_ARMA1_DANIO = "arma1Danio"; //3
+    private static final String COLUMNA_ARMA1_CRITICO = "arma1Critico"; //4
+    private static final String COLUMNA_ARMA1_TIPO = "arma1Tipo"; //5
+    private static final String COLUMNA_ARMA1_PESO = "arma1Peso"; //6
+    private static final String COLUMNA_ARMA1_ALCANCE = "arma1Alcance"; //7
+    private static final String COLUMNA_ARMA1_NOTAS = "arma1Notas"; //8
+    private static final String COLUMNA_ARMA1_MUNICION = "arma1Municion"; //9
+    private static final String COLUMNA_ARMA2_ARMA = "arma2arma"; //10
+    private static final String COLUMNA_ARMA2_DANIO = "arma2Danio"; //11
+    private static final String COLUMNA_ARMA2_CRITICO = "arma2Critico"; //12
+    private static final String COLUMNA_ARMA2_TIPO = "arma2Tipo"; //13
+    private static final String COLUMNA_ARMA2_PESO = "arma2Peso"; //14
+    private static final String COLUMNA_ARMA2_ALCANCE = "arma2Alcance"; //15
+    private static final String COLUMNA_ARMA2_NOTAS = "arma2Notas"; //16
+    private static final String COLUMNA_ARMA2_MUNICION = "arma2Municion"; //17
+    private static final String COLUMNA_ARMA3_ARMA = "arma3arma"; //18
+    private static final String COLUMNA_ARMA3_DANIO = "arma3Danio"; //19
+    private static final String COLUMNA_ARMA3_CRITICO = "arma3Critico"; //20
+    private static final String COLUMNA_ARMA3_TIPO = "arma3Tipo"; //21
+    private static final String COLUMNA_ARMA3_PESO = "arma3Peso"; //22
+    private static final String COLUMNA_ARMA3_ALCANCE = "arma3Alcance"; //23
+    private static final String COLUMNA_ARMA3_NOTAS = "arma3Notas"; //24
+    private static final String COLUMNA_ARMA3_MUNICION = "arma3Municion"; //25
+    private static final String COLUMNA_ARMA4_ARMA = "arma4arma"; //26
+    private static final String COLUMNA_ARMA4_DANIO = "arma4Danio"; //27
+    private static final String COLUMNA_ARMA4_CRITICO = "arma4Critico"; //28
+    private static final String COLUMNA_ARMA4_TIPO = "arma4Tipo"; //29
+    private static final String COLUMNA_ARMA4_PESO = "arma4Peso"; //30
+    private static final String COLUMNA_ARMA4_ALCANCE = "arma4Alcance"; //31
+    private static final String COLUMNA_ARMA4_NOTAS = "arma4Notas"; //32
+    private static final String COLUMNA_ARMA4_MUNICION = "arma4Municion"; //33
+    private static final String COLUMNA_ARMA5_ARMA = "arma5arma"; //34
+    private static final String COLUMNA_ARMA5_DANIO = "arma5Danio"; //35
+    private static final String COLUMNA_ARMA5_CRITICO = "arma5Critico"; //36
+    private static final String COLUMNA_ARMA5_TIPO = "arma5Tipo"; //37
+    private static final String COLUMNA_ARMA5_PESO = "arma5Peso"; //38
+    private static final String COLUMNA_ARMA5_ALCANCE = "arma5Alcance"; //39
+    private static final String COLUMNA_ARMA5_NOTAS = "arma5Notas"; //40
+    private static final String COLUMNA_ARMA5_MUNICION = "arma5Municion"; //41
+    private static final String COLUMN_CONTROL_ACT = "controlActEquipo"; //42
+    private static final String COLUMN_ID_PJ = "idPersonaje"; //43
+
 
     public String ctPj = "CREATE TABLE " + TABLA_PERSONAJE + "(" +
             COLUMNA_ID_PJ + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -481,7 +520,12 @@ public class DBHelper extends SQLiteOpenHelper {
             COLUMNA_OBJ_MAG_VARIOS + " TEXT NOT NULL, " +
             COLUMNA_CUERDAS_CARAC + " TEXT NOT NULL, " +
             COLUMNA_CUERDAS_RANGO + " TEXT NOT NULL, " +
-            COLUMNA_CUERDAS_VARIOS + " TEXT NOT NULL, " +
+            COLUMNA_CUERDAS_VARIOS + " TEXT NOT NULL " +
+            ");";
+
+
+    private String ctEq = "CREATE TABLE " + TABLA_EQUIPO + "(" +
+            COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COLUMNA_ARMA1_ARMA + " TEXT NOT NULL, " +
             COLUMNA_ARMA1_DANIO + " TEXT NOT NULL, " +
             COLUMNA_ARMA1_CRITICO + " TEXT NOT NULL, " +
@@ -489,7 +533,41 @@ public class DBHelper extends SQLiteOpenHelper {
             COLUMNA_ARMA1_PESO + " TEXT NOT NULL, " +
             COLUMNA_ARMA1_ALCANCE + " TEXT NOT NULL, " +
             COLUMNA_ARMA1_NOTAS + " TEXT NOT NULL, " +
-            COLUMNA_ARMA1_MUNICION + " TEXT NOT NULL " +
+            COLUMNA_ARMA1_MUNICION + " TEXT NOT NULL, " +
+            COLUMNA_ARMA2_ARMA + " TEXT NOT NULL, " +
+            COLUMNA_ARMA2_DANIO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA2_CRITICO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA2_TIPO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA2_PESO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA2_ALCANCE + " TEXT NOT NULL, " +
+            COLUMNA_ARMA2_NOTAS + " TEXT NOT NULL, " +
+            COLUMNA_ARMA2_MUNICION + " TEXT NOT NULL, " +
+            COLUMNA_ARMA3_ARMA + " TEXT NOT NULL, " +
+            COLUMNA_ARMA3_DANIO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA3_CRITICO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA3_TIPO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA3_PESO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA3_ALCANCE + " TEXT NOT NULL, " +
+            COLUMNA_ARMA3_NOTAS + " TEXT NOT NULL, " +
+            COLUMNA_ARMA3_MUNICION + " TEXT NOT NULL, " +
+            COLUMNA_ARMA4_ARMA + " TEXT NOT NULL, " +
+            COLUMNA_ARMA4_DANIO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA4_CRITICO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA4_TIPO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA4_PESO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA4_ALCANCE + " TEXT NOT NULL, " +
+            COLUMNA_ARMA4_NOTAS + " TEXT NOT NULL, " +
+            COLUMNA_ARMA4_MUNICION + " TEXT NOT NULL, " +
+            COLUMNA_ARMA5_ARMA + " TEXT NOT NULL, " +
+            COLUMNA_ARMA5_DANIO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA5_CRITICO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA5_TIPO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA5_PESO + " TEXT NOT NULL, " +
+            COLUMNA_ARMA5_ALCANCE + " TEXT NOT NULL, " +
+            COLUMNA_ARMA5_NOTAS + " TEXT NOT NULL, " +
+            COLUMNA_ARMA5_MUNICION + " TEXT NOT NULL, " +
+            COLUMN_CONTROL_ACT + " TEXT NOT NULL, " +
+            COLUMN_ID_PJ + " INTEGER, FOREIGN KEY("+ COLUMN_ID_PJ + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")"+
             ");";
 
     public DBHelper(Context context) {
@@ -499,13 +577,16 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(ctPj);
+        db.execSQL(ctEq);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_PERSONAJE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLA_EQUIPO);
 
         db.execSQL(ctPj);
+        db.execSQL(ctEq);
     }
 
     /**
@@ -742,17 +823,66 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMNA_CUERDAS_CARAC, personaje.get_cuerdasCarac());
         values.put(COLUMNA_CUERDAS_RANGO, personaje.get_cuerdasRango());
         values.put(COLUMNA_CUERDAS_VARIOS, personaje.get_cuerdasVarios());
-        values.put(COLUMNA_ARMA1_ARMA, personaje.get_arma1Arma());
-        values.put(COLUMNA_ARMA1_DANIO, personaje.get_arma1Danio());
-        values.put(COLUMNA_ARMA1_CRITICO, personaje.get_arma1Critico());
-        values.put(COLUMNA_ARMA1_TIPO, personaje.get_arma1Tipo());
-        values.put(COLUMNA_ARMA1_PESO, personaje.get_arma1Peso());
-        values.put(COLUMNA_ARMA1_ALCANCE, personaje.get_arma1Alcance());
-        values.put(COLUMNA_ARMA1_NOTAS, personaje.get_arma1Notas());
-        values.put(COLUMNA_ARMA1_MUNICION, personaje.get_arma1Municion());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLA_PERSONAJE, null, values);
         db.close();
+    }
+
+    /**
+     * Metodo que inserta un registro de Equipo a la db.
+     *
+     *
+     */
+
+
+    public void addEquipo(Equipo equipo){
+        ContentValues values = new ContentValues();
+        values.put(COLUMNA_ARMA1_ARMA, equipo.get_arma1Arma());
+        values.put(COLUMNA_ARMA1_DANIO, equipo.get_arma1Danio());
+        values.put(COLUMNA_ARMA1_CRITICO, equipo.get_arma1Critico());
+        values.put(COLUMNA_ARMA1_TIPO, equipo.get_arma1Tipo());
+        values.put(COLUMNA_ARMA1_PESO, equipo.get_arma1Peso());
+        values.put(COLUMNA_ARMA1_ALCANCE, equipo.get_arma1Alcance());
+        values.put(COLUMNA_ARMA1_NOTAS, equipo.get_arma1Notas());
+        values.put(COLUMNA_ARMA1_MUNICION, equipo.get_arma1Municion());
+        values.put(COLUMNA_ARMA2_ARMA, equipo.get_arma2Arma());
+        values.put(COLUMNA_ARMA2_DANIO, equipo.get_arma2Danio());
+        values.put(COLUMNA_ARMA2_CRITICO, equipo.get_arma2Critico());
+        values.put(COLUMNA_ARMA2_TIPO, equipo.get_arma2Tipo());
+        values.put(COLUMNA_ARMA2_PESO, equipo.get_arma2Peso());
+        values.put(COLUMNA_ARMA2_ALCANCE, equipo.get_arma2Alcance());
+        values.put(COLUMNA_ARMA2_NOTAS, equipo.get_arma2Notas());
+        values.put(COLUMNA_ARMA2_MUNICION, equipo.get_arma2Municion());
+        values.put(COLUMNA_ARMA3_ARMA, equipo.get_arma3Arma());
+        values.put(COLUMNA_ARMA3_DANIO, equipo.get_arma3Danio());
+        values.put(COLUMNA_ARMA3_CRITICO, equipo.get_arma3Critico());
+        values.put(COLUMNA_ARMA3_TIPO, equipo.get_arma3Tipo());
+        values.put(COLUMNA_ARMA3_PESO, equipo.get_arma3Peso());
+        values.put(COLUMNA_ARMA3_ALCANCE, equipo.get_arma3Alcance());
+        values.put(COLUMNA_ARMA3_NOTAS, equipo.get_arma3Notas());
+        values.put(COLUMNA_ARMA3_MUNICION, equipo.get_arma3Municion());
+        values.put(COLUMNA_ARMA4_ARMA, equipo.get_arma4Arma());
+        values.put(COLUMNA_ARMA4_DANIO, equipo.get_arma4Danio());
+        values.put(COLUMNA_ARMA4_CRITICO, equipo.get_arma4Critico());
+        values.put(COLUMNA_ARMA4_TIPO, equipo.get_arma4Tipo());
+        values.put(COLUMNA_ARMA4_PESO, equipo.get_arma4Peso());
+        values.put(COLUMNA_ARMA4_ALCANCE, equipo.get_arma4Alcance());
+        values.put(COLUMNA_ARMA4_NOTAS, equipo.get_arma4Notas());
+        values.put(COLUMNA_ARMA4_MUNICION, equipo.get_arma4Municion());
+        values.put(COLUMNA_ARMA5_ARMA, equipo.get_arma5Arma());
+        values.put(COLUMNA_ARMA5_DANIO, equipo.get_arma5Danio());
+        values.put(COLUMNA_ARMA5_CRITICO, equipo.get_arma5Critico());
+        values.put(COLUMNA_ARMA5_TIPO, equipo.get_arma5Tipo());
+        values.put(COLUMNA_ARMA5_PESO, equipo.get_arma5Peso());
+        values.put(COLUMNA_ARMA5_ALCANCE, equipo.get_arma5Alcance());
+        values.put(COLUMNA_ARMA5_NOTAS, equipo.get_arma5Notas());
+        values.put(COLUMNA_ARMA5_MUNICION, equipo.get_arma5Municion());
+        values.put(COLUMN_CONTROL_ACT, equipo.get_controlAct());
+        values.put(COLUMN_ID_PJ, equipo.get_idPersonaje());
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLA_EQUIPO, null, values);
+        db.close();
+
     }
 
     /**

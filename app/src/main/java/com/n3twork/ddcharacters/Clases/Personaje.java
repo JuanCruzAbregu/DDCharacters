@@ -233,14 +233,6 @@ public class Personaje {
     private String _cuerdasCarac ;
     private String _cuerdasRango ;
     private String _cuerdasVarios;
-    private String _arma1Arma;
-    private String _arma1Danio;
-    private String _arma1Critico;
-    private String _arma1Tipo;
-    private String _arma1Peso;
-    private String _arma1Alcance;
-    private String _arma1Notas;
-    private String _arma1Municion;
 
 
     public Personaje(){
@@ -289,8 +281,7 @@ public class Personaje {
                      String _supervivenciaCarac, String _supervivenciaRango, String _supervivenciaVarios, String _tasacionCarac, String _tasacionRango,
                      String _tasacionVarios, String _animalesCarac, String _animalesRango, String _animalesVarios, String _treparCarac,
                      String _treparRango, String _treparVarios, String _objMagCarac, String _objMagRango, String _objMagVarios,
-                     String _cuerdasCarac, String _cuerdasRango, String _cuerdasVarios, String _arma1Arma, String _arma1Danio, String _arma1Critico,
-                     String _arma1Tipo, String _arma1Peso, String _arma1Alcance, String _arma1Notas, String _arma1Municion){
+                     String _cuerdasCarac, String _cuerdasRango, String _cuerdasVarios){
 
         this._nombrePj        = _nombrePj;
         this._clasePj         = _clasePj;
@@ -518,14 +509,6 @@ public class Personaje {
         this._cuerdasCarac = _cuerdasCarac;
         this._cuerdasRango = _cuerdasRango;
         this._cuerdasVarios = _cuerdasVarios;
-        this._arma1Arma = _arma1Arma;
-        this._arma1Danio = _arma1Danio;
-        this._arma1Critico = _arma1Critico;
-        this._arma1Tipo = _arma1Tipo;
-        this._arma1Peso = _arma1Peso;
-        this._arma1Alcance = _arma1Alcance;
-        this._arma1Notas = _arma1Notas;
-        this._arma1Municion = _arma1Municion;
 
     }
 
@@ -2343,69 +2326,5 @@ public class Personaje {
 
     public void set_cuerdasVarios(String _cuerdasVarios) {
         this._cuerdasVarios = _cuerdasVarios;
-    }
-
-    public String get_arma1Arma() {
-        return _arma1Arma;
-    }
-
-    public void set_arma1Arma(String _arma1Arma) {
-        this._arma1Arma = _arma1Arma;
-    }
-
-    public String get_arma1Danio() {
-        return _arma1Danio;
-    }
-
-    public void set_arma1Danio(String _arma1Danio) {
-        this._arma1Danio = _arma1Danio;
-    }
-
-    public String get_arma1Critico() {
-        return _arma1Critico;
-    }
-
-    public void set_arma1Critico(String _arma1Critico) {
-        this._arma1Critico = _arma1Critico;
-    }
-
-    public String get_arma1Tipo() {
-        return _arma1Tipo;
-    }
-
-    public void set_arma1Tipo(String _arma1Tipo) {
-        this._arma1Tipo = _arma1Tipo;
-    }
-
-    public String get_arma1Peso() {
-        return _arma1Peso;
-    }
-
-    public void set_arma1Peso(String _arma1Peso) {
-        this._arma1Peso = _arma1Peso;
-    }
-
-    public String get_arma1Alcance() {
-        return _arma1Alcance;
-    }
-
-    public void set_arma1Alcance(String _arma1Alcance) {
-        this._arma1Alcance = _arma1Alcance;
-    }
-
-    public String get_arma1Notas() {
-        return _arma1Notas;
-    }
-
-    public void set_arma1Notas(String _arma1Notas) {
-        this._arma1Notas = _arma1Notas;
-    }
-
-    public String get_arma1Municion() {
-        return _arma1Municion;
-    }
-
-    public void set_arma1Municion(String _arma1Municion) {
-        this._arma1Municion = _arma1Municion;
     }
 }
