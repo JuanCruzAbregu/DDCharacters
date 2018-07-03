@@ -15,7 +15,7 @@ import com.n3twork.ddcharacters.Clases.Personaje;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 26;
+    private static final int DATABASE_VERSION = 28;
     private static final String DATABASE_NAME = "dnd.db";
 
     private static final String TABLA_PERSONAJE = "personaje";
@@ -289,8 +289,16 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMNA_ARMA5_ALCANCE = "arma5Alcance"; //39
     private static final String COLUMNA_ARMA5_NOTAS = "arma5Notas"; //40
     private static final String COLUMNA_ARMA5_MUNICION = "arma5Municion"; //41
-    private static final String COLUMN_CONTROL_ACT = "controlActEquipo"; //42
-    private static final String COLUMN_ID_PJ = "idPersonaje"; //43
+    private static final String COLUMNA_ARMADURA_ARMADURA = "armaduraArmadura"; //42
+    private static final String COLUMNA_ARMADURA_CA = "armaduraCA"; //43
+    private static final String COLUMNA_ARMADURA_DESMAX = "armaduraDesMax"; //44
+    private static final String COLUMNA_ARMADURA_TIPO = "armaduraTipo"; //45
+    private static final String COLUMNA_ARMADURA_PEN = "armaduraPen"; //46
+    private static final String COLUMNA_ARMADURA_VELOCIDAD = "armaduraVelocidad"; //47
+    private static final String COLUMNA_ARMADURA_PESO = "armaduraPeso"; //48
+    private static final String COLUMNA_ARMADURA_FALLO = "armaduraFallo"; //49
+    private static final String COLUMNA_ARMADURA_ESP = "armaduraEsp"; //50
+    private static final String COLUMN_ID_PJ = "idPersonaje"; //51
 
 
     public String ctPj = "CREATE TABLE " + TABLA_PERSONAJE + "(" +
@@ -566,8 +574,17 @@ public class DBHelper extends SQLiteOpenHelper {
             COLUMNA_ARMA5_ALCANCE + " TEXT NOT NULL, " +
             COLUMNA_ARMA5_NOTAS + " TEXT NOT NULL, " +
             COLUMNA_ARMA5_MUNICION + " TEXT NOT NULL, " +
-            COLUMN_CONTROL_ACT + " TEXT NOT NULL, " +
-            COLUMN_ID_PJ + " INTEGER, FOREIGN KEY("+ COLUMN_ID_PJ + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")"+
+            COLUMNA_ARMADURA_ARMADURA + " TEXT NOT NULL, " +
+            COLUMNA_ARMADURA_CA + " TEXT NOT NULL, " +
+            COLUMNA_ARMADURA_DESMAX + " TEXT NOT NULL, " +
+            COLUMNA_ARMADURA_TIPO + " TEXT NOT NULL, " +
+            COLUMNA_ARMADURA_PEN + " TEXT NOT NULL, " +
+            COLUMNA_ARMADURA_VELOCIDAD + " TEXT NOT NULL, " +
+            COLUMNA_ARMADURA_PESO + " TEXT NOT NULL, " +
+            COLUMNA_ARMADURA_FALLO + " TEXT NOT NULL, " +
+            COLUMNA_ARMADURA_ESP + " TEXT NOT NULL, " +
+            COLUMN_ID_PJ + " INTEGER, " +
+            "FOREIGN KEY("+ COLUMN_ID_PJ + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")" +
             ");";
 
     public DBHelper(Context context) {
@@ -877,7 +894,15 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMNA_ARMA5_ALCANCE, equipo.get_arma5Alcance());
         values.put(COLUMNA_ARMA5_NOTAS, equipo.get_arma5Notas());
         values.put(COLUMNA_ARMA5_MUNICION, equipo.get_arma5Municion());
-        values.put(COLUMN_CONTROL_ACT, equipo.get_controlAct());
+        values.put(COLUMNA_ARMADURA_ARMADURA, equipo.get_armaduraArmadura());
+        values.put(COLUMNA_ARMADURA_CA, equipo.get_armaduraCa());
+        values.put(COLUMNA_ARMADURA_DESMAX, equipo.get_armaduraDesMax());
+        values.put(COLUMNA_ARMADURA_TIPO, equipo.get_armaduraTipo());
+        values.put(COLUMNA_ARMADURA_PEN, equipo.get_armaduraPen());
+        values.put(COLUMNA_ARMADURA_VELOCIDAD, equipo.get_armaduraVelocidad());
+        values.put(COLUMNA_ARMADURA_PESO, equipo.get_armaduraPeso());
+        values.put(COLUMNA_ARMADURA_FALLO, equipo.get_armaduraFallo());
+        values.put(COLUMNA_ARMADURA_ESP, equipo.get_armaduraEsp());
         values.put(COLUMN_ID_PJ, equipo.get_idPersonaje());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLA_EQUIPO, null, values);

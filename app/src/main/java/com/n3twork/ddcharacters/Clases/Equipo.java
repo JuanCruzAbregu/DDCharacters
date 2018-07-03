@@ -44,10 +44,16 @@ public class Equipo {
     private String _arma5Alcance;
     private String _arma5Notas;
     private String _arma5Municion;
-    private String _controlAct;
+    private String _armaduraArmadura;
+    private String _armaduraCa;
+    private String _armaduraDesMax;
+    private String _armaduraTipo;
+    private String _armaduraPen;
+    private String _armaduraVelocidad;
+    private String _armaduraPeso;
+    private String _armaduraFallo;
+    private String _armaduraEsp;
     private int _idPersonaje;
-
-
 
     public Equipo(){
 
@@ -59,7 +65,8 @@ public class Equipo {
                   String _arma3Arma, String _arma3Danio, String _arma3Critico, String _arma3Tipo, String _arma3Peso, String _arma3Alcance, String _arma3Notas, String _arma3Municion,
                   String _arma4Arma, String _arma4Danio, String _arma4Critico, String _arma4Tipo, String _arma4Peso, String _arma4Alcance, String _arma4Notas, String _arma4Municion,
                   String _arma5Arma, String _arma5Danio, String _arma5Critico, String _arma5Tipo, String _arma5Peso, String _arma5Alcance, String _arma5Notas, String _arma5Municion,
-                  String _controlAct, int _idPersonaje){
+                  String _armaduraArmadura, String _armaduraCa, String _armaduraDesMax, String _armaduraTipo, String _armaduraPen,
+                  String _armaduraVelocidad, String _armaduraPeso, String _armaduraFallo, String _armaduraEsp, int _idPersonaje){
 
         this._arma1Arma = _arma1Arma;
         this._arma1Danio = _arma1Danio;
@@ -101,7 +108,15 @@ public class Equipo {
         this._arma5Alcance = _arma5Alcance;
         this._arma5Notas = _arma5Notas;
         this._arma5Municion = _arma5Municion;
-        this._controlAct = _controlAct;
+        this._armaduraArmadura = _armaduraArmadura;
+        this._armaduraCa = _armaduraCa;
+        this._armaduraDesMax = _armaduraDesMax;
+        this._armaduraTipo = _armaduraTipo;
+        this._armaduraPen = _armaduraPen;
+        this._armaduraVelocidad = _armaduraVelocidad;
+        this._armaduraPeso = _armaduraPeso;
+        this._armaduraFallo = _armaduraFallo;
+        this._armaduraEsp = _armaduraEsp;
         this._idPersonaje = _idPersonaje;
 
     }
@@ -434,19 +449,83 @@ public class Equipo {
         this._arma5Municion = _arma5Municion;
     }
 
-    public String get_controlAct() {
-        return _controlAct;
-    }
-
-    public void set_controlAct(String _controlAct) {
-        this._controlAct = _controlAct;
-    }
-
     public int get_idPersonaje() {
         return _idPersonaje;
     }
 
     public void set_idPersonaje(int _idPersonaje) {
         this._idPersonaje = _idPersonaje;
+    }
+
+    public String get_armaduraArmadura() {
+        return _armaduraArmadura;
+    }
+
+    public void set_armaduraArmadura(String _armaduraArmadura) {
+        this._armaduraArmadura = _armaduraArmadura;
+    }
+
+    public String get_armaduraCa() {
+        return _armaduraCa;
+    }
+
+    public void set_armaduraCa(String _armaduraCa) {
+        this._armaduraCa = _armaduraCa;
+    }
+
+    public String get_armaduraDesMax() {
+        return _armaduraDesMax;
+    }
+
+    public void set_armaduraDesMax(String _armaduraDesMax) {
+        this._armaduraDesMax = _armaduraDesMax;
+    }
+
+    public String get_armaduraTipo() {
+        return _armaduraTipo;
+    }
+
+    public void set_armaduraTipo(String _armaduraTipo) {
+        this._armaduraTipo = _armaduraTipo;
+    }
+
+    public String get_armaduraPen() {
+        return _armaduraPen;
+    }
+
+    public void set_armaduraPen(String _armaduraPen) {
+        this._armaduraPen = _armaduraPen;
+    }
+
+    public String get_armaduraVelocidad() {
+        return _armaduraVelocidad;
+    }
+
+    public void set_armaduraVelocidad(String _armaduraVelocidad) {
+        this._armaduraVelocidad = _armaduraVelocidad;
+    }
+
+    public String get_armaduraPeso() {
+        return _armaduraPeso;
+    }
+
+    public void set_armaduraPeso(String _armaduraPeso) {
+        this._armaduraPeso = _armaduraPeso;
+    }
+
+    public String get_armaduraFallo() {
+        return _armaduraFallo;
+    }
+
+    public void set_armaduraFallo(String _armaduraFallo) {
+        this._armaduraFallo = _armaduraFallo;
+    }
+
+    public String get_armaduraEsp() {
+        return _armaduraEsp;
+    }
+
+    public void set_armaduraEsp(String _armaduraEsp) {
+        this._armaduraEsp = _armaduraEsp;
     }
 }

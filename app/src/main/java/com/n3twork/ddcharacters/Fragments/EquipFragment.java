@@ -31,7 +31,7 @@ public class EquipFragment extends Fragment {
     private DBHelper dbHelper;
     private SQLiteDatabase db;
 
-    private FloatingActionButton armaFab;
+    private FloatingActionButton armaFab, armaduraFab;
     private String[] opciones_armas = new String[]{"Arma 1", "Arma 2", "Arma 3", "Arma 4", "Arma 5"};
 
     private TextView textViewArma1, textViewDanio1, textViewCritico1, textViewTipo1, textViewPeso1, textViewAlcance1, textViewNotas1, textViewMunicion1;
@@ -43,6 +43,9 @@ public class EquipFragment extends Fragment {
     private TextView textViewArma3, textViewDanio3, textViewCritico3, textViewTipo3, textViewPeso3, textViewAlcance3, textViewNotas3, textViewMunicion3;
     private TextView textViewArma4, textViewDanio4, textViewCritico4, textViewTipo4, textViewPeso4, textViewAlcance4, textViewNotas4, textViewMunicion4;
     private TextView textViewArma5, textViewDanio5, textViewCritico5, textViewTipo5, textViewPeso5, textViewAlcance5, textViewNotas5, textViewMunicion5;
+
+    private TextView textViewArmadura, textViewCA, textViewDesMax, textViewTipoArmadura, textViewPesoArmadura,
+            textViewPenalizador, textViewVelocidadArm, textViewFalloConj, textViewPropEsp;
 
     private Button buttonMunicion, buttonMunicion2, buttonMunicion3, buttonMunicion4, buttonMunicion5;
 
@@ -87,6 +90,15 @@ public class EquipFragment extends Fragment {
     private String aux_alcance5 = "";
     private String aux_notas5 = "";
     private String aux_municion5 = "";
+    private String aux_armadura = "";
+    private String aux_ca = "";
+    private String aux_desMax = "";
+    private String aux_tipo = "";
+    private String aux_pen = "";
+    private String aux_velocidad = "";
+    private String aux_peso = "";
+    private String aux_fallo = "";
+    private String aux_esp = "";
 
     private int control;
     public EquipFragment() {
@@ -103,6 +115,7 @@ public class EquipFragment extends Fragment {
             dbHelper             = new DBHelper(getActivity());
             db                   = dbHelper.getWritableDatabase();
             armaFab              = view.findViewById(R.id.armaFab);
+            armaduraFab          = view.findViewById(R.id.armaduraFab);
             textViewArma1        = view.findViewById(R.id.textViewArma);
             textViewDanio1       = view.findViewById(R.id.textViewDaño);
             textViewCritico1     = view.findViewById(R.id.textViewCritico);
@@ -149,11 +162,20 @@ public class EquipFragment extends Fragment {
             textViewNotas5       = view.findViewById(R.id.textViewNotasV);
             textViewMunicion5    = view.findViewById(R.id.textViewMunicion5);
             progressBarMunicion5 = view.findViewById(R.id.progressBarMunicion5);
-
             buttonMunicion2      = view.findViewById(R.id.buttonMunicion2);
             buttonMunicion3      = view.findViewById(R.id.buttonMunicion3);
             buttonMunicion4      = view.findViewById(R.id.buttonMunicion4);
             buttonMunicion5      = view.findViewById(R.id.buttonMunicion5);
+
+            textViewArmadura     = view.findViewById(R.id.textViewArmadura);
+            textViewCA           = view.findViewById(R.id.textViewCA);
+            textViewDesMax       = view.findViewById(R.id.textViewDesMax);
+            textViewTipoArmadura = view.findViewById(R.id.textViewTipoArmadura);
+            textViewPenalizador  = view.findViewById(R.id.textViewPenalizador);
+            textViewVelocidadArm = view.findViewById(R.id.textViewVelocidadArm);
+            textViewPesoArmadura = view.findViewById(R.id.textViewPesoArmadura);
+            textViewFalloConj    = view.findViewById(R.id.textViewFalloConj);
+            textViewPropEsp      = view.findViewById(R.id.textViewPropEsp);
 
             aux_id = recuperarIDpersonaje();
 
@@ -206,6 +228,12 @@ public class EquipFragment extends Fragment {
                 }
             });
 
+            armaduraFab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialogFabArmadura("  Modificar armadura" , aux_id);
+                }
+            });
         }
 
         return view;
@@ -221,7 +249,8 @@ public class EquipFragment extends Fragment {
                             "arma2arma, arma2Danio, arma2Critico, arma2Tipo, arma2Peso, arma2Alcance, arma2Notas, arma2Municion, "+
                             "arma3arma, arma3Danio, arma3Critico, arma3Tipo, arma3Peso, arma3Alcance, arma3Notas, arma3Municion, "+
                             "arma4arma, arma4Danio, arma4Critico, arma4Tipo, arma4Peso, arma4Alcance, arma4Notas, arma4Municion, "+
-                            "arma5arma, arma5Danio, arma5Critico, arma5Tipo, arma5Peso, arma5Alcance, arma5Notas, arma5Municion "+
+                            "arma5arma, arma5Danio, arma5Critico, arma5Tipo, arma5Peso, arma5Alcance, arma5Notas, arma5Municion, "+
+                            "armaduraArmadura, armaduraCA, armaduraDesMax, armaduraTipo, armaduraPen, armaduraVelocidad, armaduraPeso, armaduraFallo, armaduraEsp "+
                             "FROM equipo WHERE _id='" + id + "'",null);
 
             if(c.moveToFirst()){
@@ -267,6 +296,15 @@ public class EquipFragment extends Fragment {
                     aux_alcance5  = c.getString(37);
                     aux_notas5    = c.getString(38);
                     aux_municion5 = c.getString(39);
+                    aux_armadura  = c.getString(40);
+                    aux_ca        = c.getString(41);
+                    aux_desMax    = c.getString(42);
+                    aux_tipo      = c.getString(43);
+                    aux_pen       = c.getString(44);
+                    aux_velocidad = c.getString(45);
+                    aux_peso      = c.getString(46);
+                    aux_fallo     = c.getString(47);
+                    aux_esp       = c.getString(48);
 
                 }while (c.moveToNext());
 
@@ -310,6 +348,15 @@ public class EquipFragment extends Fragment {
                 textViewAlcance5.setText(aux_alcance5);
                 textViewNotas5.setText(aux_notas5);
                 textViewMunicion5.setText(aux_municion5);
+                textViewArmadura.setText(aux_armadura);
+                textViewCA.setText(aux_ca);
+                textViewDesMax.setText(aux_desMax);
+                textViewTipoArmadura.setText(aux_tipo);
+                textViewPenalizador.setText(aux_pen);
+                textViewVelocidadArm.setText(aux_velocidad);
+                textViewPesoArmadura.setText(aux_peso);
+                textViewFalloConj.setText(aux_fallo);
+                textViewPropEsp.setText(aux_esp);
 
                 progressBarMunicion1.post(new Runnable() {
                     @Override
@@ -397,7 +444,6 @@ public class EquipFragment extends Fragment {
         final EditText editTextNotasArma    = viewInflated.findViewById(R.id.editTextNotasArma);
         final SeekBar  seekBarMunicionArma  = viewInflated.findViewById(R.id.seekBarMunicionArma);
         final TextView textViewMunicionArma = viewInflated.findViewById(R.id.textViewMunicionArma);
-
 
         textViewTitulo.setText(title);
 
@@ -827,6 +873,77 @@ public class EquipFragment extends Fragment {
         }
 
         return aux_id;
+
+    }
+
+    private void dialogFabArmadura(String title, final String aux_id){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setCancelable(true);
+
+        View viewInflated = LayoutInflater.from(getContext()).inflate(R.layout.dialog_editar_armadura, null);
+        builder.setView(viewInflated);
+
+        final TextView textViewTitleArmadura = viewInflated.findViewById(R.id.tvDialogArmaduraTitulo);
+        final EditText editTextArmadura      = viewInflated.findViewById(R.id.editTextArmadura);
+        final EditText editTextCA            = viewInflated.findViewById(R.id.editTextCA);
+        final EditText editTextDesMax        = viewInflated.findViewById(R.id.editTextDestrezaMaximaArmadura);
+        final EditText editTextTipo          = viewInflated.findViewById(R.id.editTextTipoArmadura);
+        final EditText editTextPen           = viewInflated.findViewById(R.id.editTextPenalizadorArmadura);
+        final EditText editTextVelocidad     = viewInflated.findViewById(R.id.editTextVelocidadArmadura);
+        final EditText editTextPeso          = viewInflated.findViewById(R.id.editTextPesoArmadura);
+        final EditText editTextFallo         = viewInflated.findViewById(R.id.editTextFalloArmadura);
+        final EditText editTextEsp           = viewInflated.findViewById(R.id.editTextEspArmadura);
+
+        textViewTitleArmadura.setText(title);
+
+        builder.setCancelable(true);
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                String armadura  = editTextArmadura.getText().toString();
+                String ca        = editTextCA.getText().toString();
+                String desMax    = editTextDesMax.getText().toString();
+                String tipo      = editTextTipo.getText().toString();
+                String pen       = editTextPen.getText().toString();
+                String velocidad = editTextVelocidad.getText().toString();
+                String peso      = editTextPeso.getText().toString();
+                String fallo     = editTextFallo.getText().toString();
+                String esp       = editTextEsp.getText().toString();
+
+                db = dbHelper.getReadableDatabase();
+
+                ContentValues values = new ContentValues();
+
+                values.put("armaduraArmadura", armadura);
+                values.put("armaduraCA", ca);
+                values.put("armaduraDesMax", desMax);
+                values.put("armaduraTipo", tipo);
+                values.put("armaduraPen", pen);
+                values.put("armaduraVelocidad", velocidad);
+                values.put("armaduraPeso", peso);
+                values.put("armaduraFallo", fallo);
+                values.put("armaduraEsp", esp);
+
+                db.update("equipo", values, "idPersonaje='" + aux_id + "'", null);
+
+                getActivity().recreate();
+
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
 
     }
 

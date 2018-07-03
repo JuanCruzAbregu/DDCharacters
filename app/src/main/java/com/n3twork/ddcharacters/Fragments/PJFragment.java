@@ -322,7 +322,7 @@ public class PJFragment extends ListFragment {
                         "-", "-", "-", "-", "-", "0", "-", "-", "-", "-",
                         "-", "-", "-", "0", "-", "-", "-", "-", "-", "-",
                         "-", "0", "-", "-", "-", "-", "-", "-", "-", "0",
-                        "0", aux_id_int);
+                        "-", "-", "-", "-", "-", "-", "-", "-", "-", aux_id_int);
 
                 dbHelper.addEquipo(equipo);
 
@@ -480,11 +480,14 @@ public class PJFragment extends ListFragment {
                             values.put("controlAct","0");
                             db.update("personaje",values,"_id!=?",args);
 
-                            values.put("controlActEquipo", 1);
-                            db.update("equipo",values,"idPersonaje=?",args);
 
-                            values.put("controlActEquipo", 0);
-                            db.update("equipo",values,"idPersonaje=?",args);
+//                            int ident = Integer.parseInt(aux_id);
+//
+//                            values.put("controlActEquipo", "1");
+//                            db.update("equipo",values,"idPersonaje='" + aux_id + "'",null);
+//
+//                            values.put("controlActEquipo", "0");
+//                            db.update("equipo",values,"idPersonaje!='" + aux_id + "'",null);
 
                         }while (c.moveToNext());
 
@@ -496,7 +499,6 @@ public class PJFragment extends ListFragment {
                             .getLaunchIntentForPackage( getContext().getPackageName() );
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
-
                 }catch (Exception e){
 
                     Log.e("Error", "Error: "+e.getMessage());

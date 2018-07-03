@@ -811,7 +811,6 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:id="@+id/linearArmaV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
@@ -819,7 +818,7 @@
                 android:paddingRight="16dp">
 
                 <Button
-                    android:id="@+id/buttonDañoV"
+                    android:id="@+id/buttonDañoIV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorButtons"
@@ -1278,7 +1277,7 @@
                 android:paddingRight="16dp">
 
                 <Button
-                    android:id="@+id/buttonEquipo"
+                    android:id="@+id/buttonArmadura"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorButtons"
@@ -1288,7 +1287,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewEquipo"
+                    android:id="@+id/textViewArmadura"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -1366,7 +1365,7 @@
                 android:paddingRight="16dp">
 
                 <Button
-                    android:id="@+id/buttonTipo2"
+                    android:id="@+id/buttonTipoArmadura"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorButtons"
@@ -1376,7 +1375,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewTipo2"
+                    android:id="@+id/textViewTipoArmadura"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -1443,7 +1442,7 @@
                     android:textSize="15sp" />
 
                 <Button
-                    android:id="@+id/buttonPeso2"
+                    android:id="@+id/buttonPesoArmadura"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorButtons"
@@ -1453,7 +1452,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewPeso2"
+                    android:id="@+id/textViewPesoArmadura"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
