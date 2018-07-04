@@ -8,7 +8,7 @@
     tools:context="com.n3twork.ddcharacters.Fragments.EquipFragment">
 
     <TextView
-        android:id="@+id/tvDialogArmaduraTitulo"
+        android:id="@+id/tvDialogEscudoTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
@@ -30,19 +30,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorButtons"
-            android:text="Armadura"
+            android:text="Escudo"
             android:layout_weight="0.4"
             android:textColor="#ffffff"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextArmadura"
+            android:id="@+id/editTextEscudo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="0.6"
-            android:gravity="center"
             android:inputType="textCapWords"
+            android:gravity="center"
             android:textColor="#000000"
             android:textSize="15sp" />
 
@@ -67,7 +67,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextCA"
+            android:id="@+id/editTextCAEscudo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -87,57 +87,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextDestrezaMaximaArmadura"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.15"
-            android:gravity="center"
-            android:inputType="number"
-            android:textColor="#000000"
-            android:textSize="15sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="5dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorButtons"
-            android:text="Tipo"
-            android:layout_weight="0.25"
-            android:textColor="#ffffff"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/editTextTipoArmadura"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.4"
-            android:gravity="center"
-            android:inputType="textCapWords"
-            android:textColor="#000000"
-            android:textSize="15sp" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorButtons"
-            android:text="PEN"
-            android:layout_weight="0.2"
-            android:textColor="#ffffff"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/editTextPenalizadorArmadura"
+            android:id="@+id/editTextDestrezaMaximaEscudo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -162,17 +112,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorButtons"
-            android:text="Velocidad"
-            android:layout_weight="0.45"
+            android:text="Fallo"
+            android:layout_weight="0.25"
             android:textColor="#ffffff"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextVelocidadArmadura"
+            android:id="@+id/editTextFalloEscudo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="0.2"
+            android:layout_weight="0.25"
             android:gravity="center"
             android:inputType="number"
             android:textColor="#000000"
@@ -182,13 +132,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorButtons"
-            android:text="Peso"
+            android:text="Pen"
             android:layout_weight="0.25"
             android:textColor="#ffffff"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextPesoArmadura"
+            android:id="@+id/editTextPenEscudo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -213,19 +163,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorButtons"
-            android:text="Fallo"
-            android:layout_weight="0.25"
+            android:text="Esp"
+            android:layout_weight="0.2"
             android:textColor="#ffffff"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextFalloArmadura"
+            android:id="@+id/editTextEspEscudo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="0.15"
+            android:layout_weight="0.40"
             android:gravity="center"
-            android:inputType="number"
+            android:inputType="textCapWords"
             android:textColor="#000000"
             android:textSize="15sp" />
 
@@ -233,19 +183,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorButtons"
-            android:text="Esp"
-            android:layout_weight="0.2"
+            android:text="Peso"
+            android:layout_weight="0.25"
             android:textColor="#ffffff"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextEspArmadura"
+            android:id="@+id/editTextPesoEscudo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="0.40"
+            android:layout_weight="0.25"
+            android:inputType="number"
             android:gravity="center"
-            android:inputType="textCapWords"
             android:textColor="#000000"
             android:textSize="15sp" />
 

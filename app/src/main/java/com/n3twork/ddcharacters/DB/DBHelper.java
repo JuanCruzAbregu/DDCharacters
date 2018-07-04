@@ -15,7 +15,7 @@ import com.n3twork.ddcharacters.Clases.Personaje;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 28;
+    private static final int DATABASE_VERSION = 29;
     private static final String DATABASE_NAME = "dnd.db";
 
     private static final String TABLA_PERSONAJE = "personaje";
@@ -298,7 +298,22 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMNA_ARMADURA_PESO = "armaduraPeso"; //48
     private static final String COLUMNA_ARMADURA_FALLO = "armaduraFallo"; //49
     private static final String COLUMNA_ARMADURA_ESP = "armaduraEsp"; //50
-    private static final String COLUMN_ID_PJ = "idPersonaje"; //51
+    private static final String COLUMNA_OBJ2_ESCUDO = "obj2Escudo"; //51
+    private static final String COLUMNA_OBJ2_CA = "obj2Ca"; //52
+    private static final String COLUMNA_OBJ2_DESMAX = "obj2DesMax"; //53
+    private static final String COLUMNA_OBJ2_FALLO = "obj2Fallo"; //54
+    private static final String COLUMNA_OBJ2_PEN = "obj2Pen"; //55
+    private static final String COLUMNA_OBJ2_ESP = "obj2Esp"; //56
+    private static final String COLUMNA_OBJ2_PESO = "obj2Peso"; //57
+    private static final String COLUMNA_OBJ3_OBJ = "obj3Obj"; //58
+    private static final String COLUMNA_OBJ3_CA = "obj3Ca"; //59
+    private static final String COLUMNA_OBJ3_PESO = "obj3Peso"; //60
+    private static final String COLUMNA_OBJ3_ESP = "obj3Esp"; //61
+    private static final String COLUMNA_OBJ4_OBJ = "obj4Obj"; //62
+    private static final String COLUMNA_OBJ4_CA = "obj4Ca"; //63
+    private static final String COLUMNA_OBJ4_PESO = "obj4Peso"; //64
+    private static final String COLUMNA_OBJ4_ESP = "obj4Esp"; //65
+    private static final String COLUMN_ID_PJ = "idPersonaje"; //66
 
 
     public String ctPj = "CREATE TABLE " + TABLA_PERSONAJE + "(" +
@@ -583,6 +598,21 @@ public class DBHelper extends SQLiteOpenHelper {
             COLUMNA_ARMADURA_PESO + " TEXT NOT NULL, " +
             COLUMNA_ARMADURA_FALLO + " TEXT NOT NULL, " +
             COLUMNA_ARMADURA_ESP + " TEXT NOT NULL, " +
+            COLUMNA_OBJ2_ESCUDO + " TEXT NOT NULL, " +
+            COLUMNA_OBJ2_CA + " TEXT NOT NULL, " +
+            COLUMNA_OBJ2_DESMAX + " TEXT NOT NULL, " +
+            COLUMNA_OBJ2_FALLO + " TEXT NOT NULL, " +
+            COLUMNA_OBJ2_PEN + " TEXT NOT NULL, " +
+            COLUMNA_OBJ2_ESP + " TEXT NOT NULL, " +
+            COLUMNA_OBJ2_PESO + " TEXT NOT NULL, " +
+            COLUMNA_OBJ3_OBJ + " TEXT NOT NULL, " +
+            COLUMNA_OBJ3_CA + " TEXT NOT NULL, " +
+            COLUMNA_OBJ3_PESO + " TEXT NOT NULL, " +
+            COLUMNA_OBJ3_ESP + " TEXT NOT NULL, " +
+            COLUMNA_OBJ4_OBJ + " TEXT NOT NULL, " +
+            COLUMNA_OBJ4_CA + " TEXT NOT NULL, " +
+            COLUMNA_OBJ4_PESO + " TEXT NOT NULL, " +
+            COLUMNA_OBJ4_ESP + " TEXT NOT NULL, " +
             COLUMN_ID_PJ + " INTEGER, " +
             "FOREIGN KEY("+ COLUMN_ID_PJ + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")" +
             ");";
@@ -903,6 +933,21 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMNA_ARMADURA_PESO, equipo.get_armaduraPeso());
         values.put(COLUMNA_ARMADURA_FALLO, equipo.get_armaduraFallo());
         values.put(COLUMNA_ARMADURA_ESP, equipo.get_armaduraEsp());
+        values.put(COLUMNA_OBJ2_ESCUDO, equipo.get_obj2Escudo());
+        values.put(COLUMNA_OBJ2_CA, equipo.get_obj2Ca());
+        values.put(COLUMNA_OBJ2_DESMAX, equipo.get_obj2DesMax());
+        values.put(COLUMNA_OBJ2_FALLO, equipo.get_obj2Fallo());
+        values.put(COLUMNA_OBJ2_PEN, equipo.get_obj2Pen());
+        values.put(COLUMNA_OBJ2_ESP, equipo.get_obj2Esp());
+        values.put(COLUMNA_OBJ2_PESO, equipo.get_obj2Peso());
+        values.put(COLUMNA_OBJ3_OBJ, equipo.get_obj3Obj());
+        values.put(COLUMNA_OBJ3_CA, equipo.get_obj3Ca());
+        values.put(COLUMNA_OBJ3_PESO, equipo.get_obj3Peso());
+        values.put(COLUMNA_OBJ3_ESP, equipo.get_obj3Esp());
+        values.put(COLUMNA_OBJ4_OBJ, equipo.get_obj4Obj());
+        values.put(COLUMNA_OBJ4_CA, equipo.get_obj4Ca());
+        values.put(COLUMNA_OBJ4_PESO, equipo.get_obj4Peso());
+        values.put(COLUMNA_OBJ4_ESP, equipo.get_obj4Esp());
         values.put(COLUMN_ID_PJ, equipo.get_idPersonaje());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLA_EQUIPO, null, values);

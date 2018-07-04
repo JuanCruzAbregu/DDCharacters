@@ -1758,7 +1758,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewObjProtector1"
+                    android:id="@+id/textViewObjProtector3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -1791,7 +1791,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewObjCA"
+                    android:id="@+id/textViewObjCA3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -1813,7 +1813,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewObjPeso"
+                    android:id="@+id/textViewObjPeso3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -1846,7 +1846,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewPropEspObj"
+                    android:id="@+id/textViewPropEspObj3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -1889,7 +1889,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewObjProtector2"
+                    android:id="@+id/textViewObjProtector4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -1922,7 +1922,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewObjCA2"
+                    android:id="@+id/textViewObjCA4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -1944,7 +1944,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewObjPeso2"
+                    android:id="@+id/textViewObjPeso4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -1977,7 +1977,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewPropEspObj2"
+                    android:id="@+id/textViewPropEspObj4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
