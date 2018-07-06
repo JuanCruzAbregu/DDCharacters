@@ -16,11 +16,11 @@ public class OtrosEquipos {
 
     public OtrosEquipos(String _otrasObjeto, String _otrasPagina, String _otrasPeso, String _otrasValor, String _otrasMoneda, int _idPersonaje){
 
-        this._otrasObjeto = _otrasObjeto;
-        this._otrasPagina = _otrasPagina;
-        this._otrasPeso   = _otrasPeso;
-        this._otrasValor  = _otrasValor;
-        this._otrasMoneda = _otrasMoneda;
+        this._otrasObjeto  = _otrasObjeto;
+        this._otrasPagina  = _otrasPagina;
+        this._otrasPeso    = _otrasPeso;
+        this._otrasValor   = _otrasValor;
+        this._otrasMoneda  = _otrasMoneda;
         this._idPersonaje = _idPersonaje;
 
     }
@@ -80,4 +80,5 @@ public class OtrosEquipos {
     public void set_idPersonaje(int _idPersonaje) {
         this._idPersonaje = _idPersonaje;
     }
+
 }

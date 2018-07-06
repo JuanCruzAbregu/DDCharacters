@@ -28,6 +28,8 @@ import com.n3twork.ddcharacters.Clases.OtrosEquipos;
 import com.n3twork.ddcharacters.DB.DBHelper;
 import com.n3twork.ddcharacters.R;
 
+import java.sql.BatchUpdateException;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -59,11 +61,13 @@ public class EquipFragment extends Fragment {
     private TextView textViewObjProtector3, textViewObjCA3, textViewObjPeso3, textViewPropEspObj3;
     private TextView textViewObjProtector4, textViewObjCA4, textViewObjPeso4, textViewPropEspObj4;
 
+    private TextView textViewCargaLigera, textViewCargaMedia, textViewCargaPesada, textViewCargaCabeza, textViewCargaSuelo, textViewCargaEmpArr;
+
     private EquipoAdaptador equipoAdaptador;
 
     private ListView listViewOtrasPosesiones;
 
-    private Button buttonMunicion, buttonMunicion2, buttonMunicion3, buttonMunicion4, buttonMunicion5;
+    private Button buttonMunicion, buttonMunicion2, buttonMunicion3, buttonMunicion4, buttonMunicion5, buttonCopper, buttonPlata, buttonOro, buttonPlatino;
 
     private String aux_id = "";
     private String aux_arma1 = "";
@@ -130,6 +134,16 @@ public class EquipFragment extends Fragment {
     private String aux_obj4Ca = "";
     private String aux_obj4Peso = "";
     private String aux_obj4Esp = "";
+    private String aux_ligero = "";
+    private String aux_medio = "";
+    private String aux_pesado = "";
+    private String aux_cabeza = "";
+    private String aux_suelo = "";
+    private String aux_empujar = "";
+    private String aux_pc = "";
+    private String aux_pp = "";
+    private String aux_po = "";
+    private String aux_ppt = "";
 
     private int control;
     public EquipFragment() {
@@ -146,6 +160,12 @@ public class EquipFragment extends Fragment {
             dbHelper                = new DBHelper(getActivity());
             db                      = dbHelper.getWritableDatabase();
             listViewOtrasPosesiones = view.findViewById(android.R.id.list);
+            textViewCargaLigera     = view.findViewById(R.id.textViewCargaLigera);
+            textViewCargaMedia      = view.findViewById(R.id.textViewCargaMedia);
+            textViewCargaPesada     = view.findViewById(R.id.textViewCargaPesada);
+            textViewCargaCabeza     = view.findViewById(R.id.textViewCargaCabeza);
+            textViewCargaSuelo      = view.findViewById(R.id.textViewCargaSuelo);
+            textViewCargaEmpArr     = view.findViewById(R.id.textViewCargaEmpArr);
             armaFab                 = view.findViewById(R.id.armaFab);
             armaduraFab             = view.findViewById(R.id.armaduraFab);
             escudoFab               = view.findViewById(R.id.escudoFab);
@@ -215,6 +235,10 @@ public class EquipFragment extends Fragment {
             buttonMunicion3         = view.findViewById(R.id.buttonMunicion3);
             buttonMunicion4         = view.findViewById(R.id.buttonMunicion4);
             buttonMunicion5         = view.findViewById(R.id.buttonMunicion5);
+            buttonCopper            = view.findViewById(R.id.buttonCopper);
+            buttonPlata             = view.findViewById(R.id.buttonPlata);
+            buttonOro               = view.findViewById(R.id.buttonOro);
+            buttonPlatino           = view.findViewById(R.id.buttonPlatino);
             textViewArmadura        = view.findViewById(R.id.textViewArmadura);
             textViewCA              = view.findViewById(R.id.textViewCA);
             textViewDesMax          = view.findViewById(R.id.textViewDesMax);
@@ -308,6 +332,38 @@ public class EquipFragment extends Fragment {
                 }
             });
 
+            buttonCopper.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 1;
+                    dialogAgregarTesoro("  Modificar tesoro", control, aux_id);
+                }
+            });
+
+            buttonPlata.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 2;
+                    dialogAgregarTesoro("  Modificar tesoro", control, aux_id);
+                }
+            });
+
+            buttonOro.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 3;
+                    dialogAgregarTesoro("  Modificar tesoro", control, aux_id);
+                }
+            });
+
+            buttonPlatino.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    control = 4;
+                    dialogAgregarTesoro("  Modificar tesoro", control, aux_id);
+                }
+            });
+
         }
 
         return view;
@@ -388,6 +444,16 @@ public class EquipFragment extends Fragment {
                     aux_obj4Ca     = c.getString(62);
                     aux_obj4Peso   = c.getString(63);
                     aux_obj4Esp    = c.getString(64);
+                    aux_ligero     = c.getString(65);
+                    aux_medio      = c.getString(66);
+                    aux_pesado     = c.getString(67);
+                    aux_cabeza     = c.getString(68);
+                    aux_suelo      = c.getString(69);
+                    aux_empujar    = c.getString(70);
+                    aux_pc         = c.getString(71);
+                    aux_pp         = c.getString(72);
+                    aux_po         = c.getString(73);
+                    aux_ppt        = c.getString(74);
 
                 }while (c.moveToNext());
 
@@ -455,6 +521,16 @@ public class EquipFragment extends Fragment {
                 textViewObjCA4.setText(aux_obj4Ca);
                 textViewObjPeso4.setText(aux_obj4Peso);
                 textViewPropEspObj4.setText(aux_obj4Esp);
+                textViewCargaLigera.setText(aux_ligero);
+                textViewCargaMedia.setText(aux_medio);
+                textViewCargaPesada.setText(aux_pesado);
+                textViewCargaCabeza.setText(aux_cabeza);
+                textViewCargaSuelo.setText(aux_suelo);
+                textViewCargaEmpArr.setText(aux_empujar);
+                buttonCopper.setText(aux_pc);
+                buttonPlata.setText(aux_pp);
+                buttonOro.setText(aux_po);
+                buttonPlatino.setText(aux_ppt);
 
                 progressBarMunicion1.post(new Runnable() {
                     @Override
@@ -1311,6 +1387,111 @@ public class EquipFragment extends Fragment {
         dbHelper = new DBHelper(getContext());
 
         dbHelper.addOtrosEquipos(otrosEquipos);
+
+
+    }
+
+    private void dialogAgregarTesoro(String title, final int control, final String aux_id){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setCancelable(true);
+
+        View viewInflated = LayoutInflater.from(getContext()).inflate(R.layout.dialog_agregar_tesoro, null);
+        builder.setView(viewInflated);
+
+        builder.setCancelable(true);
+
+        final TextView textViewTitle  = viewInflated.findViewById(R.id.tvTitleTesoro);
+        final EditText editTextTesoro = viewInflated.findViewById(R.id.editTextTesoro);
+
+        textViewTitle.setText(title);
+
+        switch (control){
+
+            case 1:
+
+                editTextTesoro.setText(buttonCopper.getText().toString());
+
+                break;
+
+            case 2:
+
+                editTextTesoro.setText(buttonPlata.getText().toString());
+
+                break;
+
+            case 3:
+
+                editTextTesoro.setText(buttonOro.getText().toString());
+
+                break;
+
+            case 4:
+
+                editTextTesoro.setText(buttonPlatino.getText().toString());
+
+                break;
+
+        }
+
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                String tesoro = editTextTesoro.getText().toString();
+
+                db = dbHelper.getReadableDatabase();
+
+                ContentValues values = new ContentValues();
+
+                switch (control){
+
+                    case 1:
+
+                        values.put("tesoroPc", tesoro);
+                        db.update("equipo", values, "idPersonaje='" + aux_id + "'", null);
+
+                        break;
+
+                    case 2:
+
+                        values.put("tesoroPp", tesoro);
+                        db.update("equipo", values, "idPersonaje='" + aux_id + "'", null);
+
+                        break;
+
+                    case 3:
+
+                        values.put("tesoroPo", tesoro);
+                        db.update("equipo", values, "idPersonaje='" + aux_id + "'", null);
+
+                        break;
+
+                    case 4:
+
+                        values.put("tesoroPpt", tesoro);
+                        db.update("equipo", values, "idPersonaje='" + aux_id + "'", null);
+
+                        break;
+
+                }
+
+                getActivity().recreate();
+
+
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
 
 
     }

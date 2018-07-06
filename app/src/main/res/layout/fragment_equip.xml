@@ -2589,17 +2589,6 @@
             app:fab_colorPressed="@color/colorPrimary"
             app:fab_colorRipple="#99FFFFFF"/>
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/tesoroFab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_coin"
-            app:fab_size="mini"
-            app:fab_label="Tesoro"
-            app:fab_colorNormal="@color/colorPrimaryDark"
-            app:fab_colorPressed="@color/colorPrimary"
-            app:fab_colorRipple="#99FFFFFF"/>
-
     </com.github.clans.fab.FloatingActionMenu>
 
 </RelativeLayout>

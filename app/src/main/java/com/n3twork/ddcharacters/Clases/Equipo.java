@@ -68,6 +68,16 @@ public class Equipo {
     private String _obj4Ca;
     private String _obj4Peso;
     private String _obj4Esp;
+    private String _otrasLigero;
+    private String _otrasMedio;
+    private String _otrasPesado;
+    private String _otrasCabeza;
+    private String _otrasSuelo;
+    private String _otrasEmpujar;
+    private String _otrasPc;
+    private String _otrasPp;
+    private String _otrasPo;
+    private String _otrasPpt;
     private int _idPersonaje;
 
     public Equipo(){
@@ -82,7 +92,8 @@ public class Equipo {
                   String _armaduraArmadura, String _armaduraCa, String _armaduraDesMax, String _armaduraTipo, String _armaduraPen,
                   String _armaduraVelocidad, String _armaduraPeso, String _armaduraFallo, String _armaduraEsp, String _obj2Escudo, String _obj2Ca, String _obj2DesMax, String _obj2Fallo, String _obj2Pen, String _obj2Esp,
                   String _obj2Peso, String _obj3Obj, String _obj3Ca, String _obj3Peso, String _obj3Esp, String _obj4Obj, String _obj4Ca, String _obj4Peso, String _obj4Esp,
-                  int _idPersonaje){
+                  String _otrasLigero, String _otrasMedio, String _otrasPesado, String _otrasCabeza, String _otrasSuelo, String _otrasEmpujar, String _otrasPc, String _otrasPp,
+                  String _otrasPo, String _otrasPpt, int _idPersonaje){
 
         this._arma1Arma = _arma1Arma;
         this._arma1Danio = _arma1Danio;
@@ -148,6 +159,16 @@ public class Equipo {
         this._obj4Ca = _obj4Ca;
         this._obj4Peso = _obj4Peso;
         this._obj4Esp = _obj4Esp;
+        this._otrasLigero = _otrasLigero;
+        this._otrasMedio = _otrasMedio;
+        this._otrasPesado = _otrasPesado;
+        this._otrasCabeza = _otrasCabeza;
+        this._otrasSuelo = _otrasSuelo;
+        this._otrasEmpujar = _otrasEmpujar;
+        this._otrasPc = _otrasPc;
+        this._otrasPp = _otrasPp;
+        this._otrasPo = _otrasPo;
+        this._otrasPpt = _otrasPpt;
         this._idPersonaje = _idPersonaje;
 
     }
@@ -678,5 +699,85 @@ public class Equipo {
 
     public void set_obj4Esp(String _obj4Esp) {
         this._obj4Esp = _obj4Esp;
+    }
+
+    public String get_otrasLigero() {
+        return _otrasLigero;
+    }
+
+    public void set_otrasLigero(String _otrasLigero) {
+        this._otrasLigero = _otrasLigero;
+    }
+
+    public String get_otrasMedio() {
+        return _otrasMedio;
+    }
+
+    public void set_otrasMedio(String _otrasMedio) {
+        this._otrasMedio = _otrasMedio;
+    }
+
+    public String get_otrasPesado() {
+        return _otrasPesado;
+    }
+
+    public void set_otrasPesado(String _otrasPesado) {
+        this._otrasPesado = _otrasPesado;
+    }
+
+    public String get_otrasCabeza() {
+        return _otrasCabeza;
+    }
+
+    public void set_otrasCabeza(String _otrasCabeza) {
+        this._otrasCabeza = _otrasCabeza;
+    }
+
+    public String get_otrasSuelo() {
+        return _otrasSuelo;
+    }
+
+    public void set_otrasSuelo(String _otrasSuelo) {
+        this._otrasSuelo = _otrasSuelo;
+    }
+
+    public String get_otrasEmpujar() {
+        return _otrasEmpujar;
+    }
+
+    public void set_otrasEmpujar(String _otrasEmpujar) {
+        this._otrasEmpujar = _otrasEmpujar;
+    }
+
+    public String get_otrasPc() {
+        return _otrasPc;
+    }
+
+    public void set_otrasPc(String _otrasPc) {
+        this._otrasPc = _otrasPc;
+    }
+
+    public String get_otrasPp() {
+        return _otrasPp;
+    }
+
+    public void set_otrasPp(String _otrasPp) {
+        this._otrasPp = _otrasPp;
+    }
+
+    public String get_otrasPo() {
+        return _otrasPo;
+    }
+
+    public void set_otrasPo(String _otrasPo) {
+        this._otrasPo = _otrasPo;
+    }
+
+    public String get_otrasPpt() {
+        return _otrasPpt;
+    }
+
+    public void set_otrasPpt(String _otrasPpt) {
+        this._otrasPpt = _otrasPpt;
     }
 }

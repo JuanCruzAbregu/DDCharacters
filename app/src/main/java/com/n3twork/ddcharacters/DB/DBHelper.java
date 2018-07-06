@@ -16,7 +16,7 @@ import com.n3twork.ddcharacters.Clases.Personaje;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 34;
+    private static final int DATABASE_VERSION = 36;
     private static final String DATABASE_NAME = "dnd.db";
 
     private static final String TABLA_PERSONAJE = "personaje";
@@ -314,8 +314,17 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMNA_OBJ4_CA = "obj4Ca"; //63
     private static final String COLUMNA_OBJ4_PESO = "obj4Peso"; //64
     private static final String COLUMNA_OBJ4_ESP = "obj4Esp"; //65
-
-    private static final String COLUMN_ID_PJ = "idPersonaje"; //71
+    private static final String COLUMNA_LIGERA = "pesoLigero"; //66
+    private static final String COLUMNA_MEDIA = "pesoMedio"; //67
+    private static final String COLUMNA_PESADA = "pesoPesado"; //68
+    private static final String COLUMNA_CABEZA = "pesoCabeza"; //69
+    private static final String COLUMNA_SUELO = "pesoSuelo"; //70
+    private static final String COLUMNA_EMPUJAR_ARRASTRAR = "pesoArrastrar"; //71
+    private static final String COLUMNA_PC = "tesoroPc"; //72
+    private static final String COLUMNA_PP = "tesoroPp"; //73
+    private static final String COLUMNA_PO = "tesoroPo"; //74
+    private static final String COLUMNA_PPT = "tesoroPpt"; //75
+    private static final String COLUMN_ID_PJ = "idPersonaje"; //76
 
     private static final String TABLA_OTROS_EQUIPOS = "otrosEquipos";
     private static final String _ID = "_id"; //1
@@ -624,6 +633,16 @@ public class DBHelper extends SQLiteOpenHelper {
             COLUMNA_OBJ4_CA + " TEXT NOT NULL, " +
             COLUMNA_OBJ4_PESO + " TEXT NOT NULL, " +
             COLUMNA_OBJ4_ESP + " TEXT NOT NULL, " +
+            COLUMNA_LIGERA + " TEXT NOT NULL, " +
+            COLUMNA_MEDIA + " TEXT NOT NULL, " +
+            COLUMNA_PESADA + " TEXT NOT NULL, " +
+            COLUMNA_CABEZA + " TEXT NOT NULL, " +
+            COLUMNA_SUELO + " TEXT NOT NULL, " +
+            COLUMNA_EMPUJAR_ARRASTRAR + " TEXT NOT NULL, " +
+            COLUMNA_PC + " TEXT NOT NULL, " +
+            COLUMNA_PP + " TEXT NOT NULL, " +
+            COLUMNA_PO + " TEXT NOT NULL, " +
+            COLUMNA_PPT + " TEXT NOT NULL, " +
             COLUMN_ID_PJ + " INTEGER, " +
             "FOREIGN KEY("+ COLUMN_ID_PJ + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")" +
             ");";
@@ -973,6 +992,16 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMNA_OBJ4_CA, equipo.get_obj4Ca());
         values.put(COLUMNA_OBJ4_PESO, equipo.get_obj4Peso());
         values.put(COLUMNA_OBJ4_ESP, equipo.get_obj4Esp());
+        values.put(COLUMNA_LIGERA, equipo.get_otrasLigero());
+        values.put(COLUMNA_MEDIA, equipo.get_otrasMedio());
+        values.put(COLUMNA_PESADA, equipo.get_otrasPesado());
+        values.put(COLUMNA_CABEZA, equipo.get_otrasCabeza());
+        values.put(COLUMNA_SUELO, equipo.get_otrasSuelo());
+        values.put(COLUMNA_EMPUJAR_ARRASTRAR, equipo.get_otrasEmpujar());
+        values.put(COLUMNA_PC, equipo.get_otrasPc());
+        values.put(COLUMNA_PP, equipo.get_otrasPp());
+        values.put(COLUMNA_PO, equipo.get_otrasPo());
+        values.put(COLUMNA_PPT, equipo.get_otrasPpt());
         values.put(COLUMN_ID_PJ, equipo.get_idPersonaje());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLA_EQUIPO, null, values);
