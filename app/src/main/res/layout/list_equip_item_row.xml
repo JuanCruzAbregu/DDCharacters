@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.n3twork.ddcharacters.Fragments.PJFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linear1">
+
+        <TextView
+            android:id="@+id/identOtrosEquipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/textViewObjeto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimaryText"
+            android:text="Mazo de escamas"
+            android:gravity="bottom"
+            android:layout_gravity="bottom"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.05"
+            android:layout_gravity="bottom"
+            android:gravity="bottom|end"
+            android:text="p."
+            android:layout_marginLeft="5dp"
+            android:textStyle="italic"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:id="@+id/textViewPagina"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.65"
+            android:layout_gravity="bottom"
+            android:text="153"
+            android:textStyle="italic"
+            android:textColor="@color/colorPrimaryText"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/linear1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:text="Peso "
+            android:textStyle="italic"
+            android:textColor="@color/colorSecondaryText"/>
+
+        <TextView
+            android:id="@+id/textViewPeso"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.07"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:text="156"
+            android:textStyle="italic"
+            android:textColor="@color/colorSecondaryText"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:text=" lbrs. "
+            android:textStyle="italic"
+            android:textColor="@color/colorSecondaryText"/>
+
+        <TextView
+            android:id="@+id/textViewValor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_gravity="bottom"
+            android:gravity="end"
+            android:textColor="@color/colorTitulosVerde"
+            android:text="2000"/>
+
+        <TextView
+            android:id="@+id/textViewTipoMoneda"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.08"
+            android:layout_marginLeft="2dp"
+            android:layout_gravity="bottom"
+            android:textColor="@color/colorTitulosVerde"
+            android:text="oro"/>
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

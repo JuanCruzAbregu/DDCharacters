@@ -81,7 +81,8 @@ public class Equipo {
                   String _arma5Arma, String _arma5Danio, String _arma5Critico, String _arma5Tipo, String _arma5Peso, String _arma5Alcance, String _arma5Notas, String _arma5Municion,
                   String _armaduraArmadura, String _armaduraCa, String _armaduraDesMax, String _armaduraTipo, String _armaduraPen,
                   String _armaduraVelocidad, String _armaduraPeso, String _armaduraFallo, String _armaduraEsp, String _obj2Escudo, String _obj2Ca, String _obj2DesMax, String _obj2Fallo, String _obj2Pen, String _obj2Esp,
-                  String _obj2Peso, String _obj3Obj, String _obj3Ca, String _obj3Peso, String _obj3Esp, String _obj4Obj, String _obj4Ca, String _obj4Peso, String _obj4Esp, int _idPersonaje){
+                  String _obj2Peso, String _obj3Obj, String _obj3Ca, String _obj3Peso, String _obj3Esp, String _obj4Obj, String _obj4Ca, String _obj4Peso, String _obj4Esp,
+                  int _idPersonaje){
 
         this._arma1Arma = _arma1Arma;
         this._arma1Danio = _arma1Danio;

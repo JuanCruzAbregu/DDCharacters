@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.n3twork.ddcharacters.Adapters.PersonajeAdaptador;
 import com.n3twork.ddcharacters.Clases.Equipo;
+import com.n3twork.ddcharacters.Clases.OtrosEquipos;
 import com.n3twork.ddcharacters.Clases.Personaje;
 import com.n3twork.ddcharacters.DB.DBHelper;
 import com.n3twork.ddcharacters.R;
@@ -267,8 +268,6 @@ public class PJFragment extends ListFragment {
 
                         if (verificarExpNivel(nivel, exp)) {
 
-                            // Agregar los puntos de habilidad correspondientes al nivel.
-
                             agregarPersonaje(nombre, clase, nivel, raza, alineamiento, deidad, tamanio, sexo, exp, aux_low, aux_high, campania);
                             agregarRegistroParaPersonajeNuevo(nombre);
                             recuperarTodosLosPersonajes();
@@ -322,7 +321,9 @@ public class PJFragment extends ListFragment {
                         "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
                         "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
                         "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", aux_id_int);
+                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
+                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
+                        "0", "0", "0", "0", aux_id_int);
 
                 dbHelper.addEquipo(equipo);
 
@@ -366,8 +367,6 @@ public class PJFragment extends ListFragment {
 
     public void agregarPersonaje(String nombre, String clase, String nivel, String raza, String alineamiento,
                                  String deidad, String tamanio, String sexo, String exp, String low, String high, String campania) {
-
-        //Agregar método que asigne puntos de habilidad según la clase del pj
 
         Personaje personaje = new Personaje(nombre, clase, nivel, raza, alineamiento, deidad, tamanio,
                 sexo, exp, low, high, campania, "0", "0","0","0","0",
@@ -479,15 +478,6 @@ public class PJFragment extends ListFragment {
 
                             values.put("controlAct","0");
                             db.update("personaje",values,"_id!=?",args);
-
-
-//                            int ident = Integer.parseInt(aux_id);
-//
-//                            values.put("controlActEquipo", "1");
-//                            db.update("equipo",values,"idPersonaje='" + aux_id + "'",null);
-//
-//                            values.put("controlActEquipo", "0");
-//                            db.update("equipo",values,"idPersonaje!='" + aux_id + "'",null);
 
                         }while (c.moveToNext());
 

@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.n3twork.ddcharacters.Clases.Equipo;
+import com.n3twork.ddcharacters.Clases.OtrosEquipos;
 import com.n3twork.ddcharacters.Clases.Personaje;
 
 /**
@@ -15,7 +16,7 @@ import com.n3twork.ddcharacters.Clases.Personaje;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 29;
+    private static final int DATABASE_VERSION = 34;
     private static final String DATABASE_NAME = "dnd.db";
 
     private static final String TABLA_PERSONAJE = "personaje";
@@ -313,7 +314,17 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMNA_OBJ4_CA = "obj4Ca"; //63
     private static final String COLUMNA_OBJ4_PESO = "obj4Peso"; //64
     private static final String COLUMNA_OBJ4_ESP = "obj4Esp"; //65
-    private static final String COLUMN_ID_PJ = "idPersonaje"; //66
+
+    private static final String COLUMN_ID_PJ = "idPersonaje"; //71
+
+    private static final String TABLA_OTROS_EQUIPOS = "otrosEquipos";
+    private static final String _ID = "_id"; //1
+    private static final String COLUMNA_OTRAS_OBJETO = "otrasObjeto"; //2
+    private static final String COLUMNA_OTRAS_PAGINA = "otrasPagina"; //3
+    private static final String COLUMNA_OTRAS_PESO = "otrasPeso"; //4
+    private static final String COLUMNA_OTRAS_VALOR = "otrasValor"; //5
+    private static final String COLUMNA_OTRAS_MONEDA = "otrasMoneda"; //6
+    private static final String _ID_PJ = "idPersonaje"; //7
 
 
     public String ctPj = "CREATE TABLE " + TABLA_PERSONAJE + "(" +
@@ -617,6 +628,17 @@ public class DBHelper extends SQLiteOpenHelper {
             "FOREIGN KEY("+ COLUMN_ID_PJ + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")" +
             ");";
 
+    private String ctOtEq = "CREATE TABLE " + TABLA_OTROS_EQUIPOS + "(" +
+            _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMNA_OTRAS_OBJETO + " TEXT NOT NULL, " +
+            COLUMNA_OTRAS_PAGINA + " TEXT NOT NULL, " +
+            COLUMNA_OTRAS_PESO + " TEXT NOT NULL, " +
+            COLUMNA_OTRAS_VALOR + " TEXT NOT NULL, " +
+            COLUMNA_OTRAS_MONEDA + " TEXT NOT NULL, " +
+            _ID_PJ + " INTEGER, " +
+            "FOREIGN KEY("+ _ID_PJ + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")" +
+            ");";
+
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -625,15 +647,18 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(ctPj);
         db.execSQL(ctEq);
+        db.execSQL(ctOtEq);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_PERSONAJE);
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_EQUIPO);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLA_OTROS_EQUIPOS);
 
         db.execSQL(ctPj);
         db.execSQL(ctEq);
+        db.execSQL(ctOtEq);
     }
 
     /**
@@ -956,9 +981,29 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     /**
+     * Metodo que inserta un registro de OtrosEquipos a la db.
+     *
+     *
+     */
+
+    public void addOtrosEquipos(OtrosEquipos otrosEquipos){
+        ContentValues values = new ContentValues();
+        values.put(COLUMNA_OTRAS_OBJETO, otrosEquipos.get_otrasObjeto());
+        values.put(COLUMNA_OTRAS_PAGINA, otrosEquipos.get_otrasPagina());
+        values.put(COLUMNA_OTRAS_PESO, otrosEquipos.get_otrasPeso());
+        values.put(COLUMNA_OTRAS_VALOR, otrosEquipos.get_otrasValor());
+        values.put(COLUMNA_OTRAS_MONEDA, otrosEquipos.get_otrasMoneda());
+        values.put(_ID_PJ, otrosEquipos.get_idPersonaje());
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLA_OTROS_EQUIPOS, null, values);
+        db.close();
+
+    }
+
+    /**
      * Método que devuelve todos los PJ en un Cursor.
      *
-     * @return
+     * @return cursor
      */
 
     public Cursor obtenerTodosPersonajes(){
@@ -981,5 +1026,27 @@ public class DBHelper extends SQLiteOpenHelper {
     public void cerrar(){
         this.close();
     }
+
+
+    /**
+     * Método que devuelve todas las otras posesiones en un Cursor.
+     *
+     * @return cursor
+     */
+
+    public Cursor obtenerTodasOtrasPosesiones(){
+
+        String[] columnas = new String[]{
+                COLUMN_ID, COLUMNA_OTRAS_OBJETO, COLUMNA_OTRAS_PAGINA, COLUMNA_OTRAS_PESO, COLUMNA_OTRAS_VALOR, COLUMNA_OTRAS_MONEDA
+        };
+        Cursor cursor = this.getReadableDatabase().query(TABLA_OTROS_EQUIPOS, columnas, null, null, null, null, null);
+        if(cursor != null){
+            cursor.moveToFirst();
+        }
+
+        return cursor;
+
+    }
+
 
 }

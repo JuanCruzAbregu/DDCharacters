@@ -10,15 +10,21 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.github.clans.fab.FloatingActionButton;
+import com.n3twork.ddcharacters.Adapters.EquipoAdaptador;
+import com.n3twork.ddcharacters.Clases.Equipo;
+import com.n3twork.ddcharacters.Clases.OtrosEquipos;
 import com.n3twork.ddcharacters.DB.DBHelper;
 import com.n3twork.ddcharacters.R;
 
@@ -30,7 +36,7 @@ public class EquipFragment extends Fragment {
     private DBHelper dbHelper;
     private SQLiteDatabase db;
 
-    private FloatingActionButton armaFab, armaduraFab, escudoFab;
+    private FloatingActionButton armaFab, armaduraFab, escudoFab, otrosFab;
     private String[] opciones_armas = new String[]{"Arma 1", "Arma 2", "Arma 3", "Arma 4", "Arma 5"};
     private String[] opciones_escudo = new String[]{"Escudo/Obj. protector 2", "Obj. protector 3", "Obj. protector 4"};
 
@@ -52,6 +58,10 @@ public class EquipFragment extends Fragment {
 
     private TextView textViewObjProtector3, textViewObjCA3, textViewObjPeso3, textViewPropEspObj3;
     private TextView textViewObjProtector4, textViewObjCA4, textViewObjPeso4, textViewPropEspObj4;
+
+    private EquipoAdaptador equipoAdaptador;
+
+    private ListView listViewOtrasPosesiones;
 
     private Button buttonMunicion, buttonMunicion2, buttonMunicion3, buttonMunicion4, buttonMunicion5;
 
@@ -133,85 +143,98 @@ public class EquipFragment extends Fragment {
 
         if(view != null) {
 
-            dbHelper               = new DBHelper(getActivity());
-            db                     = dbHelper.getWritableDatabase();
-            armaFab                = view.findViewById(R.id.armaFab);
-            armaduraFab            = view.findViewById(R.id.armaduraFab);
-            escudoFab              = view.findViewById(R.id.escudoFab);
-            textViewArma1          = view.findViewById(R.id.textViewArma);
-            textViewDanio1         = view.findViewById(R.id.textViewDaño);
-            textViewCritico1       = view.findViewById(R.id.textViewCritico);
-            textViewTipo1          = view.findViewById(R.id.textViewTipo);
-            textViewPeso1          = view.findViewById(R.id.textViewPeso);
-            textViewAlcance1       = view.findViewById(R.id.textViewAlcance);
-            textViewNotas1         = view.findViewById(R.id.textViewNotas);
-            textViewMunicion1      = view.findViewById(R.id.textViewMunicion1);
-            progressBarMunicion1   = view.findViewById(R.id.progressBarMunicion1);
-            buttonMunicion         = view.findViewById(R.id.buttonMunicion);
-            textViewArma2          = view.findViewById(R.id.textViewArmaII);
-            textViewDanio2         = view.findViewById(R.id.textViewDañoII);
-            textViewCritico2       = view.findViewById(R.id.textViewCriticoII);
-            textViewTipo2          = view.findViewById(R.id.textViewTipoII);
-            textViewPeso2          = view.findViewById(R.id.textViewPesoII);
-            textViewAlcance2       = view.findViewById(R.id.textViewAlcanceII);
-            textViewNotas2         = view.findViewById(R.id.textViewNotasII);
-            textViewMunicion2      = view.findViewById(R.id.textViewMunicion2);
-            progressBarMunicion2   = view.findViewById(R.id.progressBarMunicion2);
-            textViewArma3          = view.findViewById(R.id.textViewArmaIII);
-            textViewDanio3         = view.findViewById(R.id.textViewDañoIII);
-            textViewCritico3       = view.findViewById(R.id.textViewCriticoIII);
-            textViewTipo3          = view.findViewById(R.id.textViewTipoIII);
-            textViewPeso3          = view.findViewById(R.id.textViewPesoIII);
-            textViewAlcance3       = view.findViewById(R.id.textViewAlcanceIII);
-            textViewNotas3         = view.findViewById(R.id.textViewNotasIII);
-            textViewMunicion3      = view.findViewById(R.id.textViewMunicion3);
-            progressBarMunicion3   = view.findViewById(R.id.progressBarMunicion3);
-            textViewArma4          = view.findViewById(R.id.textViewArmaIV);
-            textViewDanio4         = view.findViewById(R.id.textViewDañoIV);
-            textViewCritico4       = view.findViewById(R.id.textViewCriticoIV);
-            textViewTipo4          = view.findViewById(R.id.textViewTipoIV);
-            textViewPeso4          = view.findViewById(R.id.textViewPesoIV);
-            textViewAlcance4       = view.findViewById(R.id.textViewAlcanceIV);
-            textViewNotas4         = view.findViewById(R.id.textViewNotasIV);
-            textViewMunicion4      = view.findViewById(R.id.textViewMunicion4);
-            progressBarMunicion4   = view.findViewById(R.id.progressBarMunicion4);
-            textViewArma5          = view.findViewById(R.id.textViewArmaV);
-            textViewDanio5         = view.findViewById(R.id.textViewDañoV);
-            textViewCritico5       = view.findViewById(R.id.textViewCriticoV);
-            textViewTipo5          = view.findViewById(R.id.textViewTipoV);
-            textViewPeso5          = view.findViewById(R.id.textViewPesoV);
-            textViewAlcance5       = view.findViewById(R.id.textViewAlcanceV);
-            textViewNotas5         = view.findViewById(R.id.textViewNotasV);
-            textViewMunicion5      = view.findViewById(R.id.textViewMunicion5);
-            progressBarMunicion5   = view.findViewById(R.id.progressBarMunicion5);
-            textViewEscudo         = view.findViewById(R.id.textViewEscudo);
-            textViewEscudoCA       = view.findViewById(R.id.textViewEscudoCA);
-            textViewEscudoDesMax   = view.findViewById(R.id.textViewEscudoDesMax);
-            textViewFalloConjEsc   = view.findViewById(R.id.textViewFalloConjEsc);
-            textViewPenalizadorEsc = view.findViewById(R.id.textViewPenalizadorEsc);
-            textViewPropEspEsc     = view.findViewById(R.id.textViewPropEspEsc);
-            textViewPesoEsc        = view.findViewById(R.id.textViewPesoEsc);
-            textViewObjProtector3  = view.findViewById(R.id.textViewObjProtector3);
-            textViewObjCA3         = view.findViewById(R.id.textViewObjCA3);
-            textViewObjPeso3       = view.findViewById(R.id.textViewObjPeso3);
-            textViewPropEspObj3    = view.findViewById(R.id.textViewPropEspObj3);
-            textViewObjProtector4  = view.findViewById(R.id.textViewObjProtector4);
-            textViewObjCA4         = view.findViewById(R.id.textViewObjCA4);
-            textViewObjPeso4       = view.findViewById(R.id.textViewObjPeso4);
-            textViewPropEspObj4    = view.findViewById(R.id.textViewPropEspObj4);
-            buttonMunicion2        = view.findViewById(R.id.buttonMunicion2);
-            buttonMunicion3        = view.findViewById(R.id.buttonMunicion3);
-            buttonMunicion4        = view.findViewById(R.id.buttonMunicion4);
-            buttonMunicion5        = view.findViewById(R.id.buttonMunicion5);
-            textViewArmadura       = view.findViewById(R.id.textViewArmadura);
-            textViewCA             = view.findViewById(R.id.textViewCA);
-            textViewDesMax         = view.findViewById(R.id.textViewDesMax);
-            textViewTipoArmadura   = view.findViewById(R.id.textViewTipoArmadura);
-            textViewPenalizador    = view.findViewById(R.id.textViewPenalizador);
-            textViewVelocidadArm   = view.findViewById(R.id.textViewVelocidadArm);
-            textViewPesoArmadura   = view.findViewById(R.id.textViewPesoArmadura);
-            textViewFalloConj      = view.findViewById(R.id.textViewFalloConj);
-            textViewPropEsp        = view.findViewById(R.id.textViewPropEsp);
+            dbHelper                = new DBHelper(getActivity());
+            db                      = dbHelper.getWritableDatabase();
+            listViewOtrasPosesiones = view.findViewById(android.R.id.list);
+            armaFab                 = view.findViewById(R.id.armaFab);
+            armaduraFab             = view.findViewById(R.id.armaduraFab);
+            escudoFab               = view.findViewById(R.id.escudoFab);
+            otrosFab                = view.findViewById(R.id.otrosFab);
+            textViewArma1           = view.findViewById(R.id.textViewArma);
+            textViewDanio1          = view.findViewById(R.id.textViewDaño);
+            textViewCritico1        = view.findViewById(R.id.textViewCritico);
+            textViewTipo1           = view.findViewById(R.id.textViewTipo);
+            textViewPeso1           = view.findViewById(R.id.textViewPeso);
+            textViewAlcance1        = view.findViewById(R.id.textViewAlcance);
+            textViewNotas1          = view.findViewById(R.id.textViewNotas);
+            textViewMunicion1       = view.findViewById(R.id.textViewMunicion1);
+            progressBarMunicion1    = view.findViewById(R.id.progressBarMunicion1);
+            buttonMunicion          = view.findViewById(R.id.buttonMunicion);
+            textViewArma2           = view.findViewById(R.id.textViewArmaII);
+            textViewDanio2          = view.findViewById(R.id.textViewDañoII);
+            textViewCritico2        = view.findViewById(R.id.textViewCriticoII);
+            textViewTipo2           = view.findViewById(R.id.textViewTipoII);
+            textViewPeso2           = view.findViewById(R.id.textViewPesoII);
+            textViewAlcance2        = view.findViewById(R.id.textViewAlcanceII);
+            textViewNotas2          = view.findViewById(R.id.textViewNotasII);
+            textViewMunicion2       = view.findViewById(R.id.textViewMunicion2);
+            progressBarMunicion2    = view.findViewById(R.id.progressBarMunicion2);
+            textViewArma3           = view.findViewById(R.id.textViewArmaIII);
+            textViewDanio3          = view.findViewById(R.id.textViewDañoIII);
+            textViewCritico3        = view.findViewById(R.id.textViewCriticoIII);
+            textViewTipo3           = view.findViewById(R.id.textViewTipoIII);
+            textViewPeso3           = view.findViewById(R.id.textViewPesoIII);
+            textViewAlcance3        = view.findViewById(R.id.textViewAlcanceIII);
+            textViewNotas3          = view.findViewById(R.id.textViewNotasIII);
+            textViewMunicion3       = view.findViewById(R.id.textViewMunicion3);
+            progressBarMunicion3    = view.findViewById(R.id.progressBarMunicion3);
+            textViewArma4           = view.findViewById(R.id.textViewArmaIV);
+            textViewDanio4          = view.findViewById(R.id.textViewDañoIV);
+            textViewCritico4        = view.findViewById(R.id.textViewCriticoIV);
+            textViewTipo4           = view.findViewById(R.id.textViewTipoIV);
+            textViewPeso4           = view.findViewById(R.id.textViewPesoIV);
+            textViewAlcance4        = view.findViewById(R.id.textViewAlcanceIV);
+            textViewNotas4          = view.findViewById(R.id.textViewNotasIV);
+            textViewMunicion4       = view.findViewById(R.id.textViewMunicion4);
+            progressBarMunicion4    = view.findViewById(R.id.progressBarMunicion4);
+            textViewArma5           = view.findViewById(R.id.textViewArmaV);
+            textViewDanio5          = view.findViewById(R.id.textViewDañoV);
+            textViewCritico5        = view.findViewById(R.id.textViewCriticoV);
+            textViewTipo5           = view.findViewById(R.id.textViewTipoV);
+            textViewPeso5           = view.findViewById(R.id.textViewPesoV);
+            textViewAlcance5        = view.findViewById(R.id.textViewAlcanceV);
+            textViewNotas5          = view.findViewById(R.id.textViewNotasV);
+            textViewMunicion5       = view.findViewById(R.id.textViewMunicion5);
+            progressBarMunicion5    = view.findViewById(R.id.progressBarMunicion5);
+            textViewEscudo          = view.findViewById(R.id.textViewEscudo);
+            textViewEscudoCA        = view.findViewById(R.id.textViewEscudoCA);
+            textViewEscudoDesMax    = view.findViewById(R.id.textViewEscudoDesMax);
+            textViewFalloConjEsc    = view.findViewById(R.id.textViewFalloConjEsc);
+            textViewPenalizadorEsc  = view.findViewById(R.id.textViewPenalizadorEsc);
+            textViewPropEspEsc      = view.findViewById(R.id.textViewPropEspEsc);
+            textViewPesoEsc         = view.findViewById(R.id.textViewPesoEsc);
+            textViewObjProtector3   = view.findViewById(R.id.textViewObjProtector3);
+            textViewObjCA3          = view.findViewById(R.id.textViewObjCA3);
+            textViewObjPeso3        = view.findViewById(R.id.textViewObjPeso3);
+            textViewPropEspObj3     = view.findViewById(R.id.textViewPropEspObj3);
+            textViewObjProtector4   = view.findViewById(R.id.textViewObjProtector4);
+            textViewObjCA4          = view.findViewById(R.id.textViewObjCA4);
+            textViewObjPeso4        = view.findViewById(R.id.textViewObjPeso4);
+            textViewPropEspObj4     = view.findViewById(R.id.textViewPropEspObj4);
+            buttonMunicion2         = view.findViewById(R.id.buttonMunicion2);
+            buttonMunicion3         = view.findViewById(R.id.buttonMunicion3);
+            buttonMunicion4         = view.findViewById(R.id.buttonMunicion4);
+            buttonMunicion5         = view.findViewById(R.id.buttonMunicion5);
+            textViewArmadura        = view.findViewById(R.id.textViewArmadura);
+            textViewCA              = view.findViewById(R.id.textViewCA);
+            textViewDesMax          = view.findViewById(R.id.textViewDesMax);
+            textViewTipoArmadura    = view.findViewById(R.id.textViewTipoArmadura);
+            textViewPenalizador     = view.findViewById(R.id.textViewPenalizador);
+            textViewVelocidadArm    = view.findViewById(R.id.textViewVelocidadArm);
+            textViewPesoArmadura    = view.findViewById(R.id.textViewPesoArmadura);
+            textViewFalloConj       = view.findViewById(R.id.textViewFalloConj);
+            textViewPropEsp         = view.findViewById(R.id.textViewPropEsp);
+
+
+            //Metodo para recuperar la atencion del listView para poder scrollear
+            listViewOtrasPosesiones.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+
+                    return false;
+                }
+            });
 
             aux_id = recuperarIDpersonaje();
 
@@ -275,6 +298,13 @@ public class EquipFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     dialogFabEscudo(opciones_escudo, aux_id);
+                }
+            });
+
+            otrosFab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialogFabOtros( "  Otras posesiones", aux_id);
                 }
             });
 
@@ -438,6 +468,30 @@ public class EquipFragment extends Fragment {
 
                     }
                 });
+
+                Cursor cursor = dbHelper.obtenerTodasOtrasPosesiones();
+
+                String[] from = new String[]{
+                        "_id",
+                        "otrasObjeto",
+                        "otrasPagina",
+                        "otrasPeso",
+                        "otrasValor",
+                        "otrasMoneda"
+                };
+
+                int[] to = new int[]{
+                        R.id.identOtrosEquipo,
+                        R.id.textViewObjeto,
+                        R.id.textViewPagina,
+                        R.id.textViewPeso,
+                        R.id.textViewValor,
+                        R.id.textViewTipoMoneda
+                };
+
+                equipoAdaptador = new EquipoAdaptador(getContext(), cursor, from, to, 0);
+                listViewOtrasPosesiones.setAdapter(equipoAdaptador);
+
 
             }
 
@@ -1171,6 +1225,93 @@ public class EquipFragment extends Fragment {
 
         AlertDialog dialog = builder.create();
         dialog.show();
+
+    }
+
+    private void dialogFabOtros(String title, final String aux_id){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setCancelable(true);
+
+        View viewInflated = LayoutInflater.from(getContext()).inflate(R.layout.dialog_fab_otras_posesiones, null);
+        builder.setView(viewInflated);
+        builder.setCancelable(true);
+
+        final TextView textViewTitle       = viewInflated.findViewById(R.id.tvDialogOtrasTitulo);
+        final EditText editTextObjetoOtras = viewInflated.findViewById(R.id.editTextObjetoOtras);
+        final EditText editTextPaginaOtras = viewInflated.findViewById(R.id.editTextPaginaOtras);
+        final EditText editTextPesoOtras   = viewInflated.findViewById(R.id.editTextPesoOtras);
+        final EditText editTextValorOtras  = viewInflated.findViewById(R.id.editTextValorOtras);
+        final RadioButton rbPlatino        = viewInflated.findViewById(R.id.rbPlatino);
+        final RadioButton rbOro            = viewInflated.findViewById(R.id.rbOro);
+        final RadioButton rbPlata          = viewInflated.findViewById(R.id.rbPlata);
+        final RadioButton rbBronce         = viewInflated.findViewById(R.id.rbBronce);
+
+        textViewTitle.setText(title);
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                String objeto = editTextObjetoOtras.getText().toString();
+                String pagina = editTextPaginaOtras.getText().toString();
+                String peso   = editTextPesoOtras.getText().toString();
+                String valor  = editTextValorOtras.getText().toString();
+                String moneda = modificarMonedaSegunRB(rbPlatino, rbOro, rbPlata, rbBronce);
+                int id        = Integer.parseInt(aux_id);
+
+                agregarOtrasPosesiones(objeto, pagina, peso, valor, moneda, id);
+                getActivity().recreate();
+
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+
+    }
+
+    private String modificarMonedaSegunRB(RadioButton rbPlatino, RadioButton rbOro, RadioButton rbPlata, RadioButton rbBronce){
+
+        String moneda = "";
+
+        if(rbPlatino.isChecked()){
+
+            moneda = "ppt";
+
+        }else if(rbOro.isChecked()){
+
+            moneda = "po";
+
+        }else if(rbPlata.isChecked()){
+
+            moneda = "pp";
+
+        }else if(rbBronce.isChecked()){
+
+            moneda = "pc";
+
+        }
+
+        return moneda;
+    }
+
+    private void agregarOtrasPosesiones(String objeto, String pagina, String peso, String valor, String moneda, int id){
+
+        OtrosEquipos otrosEquipos = new OtrosEquipos(objeto, pagina, peso, valor, moneda, id);
+
+        dbHelper = new DBHelper(getContext());
+
+        dbHelper.addOtrosEquipos(otrosEquipos);
+
 
     }
 
