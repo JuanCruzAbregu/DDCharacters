@@ -119,6 +119,8 @@ public class StatsFragment extends Fragment {
     private TextView tvSalvReflejos;
     private TextView tvSalvVoluntad;
 
+    private EquipFragment equipFragment;
+
     private Button buttonFza, buttonDes, buttonCon, buttonInt, buttonSab, buttonCar, buttonHeridas,
             buttonPG, buttonVelocidad, buttonCA, buttonToque, buttonIniciativa, buttonDesp, buttonATQ,
             buttonPresa, buttonResConj, buttonRedDanio, buttonBonfATQ, buttonBonfDist, buttonFortaleza,
@@ -2202,7 +2204,7 @@ public class StatsFragment extends Fragment {
                                 values.put("modSab", modSAB);
                                 values.put("modCar", modCAR);
                                 db.update("personaje", values, "_id='" + aux_id + "'", null);
-                                recuperarEstadisticasPJ();
+//                                recuperarEstadisticasPJ();
 
                             } while (c.moveToNext());
                             getActivity().recreate();
@@ -2407,7 +2409,7 @@ public class StatsFragment extends Fragment {
                                 values.put("puntFza", puntuacion);
                                 values.put("modFza", modificador);
                                 db.update("personaje", values, "_id='" + aux_id + "'", null);
-                                recuperarEstadisticasPJ();
+//                                recuperarEstadisticasPJ();
                             } while (c.moveToNext());
                             getActivity().recreate();
                         }

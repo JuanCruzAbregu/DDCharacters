@@ -39,10 +39,10 @@
                 android:visibility="invisible"/>
 
             <Button
+                android:id="@+id/textViewTesoro"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
-                android:text="Tesoro"
                 android:backgroundTint="@color/colorButtons"
                 android:textColor="#ffffff"
                 android:layout_gravity="center"

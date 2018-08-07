@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -41,6 +42,7 @@ public class EquipFragment extends Fragment {
     private FloatingActionButton armaFab, armaduraFab, escudoFab, otrosFab;
     private String[] opciones_armas = new String[]{"Arma 1", "Arma 2", "Arma 3", "Arma 4", "Arma 5"};
     private String[] opciones_escudo = new String[]{"Escudo/Obj. protector 2", "Obj. protector 3", "Obj. protector 4"};
+    private String[] opciones_posesiones = new String[]{"Borrar"};
 
     private TextView textViewArma1, textViewDanio1, textViewCritico1, textViewTipo1, textViewPeso1, textViewAlcance1, textViewNotas1, textViewMunicion1;
     private ProgressBar progressBarMunicion1;
@@ -68,6 +70,8 @@ public class EquipFragment extends Fragment {
     private ListView listViewOtrasPosesiones;
 
     private Button buttonMunicion, buttonMunicion2, buttonMunicion3, buttonMunicion4, buttonMunicion5, buttonCopper, buttonPlata, buttonOro, buttonPlatino;
+
+    private TextView tvIdentOtrosEquipo;
 
     private String aux_id = "";
     private String aux_arma1 = "";
@@ -135,15 +139,17 @@ public class EquipFragment extends Fragment {
     private String aux_obj4Peso = "";
     private String aux_obj4Esp = "";
     private String aux_ligero = "";
-    private String aux_medio = "";
+    private String aux_medio   = "";
     private String aux_pesado = "";
     private String aux_cabeza = "";
-    private String aux_suelo = "";
+    private String aux_suelo   = "";
     private String aux_empujar = "";
     private String aux_pc = "";
     private String aux_pp = "";
     private String aux_po = "";
     private String aux_ppt = "";
+    private String aux_fza = "";
+    private String aux_ident = "";
 
     private int control;
     public EquipFragment() {
@@ -264,6 +270,8 @@ public class EquipFragment extends Fragment {
 
             recuperarTodosLosEquipos(aux_id);
 
+            cargasSegunFuerza();
+
             buttonMunicion.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -336,7 +344,7 @@ public class EquipFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     control = 1;
-                    dialogAgregarTesoro("  Modificar tesoro", control, aux_id);
+                    dialogAgregarTesoro("  Modificar tesoro", control, aux_id, "Bronce");
                 }
             });
 
@@ -344,7 +352,7 @@ public class EquipFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     control = 2;
-                    dialogAgregarTesoro("  Modificar tesoro", control, aux_id);
+                    dialogAgregarTesoro("  Modificar tesoro", control, aux_id, "Plata");
                 }
             });
 
@@ -352,7 +360,7 @@ public class EquipFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     control = 3;
-                    dialogAgregarTesoro("  Modificar tesoro", control, aux_id);
+                    dialogAgregarTesoro("  Modificar tesoro", control, aux_id, "Oro");
                 }
             });
 
@@ -360,7 +368,7 @@ public class EquipFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     control = 4;
-                    dialogAgregarTesoro("  Modificar tesoro", control, aux_id);
+                    dialogAgregarTesoro("  Modificar tesoro", control, aux_id, "Platino");
                 }
             });
 
@@ -568,6 +576,21 @@ public class EquipFragment extends Fragment {
                 equipoAdaptador = new EquipoAdaptador(getContext(), cursor, from, to, 0);
                 listViewOtrasPosesiones.setAdapter(equipoAdaptador);
 
+                listViewOtrasPosesiones.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                    @Override
+                    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                        TextView textViewIdentOtrosObjetos = view.findViewById(R.id.identOtrosEquipo);
+
+                        aux_ident = textViewIdentOtrosObjetos.getText().toString();
+
+                        dialogOpcionesListaPosesiones(opciones_posesiones, aux_ident);
+
+
+                        return true;
+                    }
+                });
+
 
             }
 
@@ -577,6 +600,35 @@ public class EquipFragment extends Fragment {
         }finally {
             db.close();
         }
+
+
+    }
+
+    private void dialogOpcionesListaPosesiones(String[] opciones_posesiones, final String aux_ident){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setItems(opciones_posesiones, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int pos) {
+
+                if(pos == 0){
+
+                    try {
+                        db = dbHelper.getWritableDatabase();
+                        db.delete("otrosEquipos", "_id='" + aux_ident + "'", null);
+                        recuperarTodosLosEquipos(aux_id);
+
+                    }catch (Exception e){
+                        Log.e("Error", "Error: "+e.getMessage());
+                    }
+
+                }
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
 
 
     }
@@ -1337,7 +1389,7 @@ public class EquipFragment extends Fragment {
                 int id        = Integer.parseInt(aux_id);
 
                 agregarOtrasPosesiones(objeto, pagina, peso, valor, moneda, id);
-                getActivity().recreate();
+                recuperarTodosLosEquipos(aux_id);
 
             }
         });
@@ -1391,7 +1443,7 @@ public class EquipFragment extends Fragment {
 
     }
 
-    private void dialogAgregarTesoro(String title, final int control, final String aux_id){
+    private void dialogAgregarTesoro(String title, final int control, final String aux_id, String moneda){
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setCancelable(true);
@@ -1403,7 +1455,9 @@ public class EquipFragment extends Fragment {
 
         final TextView textViewTitle  = viewInflated.findViewById(R.id.tvTitleTesoro);
         final EditText editTextTesoro = viewInflated.findViewById(R.id.editTextTesoro);
+        final TextView textViewTesoro = viewInflated.findViewById(R.id.textViewTesoro);
 
+        textViewTesoro.setText(moneda);
         textViewTitle.setText(title);
 
         switch (control){
@@ -1479,7 +1533,6 @@ public class EquipFragment extends Fragment {
 
                 getActivity().recreate();
 
-
             }
         });
 
@@ -1492,6 +1545,413 @@ public class EquipFragment extends Fragment {
 
         AlertDialog dialog = builder.create();
         dialog.show();
+
+
+    }
+
+    public void cargasSegunFuerza(){
+
+        try{
+
+            db = dbHelper.getReadableDatabase();
+
+            Cursor c = db
+                    .rawQuery("SELECT puntFza FROM personaje WHERE controlAct='1'",null);
+
+            if(c.moveToFirst()){
+
+                do{
+
+                    aux_fza = c.getString(0);
+
+                }while (c.moveToNext());
+
+            }
+
+            switch (aux_fza){
+
+                case "0":
+
+                    aux_ligero  = "0 lb";
+                    aux_medio   = "0 lb";
+                    aux_pesado  = "0 lb";
+                    aux_cabeza  = "0 lb";
+                    aux_suelo   = "0 lb";
+                    aux_empujar = "0 lb";
+
+                    break;
+
+                case "1":
+
+                    aux_ligero  = "3 lb";
+                    aux_medio   = "6 lb";
+                    aux_pesado  = "10 lb";
+                    aux_cabeza  = "10 lb";
+                    aux_suelo   = "20 lb";
+                    aux_empujar = "50 lb";
+
+                    break;
+
+                case "2":
+
+                    aux_ligero  = "6 lb";
+                    aux_medio   = "13 lb";
+                    aux_pesado  = "20 lb";
+                    aux_cabeza  = "20 lb";
+                    aux_suelo   = "40 lb";
+                    aux_empujar = "100 lb";
+
+                    break;
+
+                case "3":
+
+                    aux_ligero  = "10 lb";
+                    aux_medio   = "20 lb";
+                    aux_pesado  = "30 lb";
+                    aux_cabeza  = "30 lb";
+                    aux_suelo   = "60 lb";
+                    aux_empujar = "150 lb";
+
+                    break;
+
+                case "4":
+
+                    aux_ligero  = "13 lb";
+                    aux_medio   = "26 lb";
+                    aux_pesado  = "40 lb";
+                    aux_cabeza  = "40 lb";
+                    aux_suelo   = "80 lb";
+                    aux_empujar = "200 lb";
+
+                    break;
+
+                case "5":
+
+                    aux_ligero  = "16 lb";
+                    aux_medio   = "33 lb";
+                    aux_pesado  = "50 lb";
+                    aux_cabeza  = "50 lb";
+                    aux_suelo   = "100 lb";
+                    aux_empujar = "250 lb";
+
+                    break;
+
+                case "6":
+
+                   aux_ligero  = "20 lb";
+                   aux_medio   = "40 lb";
+                   aux_pesado  = "60 lb";
+                   aux_cabeza  = "60 lb";
+                   aux_suelo   = "120 lb";
+                   aux_empujar = "300 lb";
+
+                    break;
+
+                case "7":
+
+                    aux_ligero  = "23 lb";
+                    aux_medio   = "46 lb";
+                    aux_pesado  = "70 lb";
+                    aux_cabeza  = "70 lb";
+                    aux_suelo   = "140 lb";
+                    aux_empujar = "350 lb";
+
+                    break;
+
+                case "8":
+
+                    aux_ligero  = "26 lb";
+                    aux_medio   = "53 lb";
+                    aux_pesado  = "80 lb";
+                    aux_cabeza  = "80 lb";
+                    aux_suelo   = "160 lb";
+                    aux_empujar = "400 lb";
+
+                    break;
+
+                case "9":
+
+                    aux_ligero  = "30 lb";
+                    aux_medio   = "60 lb";
+                    aux_pesado  = "90 lb";
+                    aux_cabeza  = "90 lb";
+                    aux_suelo   = "180 lb";
+                    aux_empujar = "450 lb";
+
+                    break;
+
+                case "10":
+
+                    aux_ligero  = "33 lb";
+                    aux_medio   = "66 lb";
+                    aux_pesado  = "100 lb";
+                    aux_cabeza  = "100 lb";
+                    aux_suelo   = "200 lb";
+                    aux_empujar = "500 lb";
+
+                    break;
+
+                case "11":
+
+                    aux_ligero  = "38 lb";
+                    aux_medio   = "76 lb";
+                    aux_pesado  = "115 lb";
+                    aux_cabeza  = "115 lb";
+                    aux_suelo   = "230 lb";
+                    aux_empujar = "575 lb";
+
+                    break;
+
+                case "12":
+
+                    aux_ligero  = "43 lb";
+                    aux_medio   = "86 lb";
+                    aux_pesado  = "130 lb";
+                    aux_cabeza  = "130 lb";
+                    aux_suelo   = "260 lb";
+                    aux_empujar = "650 lb";
+
+                    break;
+
+                case "13":
+
+                    aux_ligero  = "50 lb";
+                    aux_medio   = "100 lb";
+                    aux_pesado  = "150 lb";
+                    aux_cabeza  = "150 lb";
+                    aux_suelo   = "300 lb";
+                    aux_empujar = "750 lb";
+
+                    break;
+
+                case "14":
+
+                    aux_ligero  = "58 lb";
+                    aux_medio   = "116 lb";
+                    aux_pesado  = "175 lb";
+                    aux_cabeza  = "175 lb";
+                    aux_suelo   = "350 lb";
+                    aux_empujar = "875 lb";
+
+                    break;
+
+                case "15":
+
+                    aux_ligero  = "66 lb";
+                    aux_medio   = "133 lb";
+                    aux_pesado  = "200 lb";
+                    aux_cabeza  = "200 lb";
+                    aux_suelo   = "400 lb";
+                    aux_empujar = "1000 lb";
+
+                    break;
+
+                case "16":
+
+                    aux_ligero  = "76 lb";
+                    aux_medio   = "153 lb";
+                    aux_pesado  = "230 lb";
+                    aux_cabeza  = "230 lb";
+                    aux_suelo   = "460 lb";
+                    aux_empujar = "1150 lb";
+
+                    break;
+
+                case "17":
+
+                    aux_ligero  = "86 lb";
+                    aux_medio   = "173 lb";
+                    aux_pesado  = "260 lb";
+                    aux_cabeza  = "260 lb";
+                    aux_suelo   = "520 lb";
+                    aux_empujar = "1300 lb";
+
+                    break;
+
+                case "18":
+
+                    aux_ligero  = "100 lb";
+                    aux_medio   = "200 lb";
+                    aux_pesado  = "300 lb";
+                    aux_cabeza  = "300 lb";
+                    aux_suelo   = "600 lb";
+                    aux_empujar = "1500 lb";
+
+                    break;
+
+                case "19":
+
+                    aux_ligero  = "116 lb";
+                    aux_medio   = "233 lb";
+                    aux_pesado  = "350 lb";
+                    aux_cabeza  = "350 lb";
+                    aux_suelo   = "700 lb";
+                    aux_empujar = "1750 lb";
+
+                    break;
+
+                case "20":
+
+                    aux_ligero  = "133 lb";
+                    aux_medio   = "266 lb";
+                    aux_pesado  = "400 lb";
+                    aux_cabeza  = "400 lb";
+                    aux_suelo   = "800 lb";
+                    aux_empujar = "2000 lb";
+
+                    break;
+
+                case "21":
+
+                    aux_ligero  = "153 lb";
+                    aux_medio   = "306 lb";
+                    aux_pesado  = "460 lb";
+                    aux_cabeza  = "460 lb";
+                    aux_suelo   = "920 lb";
+                    aux_empujar = "2300 lb";
+
+                    break;
+
+                case "22":
+
+                    aux_ligero  = "173 lb";
+                    aux_medio   = "346 lb";
+                    aux_pesado  = "520 lb";
+                    aux_cabeza  = "520 lb";
+                    aux_suelo   = "1040 lb";
+                    aux_empujar = "2600 lb";
+
+                    break;
+
+                case "23":
+
+                    aux_ligero  = "200 lb";
+                    aux_medio   = "400 lb";
+                    aux_pesado  = "600 lb";
+                    aux_cabeza  = "600 lb";
+                    aux_suelo   = "1200 lb";
+                    aux_empujar = "3000 lb";
+
+                    break;
+
+                case "24":
+
+                    aux_ligero  = "233 lb";
+                    aux_medio   = "466 lb";
+                    aux_pesado  = "700 lb";
+                    aux_cabeza  = "700 lb";
+                    aux_suelo   = "1400 lb";
+                    aux_empujar = "3500 lb";
+
+                    break;
+
+                case "25":
+
+                    aux_ligero  = "266 lb";
+                    aux_medio   = "533 lb";
+                    aux_pesado  = "800 lb";
+                    aux_cabeza  = "800 lb";
+                    aux_suelo   = "1600 lb";
+                    aux_empujar = "4000 lb";
+
+                    break;
+
+                case "26":
+
+                    aux_ligero  = "306 lb";
+                    aux_medio   = "613 lb";
+                    aux_pesado  = "920 lb";
+                    aux_cabeza  = "920 lb";
+                    aux_suelo   = "1840 lb";
+                    aux_empujar = "4600 lb";
+
+                    break;
+
+                case "27":
+
+                    aux_ligero  = "346 lb";
+                    aux_medio   = "693 lb";
+                    aux_pesado  = "1040 lb";
+                    aux_cabeza  = "1040 lb";
+                    aux_suelo   = "2080 lb";
+                    aux_empujar = "5200 lb";
+
+                    break;
+
+                case "28":
+
+                    aux_ligero  = "400 lb";
+                    aux_medio   = "800 lb";
+                    aux_pesado  = "1200 lb";
+                    aux_cabeza  = "1200 lb";
+                    aux_suelo   = "2400 lb";
+                    aux_empujar = "6000 lb";
+
+                    break;
+
+                case "29":
+
+                    aux_ligero  = "466 lb";
+                    aux_medio   = "933 lb";
+                    aux_pesado  = "1400 lb";
+                    aux_cabeza  = "1400 lb";
+                    aux_suelo   = "2800 lb";
+                    aux_empujar = "7000 lb";
+
+                    break;
+
+                case "30":
+
+                    aux_ligero  = "500 lb";
+                    aux_medio   = "1000 lb";
+                    aux_pesado  = "1500 lb";
+                    aux_cabeza  = "1500 lb";
+                    aux_suelo   = "3000 lb";
+                    aux_empujar = "7500 lb";
+
+                    break;
+
+                case "40":
+
+                    aux_ligero  = "2000 lb";
+                    aux_medio   = "4000 lb";
+                    aux_pesado  = "6000 lb";
+                    aux_cabeza  = "12000 lb";
+                    aux_suelo   = "30000 lb";
+                    aux_empujar = "30000 lb";
+
+                    break;
+
+                case "50":
+
+                    aux_ligero  = "8000 lb";
+                    aux_medio   = "16000 lb";
+                    aux_pesado  = "24000 lb";
+                    aux_cabeza  = "24000 lb";
+                    aux_suelo   = "48000 lb";
+                    aux_empujar = "120000 lb";
+
+                    break;
+
+            }
+
+            ContentValues values = new ContentValues();
+
+            values.put("pesoLigero", aux_ligero);
+            values.put("pesoMedio", aux_medio);
+            values.put("pesoPesado", aux_pesado);
+            values.put("pesoCabeza", aux_cabeza);
+            values.put("pesoSuelo", aux_suelo);
+            values.put("pesoArrastrar", aux_empujar);
+
+            db.update("equipo", values, "idPersonaje='" + aux_id + "'", null);
+
+
+        }catch (Exception e){
+            Log.e("Error", "Error: "+e.getMessage());
+        }finally {
+            db.close();
+        }
 
 
     }
