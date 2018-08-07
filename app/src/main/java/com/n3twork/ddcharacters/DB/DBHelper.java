@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.n3twork.ddcharacters.Clases.Conjuros;
 import com.n3twork.ddcharacters.Clases.Equipo;
 import com.n3twork.ddcharacters.Clases.OtrosEquipos;
 import com.n3twork.ddcharacters.Clases.Personaje;
@@ -16,7 +17,7 @@ import com.n3twork.ddcharacters.Clases.Personaje;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 36;
+    private static final int DATABASE_VERSION = 37;
     private static final String DATABASE_NAME = "dnd.db";
 
     private static final String TABLA_PERSONAJE = "personaje";
@@ -335,8 +336,55 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMNA_OTRAS_MONEDA = "otrasMoneda"; //6
     private static final String _ID_PJ = "idPersonaje"; //7
 
+    private static final String TABLA_CONJUROS = "conjurosTab";
+    private static final String _ID_CONJUROS = "_id";
+    private static final String COLUMNA_DOMINIOS = "dominios";
+    private static final String COLUMNA_ESCUELA = "escuela";
+    private static final String COLUMNA_SALV_CONJUROS = "salvacion";
+    private static final String COLUMNA_FALLO_CONJUROS = "fallo";
+    private static final String COLUMNA_CONOC_CONJUROSLV0 = "conocConjurosCero";
+    private static final String COLUMNA_CD_SALVACIONLV0 = "cdSalvacionCero";
+    private static final String COLUMNA_DIARIOS_CONJUROSLV0 = "diariosConjurosCero";
+    private static final String COLUMNA_ADICIONALESLV0 = "adicionalesComjurosCero";
+    private static final String COLUMNA_CONOC_CONJUROSLV1 = "conocConjurosUno";
+    private static final String COLUMNA_CD_SALVACIONLV1 = "cdSalvacionUno";
+    private static final String COLUMNA_DIARIOS_CONJUROSLV1 = "diariosConjurosUno";
+    private static final String COLUMNA_ADICIONALESLV1 = "adicionalesComjurosUno";
+    private static final String COLUMNA_CONOC_CONJUROSLV2 = "conocConjurosDos";
+    private static final String COLUMNA_CD_SALVACIONLV2 = "cdSalvacionDos";
+    private static final String COLUMNA_DIARIOS_CONJUROSLV2 = "diariosConjurosDos";
+    private static final String COLUMNA_ADICIONALESLV2 = "adicionalesComjurosDos";
+    private static final String COLUMNA_CONOC_CONJUROSLV3 = "conocConjurosTres";
+    private static final String COLUMNA_CD_SALVACIONLV3 = "cdSalvacionTres";
+    private static final String COLUMNA_DIARIOS_CONJUROSLV3 = "diariosConjurosTres";
+    private static final String COLUMNA_ADICIONALESLV3 = "adicionalesComjurosTres";
+    private static final String COLUMNA_CONOC_CONJUROSLV4 = "conocConjurosCuatro";
+    private static final String COLUMNA_CD_SALVACIONLV4 = "cdSalvacionCuatro";
+    private static final String COLUMNA_DIARIOS_CONJUROSLV4 = "diariosConjurosCuatro";
+    private static final String COLUMNA_ADICIONALESLV4 = "adicionalesComjurosCuatro";
+    private static final String COLUMNA_CONOC_CONJUROSLV5 = "conocConjurosCinco";
+    private static final String COLUMNA_CD_SALVACIONLV5 = "cdSalvacionCinco";
+    private static final String COLUMNA_DIARIOS_CONJUROSLV5 = "diariosConjurosCinco";
+    private static final String COLUMNA_ADICIONALESLV5 = "adicionalesComjurosCinco";
+    private static final String COLUMNA_CONOC_CONJUROSLV6 = "conocConjurosSeis";
+    private static final String COLUMNA_CD_SALVACIONLV6 = "cdSalvacionSeis";
+    private static final String COLUMNA_DIARIOS_CONJUROSLV6 = "diariosConjurosSeis";
+    private static final String COLUMNA_ADICIONALESLV6 = "adicionalesComjurosSeis";
+    private static final String COLUMNA_CONOC_CONJUROSLV7 = "conocConjurosSiete";
+    private static final String COLUMNA_CD_SALVACIONLV7 = "cdSalvacionSiete";
+    private static final String COLUMNA_DIARIOS_CONJUROSLV7 = "diariosConjurosSiete";
+    private static final String COLUMNA_ADICIONALESLV7 = "adicionalesComjurosSiete";
+    private static final String COLUMNA_CONOC_CONJUROSLV8 = "conocConjurosOcho";
+    private static final String COLUMNA_CD_SALVACIONLV8 = "cdSalvacionOcho";
+    private static final String COLUMNA_DIARIOS_CONJUROSLV8 = "diariosConjurosOcho";
+    private static final String COLUMNA_ADICIONALESLV8 = "adicionalesComjurosOcho";
+    private static final String COLUMNA_CONOC_CONJUROSLV9 = "conocConjurosNueve";
+    private static final String COLUMNA_CD_SALVACIONLV9 = "cdSalvacionNueve";
+    private static final String COLUMNA_DIARIOS_CONJUROSLV9 = "diariosConjurosNueve";
+    private static final String COLUMNA_ADICIONALESLV9 = "adicionalesComjurosNueve";
+    private static final String _IDPJ = "idPersonaje";
 
-    public String ctPj = "CREATE TABLE " + TABLA_PERSONAJE + "(" +
+    private String ctPj = "CREATE TABLE " + TABLA_PERSONAJE + "(" +
             COLUMNA_ID_PJ + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COLUMNA_NOMBRE_PJ + " TEXT NOT NULL, " +
             COLUMNA_CLASE_PJ + " TEXT NOT NULL, " +
@@ -658,6 +706,56 @@ public class DBHelper extends SQLiteOpenHelper {
             "FOREIGN KEY("+ _ID_PJ + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")" +
             ");";
 
+    private String ctConj = "CREATE TABLE " + TABLA_CONJUROS + "(" +
+            _ID_CONJUROS + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMNA_DOMINIOS + " TEXT, " +
+            COLUMNA_ESCUELA + " TEXT, " +
+            COLUMNA_SALV_CONJUROS + " TEXT, " +
+            COLUMNA_FALLO_CONJUROS + " TEXT, " +
+            COLUMNA_CONOC_CONJUROSLV0 + " TEXT, " +
+            COLUMNA_CD_SALVACIONLV0 + " TEXT, " +
+            COLUMNA_DIARIOS_CONJUROSLV0 + " TEXT, " +
+            COLUMNA_ADICIONALESLV0 + " TEXT, " +
+            COLUMNA_CONOC_CONJUROSLV1 + " TEXT, " +
+            COLUMNA_CD_SALVACIONLV1 + " TEXT, " +
+            COLUMNA_DIARIOS_CONJUROSLV1 + " TEXT, " +
+            COLUMNA_ADICIONALESLV1 + " TEXT, " +
+            COLUMNA_CONOC_CONJUROSLV2 + " TEXT, " +
+            COLUMNA_CD_SALVACIONLV2 + " TEXT, " +
+            COLUMNA_DIARIOS_CONJUROSLV2 + " TEXT, " +
+            COLUMNA_ADICIONALESLV2 + " TEXT, " +
+            COLUMNA_CONOC_CONJUROSLV3 + " TEXT, " +
+            COLUMNA_CD_SALVACIONLV3 + " TEXT, " +
+            COLUMNA_DIARIOS_CONJUROSLV3 + " TEXT, " +
+            COLUMNA_ADICIONALESLV3 + " TEXT, " +
+            COLUMNA_CONOC_CONJUROSLV4 + " TEXT, " +
+            COLUMNA_CD_SALVACIONLV4 + " TEXT, " +
+            COLUMNA_DIARIOS_CONJUROSLV4 + " TEXT, " +
+            COLUMNA_ADICIONALESLV4 + " TEXT, " +
+            COLUMNA_CONOC_CONJUROSLV5 + " TEXT, " +
+            COLUMNA_CD_SALVACIONLV5 + " TEXT, " +
+            COLUMNA_DIARIOS_CONJUROSLV5 + " TEXT, " +
+            COLUMNA_ADICIONALESLV5 + " TEXT, " +
+            COLUMNA_CONOC_CONJUROSLV6 + " TEXT, " +
+            COLUMNA_CD_SALVACIONLV6 + " TEXT, " +
+            COLUMNA_DIARIOS_CONJUROSLV6 + " TEXT, " +
+            COLUMNA_ADICIONALESLV6 + " TEXT, " +
+            COLUMNA_CONOC_CONJUROSLV7 + " TEXT, " +
+            COLUMNA_CD_SALVACIONLV7 + " TEXT, " +
+            COLUMNA_DIARIOS_CONJUROSLV7 + " TEXT, " +
+            COLUMNA_ADICIONALESLV7 + " TEXT, " +
+            COLUMNA_CONOC_CONJUROSLV8 + " TEXT, " +
+            COLUMNA_CD_SALVACIONLV8 + " TEXT, " +
+            COLUMNA_DIARIOS_CONJUROSLV8 + " TEXT, " +
+            COLUMNA_ADICIONALESLV8 + " TEXT, " +
+            COLUMNA_CONOC_CONJUROSLV9 + " TEXT, " +
+            COLUMNA_CD_SALVACIONLV9 + " TEXT, " +
+            COLUMNA_DIARIOS_CONJUROSLV9 + " TEXT, " +
+            COLUMNA_ADICIONALESLV9 + " TEXT, " +
+            _IDPJ + " INTEGER, " +
+            "FOREIGN KEY("+ _IDPJ + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")" +
+            ")";
+
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -667,6 +765,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(ctPj);
         db.execSQL(ctEq);
         db.execSQL(ctOtEq);
+        db.execSQL(ctConj);
     }
 
     @Override
@@ -674,10 +773,12 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_PERSONAJE);
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_EQUIPO);
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_OTROS_EQUIPOS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLA_CONJUROS);
 
         db.execSQL(ctPj);
         db.execSQL(ctEq);
         db.execSQL(ctOtEq);
+        db.execSQL(ctConj);
     }
 
     /**
@@ -1030,6 +1131,65 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     /**
+     * Metodo que inserta un registro de Conjuros a la db.
+     *
+     *
+     */
+
+    public void addConjuros(Conjuros conjuros){
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMNA_DOMINIOS, conjuros.get_dominios());
+        values.put(COLUMNA_ESCUELA, conjuros.get_escuela());
+        values.put(COLUMNA_SALV_CONJUROS, conjuros.get_salvConj());
+        values.put(COLUMNA_FALLO_CONJUROS, conjuros.get_falloConj());
+        values.put(COLUMNA_CONOC_CONJUROSLV0, conjuros.get_concConjLv0());
+        values.put(COLUMNA_CD_SALVACIONLV0, conjuros.get_cdConjLv0());
+        values.put(COLUMNA_DIARIOS_CONJUROSLV0, conjuros.get_diariosConjLv0());
+        values.put(COLUMNA_ADICIONALESLV0, conjuros.get_adicionalesConjLv0());
+        values.put(COLUMNA_CONOC_CONJUROSLV1, conjuros.get_concConjLv1());
+        values.put(COLUMNA_CD_SALVACIONLV1, conjuros.get_cdConjLv1());
+        values.put(COLUMNA_DIARIOS_CONJUROSLV1, conjuros.get_diariosConjLv1());
+        values.put(COLUMNA_ADICIONALESLV1, conjuros.get_adicionalesConjLv1());
+        values.put(COLUMNA_CONOC_CONJUROSLV2, conjuros.get_concConjLv2());
+        values.put(COLUMNA_CD_SALVACIONLV2, conjuros.get_cdConjLv2());
+        values.put(COLUMNA_DIARIOS_CONJUROSLV2, conjuros.get_diariosConjLv2());
+        values.put(COLUMNA_ADICIONALESLV2, conjuros.get_adicionalesConjLv2());
+        values.put(COLUMNA_CONOC_CONJUROSLV3, conjuros.get_concConjLv3());
+        values.put(COLUMNA_CD_SALVACIONLV3, conjuros.get_cdConjLv3());
+        values.put(COLUMNA_DIARIOS_CONJUROSLV3, conjuros.get_diariosConjLv3());
+        values.put(COLUMNA_ADICIONALESLV3, conjuros.get_adicionalesConjLv3());
+        values.put(COLUMNA_CONOC_CONJUROSLV4, conjuros.get_concConjLv4());
+        values.put(COLUMNA_CD_SALVACIONLV4, conjuros.get_cdConjLv4());
+        values.put(COLUMNA_DIARIOS_CONJUROSLV4, conjuros.get_diariosConjLv4());
+        values.put(COLUMNA_ADICIONALESLV4, conjuros.get_adicionalesConjLv4());
+        values.put(COLUMNA_CONOC_CONJUROSLV5, conjuros.get_concConjLv5());
+        values.put(COLUMNA_CD_SALVACIONLV5, conjuros.get_cdConjLv5());
+        values.put(COLUMNA_DIARIOS_CONJUROSLV5, conjuros.get_diariosConjLv5());
+        values.put(COLUMNA_ADICIONALESLV5, conjuros.get_adicionalesConjLv5());
+        values.put(COLUMNA_CONOC_CONJUROSLV6, conjuros.get_concConjLv6());
+        values.put(COLUMNA_CD_SALVACIONLV6, conjuros.get_cdConjLv6());
+        values.put(COLUMNA_DIARIOS_CONJUROSLV6, conjuros.get_diariosConjLv6());
+        values.put(COLUMNA_ADICIONALESLV6, conjuros.get_adicionalesConjLv6());
+        values.put(COLUMNA_CONOC_CONJUROSLV7, conjuros.get_concConjLv7());
+        values.put(COLUMNA_CD_SALVACIONLV7, conjuros.get_cdConjLv7());
+        values.put(COLUMNA_DIARIOS_CONJUROSLV7, conjuros.get_diariosConjLv7());
+        values.put(COLUMNA_ADICIONALESLV7, conjuros.get_adicionalesConjLv7());
+        values.put(COLUMNA_CONOC_CONJUROSLV8, conjuros.get_concConjLv8());
+        values.put(COLUMNA_CD_SALVACIONLV8, conjuros.get_cdConjLv8());
+        values.put(COLUMNA_DIARIOS_CONJUROSLV8, conjuros.get_diariosConjLv8());
+        values.put(COLUMNA_ADICIONALESLV8, conjuros.get_adicionalesConjLv8());
+        values.put(COLUMNA_CONOC_CONJUROSLV9, conjuros.get_concConjLv9());
+        values.put(COLUMNA_CD_SALVACIONLV9, conjuros.get_cdConjLv9());
+        values.put(COLUMNA_DIARIOS_CONJUROSLV9, conjuros.get_diariosConjLv9());
+        values.put(COLUMNA_ADICIONALESLV9, conjuros.get_adicionalesConjLv9());
+        values.put(_IDPJ, conjuros.get_idPersojae());
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLA_CONJUROS, null, values);
+        db.close();
+    }
+
+    /**
      * Método que devuelve todos los PJ en un Cursor.
      *
      * @return cursor
@@ -1076,6 +1236,28 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
+
+    /**
+     * Método que devuelve todos los conjuros en un Cursor.
+     *
+     * @return cursor
+     */
+
+    public Cursor obtenereTodosLosConjuros(){
+
+        String[] columnas = new String[]{
+                _ID_CONJUROS, COLUMNA_DOMINIOS, COLUMNA_ESCUELA
+        };
+
+        Cursor cursor = this.getReadableDatabase().query(TABLA_CONJUROS, columnas, null, null, null, null, null);
+
+        if(cursor != null){
+            cursor.moveToFirst();
+        }
+
+        return cursor;
+    }
+
 
 
 }

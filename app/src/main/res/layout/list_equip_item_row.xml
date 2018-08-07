@@ -113,9 +113,4 @@
             android:textColor="@color/colorTitulosVerde"
             android:text="oro"/>
     </LinearLayout>
-
-
-
-
-
 </RelativeLayout>
