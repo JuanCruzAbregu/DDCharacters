@@ -2,7 +2,6 @@ package com.n3twork.ddcharacters.Clases;
 
 public class Equipo {
 
-
     private int    _idPj;
     private String _arma1Arma;
     private String _arma1Danio;

@@ -586,7 +586,6 @@ public class EquipFragment extends Fragment {
 
                         dialogOpcionesListaPosesiones(opciones_posesiones, aux_ident);
 
-
                         return true;
                     }
                 });

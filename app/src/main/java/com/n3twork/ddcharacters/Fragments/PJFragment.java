@@ -24,7 +24,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.n3twork.ddcharacters.Adapters.PersonajeAdaptador;
+import com.n3twork.ddcharacters.Clases.Conjuros;
 import com.n3twork.ddcharacters.Clases.Equipo;
+import com.n3twork.ddcharacters.Clases.OtrosConjuros;
 import com.n3twork.ddcharacters.Clases.OtrosEquipos;
 import com.n3twork.ddcharacters.Clases.Personaje;
 import com.n3twork.ddcharacters.DB.DBHelper;
@@ -270,6 +272,7 @@ public class PJFragment extends ListFragment {
 
                             agregarPersonaje(nombre, clase, nivel, raza, alineamiento, deidad, tamanio, sexo, exp, aux_low, aux_high, campania);
                             agregarRegistroParaPersonajeNuevo(nombre);
+                            agregarRegistroParaConjurosNuevo(nombre);
                             recuperarTodosLosPersonajes();
                         }
                     }
@@ -337,6 +340,47 @@ public class PJFragment extends ListFragment {
 
 
     }
+
+    private void agregarRegistroParaConjurosNuevo(String nombre){
+
+        try {
+
+            db = dbHelper.getReadableDatabase();
+
+            Cursor c = db
+                    .rawQuery("SELECT _id FROM personaje WHERE nombrePj='" + nombre + "'", null);
+
+            if(c.moveToFirst()){
+
+                do{
+
+                    aux_id = c.getString(0);
+
+                }while (c.moveToNext());
+
+                int aux_id_int = Integer.parseInt(aux_id);
+
+                ContentValues values = new ContentValues();
+
+                values.put("idPersonaje", aux_id_int);
+
+                Conjuros conjuros = new Conjuros("0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
+                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
+                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", aux_id_int);
+
+                dbHelper.addConjuros(conjuros);
+
+            }
+
+        }catch (Exception e){
+            Log.e("Error", "Error: "+e.getMessage());
+        }finally {
+            db.close();
+        }
+
+
+    }
+
 
     /**
      * Método que devuelve el sexo del PJ a través de los RadioButtons

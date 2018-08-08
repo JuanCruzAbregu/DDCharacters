@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.n3twork.ddcharacters.Clases.Conjuros;
 import com.n3twork.ddcharacters.Clases.Equipo;
+import com.n3twork.ddcharacters.Clases.OtrosConjuros;
 import com.n3twork.ddcharacters.Clases.OtrosEquipos;
 import com.n3twork.ddcharacters.Clases.Personaje;
 
@@ -17,7 +18,7 @@ import com.n3twork.ddcharacters.Clases.Personaje;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 37;
+    private static final int DATABASE_VERSION = 38;
     private static final String DATABASE_NAME = "dnd.db";
 
     private static final String TABLA_PERSONAJE = "personaje";
@@ -338,8 +339,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final String TABLA_CONJUROS = "conjurosTab";
     private static final String _ID_CONJUROS = "_id";
-    private static final String COLUMNA_DOMINIOS = "dominios";
-    private static final String COLUMNA_ESCUELA = "escuela";
     private static final String COLUMNA_SALV_CONJUROS = "salvacion";
     private static final String COLUMNA_FALLO_CONJUROS = "fallo";
     private static final String COLUMNA_CONOC_CONJUROSLV0 = "conocConjurosCero";
@@ -383,6 +382,13 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMNA_DIARIOS_CONJUROSLV9 = "diariosConjurosNueve";
     private static final String COLUMNA_ADICIONALESLV9 = "adicionalesComjurosNueve";
     private static final String _IDPJ = "idPersonaje";
+
+    private static final String TABLA_OTROS_CONJUROS = "otrosConjuros";
+    private static final String IDENTIFICADOR = "_id";
+    private static final String COLUMNA_DOMINIOS = "dominios";
+    private static final String COLUMNA_ESCUELA = "escuela";
+    private static final String _ID_PERSONAJE = "idPersonaje";
+
 
     private String ctPj = "CREATE TABLE " + TABLA_PERSONAJE + "(" +
             COLUMNA_ID_PJ + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -708,8 +714,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private String ctConj = "CREATE TABLE " + TABLA_CONJUROS + "(" +
             _ID_CONJUROS + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            COLUMNA_DOMINIOS + " TEXT, " +
-            COLUMNA_ESCUELA + " TEXT, " +
             COLUMNA_SALV_CONJUROS + " TEXT, " +
             COLUMNA_FALLO_CONJUROS + " TEXT, " +
             COLUMNA_CONOC_CONJUROSLV0 + " TEXT, " +
@@ -756,6 +760,15 @@ public class DBHelper extends SQLiteOpenHelper {
             "FOREIGN KEY("+ _IDPJ + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")" +
             ")";
 
+    private String ctOtCOnj = "CREATE TABLE " + TABLA_OTROS_CONJUROS + "(" +
+            IDENTIFICADOR + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMNA_DOMINIOS + " TEXT, " +
+            COLUMNA_ESCUELA + " TEXT, " +
+            _ID_PERSONAJE + " INTEGER, " +
+            "FOREIGN KEY("+ _ID_PERSONAJE + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")" +
+            ")";
+
+
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -766,6 +779,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(ctEq);
         db.execSQL(ctOtEq);
         db.execSQL(ctConj);
+        db.execSQL(ctOtCOnj);
     }
 
     @Override
@@ -774,11 +788,13 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_EQUIPO);
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_OTROS_EQUIPOS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_CONJUROS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLA_OTROS_CONJUROS);
 
         db.execSQL(ctPj);
         db.execSQL(ctEq);
         db.execSQL(ctOtEq);
         db.execSQL(ctConj);
+        db.execSQL(ctOtCOnj);
     }
 
     /**
@@ -1139,8 +1155,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public void addConjuros(Conjuros conjuros){
 
         ContentValues values = new ContentValues();
-        values.put(COLUMNA_DOMINIOS, conjuros.get_dominios());
-        values.put(COLUMNA_ESCUELA, conjuros.get_escuela());
         values.put(COLUMNA_SALV_CONJUROS, conjuros.get_salvConj());
         values.put(COLUMNA_FALLO_CONJUROS, conjuros.get_falloConj());
         values.put(COLUMNA_CONOC_CONJUROSLV0, conjuros.get_concConjLv0());
@@ -1187,6 +1201,23 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLA_CONJUROS, null, values);
         db.close();
+    }
+
+    /**
+     * Metodo que inserta un registro de otrosConjuros a la db.
+     *
+     *
+     */
+
+    public void addOtrosConjuros(OtrosConjuros otrosConjuros){
+        ContentValues values = new ContentValues();
+        values.put(COLUMNA_DOMINIOS, otrosConjuros.get_dominios());
+        values.put(COLUMNA_ESCUELA, otrosConjuros.get_escuela());
+        values.put(_ID_PERSONAJE, otrosConjuros.get_idPersonaje());
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLA_OTROS_CONJUROS, null, values);
+        db.close();
+
     }
 
     /**
@@ -1249,7 +1280,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 _ID_CONJUROS, COLUMNA_DOMINIOS, COLUMNA_ESCUELA
         };
 
-        Cursor cursor = this.getReadableDatabase().query(TABLA_CONJUROS, columnas, null, null, null, null, null);
+        Cursor cursor = this.getReadableDatabase().query(TABLA_OTROS_CONJUROS, columnas, null, null, null, null, null);
 
         if(cursor != null){
             cursor.moveToFirst();

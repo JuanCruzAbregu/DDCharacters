@@ -3,8 +3,6 @@ package com.n3twork.ddcharacters.Clases;
 public class Conjuros {
 
     private int _idPj;
-    private String _dominios;
-    private String _escuela;
     private String _salvConj;
     private String _falloConj;
     private String _concConjLv0;
@@ -53,7 +51,7 @@ public class Conjuros {
 
     }
 
-    public Conjuros(String _dominios, String _escuela, String _salvConj, String _falloConj, String _concConjLv0, String _cdConjLv0,
+    public Conjuros(String _salvConj, String _falloConj, String _concConjLv0, String _cdConjLv0,
                     String _diariosConjLv0, String _adicinalesConjLv0, String _concConjLv1, String _cdConjLv1, String _diariosConjLv1,
                     String _adicionalesConjLv1, String _concConjLv2, String _cdConjLv2, String _diariosConjLv2, String _adicionalesConjLv2,
                     String _concConjLv3, String cdConjLv3, String _diariosConjLv3, String _adicionalesConjLv3,
@@ -63,8 +61,6 @@ public class Conjuros {
                     String _adicionalesConjLv7, String _concConjLv8, String _cdConjLv8, String _diariosConjLv8, String _adicionalesConjLv8,
                     String _concConjLv9, String _cdConjLv9, String _diariosConjLv9, String _adicionalesConjLv9, int _idPersojae){
 
-        this._dominios           = _dominios;
-        this._escuela            = _escuela;
         this._salvConj           = _salvConj;
         this._falloConj          = _falloConj;
         this._concConjLv0        = _concConjLv0;
@@ -117,22 +113,6 @@ public class Conjuros {
 
     public void set_idPj(int _idPj) {
         this._idPj = _idPj;
-    }
-
-    public String get_dominios() {
-        return _dominios;
-    }
-
-    public void set_dominios(String _dominios) {
-        this._dominios = _dominios;
-    }
-
-    public String get_escuela() {
-        return _escuela;
-    }
-
-    public void set_escuela(String _escuela) {
-        this._escuela = _escuela;
     }
 
     public String get_salvConj() {
