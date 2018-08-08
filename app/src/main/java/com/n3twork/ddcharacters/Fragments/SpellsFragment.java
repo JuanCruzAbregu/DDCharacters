@@ -25,6 +25,8 @@ import com.n3twork.ddcharacters.Clases.OtrosConjuros;
 import com.n3twork.ddcharacters.DB.DBHelper;
 import com.n3twork.ddcharacters.R;
 
+import java.util.zip.Inflater;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -34,7 +36,7 @@ public class SpellsFragment extends Fragment {
     private SQLiteDatabase db;
     private ListView listViewConjuros;
 
-    private FloatingActionButton conjurosFab;
+    private FloatingActionButton conjurosFab, nivelesFab;
 
     private String aux_dominio = "";
     private String aux_escuela = "";
@@ -99,6 +101,8 @@ public class SpellsFragment extends Fragment {
 
     private String[] opciones_conjuros = new String[]{"Borrar"};
 
+    private String[] opciones_niveles = new String[]{"Nivel 0", "Nivel 1", "Nivel 2", "Nivel 3", "Nivel 4", "Nivel 5", "Nivel 6", "Nivel 7", "Nivel 8", "Nivel 9"};
+
     public SpellsFragment() {
     }
 
@@ -115,6 +119,7 @@ public class SpellsFragment extends Fragment {
             db                  = dbHelper.getWritableDatabase();
             listViewConjuros    = view.findViewById(android.R.id.list);
             conjurosFab         = view.findViewById(R.id.conjurosFab);
+            nivelesFab          = view.findViewById(R.id.nivelesFab);
             buttonSalvConj      = view.findViewById(R.id.buttonSalvConj);
             buttonFalloArc      = view.findViewById(R.id.buttonFalloArc);
             textViewSalvConj    = view.findViewById(R.id.textViewSalvConj);
@@ -179,11 +184,17 @@ public class SpellsFragment extends Fragment {
                 }
             });
 
-
             conjurosFab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     conjurosFabMetodo("  Nuevo conjuro", aux_id);
+                }
+            });
+
+            nivelesFab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    nivelesFabOpciones(opciones_niveles);
                 }
             });
 
@@ -202,6 +213,230 @@ public class SpellsFragment extends Fragment {
 
         }
         return view;
+    }
+
+    private void nivelesFabOpciones(String[] opciones_niveles){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setItems(opciones_niveles, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int position) {
+
+                switch (position){
+
+                    case 0:
+
+                        control = 0;
+                        nivelesFabMetodo("  Modificar nivel 0", control);
+                        break;
+
+                    case 1:
+
+                        control = 1;
+                        nivelesFabMetodo("  Modificar nivel 1", control);
+                        break;
+
+                    case 2:
+                        control = 2;
+                        nivelesFabMetodo("  Modificar nivel 2", control);
+                        break;
+
+                    case 3:
+                        control = 3;
+                        nivelesFabMetodo("  Modificar nivel 3", control);
+                        break;
+
+                    case 4:
+                        control = 4;
+                        nivelesFabMetodo("  Modificar nivel 4", control);
+                        break;
+
+                    case 5:
+                        control = 5;
+                        nivelesFabMetodo("  Modificar nivel 5", control);
+                        break;
+
+                    case 6:
+                        control = 6;
+                        nivelesFabMetodo("  Modificar nivel 6", control);
+                        break;
+
+                    case 7:
+                        control = 7;
+                        nivelesFabMetodo("  Modificar nivel 7", control);
+                        break;
+
+                    case 8:
+                        control = 8;
+                        nivelesFabMetodo("  Modificar nivel 8", control);
+                        break;
+
+                    case 9:
+                        control = 9;
+                        nivelesFabMetodo("  Modificar nivel 9", control);
+                        break;
+
+                }
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+
+    }
+
+    private void nivelesFabMetodo(String title, final int control){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        View viewInflated = LayoutInflater.from(getContext()).inflate(R.layout.dialog_niveles_conjuros, null);
+        builder.setView(viewInflated);
+
+        final TextView textViewTitleNiveles = viewInflated.findViewById(R.id.tvTitleNivelesConjuros);
+        final EditText editTextConocConjuro = viewInflated.findViewById(R.id.editTextConjurosConoc);
+        final EditText editTextCDSalvacion  = viewInflated.findViewById(R.id.editTextCDSalvacion);
+        final EditText editTextDiarios      = viewInflated.findViewById(R.id.editTextDiarios);
+        final EditText editTextAdicionales  = viewInflated.findViewById(R.id.editTextAdicionales);
+
+        builder.setCancelable(true);
+
+        textViewTitleNiveles.setText(title);
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                String conocimiento = editTextConocConjuro.getText().toString();
+                String salvacion    = editTextCDSalvacion.getText().toString();
+                String diarios      = editTextDiarios.getText().toString();
+                String adicionales  = editTextAdicionales.getText().toString();
+
+                aux_id = recuperarIDPersonaje();
+
+                db = dbHelper.getReadableDatabase();
+                ContentValues values = new ContentValues();
+
+                switch (control){
+
+                    case 0:
+
+                        values.put("conocConjurosCero", conocimiento);
+                        values.put("cdSalvacionCero", salvacion);
+                        values.put("diariosConjurosCero", diarios);
+                        values.put("adicionalesComjurosCero", adicionales);
+                        db.update("conjurosTab", values, "idPersonaje='" + aux_id + "'", null);
+
+                        break;
+
+                    case 1:
+
+                        values.put("conocConjurosUno", conocimiento);
+                        values.put("cdSalvacionUno", salvacion);
+                        values.put("diariosConjurosUno", diarios);
+                        values.put("adicionalesComjurosUno", adicionales);
+                        db.update("conjurosTab", values, "idPersonaje='" + aux_id + "'", null);
+
+                        break;
+
+                    case 2:
+
+                        values.put("conocConjurosDos", conocimiento);
+                        values.put("cdSalvacionDos", salvacion);
+                        values.put("diariosConjurosDos", diarios);
+                        values.put("adicionalesComjurosDos", adicionales);
+                        db.update("conjurosTab", values, "idPersonaje='" + aux_id + "'", null);
+
+                        break;
+
+                    case 3:
+
+                        values.put("conocConjurosTres", conocimiento);
+                        values.put("cdSalvacionTres", salvacion);
+                        values.put("diariosConjurosTres", diarios);
+                        values.put("adicionalesComjurosTres", adicionales);
+                        db.update("conjurosTab", values, "idPersonaje='" + aux_id + "'", null);
+
+                        break;
+
+                    case 4:
+
+                        values.put("conocConjurosCuatro", conocimiento);
+                        values.put("cdSalvacionCuatro", salvacion);
+                        values.put("diariosConjurosCuatro", diarios);
+                        values.put("adicionalesComjurosCuatro", adicionales);
+                        db.update("conjurosTab", values, "idPersonaje='" + aux_id + "'", null);
+
+                        break;
+
+                    case 5:
+
+                        values.put("conocConjurosCinco", conocimiento);
+                        values.put("cdSalvacionCinco", salvacion);
+                        values.put("diariosConjurosCinco", diarios);
+                        values.put("adicionalesComjurosCinco", adicionales);
+                        db.update("conjurosTab", values, "idPersonaje='" + aux_id + "'", null);
+
+                        break;
+
+                    case 6:
+
+                        values.put("conocConjurosSeis", conocimiento);
+                        values.put("cdSalvacionSeis", salvacion);
+                        values.put("diariosConjurosSeis", diarios);
+                        values.put("adicionalesComjurosSeis", adicionales);
+                        db.update("conjurosTab", values, "idPersonaje='" + aux_id + "'", null);
+
+                        break;
+
+                    case 7:
+
+                        values.put("conocConjurosSiete", conocimiento);
+                        values.put("cdSalvacionSiete", salvacion);
+                        values.put("diariosConjurosSiete", diarios);
+                        values.put("adicionalesComjurosSiete", adicionales);
+                        db.update("conjurosTab", values, "idPersonaje='" + aux_id + "'", null);
+
+                        break;
+
+                    case 8:
+
+                        values.put("conocConjurosOcho", conocimiento);
+                        values.put("cdSalvacionOcho", salvacion);
+                        values.put("diariosConjurosOcho", diarios);
+                        values.put("adicionalesComjurosOcho", adicionales);
+                        db.update("conjurosTab", values, "idPersonaje='" + aux_id + "'", null);
+
+                        break;
+
+                    case 9:
+
+                        values.put("conocConjurosNueve", conocimiento);
+                        values.put("cdSalvacionNueve", salvacion);
+                        values.put("diariosConjurosNueve", diarios);
+                        values.put("adicionalesComjurosNueve", adicionales);
+                        db.update("conjurosTab", values, "idPersonaje='" + aux_id + "'", null);
+
+                        break;
+
+                }
+
+                getActivity().recreate();
+
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+
     }
 
     private void dialogButtonMetodo(String title, final int control, final String aux_id){
