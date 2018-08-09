@@ -7,7 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.n3twork.ddcharacters.Clases.Conjuros;
+import com.n3twork.ddcharacters.Clases.Dotes;
 import com.n3twork.ddcharacters.Clases.Equipo;
+import com.n3twork.ddcharacters.Clases.Especiales;
+import com.n3twork.ddcharacters.Clases.Idiomas;
 import com.n3twork.ddcharacters.Clases.OtrosConjuros;
 import com.n3twork.ddcharacters.Clases.OtrosEquipos;
 import com.n3twork.ddcharacters.Clases.Personaje;
@@ -18,7 +21,7 @@ import com.n3twork.ddcharacters.Clases.Personaje;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 38;
+    private static final int DATABASE_VERSION = 39;
     private static final String DATABASE_NAME = "dnd.db";
 
     private static final String TABLA_PERSONAJE = "personaje";
@@ -389,6 +392,21 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMNA_ESCUELA = "escuela";
     private static final String _ID_PERSONAJE = "idPersonaje";
 
+    private static final String TABLA_DOTES = "dotesTab";
+    private static final String ID = "_id";
+    private static final String COLUMNA_DOTE = "dote";
+    private static final String COLUMNA_PAGINA = "pagina";
+    private static final String IDPERSONAJE = "idPersonaje";
+
+    private static final String TABLA_ESPECIALES = "especiales";
+    private static final String ID_ = "_id";
+    private static final String COLUMNA_APTITUDES = "aptitudesEsp";
+    private static final String IDPERSONAJE_ = "idPersonaje";
+
+    private static final String TABLA_IDIOMAS = "idiomasTab";
+    private static final String _ID_ = "_id";
+    private static final String COLUMNA_IDIOMAS = "idiomas";
+    private static final String _IDPERSONAJE_ = "idPersonaje";
 
     private String ctPj = "CREATE TABLE " + TABLA_PERSONAJE + "(" +
             COLUMNA_ID_PJ + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -768,6 +786,28 @@ public class DBHelper extends SQLiteOpenHelper {
             "FOREIGN KEY("+ _ID_PERSONAJE + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")" +
             ")";
 
+    private String ctDote = "CREATE TABLE " + TABLA_DOTES + "(" +
+            ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMNA_DOTE + " TEXT NOT NULL, " +
+            COLUMNA_PAGINA + " TEXT NOT NULL, " +
+            IDPERSONAJE + " INTEGER, " +
+            "FOREIGN KEY("+ IDPERSONAJE + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")" +
+            ");";
+
+    private String ctEsp = "CREATE TABLE " + TABLA_ESPECIALES + "(" +
+            ID_ + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMNA_APTITUDES + " TEXT NOT NULL, " +
+            IDPERSONAJE_ + " INTEGER, " +
+            "FOREIGN KEY("+ IDPERSONAJE_ + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")" +
+            ");";
+
+    private String ctIdi = "CREATE TABLE " + TABLA_IDIOMAS + "(" +
+            _ID_ + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMNA_IDIOMAS + " TEXT NOT NULL, " +
+            _IDPERSONAJE_ + " INTEGER, " +
+            "FOREIGN KEY("+ _IDPERSONAJE_ + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")" +
+            ");";
+
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -780,6 +820,9 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(ctOtEq);
         db.execSQL(ctConj);
         db.execSQL(ctOtCOnj);
+        db.execSQL(ctDote);
+        db.execSQL(ctEsp);
+        db.execSQL(ctIdi);
     }
 
     @Override
@@ -789,12 +832,18 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_OTROS_EQUIPOS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_CONJUROS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_OTROS_CONJUROS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLA_DOTES);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLA_ESPECIALES);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLA_IDIOMAS);
 
         db.execSQL(ctPj);
         db.execSQL(ctEq);
         db.execSQL(ctOtEq);
         db.execSQL(ctConj);
         db.execSQL(ctOtCOnj);
+        db.execSQL(ctDote);
+        db.execSQL(ctEsp);
+        db.execSQL(ctIdi);
     }
 
     /**
@@ -1221,6 +1270,56 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     /**
+     * Metodo que inserta un registro de dotes a la db.
+     *
+     *
+     */
+
+    public void addDotes(Dotes dotes){
+        ContentValues values = new ContentValues();
+        values.put(COLUMNA_DOTE, dotes.get_dote());
+        values.put(COLUMNA_PAGINA, dotes.get_pagina());
+        values.put(IDPERSONAJE, dotes.get_idPersonaje());
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLA_DOTES, null, values);
+        db.close();
+
+    }
+
+    /**
+     * Metodo que inserta un registro de especiales a la db.
+     *
+     *
+     */
+
+    public void addEspeciales(Especiales especiales){
+        ContentValues values = new ContentValues();
+        values.put(COLUMNA_APTITUDES, especiales.get_aptitudes());
+        values.put(IDPERSONAJE_, especiales.get_idPersonaje());
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLA_ESPECIALES, null, values);
+        db.close();
+
+    }
+
+    /**
+     * Metodo que inserta un registro de idiomas a la db.
+     *
+     *
+     */
+
+    public void addIdiomas(Idiomas idiomas){
+        ContentValues values = new ContentValues();
+        values.put(COLUMNA_IDIOMAS, idiomas.get_idiomas());
+        values.put(_IDPERSONAJE_, idiomas.get_idPersonaje());
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLA_IDIOMAS, null, values);
+        db.close();
+
+    }
+
+
+    /**
      * Método que devuelve todos los PJ en un Cursor.
      *
      * @return cursor
@@ -1243,6 +1342,7 @@ public class DBHelper extends SQLiteOpenHelper {
     /**
      * Metodo publico que cierra la base de datos
      */
+
     public void cerrar(){
         this.close();
     }
@@ -1281,6 +1381,69 @@ public class DBHelper extends SQLiteOpenHelper {
         };
 
         Cursor cursor = this.getReadableDatabase().query(TABLA_OTROS_CONJUROS, columnas, null, null, null, null, null);
+
+        if(cursor != null){
+            cursor.moveToFirst();
+        }
+
+        return cursor;
+    }
+
+    /**
+     * Método que devuelve todos los dotes en un Cursor.
+     *
+     * @return cursor
+     */
+
+    public Cursor obternerTodosDotes(){
+
+        String[] columnas = new String[]{
+                ID, COLUMNA_DOTE, COLUMNA_PAGINA
+        };
+
+        Cursor cursor = this.getReadableDatabase().query(TABLA_DOTES, columnas, null, null, null, null, null);
+
+        if(cursor != null){
+            cursor.moveToFirst();
+        }
+
+        return cursor;
+    }
+
+    /**
+     * Método que devuelve todos los especiales en un Cursor.
+     *
+     * @return cursor
+     */
+
+    public Cursor obternerTodosEspeciales(){
+
+        String[] columnas = new String[]{
+                ID_, COLUMNA_APTITUDES
+        };
+
+        Cursor cursor = this.getReadableDatabase().query(TABLA_ESPECIALES, columnas, null, null, null, null, null);
+
+        if(cursor != null){
+            cursor.moveToFirst();
+        }
+
+        return cursor;
+    }
+
+    /**
+     * Método que devuelve todos los idiomas en un Cursor.
+     *
+     * @return cursor
+     */
+
+    public Cursor obternerTodosIdiomas(){
+
+        String[] columnas = new String[]{
+                _ID_, COLUMNA_IDIOMAS
+        };
+
+        Cursor cursor = this.getReadableDatabase().query(TABLA_IDIOMAS, columnas, null, null, null, null, null);
 
         if(cursor != null){
             cursor.moveToFirst();

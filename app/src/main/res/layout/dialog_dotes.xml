@@ -8,7 +8,7 @@
     tools:context="com.n3twork.ddcharacters.Fragments.EquipFragment">
 
     <TextView
-        android:id="@+id/textViewTitleConjuros"
+        android:id="@+id/textViewTitleDotes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
@@ -21,45 +21,52 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorButtons"
-        android:text="Dominio"
+        android:text="Dotes"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:textColor="#ffffff"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editTextDominio"
+        android:id="@+id/editTextDotes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity=""
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
-        android:text="Misil de fuego"
+        android:text="Disparo doble"
         android:inputType="textCapWords"
         android:textColor="#000000"
         android:textSize="15sp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorButtons"
-        android:text="Escuela"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
-        android:textColor="#ffffff"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/editTextEscuela"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
-        android:text="Los magos del norte"
-        android:inputType="textCapWords"
-        android:textColor="#000000"
-        android:textSize="15sp" />
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorButtons"
+            android:text="Pagina"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editTextPaginaDotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="153"
+            android:layout_gravity="bottom"
+            android:inputType="number"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+    </LinearLayout>
 
 </LinearLayout>
