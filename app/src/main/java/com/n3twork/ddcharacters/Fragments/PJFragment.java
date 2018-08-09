@@ -91,7 +91,6 @@ public class PJFragment extends ListFragment {
                 }
             });
 
-
         }
         return view;
 
