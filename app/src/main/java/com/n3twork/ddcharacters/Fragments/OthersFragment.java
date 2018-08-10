@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -45,6 +46,7 @@ public class OthersFragment extends Fragment {
     private String aux_idiomas = "";
 
     private String[] opciones = new String[]{"Borrar"};
+    private String[] opciones_others = new String[]{"Dotes", "Aptitudes", "Idiomas"};
 
     private FloatingActionButton dotesFab, aptitudesFab, idiomasFab;
 
@@ -77,29 +79,28 @@ public class OthersFragment extends Fragment {
             recuperarTodosLosOtros(aux_id);
 
             dotesFab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dotesFabMetodo("  Nuevo dote", aux_id);
-                }
-            });
+                    @Override
+                    public void onClick(View v) {
+                        dotesFabMetodo("  Nuevo dote", aux_id);
+                    }
+                });
 
             aptitudesFab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    aptitudesFabMetodo("  Nueva aptitud especial", aux_id);
-                }
-            });
+                    @Override
+                    public void onClick(View v) {
+                        aptitudesFabMetodo("  Nueva aptitud especial", aux_id);
+                    }
+                });
 
             idiomasFab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    idiomasFabMetodo("  Nuevo idioma", aux_id);
-                }
-            });
+                    @Override
+                    public void onClick(View v) {
+                        idiomasFabMetodo("  Nuevo idioma", aux_id);
+                    }
+                });
 
 
         }
-
 
         return view;
     }

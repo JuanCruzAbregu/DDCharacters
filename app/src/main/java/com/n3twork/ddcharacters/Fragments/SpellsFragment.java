@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -85,6 +86,8 @@ public class SpellsFragment extends Fragment {
     private String aux_adicional9 = "";
     private String aux_ident = "";
 
+
+
     private int control = 0;
 
     private ConjurosAdaptador conjurosAdaptador;
@@ -100,6 +103,8 @@ public class SpellsFragment extends Fragment {
             tv_conjDiarios9, tv_conjAdicionales9;
 
     private String[] opciones_conjuros = new String[]{"Borrar"};
+
+    private String[] opciones_spells = new String[]{"Conjuros", "Niveles"};
 
     private String[] opciones_niveles = new String[]{"Nivel 0", "Nivel 1", "Nivel 2", "Nivel 3", "Nivel 4", "Nivel 5", "Nivel 6", "Nivel 7", "Nivel 8", "Nivel 9"};
 
@@ -184,19 +189,20 @@ public class SpellsFragment extends Fragment {
                 }
             });
 
+
             conjurosFab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    conjurosFabMetodo("  Nuevo conjuro", aux_id);
-                }
-            });
+                    @Override
+                    public void onClick(View v) {
+                        conjurosFabMetodo("  Nuevo conjuro", aux_id);
+                    }
+                });
 
             nivelesFab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    nivelesFabOpciones(opciones_niveles);
-                }
-            });
+                    @Override
+                    public void onClick(View v) {
+                        nivelesFabOpciones(opciones_niveles);
+                    }
+                });
 
 
             //Metodo para recuperar la atencion del listView para poder scrollear

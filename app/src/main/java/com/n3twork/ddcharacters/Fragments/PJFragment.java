@@ -26,8 +26,6 @@ import android.widget.Toast;
 import com.n3twork.ddcharacters.Adapters.PersonajeAdaptador;
 import com.n3twork.ddcharacters.Clases.Conjuros;
 import com.n3twork.ddcharacters.Clases.Equipo;
-import com.n3twork.ddcharacters.Clases.OtrosConjuros;
-import com.n3twork.ddcharacters.Clases.OtrosEquipos;
 import com.n3twork.ddcharacters.Clases.Personaje;
 import com.n3twork.ddcharacters.DB.DBHelper;
 import com.n3twork.ddcharacters.R;

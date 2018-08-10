@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.github.clans.fab.FloatingActionButton;
@@ -119,8 +120,6 @@ public class StatsFragment extends Fragment {
     private TextView tvSalvReflejos;
     private TextView tvSalvVoluntad;
 
-    private EquipFragment equipFragment;
-
     private Button buttonFza, buttonDes, buttonCon, buttonInt, buttonSab, buttonCar, buttonHeridas,
             buttonPG, buttonVelocidad, buttonCA, buttonToque, buttonIniciativa, buttonDesp, buttonATQ,
             buttonPresa, buttonResConj, buttonRedDanio, buttonBonfATQ, buttonBonfDist, buttonFortaleza,
@@ -131,6 +130,7 @@ public class StatsFragment extends Fragment {
     private PJFragment pjFragment = new PJFragment();
 
     private String[] opciones = new String[]{"Nuevo", "Borrar"};
+    private String[] opciones_stats = new String[]{"Exp", "Stats", "Vida", "Ataque", "Salvación"};
 
 
     public StatsFragment() {
@@ -143,9 +143,8 @@ public class StatsFragment extends Fragment {
 
         if(view != null) {
 
-            dbHelper              = new DBHelper(getActivity());
-            db                    = dbHelper.getWritableDatabase();
-
+            dbHelper             = new DBHelper(getActivity());
+            db                   = dbHelper.getWritableDatabase();
             textViewNombrePj     = view.findViewById(R.id.textViewNombrePj);
             textViewNivelPj      = view.findViewById(R.id.textViewNivelPj);
             textViewClase        = view.findViewById(R.id.textViewClase);
@@ -209,7 +208,6 @@ public class StatsFragment extends Fragment {
             buttonFortaleza      = view.findViewById(R.id.buttonaFortaleza);
             buttonReflejos       = view.findViewById(R.id.buttonaReflejos);
             buttonVoluntad       = view.findViewById(R.id.buttonaVoluntad);
-
             progressBarExp       = view.findViewById(R.id.progressBarExp);
             fabExp               = view.findViewById(R.id.experienciaFab);
             fabStats             = view.findViewById(R.id.statsFab);
@@ -423,6 +421,41 @@ public class StatsFragment extends Fragment {
         }
 
         return view;
+    }
+
+    private void metodoOpcionesStats(String[] opciones_stats){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setItems(opciones_stats, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int position) {
+                if(position == 0){
+
+                    fabExpMetodo("  Agregar/quitar experiencia");
+
+                }else if(position == 1){
+
+                    fabStatsOpciones(opciones);
+
+                }else if(position == 2){
+
+                    fabVidaOpciones(opciones);
+
+                }else if(position == 3){
+
+                    fabAtaqueOpciones(opciones);
+
+                }else if(position == 4){
+
+                    fabSalvacionOpciones(opciones);
+
+                }
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
     }
 
     public void opcionesBotonesSueltos(String[] opciones, final int control){

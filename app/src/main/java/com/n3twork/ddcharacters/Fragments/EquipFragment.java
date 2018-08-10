@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -43,6 +44,7 @@ public class EquipFragment extends Fragment {
     private String[] opciones_armas = new String[]{"Arma 1", "Arma 2", "Arma 3", "Arma 4", "Arma 5"};
     private String[] opciones_escudo = new String[]{"Escudo/Obj. protector 2", "Obj. protector 3", "Obj. protector 4"};
     private String[] opciones_posesiones = new String[]{"Borrar"};
+    private String[] opciones_equipo = new String[]{"Armas", "Armadura", "Escudo", "Otros"};
 
     private TextView textViewArma1, textViewDanio1, textViewCritico1, textViewTipo1, textViewPeso1, textViewAlcance1, textViewNotas1, textViewMunicion1;
     private ProgressBar progressBarMunicion1;
@@ -70,8 +72,6 @@ public class EquipFragment extends Fragment {
     private ListView listViewOtrasPosesiones;
 
     private Button buttonMunicion, buttonMunicion2, buttonMunicion3, buttonMunicion4, buttonMunicion5, buttonCopper, buttonPlata, buttonOro, buttonPlatino;
-
-    private TextView tvIdentOtrosEquipo;
 
     private String aux_id = "";
     private String aux_arma1 = "";
@@ -322,21 +322,22 @@ public class EquipFragment extends Fragment {
             armaduraFab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    dialogFabArmadura("  Modificar armadura" , aux_id);
+                    dialogFabArmadura("  Modificar armadura", aux_id);
                 }
             });
 
+
             escudoFab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dialogFabEscudo(opciones_escudo, aux_id);
-                }
-            });
+                    @Override
+                    public void onClick(View v) {
+                        dialogFabEscudo(opciones_escudo, aux_id);
+                    }
+                });
 
             otrosFab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    dialogFabOtros( "  Otras posesiones", aux_id);
+                    dialogFabOtros("  Otras posesiones", aux_id);
                 }
             });
 
