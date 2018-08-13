@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -22,9 +23,11 @@ import com.github.clans.fab.FloatingActionButton;
 import com.n3twork.ddcharacters.Adapters.DotesAdaptador;
 import com.n3twork.ddcharacters.Adapters.EspecialesAdaptador;
 import com.n3twork.ddcharacters.Adapters.IdiomasAdaptador;
+import com.n3twork.ddcharacters.Adapters.MisionesAdaptador;
 import com.n3twork.ddcharacters.Clases.Dotes;
 import com.n3twork.ddcharacters.Clases.Especiales;
 import com.n3twork.ddcharacters.Clases.Idiomas;
+import com.n3twork.ddcharacters.Clases.Misiones;
 import com.n3twork.ddcharacters.DB.DBHelper;
 import com.n3twork.ddcharacters.R;
 
@@ -36,7 +39,7 @@ public class OthersFragment extends Fragment {
     private DBHelper dbHelper;
     private SQLiteDatabase db;
 
-    private ListView listViewDote, listViewAptitudes, listViewIdioma;
+    private ListView listViewDote, listViewAptitudes, listViewIdioma, listViewMisiones;
 
     private String aux_id = "";
     private String aux_dotes = "";
@@ -44,15 +47,17 @@ public class OthersFragment extends Fragment {
     private String aux_ident = "";
     private String aux_aptitudes = "";
     private String aux_idiomas = "";
+    private String aux_mision = "";
+    private String aux_descp  = "";
 
     private String[] opciones = new String[]{"Borrar"};
-    private String[] opciones_others = new String[]{"Dotes", "Aptitudes", "Idiomas"};
 
-    private FloatingActionButton dotesFab, aptitudesFab, idiomasFab;
+    private FloatingActionButton dotesFab, aptitudesFab, idiomasFab, misionesFab;
 
     private DotesAdaptador dotesAdaptador;
     private EspecialesAdaptador especialesAdaptador;
     private IdiomasAdaptador idiomasAdaptador;
+    private MisionesAdaptador misionesAdaptador;
 
     public OthersFragment() {
     }
@@ -71,9 +76,11 @@ public class OthersFragment extends Fragment {
             listViewDote        = view.findViewById(android.R.id.list);
             listViewAptitudes   = view.findViewById(R.id.listViewAptitudes);
             listViewIdioma      = view.findViewById(R.id.listViewIdiomas);
+            listViewMisiones    = view.findViewById(R.id.listViewMisiones);
             dotesFab            = view.findViewById(R.id.dotesFab);
             aptitudesFab        = view.findViewById(R.id.aptitudesFab);
             idiomasFab          = view.findViewById(R.id.idiomasFab);
+            misionesFab         = view.findViewById(R.id.misionesFab);
 
             aux_id = recuperarIDPersonaje();
             recuperarTodosLosOtros(aux_id);
@@ -99,10 +106,91 @@ public class OthersFragment extends Fragment {
                     }
                 });
 
+            misionesFab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                        misionesFabMetodo("  Nueva misión", aux_id);
+                }
+            });
+
+            listViewDote.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+
+                    return false;
+                }
+            });
+
+            listViewAptitudes.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+
+                    return false;
+                }
+            });
+
+            listViewIdioma.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+
+                    return false;
+                }
+            });
+
+            listViewMisiones.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+
+                    return false;
+                }
+            });
 
         }
 
         return view;
+    }
+
+    private void misionesFabMetodo(String title, final String aux_id){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        View viewInflated = LayoutInflater.from(getContext()).inflate(R.layout.dialog_misiones, null);
+        builder.setView(viewInflated);
+
+        builder.setCancelable(true);
+
+        final TextView textViewTitleMisiones = viewInflated.findViewById(R.id.tvTitleMisiones);
+        final EditText editTextMision        = viewInflated.findViewById(R.id.editTextMision);
+        final EditText editTextDescripcion   = viewInflated.findViewById(R.id.editTextDescripcion);
+
+        textViewTitleMisiones.setText(title);
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                aux_mision = editTextMision.getText().toString();
+                aux_descp  = editTextDescripcion.getText().toString();
+                int id = Integer.parseInt(aux_id);
+                agregarMision(aux_mision, aux_descp, id);
+                recuperarTodosLosOtros(aux_id);
+
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
     }
 
     private void idiomasFabMetodo(String title, final String aux_id){
@@ -142,6 +230,14 @@ public class OthersFragment extends Fragment {
         AlertDialog dialog = builder.create();
         dialog.show();
 
+
+    }
+
+    private void agregarMision(String aux_mision, String aux_desc, int id){
+
+        Misiones misiones = new Misiones(aux_mision, aux_desc, id);
+        dbHelper = new DBHelper(getContext());
+        dbHelper.addMisiones(misiones);
 
     }
 
@@ -372,12 +468,71 @@ public class OthersFragment extends Fragment {
                 }
             });
 
+            Cursor cursor4 = dbHelper.obtenerTodasMisiones();
+
+            String[] from4 = new String[]{
+                    "_id",
+                    "misiones",
+                    "descMision"
+            };
+
+            int[] to4 = new int[]{
+                    R.id.identMisiones,
+                    R.id.textViewMision,
+                    R.id.textViewDescMision
+            };
+
+            misionesAdaptador = new MisionesAdaptador(getContext(), cursor4, from4, to4, 0);
+            listViewMisiones.setAdapter(misionesAdaptador);
+
+            listViewMisiones.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    TextView textViewIndet = view.findViewById(R.id.identMisiones);
+
+                    aux_ident = textViewIndet.getText().toString();
+
+                    dialogOpcionesMisiones(opciones, aux_ident);
+
+                    return true;
+                }
+            });
 
         }catch (Exception e){
             Log.e("Error", "Error: "+e.getMessage());
         }finally {
             db.close();
         }
+
+    }
+
+    private void dialogOpcionesMisiones(String[] opciones, final String aux_ident){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setItems(opciones, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int position) {
+
+                if(position == 0){
+
+                    try {
+
+                        db = dbHelper.getReadableDatabase();
+                        db.delete("misionesTab", "_id='" + aux_ident + "'", null);
+                        recuperarTodosLosOtros(aux_id);
+
+                    }catch (Exception e){
+                        Log.e("Error", "Error: "+e.getMessage());
+                    }
+
+                }
+            }
+        });
+
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
 
     }
 

@@ -32,10 +32,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity=""
+        android:hint="Dote"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
-        android:text="Disparo doble"
         android:inputType="textCapWords"
         android:textColor="#000000"
         android:textSize="15sp" />
@@ -57,11 +56,10 @@
 
         <EditText
             android:id="@+id/editTextPaginaDotes"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="16dp"
             android:layout_marginLeft="16dp"
-            android:text="153"
             android:layout_gravity="bottom"
             android:inputType="number"
             android:textColor="#000000"

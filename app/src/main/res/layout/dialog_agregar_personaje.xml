@@ -34,7 +34,6 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:maxLines="1"
-                android:text="Juanchii"
                 android:inputType="textCapWords"
                 android:hint="Nombre"/>
 
@@ -57,7 +56,6 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:hint="Clase"
-                    android:text="Guerrero"
                     android:maxLines="1"
                     android:inputType="textCapWords"/>
 
@@ -75,7 +73,6 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:hint="Raza"
-                    android:text="Mediano"
                     android:maxLines="1"
                     android:inputType="textCapWords"/>
 
@@ -99,7 +96,6 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:hint="Alineamiento"
-                    android:text="Legal Bueno"
                     android:gravity="top"
                     android:inputType="textCapWords"/>
 
@@ -117,7 +113,6 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:hint="Nivel"
-                    android:text="1"
                     android:gravity="top"
                     android:inputType="number"/>
 
@@ -141,7 +136,6 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:hint="Deidad"
-                    android:text="Boccob"
                     android:gravity="top"
                     android:inputType="textCapWords"/>
 
@@ -161,7 +155,6 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:hint="Campaña"
-                android:text="Mazmorras"
                 android:gravity="top"
                 android:inputType="textCapWords"/>
 
@@ -184,7 +177,6 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:hint="Experiencia"
-                    android:text="450"
                     android:gravity="top"
                     android:inputType="number"/>
 
@@ -202,7 +194,6 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:hint="Tamaño"
-                    android:text="Mediano"
                     android:dropDownHeight="150dp"
                     android:gravity="top"
                     android:inputType="textCapWords"/>

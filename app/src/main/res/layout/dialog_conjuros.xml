@@ -32,10 +32,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity=""
+        android:hint="Dominio"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
-        android:text="Misil de fuego"
         android:inputType="textCapWords"
         android:textColor="#000000"
         android:textSize="15sp" />
@@ -55,9 +54,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:hint="Escuela"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
-        android:text="Los magos del norte"
         android:inputType="textCapWords"
         android:textColor="#000000"
         android:textSize="15sp" />

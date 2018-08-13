@@ -29,51 +29,6 @@
             android:layout_height="wrap_content"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:paddingTop="16dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.21"
-                android:gravity="center"
-                android:textColor="@color/colorPrimaryText"
-                android:text="Conoc. Conj."/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:gravity="center"
-                android:textColor="@color/colorPrimaryText"
-                android:text="CD Salv."/>
-
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:gravity="center"
-                android:textColor="@color/colorPrimaryText"
-                android:text="Diarios"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:gravity="center"
-                android:textColor="@color/colorPrimaryText"
-                android:text="Adic."/>
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
             android:paddingBottom="10dp">
 
 
@@ -83,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.22"
                 android:gravity="center"
+                android:hint="C. conj"
                 android:inputType="numberSigned"/>
 
             <TextView
@@ -99,6 +55,7 @@
                 android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.2"
+                android:hint="CD salv"
                 android:inputType="numberSigned"/>
 
             <TextView
@@ -113,6 +70,7 @@
                 android:id="@+id/editTextDiarios"
                 android:layout_width="0dp"
                 android:gravity="center"
+                android:hint="Diarios"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.2"
                 android:inputType="numberSigned"/>
@@ -129,6 +87,7 @@
                 android:id="@+id/editTextAdicionales"
                 android:layout_width="0dp"
                 android:gravity="center"
+                android:hint="Adic"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.2"
                 android:inputType="numberSigned"/>

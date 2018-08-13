@@ -11,6 +11,7 @@ import com.n3twork.ddcharacters.Clases.Dotes;
 import com.n3twork.ddcharacters.Clases.Equipo;
 import com.n3twork.ddcharacters.Clases.Especiales;
 import com.n3twork.ddcharacters.Clases.Idiomas;
+import com.n3twork.ddcharacters.Clases.Misiones;
 import com.n3twork.ddcharacters.Clases.OtrosConjuros;
 import com.n3twork.ddcharacters.Clases.OtrosEquipos;
 import com.n3twork.ddcharacters.Clases.Personaje;
@@ -21,7 +22,7 @@ import com.n3twork.ddcharacters.Clases.Personaje;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 39;
+    private static final int DATABASE_VERSION = 40;
     private static final String DATABASE_NAME = "dnd.db";
 
     private static final String TABLA_PERSONAJE = "personaje";
@@ -407,6 +408,12 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String _ID_ = "_id";
     private static final String COLUMNA_IDIOMAS = "idiomas";
     private static final String _IDPERSONAJE_ = "idPersonaje";
+
+    private static final String TABLA_MISIONES = "misionesTab";
+    private static final String CLAVE = "_id";
+    private static final String COLUMNA_MISIONES = "misiones";
+    private static final String COLUMNA_DESCRIPCION_MISION = "descMision";
+    private static final String CLAVE_PJ = "idPersonaje";
 
     private String ctPj = "CREATE TABLE " + TABLA_PERSONAJE + "(" +
             COLUMNA_ID_PJ + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -808,6 +815,13 @@ public class DBHelper extends SQLiteOpenHelper {
             "FOREIGN KEY("+ _IDPERSONAJE_ + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")" +
             ");";
 
+    private String ctMis = "CREATE TABLE " + TABLA_MISIONES + "(" +
+            CLAVE + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMNA_MISIONES + " TEXT, " +
+            COLUMNA_DESCRIPCION_MISION + " TEXT, " +
+            CLAVE_PJ + " INTEGER, " +
+            "FOREIGN KEY("+ CLAVE_PJ + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")" +
+            ");";
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -823,6 +837,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(ctDote);
         db.execSQL(ctEsp);
         db.execSQL(ctIdi);
+        db.execSQL(ctMis);
     }
 
     @Override
@@ -835,6 +850,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_DOTES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_ESPECIALES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_IDIOMAS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLA_MISIONES);
 
         db.execSQL(ctPj);
         db.execSQL(ctEq);
@@ -844,6 +860,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(ctDote);
         db.execSQL(ctEsp);
         db.execSQL(ctIdi);
+        db.execSQL(ctMis);
     }
 
     /**
@@ -1287,6 +1304,24 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     /**
+     * Metodo que inserta un registro de misiones a la db.
+     *
+     *
+     */
+
+    public void addMisiones(Misiones misiones){
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMNA_MISIONES, misiones.get_mision());
+        values.put(COLUMNA_DESCRIPCION_MISION, misiones.get_descripcion());
+        values.put(CLAVE_PJ, misiones.get_idPersonaje());
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLA_MISIONES, null, values);
+        db.close();
+
+    }
+
+    /**
      * Metodo que inserta un registro de especiales a la db.
      *
      *
@@ -1450,6 +1485,27 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
         return cursor;
+    }
+
+    /**
+     * Método que devuelve todos las misiones en un Cursor.
+     *
+     * @return cursor
+     */
+
+    public Cursor obtenerTodasMisiones(){
+        String[] columnas = new String[]{
+                CLAVE, COLUMNA_MISIONES, COLUMNA_DESCRIPCION_MISION
+        };
+
+        Cursor cursor = this.getReadableDatabase().query(TABLA_MISIONES, columnas, null, null, null, null, null);
+
+        if(cursor != null){
+            cursor.moveToFirst();
+        }
+
+        return  cursor;
+
     }
 
 

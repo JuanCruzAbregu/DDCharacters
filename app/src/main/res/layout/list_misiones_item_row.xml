@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.n3twork.ddcharacters.Fragments.SpellsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linear1">
+
+        <TextView
+            android:id="@+id/identMisiones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/textViewMision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimaryText"
+            android:text="El levantamuertos"
+            android:gravity="bottom"
+            android:layout_gravity="bottom"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/textViewDescMision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="Deben ir hacia el norte, a la ascienda del soberano a reclamar lo que te pertenece"
+            android:textStyle="italic"
+            android:textColor="@color/colorPrimaryText"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

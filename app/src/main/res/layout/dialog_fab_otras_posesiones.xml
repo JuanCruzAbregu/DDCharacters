@@ -41,7 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="0.4"
-            android:text="Mazo de piedra"
             android:inputType="textCapWords"
             android:textColor="#000000"
             android:textSize="15sp" />
@@ -62,7 +61,6 @@
             android:layout_gravity="center"
             android:layout_weight="0.1"
             android:gravity="center"
-            android:text="3"
             android:inputType="number"
             android:textColor="#000000"
             android:textSize="15sp" />
@@ -94,7 +92,6 @@
             android:layout_gravity="center"
             android:layout_weight="0.2"
             android:gravity="center"
-            android:text="150"
             android:inputType="number"
             android:textColor="#000000"
             android:textSize="15sp" />
@@ -115,7 +112,6 @@
             android:layout_gravity="center"
             android:layout_weight="0.3"
             android:gravity="center"
-            android:text="2500"
             android:inputType="number"
             android:textColor="#000000"
             android:textSize="15sp" />
@@ -130,19 +126,12 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/rbPlatino"
+            android:id="@+id/rbBronce"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Platino"
             android:textSize="17sp"
+            android:text="Bronce"
             android:checked="true"/>
-
-        <RadioButton
-            android:id="@+id/rbOro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="17sp"
-            android:text="Oro"/>
 
         <RadioButton
             android:id="@+id/rbPlata"
@@ -152,11 +141,19 @@
             android:text="Plata"/>
 
         <RadioButton
-            android:id="@+id/rbBronce"
+            android:id="@+id/rbOro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="17sp"
-            android:text="Bronce"/>
+            android:text="Oro"/>
+
+        <RadioButton
+            android:id="@+id/rbPlatino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Platino"
+            android:textSize="17sp" />
+
         </RadioGroup>
 
 </LinearLayout>

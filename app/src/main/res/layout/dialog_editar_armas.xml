@@ -54,7 +54,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|bottom"
                     android:layout_weight="0.75"
-                    android:text="Mazo"
                     android:textColor="#000000"
                     android:inputType="textCapWords"
                     android:textSize="15sp" />
@@ -87,7 +86,6 @@
                     android:layout_gravity="center|bottom"
                     android:layout_weight="1.0"
                     android:gravity="center"
-                    android:text="1d8"
                     android:textColor="#000000"
                     android:inputType="textCapWords"
                     android:textSize="15sp" />
@@ -111,7 +109,6 @@
                     android:gravity="center"
                     android:textColor="#000000"
                     android:layout_gravity="center|bottom"
-                    android:text="x3"
                     android:inputType="textCapWords"
                     android:textSize="15sp" />
 
@@ -141,7 +138,6 @@
                     android:layout_weight="0.4"
                     android:textColor="#000000"
                     android:layout_gravity="center"
-                    android:text="Contundente"
                     android:inputType="textCapWords"
                     android:textSize="15sp" />
 
@@ -164,7 +160,6 @@
                     android:gravity="center"
                     android:textColor="#000000"
                     android:layout_gravity="center"
-                    android:text="45"
                     android:inputType="number"
                     android:textSize="15sp" />
 
@@ -194,7 +189,6 @@
                     android:layout_gravity="center"
                     android:layout_weight="0.1"
                     android:gravity="center"
-                    android:text="2"
                     android:inputType="number"
                     android:textColor="#000000"
                     android:textSize="15sp" />
@@ -216,7 +210,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.3"
                     android:textColor="#000000"
-                    android:text="Jajaja"
                     android:inputType="textCapWords"
                     android:textSize="15sp" />
 
