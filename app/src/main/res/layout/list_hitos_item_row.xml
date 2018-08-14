@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.n3twork.ddcharacters.Fragments.PJFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linear1">
+
+        <TextView
+            android:id="@+id/identHitos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/textViewHitos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimaryText"
+            android:text=""
+            android:gravity="bottom"
+            android:layout_gravity="bottom"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

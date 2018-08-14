@@ -22,10 +22,12 @@ import android.widget.Toast;
 import com.github.clans.fab.FloatingActionButton;
 import com.n3twork.ddcharacters.Adapters.DotesAdaptador;
 import com.n3twork.ddcharacters.Adapters.EspecialesAdaptador;
+import com.n3twork.ddcharacters.Adapters.HitosAdaptador;
 import com.n3twork.ddcharacters.Adapters.IdiomasAdaptador;
 import com.n3twork.ddcharacters.Adapters.MisionesAdaptador;
 import com.n3twork.ddcharacters.Clases.Dotes;
 import com.n3twork.ddcharacters.Clases.Especiales;
+import com.n3twork.ddcharacters.Clases.Hitos;
 import com.n3twork.ddcharacters.Clases.Idiomas;
 import com.n3twork.ddcharacters.Clases.Misiones;
 import com.n3twork.ddcharacters.DB.DBHelper;
@@ -39,7 +41,7 @@ public class OthersFragment extends Fragment {
     private DBHelper dbHelper;
     private SQLiteDatabase db;
 
-    private ListView listViewDote, listViewAptitudes, listViewIdioma, listViewMisiones;
+    private ListView listViewDote, listViewAptitudes, listViewIdioma, listViewMisiones, listViewHitos;
 
     private String aux_id = "";
     private String aux_dotes = "";
@@ -49,15 +51,17 @@ public class OthersFragment extends Fragment {
     private String aux_idiomas = "";
     private String aux_mision = "";
     private String aux_descp  = "";
+    private String aux_hito = "";
 
     private String[] opciones = new String[]{"Borrar"};
 
-    private FloatingActionButton dotesFab, aptitudesFab, idiomasFab, misionesFab;
+    private FloatingActionButton dotesFab, aptitudesFab, idiomasFab, misionesFab, hitosFab;
 
     private DotesAdaptador dotesAdaptador;
     private EspecialesAdaptador especialesAdaptador;
     private IdiomasAdaptador idiomasAdaptador;
     private MisionesAdaptador misionesAdaptador;
+    private HitosAdaptador hitosAdaptador;
 
     public OthersFragment() {
     }
@@ -77,10 +81,12 @@ public class OthersFragment extends Fragment {
             listViewAptitudes   = view.findViewById(R.id.listViewAptitudes);
             listViewIdioma      = view.findViewById(R.id.listViewIdiomas);
             listViewMisiones    = view.findViewById(R.id.listViewMisiones);
+            listViewHitos       = view.findViewById(R.id.listViewHitos);
             dotesFab            = view.findViewById(R.id.dotesFab);
             aptitudesFab        = view.findViewById(R.id.aptitudesFab);
             idiomasFab          = view.findViewById(R.id.idiomasFab);
             misionesFab         = view.findViewById(R.id.misionesFab);
+            hitosFab            = view.findViewById(R.id.hitosFab);
 
             aux_id = recuperarIDPersonaje();
             recuperarTodosLosOtros(aux_id);
@@ -110,6 +116,13 @@ public class OthersFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                         misionesFabMetodo("  Nueva misión", aux_id);
+                }
+            });
+
+            hitosFab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                        hitosFabMetodo("  Nuevo hito", aux_id);
                 }
             });
 
@@ -149,9 +162,64 @@ public class OthersFragment extends Fragment {
                 }
             });
 
+            listViewHitos.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+
+                    return false;
+                }
+            });
+
         }
 
         return view;
+    }
+
+    private void hitosFabMetodo(String title, final String aux_id){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        View viewInflated = LayoutInflater.from(getContext()).inflate(R.layout.dialog_hitos, null);
+        builder.setView(viewInflated);
+
+        builder.setCancelable(true);
+
+        final TextView textViewTitleHito = viewInflated.findViewById(R.id.tvTitleHito);
+        final EditText editTextHito      = viewInflated.findViewById(R.id.editTextHito);
+
+        textViewTitleHito.setText(title);
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                aux_hito = editTextHito.getText().toString();
+                int id = Integer.parseInt(aux_id);
+                agregarHito(aux_hito, id);
+                recuperarTodosLosOtros(aux_id);
+
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+
+    }
+
+    private void agregarHito(String aux_hito, int id){
+
+        Hitos hitos = new Hitos(aux_hito, id);
+        dbHelper = new DBHelper(getContext());
+        dbHelper.addHitos(hitos);
+
     }
 
     private void misionesFabMetodo(String title, final String aux_id){
@@ -499,11 +567,70 @@ public class OthersFragment extends Fragment {
                 }
             });
 
+            Cursor cursor5 = dbHelper.obtenerTodosHitos();
+
+            String[] from5 = new String[]{
+                    "_id",
+                    "hitos"
+            };
+
+            int[] to5 = new int[]{
+                    R.id.identHitos,
+                    R.id.textViewHitos
+            };
+
+            hitosAdaptador = new HitosAdaptador(getContext(), cursor5, from5, to5, 0);
+            listViewHitos.setAdapter(hitosAdaptador);
+
+            listViewHitos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    TextView textViewIdent = view.findViewById(R.id.identHitos);
+
+                    aux_ident = textViewIdent.getText().toString();
+
+                    dialogOpcionesHitos(opciones, aux_ident);
+
+                    return true;
+                }
+            });
+
         }catch (Exception e){
             Log.e("Error", "Error: "+e.getMessage());
         }finally {
             db.close();
         }
+
+    }
+
+    private void dialogOpcionesHitos(String[] opciones, final String aux_ident){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setItems(opciones, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int position) {
+
+                if(position == 0){
+
+                    try {
+
+                        db = dbHelper.getReadableDatabase();
+                        db.delete("hitosTab", "_id='" + aux_ident + "'", null);
+                        recuperarTodosLosOtros(aux_id);
+
+                    }catch (Exception e){
+                        Log.e("Error", "Error: "+e.getMessage());
+                    }
+
+                }
+            }
+        });
+
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
 
     }
 

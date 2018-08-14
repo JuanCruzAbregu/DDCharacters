@@ -10,6 +10,7 @@ import com.n3twork.ddcharacters.Clases.Conjuros;
 import com.n3twork.ddcharacters.Clases.Dotes;
 import com.n3twork.ddcharacters.Clases.Equipo;
 import com.n3twork.ddcharacters.Clases.Especiales;
+import com.n3twork.ddcharacters.Clases.Hitos;
 import com.n3twork.ddcharacters.Clases.Idiomas;
 import com.n3twork.ddcharacters.Clases.Misiones;
 import com.n3twork.ddcharacters.Clases.OtrosConjuros;
@@ -22,7 +23,7 @@ import com.n3twork.ddcharacters.Clases.Personaje;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 40;
+    private static final int DATABASE_VERSION = 41;
     private static final String DATABASE_NAME = "dnd.db";
 
     private static final String TABLA_PERSONAJE = "personaje";
@@ -414,6 +415,11 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMNA_MISIONES = "misiones";
     private static final String COLUMNA_DESCRIPCION_MISION = "descMision";
     private static final String CLAVE_PJ = "idPersonaje";
+
+    private static final String TABLA_HITOS = "hitosTab";
+    private static final String COLUMNA_CLAVE = "_id";
+    private static final String COLUMNA_HITOS = "hitos";
+    private static final String COLUMNA_CLAVE_PJ = "idPersonaje";
 
     private String ctPj = "CREATE TABLE " + TABLA_PERSONAJE + "(" +
             COLUMNA_ID_PJ + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -823,6 +829,13 @@ public class DBHelper extends SQLiteOpenHelper {
             "FOREIGN KEY("+ CLAVE_PJ + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")" +
             ");";
 
+    private String ctHit = "CREATE TABLE " + TABLA_HITOS + "(" +
+            COLUMNA_CLAVE + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMNA_HITOS + " TEXT, " +
+            COLUMNA_CLAVE_PJ + " INTEGER, " +
+            "FOREIGN KEY("+ COLUMNA_CLAVE_PJ + ") REFERENCES " + TABLA_PERSONAJE + "(" + COLUMNA_ID_PJ + ")" +
+            ");";
+
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -838,6 +851,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(ctEsp);
         db.execSQL(ctIdi);
         db.execSQL(ctMis);
+        db.execSQL(ctHit);
     }
 
     @Override
@@ -851,6 +865,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_ESPECIALES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_IDIOMAS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_MISIONES);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLA_HITOS);
 
         db.execSQL(ctPj);
         db.execSQL(ctEq);
@@ -861,6 +876,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(ctEsp);
         db.execSQL(ctIdi);
         db.execSQL(ctMis);
+        db.execSQL(ctHit);
     }
 
     /**
@@ -1322,6 +1338,22 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     /**
+     * Metodo que inserta un registro de hitos a la db.
+     *
+     *
+     */
+
+    public void addHitos(Hitos hitos){
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMNA_HITOS, hitos.get_hito());
+        values.put(COLUMNA_CLAVE_PJ, hitos.get_idPersonaje());
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLA_HITOS, null, values);
+        db.close();
+    }
+
+    /**
      * Metodo que inserta un registro de especiales a la db.
      *
      *
@@ -1508,6 +1540,26 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+    /**
+     * Método que devuelve todos los hitos en un Cursor.
+     *
+     * @return cursor
+     */
+
+    public Cursor obtenerTodosHitos(){
+        String[] columnas = new String[]{
+                COLUMNA_CLAVE, COLUMNA_HITOS
+        };
+
+        Cursor cursor = this.getReadableDatabase().query(TABLA_HITOS, columnas, null, null, null, null, null);
+
+        if(cursor != null){
+            cursor.moveToFirst();
+        }
+
+        return  cursor;
+
+    }
 
 
 }

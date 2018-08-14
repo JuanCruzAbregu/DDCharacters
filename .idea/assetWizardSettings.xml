@@ -20,8 +20,8 @@
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="imageAsset" value="C:\Users\abreg\Desktop\feather.png" />
-                                      <entry key="outputName" value="ic_niveles" />
+                                      <entry key="imageAsset" value="C:\Users\abreg\Desktop\ic_hitos.png" />
+                                      <entry key="outputName" value="ic_hitos" />
                                     </map>
                                   </option>
                                 </PersistentState>
