@@ -1683,7 +1683,7 @@ public class SkillsFragment extends Fragment {
             case 17: //Interepretar1
 
                 c = db
-                        .rawQuery("SELECT _id, ptsHab, interpretrar1, interpretrar1Carac, interpretrar1Rango, interpretrar1Varios FROM personaje WHERE controlAct='1'", null);
+                        .rawQuery("SELECT _id, ptsHab, interpretar1, interpretar1Carac, interpretar1Rango, interpretar1Varios FROM personaje WHERE controlAct='1'", null);
 
                 if (c.moveToFirst()) {
                     do {
@@ -1704,7 +1704,7 @@ public class SkillsFragment extends Fragment {
             case 18: //Interepretar2
 
                 c = db
-                        .rawQuery("SELECT _id, ptsHab, interpretrar2, interpretrar2Carac, interpretrar2Rango, interpretrar2Varios FROM personaje WHERE controlAct='1'", null);
+                        .rawQuery("SELECT _id, ptsHab, interpretar2, interpretar2Carac, interpretar2Rango, interpretar2Varios FROM personaje WHERE controlAct='1'", null);
 
                 if (c.moveToFirst()) {
                     do {
@@ -1725,7 +1725,7 @@ public class SkillsFragment extends Fragment {
             case 19: //Interepretar3
 
                 c = db
-                        .rawQuery("SELECT _id, ptsHab, interpretrar3, interpretrar3Carac, interpretrar3Rango, interpretrar3Varios FROM personaje WHERE controlAct='1'", null);
+                        .rawQuery("SELECT _id, ptsHab, interpretar3, interpretar3Carac, interpretar3Rango, interpretar3Varios FROM personaje WHERE controlAct='1'", null);
 
                 if (c.moveToFirst()) {
                     do {
@@ -2327,9 +2327,9 @@ public class SkillsFragment extends Fragment {
         textViewTitle.setText(title);
         builder.setCancelable(true);
 
-        editTextModCar.setText(modificador);
-        editTextRangos.setText(rangos);
-        editTextVarios.setText(valor_varios);
+//        editTextModCar.setText(modificador);
+//        editTextRangos.setText(rangos);
+//        editTextVarios.setText(valor_varios);
 
         builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override
@@ -2338,7 +2338,13 @@ public class SkillsFragment extends Fragment {
                 final String modif  = editTextModCar.getText().toString();
                 final String rango  = editTextRangos.getText().toString();
                 final String varios = editTextVarios.getText().toString();
+
+                if(modif.equals("")||rango.equals("")||varios.equals("")){
+                    return;
+                }
+
                 final String total = devolverSumaDePuntos(modif, rango, varios);
+
                 ContentValues values = new ContentValues();
 
                 switch (control){
@@ -2351,6 +2357,7 @@ public class SkillsFragment extends Fragment {
                         db.update("personaje", values, "_id='" + aux_id + "'", null);
                         btnCerradura.setText(total);
                         break;
+
 
                     case 2:
                         values.put("arte", total);
@@ -2410,7 +2417,7 @@ public class SkillsFragment extends Fragment {
                         values.put("escritura", total);
                         values.put("escrituraCarac", modif);
                         values.put("escrituraRango", rango);
-                        values.put("escrituraaVarios", varios);
+                        values.put("escrituraVarios", varios);
                         db.update("personaje", values, "_id='" + aux_id + "'", null);
                         btnDesfEscritura.setText(total);
                         break;
@@ -2462,7 +2469,7 @@ public class SkillsFragment extends Fragment {
 
                     case 14:
                         values.put("esconderse", total);
-                        values.put("cesconderseCarac", modif);
+                        values.put("esconderseCarac", modif);
                         values.put("esconderseRango", rango);
                         values.put("esconderseVarios", varios);
                         db.update("personaje", values, "_id='" + aux_id + "'", null);
@@ -2482,7 +2489,7 @@ public class SkillsFragment extends Fragment {
                         values.put("falsificar", total);
                         values.put("falsificarCarac", modif);
                         values.put("falsificarRango", rango);
-                        values.put("cfalsificarVarios", varios);
+                        values.put("falsificarVarios", varios);
                         db.update("personaje", values, "_id='" + aux_id + "'", null);
                         btnFalsificar.setText(total);
                         break;

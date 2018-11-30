@@ -8,6 +8,10 @@ import com.n3twork.ddcharacters.R;
 
 public class EspecialesAdaptador extends SimpleCursorAdapter {
 
+
+
+
+
     private Cursor cursor;
 
     /**
