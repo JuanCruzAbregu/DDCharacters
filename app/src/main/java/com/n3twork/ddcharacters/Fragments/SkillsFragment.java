@@ -2327,9 +2327,9 @@ public class SkillsFragment extends Fragment {
         textViewTitle.setText(title);
         builder.setCancelable(true);
 
-//        editTextModCar.setText(modificador);
-//        editTextRangos.setText(rangos);
-//        editTextVarios.setText(valor_varios);
+        editTextModCar.setText(modificador);
+        editTextRangos.setText(rangos);
+        editTextVarios.setText(valor_varios);
 
         builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override
